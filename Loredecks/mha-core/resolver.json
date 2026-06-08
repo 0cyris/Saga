@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve broad My Hero Academia Context against core series states.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "schoolStage",
+    "quirkStage"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known arc, chapter, and before/after anchors over invented exact dates.",
+  "localPatterns": [
+    {
+      "pattern": "before kamino",
+      "result": {
+        "anchorTo": "mha.core.symbol-of-peace-falls",
+        "label": "Before Kamino"
+      }
+    },
+    {
+      "pattern": "after all might retires",
+      "result": {
+        "anchorFrom": "mha.core.symbol-of-peace-falls",
+        "label": "After All Might retires"
+      }
+    },
+    {
+      "pattern": "during class 1-a first year",
+      "result": {
+        "anchorFrom": "mha.core.ua-high-active",
+        "anchorTo": "mha.core.final-war",
+        "label": "Class 1-A school-year story"
+      }
+    },
+    {
+      "pattern": "before blackwhip",
+      "result": {
+        "anchorTo": "mha.core.blackwhip-awakens",
+        "label": "Before Blackwhip awakens"
+      }
+    },
+    {
+      "pattern": "during final war",
+      "result": {
+        "anchorId": "mha.core.final-war",
+        "label": "Final War"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

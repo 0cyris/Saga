@@ -1,0 +1,1825 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_and_stripe_is_america_top_hero",
+      "title": "Star And Stripe Is America Top Hero",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-arrives",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 18000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star and Stripe heads for Japan"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:all-might",
+          "mha:us-military",
+          "mha:pro-heroes",
+          "mha:united-states-airspace"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "All Might"
+        ],
+        "locations": [
+          "United States Airspace"
+        ],
+        "objects": [],
+        "factions": [
+          "U.S. Military",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "American top hero",
+          "All Might legacy",
+          "international aid"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "character:all-might",
+        "faction:us-military",
+        "faction:pro-heroes",
+        "location:united-states-airspace",
+        "topic:american-top-hero",
+        "topic:all-might-legacy",
+        "topic:international-aid"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "All Might"
+          ],
+          "locationsAny": [
+            "United States Airspace"
+          ],
+          "factionsAny": [
+            "U.S. Military",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "American top hero",
+            "All Might legacy",
+            "international aid"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star and Stripe is the top American hero and acts from personal loyalty to All Might’s legacy.",
+        "injection": "Star should enter as a world-class pro with personal conviction, not as a generic foreign reinforcement.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 329",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_acts_before_full_international_consensus",
+      "title": "Star Acts Before Full International Consensus",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-arrives",
+        "sortKeyFrom": 18000,
+        "sortKeyTo": 18000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star and Stripe heads for Japan"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:us-military",
+          "mha:hero-society",
+          "mha:pacific-airspace"
+        ],
+        "characters": [
+          "Star and Stripe"
+        ],
+        "locations": [
+          "Pacific Airspace"
+        ],
+        "objects": [],
+        "factions": [
+          "U.S. Military",
+          "Hero Society"
+        ],
+        "topics": [
+          "international politics",
+          "rapid intervention",
+          "aid constraint"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "faction:us-military",
+        "faction:hero-society",
+        "location:pacific-airspace",
+        "topic:international-politics",
+        "topic:rapid-intervention",
+        "topic:aid-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe"
+          ],
+          "locationsAny": [
+            "Pacific Airspace"
+          ],
+          "factionsAny": [
+            "U.S. Military",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "international politics",
+            "rapid intervention",
+            "aid constraint"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star moves to aid Japan before slower international politics can fully settle.",
+        "injection": "Keep international response politically constrained; Star’s arrival is exceptional, not proof that every country is freely intervening.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 329",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_new_order_requires_touch_and_naming",
+      "title": "New Order Requires Touch And Naming",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.new-order-rules",
+        "sortKeyFrom": 18075,
+        "sortKeyTo": 18075,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "New Order rule limits become central"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Star and Stripe"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [
+          "New Order"
+        ],
+        "factions": [],
+        "topics": [
+          "touch condition",
+          "naming condition",
+          "rule limits"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "quirk:new-order",
+        "character:star-and-stripe",
+        "topic:touch-condition",
+        "topic:naming-condition",
+        "topic:rule-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "New Order"
+          ],
+          "topicsAny": [
+            "touch condition",
+            "naming condition",
+            "rule limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "New Order can impose rules after Star touches a target and names it, making identity and wording central limits.",
+        "injection": "Use New Order precisely: touch, naming, and rule limits matter in every use.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "New Order",
+        "stage": "star_and_stripe_active",
+        "ownerEntityIds": [
+          "mha:star-and-stripe"
+        ],
+        "constraints": [
+          "Requires touch, naming, and rule capacity."
+        ],
+        "antiLore": [
+          "Do not make New Order unlimited or freely transferable."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_new_order_has_rule_count_limits",
+      "title": "New Order Has Rule Count Limits",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.new-order-rules",
+        "sortKeyFrom": 18075,
+        "sortKeyTo": 18075,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "New Order rule limits become central"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Star and Stripe"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [
+          "New Order"
+        ],
+        "factions": [],
+        "topics": [
+          "rule capacity",
+          "tradeoffs",
+          "ability limit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "quirk:new-order",
+        "character:star-and-stripe",
+        "topic:rule-capacity",
+        "topic:tradeoffs",
+        "topic:ability-limit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "New Order"
+          ],
+          "topicsAny": [
+            "rule capacity",
+            "tradeoffs",
+            "ability limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star cannot maintain unlimited New Order rules at once, so choices and tradeoffs matter.",
+        "injection": "Do not let New Order solve every problem simultaneously; rule capacity and wording should constrain outcomes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "New Order",
+        "stage": "star_and_stripe_active",
+        "ownerEntityIds": [
+          "mha:star-and-stripe"
+        ],
+        "constraints": [
+          "Requires touch, naming, and rule capacity."
+        ],
+        "antiLore": [
+          "Do not make New Order unlimited or freely transferable."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_shigaraki_identity_instability_matters",
+      "title": "Shigaraki Identity Instability Matters",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-vs-shigaraki",
+        "sortKeyFrom": 18050,
+        "sortKeyTo": 18050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star and Stripe battles Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:star-and-stripe",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One",
+          "Star and Stripe"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "identity instability",
+          "name targeting",
+          "AFO Shigaraki fusion"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "character:star-and-stripe",
+        "quirk:new-order",
+        "topic:identity-instability",
+        "topic:name-targeting",
+        "topic:afo-shigaraki-fusion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One",
+            "Star and Stripe"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "identity instability",
+            "name targeting",
+            "AFO Shigaraki fusion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The unstable fusion of Shigaraki and All For One complicates New Order’s ability to target him by name.",
+        "injection": "During the fight, identity ambiguity should be a major defensive factor for Shigaraki/AFO.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_cannot_simply_delete_shigaraki",
+      "title": "Star Cannot Simply Delete Shigaraki",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-vs-shigaraki",
+        "sortKeyFrom": 18050,
+        "sortKeyTo": 18050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star and Stripe battles Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "power limit",
+          "villain counterplay",
+          "identity defense"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "quirk:new-order",
+        "topic:power-limit",
+        "topic:villain-counterplay",
+        "topic:identity-defense"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "power limit",
+            "villain counterplay",
+            "identity defense"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "New Order is extraordinary but cannot trivially erase Shigaraki/AFO because of identity limits and combat pressure.",
+        "injection": "Do not resolve the arc by having Star cleanly delete the main villain; her power meets specific counters.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_shigaraki_afo_hybrid_is_not_complete",
+      "title": "Shigaraki AFO Hybrid Is Not Complete",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-vs-shigaraki",
+        "sortKeyFrom": 18050,
+        "sortKeyTo": 18050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star and Stripe battles Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hybrid instability",
+          "incomplete fusion",
+          "body stabilization"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "topic:hybrid-instability",
+        "topic:incomplete-fusion",
+        "topic:body-stabilization"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "hybrid instability",
+            "incomplete fusion",
+            "body stabilization"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki/AFO is still stabilizing during the Star and Stripe fight.",
+        "injection": "Keep the hybrid state incomplete; this matters to identity, body control, and AFO’s timeline.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_sacrifice_damages_quirk_stockpile",
+      "title": "Star Sacrifice Damages Quirk Stockpile",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-sacrifice",
+        "sortKeyFrom": 18100,
+        "sortKeyTo": 18100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star sacrifices herself to damage Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "sacrifice",
+          "Quirk stockpile damage",
+          "delayed victory"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "quirk:new-order",
+        "topic:sacrifice",
+        "topic:quirk-stockpile-damage",
+        "topic:delayed-victory"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "sacrifice",
+            "Quirk stockpile damage",
+            "delayed victory"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star uses New Order to damage the Quirk stockpile inside Shigaraki/AFO at the cost of her own life.",
+        "injection": "Star’s final move should wound AFO’s plans and Quirks, not produce immediate victory.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_new_order_revolts_from_within",
+      "title": "New Order Revolts From Within",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-sacrifice",
+        "sortKeyFrom": 18100,
+        "sortKeyTo": 18100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star sacrifices herself to damage Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:shigaraki-tomura",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [
+          "New Order"
+        ],
+        "factions": [],
+        "topics": [
+          "internal sabotage",
+          "stolen Quirks",
+          "sacrifice effect"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "quirk:new-order",
+        "character:star-and-stripe",
+        "character:shigaraki-tomura",
+        "topic:internal-sabotage",
+        "topic:stolen-quirks",
+        "topic:sacrifice-effect"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "New Order"
+          ],
+          "topicsAny": [
+            "internal sabotage",
+            "stolen Quirks",
+            "sacrifice effect"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "New Order’s final rule causes internal destruction among stolen Quirks.",
+        "injection": "When describing the aftermath, treat New Order as an internal sabotage event, not as a transferable prize.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "New Order",
+        "stage": "star_and_stripe_active",
+        "ownerEntityIds": [
+          "mha:star-and-stripe"
+        ],
+        "constraints": [
+          "Requires touch, naming, and rule capacity."
+        ],
+        "antiLore": [
+          "Do not make New Order unlimited or freely transferable."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_does_not_survive_into_final_war",
+      "title": "Star Does Not Survive Into Final War",
+      "kind": "future_guard",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-sacrifice",
+        "sortKeyFrom": 18100,
+        "sortKeyTo": 18100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star sacrifices herself to damage Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:pro-heroes",
+          "mha:us-military"
+        ],
+        "characters": [
+          "Star and Stripe"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "U.S. Military"
+        ],
+        "topics": [
+          "death gate",
+          "Final War guard",
+          "international aid limit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "faction:pro-heroes",
+        "faction:us-military",
+        "topic:death-gate",
+        "topic:final-war-guard",
+        "topic:international-aid-limit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "U.S. Military"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "death gate",
+            "Final War guard",
+            "international aid limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star and Stripe dies before the Final War and cannot appear as an active battlefield ally.",
+        "injection": "Do not include Star as a living participant in later Final War scenes unless the story explicitly diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:star-and-stripe"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_afo_threat_is_global_after_star_fight",
+      "title": "AFO Threat Is Global After Star Fight",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.shigaraki-delay",
+        "sortKeyFrom": 18125,
+        "sortKeyTo": 18125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star damage delays Shigaraki completion"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:hero-society",
+          "mha:us-military",
+          "mha:japan"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "Japan"
+        ],
+        "objects": [],
+        "factions": [
+          "Hero Society",
+          "U.S. Military"
+        ],
+        "topics": [
+          "global threat",
+          "international stakes",
+          "AFO scale"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "faction:hero-society",
+        "faction:us-military",
+        "location:japan",
+        "topic:global-threat",
+        "topic:international-stakes",
+        "topic:afo-scale"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Japan"
+          ],
+          "factionsAny": [
+            "Hero Society",
+            "U.S. Military"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "global threat",
+            "international stakes",
+            "AFO scale"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Star fight confirms that Shigaraki/AFO is a global-level threat, not only Japan’s domestic crisis.",
+        "injection": "Scenes after Star should recognize international stakes while keeping the main response centered in Japan.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 334",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_damage_creates_planning_window",
+      "title": "Star Damage Creates Planning Window",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.shigaraki-delay",
+        "sortKeyFrom": 18125,
+        "sortKeyTo": 18125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star damage delays Shigaraki completion"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:pro-heroes",
+          "mha:japan"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "Japan"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "planning window",
+          "delay",
+          "preparation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "faction:pro-heroes",
+        "location:japan",
+        "topic:planning-window",
+        "topic:delay",
+        "topic:preparation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Japan"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "planning window",
+            "delay",
+            "preparation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star’s damage delays Shigaraki/AFO enough to give Japanese heroes a narrow preparation window.",
+        "injection": "Use the delay as a fragile planning opportunity, not as safety or resolution.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 334",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_new_order_should_not_be_given_to_other_heroes",
+      "title": "New Order Should Not Be Given To Other Heroes",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.star-sacrifice",
+        "sortKeyFrom": 18100,
+        "sortKeyTo": 18100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star sacrifices herself to damage Shigaraki/AFO"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.star-and-stripe",
+          "label": "Star and Stripe Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.global-shigaraki",
+          "label": "Global response to Shigaraki/AFO",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:new-order"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "New Order"
+        ],
+        "objects": [
+          "New Order"
+        ],
+        "factions": [],
+        "topics": [
+          "Quirk transfer guard",
+          "AU guard",
+          "ability boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "quirk:new-order",
+        "character:star-and-stripe",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "topic:quirk-transfer-guard",
+        "topic:au-guard",
+        "topic:ability-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "New Order"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "New Order"
+          ],
+          "topicsAny": [
+            "Quirk transfer guard",
+            "AU guard",
+            "ability boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "New Order does not become a reusable hero resource after Star’s death.",
+        "injection": "Do not transfer New Order to Deku, All Might, or another hero unless the user story explicitly creates an AU.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 333",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "New Order",
+        "stage": "star_and_stripe_active",
+        "ownerEntityIds": [
+          "mha:star-and-stripe"
+        ],
+        "constraints": [
+          "Requires touch, naming, and rule capacity."
+        ],
+        "antiLore": [
+          "Do not make New Order unlimited or freely transferable."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:star-and-stripe",
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    }
+  ]
+}

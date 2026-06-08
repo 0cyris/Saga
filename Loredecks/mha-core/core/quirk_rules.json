@@ -1,0 +1,2930 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_one_for_all_is_transferable_and_secret",
+      "title": "One For All Is Transferable And Secret",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "One For All",
+          "transfer",
+          "secret inheritance"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "secret:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "One For All",
+            "transfer",
+            "secret inheritance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "One For All is transferable, secret, and easily mistaken for a sudden personal Quirk.",
+        "injection": "Keep OFA private unless Context explicitly reveals it; outsiders should misread it as Izuku's strange Quirk.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "requiredTags": [
+          "quirk:one-for-all"
+        ],
+        "constraints": [
+          "One For All is a transferable stockpiling Quirk passed from successor to successor, and its nature is hidden from almost everyone early on."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_early_one_for_all_breaks_izukus_body",
+      "title": "Early One For All Breaks Izuku's Body",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "body damage",
+          "uncontrolled power",
+          "broken limbs"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "status:ofa-uncontrolled",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "body damage",
+            "uncontrolled power",
+            "broken limbs"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early Izuku can release One For All in bursts, but doing so damages his body severely until he learns control.",
+        "injection": "Before Full Cowl training, Deku must not use One For All freely; big hits should risk broken limbs, pain, and tactical consequences.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "requiredTags": [
+          "quirk:one-for-all"
+        ],
+        "constraints": [
+          "Early Izuku can release One For All in bursts, but doing so damages his body severely until he learns control."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_all_mights_one_for_all_is_declining",
+      "title": "All Might's One For All Is Declining",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "time limit",
+          "declining power",
+          "hero form"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "quirk:one-for-all",
+        "secret:all-might-injury",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "time limit",
+            "declining power",
+            "hero form"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might still has immense power early on, but his injury and dwindling time limit make each transformation costly.",
+        "injection": "Before Kamino, All Might remains terrifyingly strong in public but privately manages a shrinking operating window.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:yagi-toshinori"
+        ],
+        "requiredTags": [
+          "quirk:one-for-all"
+        ],
+        "constraints": [
+          "All Might still has immense power early on, but his injury and dwindling time limit make each transformation costly."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_explosion_rewards_bakugos_combat_instinct",
+      "title": "Explosion Rewards Bakugo's Combat Instinct",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Explosion",
+          "mobility",
+          "combat instinct"
+        ]
+      },
+      "tags": [
+        "quirk:explosion",
+        "character:bakugo-katsuki",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "topicsAny": [
+            "Explosion",
+            "mobility",
+            "combat instinct"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo's Explosion Quirk is powerful because he combines mobility, pressure, precision, aggression, and tactical improvisation.",
+        "injection": "Write Bakugo's Quirk use as skilled and aggressive, not as random blasts without footwork, positioning, or pride.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Explosion",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "requiredTags": [
+          "quirk:explosion"
+        ],
+        "constraints": [
+          "Bakugo's Explosion Quirk is powerful because he combines mobility, pressure, precision, aggression, and tactical improvisation."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_zero_gravity_has_nausea_limits",
+      "title": "Zero Gravity Has Nausea Limits",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Zero Gravity",
+          "nausea",
+          "touch activation"
+        ]
+      },
+      "tags": [
+        "quirk:zero-gravity",
+        "character:uraraka-ochaco",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka"
+          ],
+          "topicsAny": [
+            "Zero Gravity",
+            "nausea",
+            "touch activation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco's Zero Gravity can remove weight from touched targets, but overuse makes her nauseated and physically strained.",
+        "injection": "Do not let early Ochaco float unlimited mass or fight indefinitely with no nausea or recovery limit.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Zero Gravity",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:uraraka-ochaco"
+        ],
+        "requiredTags": [
+          "quirk:zero-gravity"
+        ],
+        "constraints": [
+          "Ochaco's Zero Gravity can remove weight from touched targets, but overuse makes her nauseated and physically strained."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_engine_grants_speed_but_needs_conditioning",
+      "title": "Engine Grants Speed But Needs Conditioning",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya"
+        ],
+        "characters": [
+          "Tenya Iida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Engine",
+          "speed",
+          "conditioning"
+        ]
+      },
+      "tags": [
+        "quirk:engine",
+        "character:iida-tenya",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida"
+          ],
+          "topicsAny": [
+            "Engine",
+            "speed",
+            "conditioning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tenya Iida's Engine Quirk gives high-speed movement through calf engines, but control, turning, and endurance require discipline.",
+        "injection": "Iida's speed should feel trained and rule-bound, with tactical limits rather than instant perfect movement in every environment.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Engine",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:iida-tenya"
+        ],
+        "requiredTags": [
+          "quirk:engine"
+        ],
+        "constraints": [
+          "Tenya Iida's Engine Quirk gives high-speed movement through calf engines, but control, turning, and endurance require discipline."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_erasure_needs_line_of_sight",
+      "title": "Erasure Needs Line Of Sight",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Erasure",
+          "line of sight",
+          "suppression"
+        ]
+      },
+      "tags": [
+        "quirk:erasure",
+        "hero:eraser-head",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "topicsAny": [
+            "Erasure",
+            "line of sight",
+            "suppression"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa's Erasure suppresses many Quirks while he keeps visual contact, but it does not erase mutant body traits or physical skill.",
+        "injection": "Use Erasure as a tactical suppression tool with line-of-sight, blinking, and body-type limits.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Erasure",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:aizawa-shota"
+        ],
+        "requiredTags": [
+          "quirk:erasure"
+        ],
+        "constraints": [
+          "Aizawa's Erasure suppresses many Quirks while he keeps visual contact, but it does not erase mutant body traits or physical skill."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_black_hole_is_rescue_deadly",
+      "title": "Black Hole Is Rescue-Deadly",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:thirteen"
+        ],
+        "characters": [
+          "Thirteen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Black Hole",
+          "rescue hazard",
+          "disaster response"
+        ]
+      },
+      "tags": [
+        "quirk:black-hole",
+        "hero:thirteen",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Thirteen"
+          ],
+          "topicsAny": [
+            "Black Hole",
+            "rescue hazard",
+            "disaster response"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Thirteen's Black Hole Quirk is dangerous enough for rescue and disaster response, but careless use can destroy what it touches.",
+        "injection": "Use Thirteen's Quirk as a high-risk rescue tool; it must not be treated as a casual classroom trick.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Black Hole",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:thirteen"
+        ],
+        "requiredTags": [
+          "quirk:black-hole"
+        ],
+        "constraints": [
+          "Thirteen's Black Hole Quirk is dangerous enough for rescue and disaster response, but careless use can destroy what it touches."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_warp_gate_enables_battlefield_separation",
+      "title": "Warp Gate Enables Battlefield Separation",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kurogiri"
+        ],
+        "characters": [
+          "Kurogiri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Warp Gate",
+          "portals",
+          "separation"
+        ]
+      },
+      "tags": [
+        "quirk:warp-gate",
+        "villain:kurogiri",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kurogiri"
+          ],
+          "topicsAny": [
+            "Warp Gate",
+            "portals",
+            "separation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kurogiri's Warp Gate can split groups, reposition villains, and enable retreats, making him strategically central.",
+        "injection": "If Kurogiri is active, group separation and extraction are plausible threats even without overwhelming numbers.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Warp Gate",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:kurogiri"
+        ],
+        "requiredTags": [
+          "quirk:warp-gate"
+        ],
+        "constraints": [
+          "Kurogiri's Warp Gate can split groups, reposition villains, and enable retreats, making him strategically central."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_decay_is_touch_based_early",
+      "title": "Decay Is Touch-Based Early",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Decay",
+          "touch danger",
+          "early scale"
+        ]
+      },
+      "tags": [
+        "quirk:decay",
+        "villain:shigaraki",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "topicsAny": [
+            "Decay",
+            "touch danger",
+            "early scale"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early Shigaraki's Decay is terrifying on contact but not yet the broad area-of-effect disaster it later becomes.",
+        "injection": "In early arcs, keep Decay dangerous through touch, restraint, and fear; do not give early Shigaraki later-war scale.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Decay",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "requiredTags": [
+          "quirk:decay"
+        ],
+        "constraints": [
+          "Early Shigaraki's Decay is terrifying on contact but not yet the broad area-of-effect disaster it later becomes."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_creation_requires_material_understanding",
+      "title": "Creation Requires Material Understanding",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo"
+        ],
+        "characters": [
+          "Momo Yaoyorozu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Creation",
+          "molecular knowledge",
+          "resources"
+        ]
+      },
+      "tags": [
+        "quirk:creation",
+        "character:yaoyorozu-momo",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu"
+          ],
+          "topicsAny": [
+            "Creation",
+            "molecular knowledge",
+            "resources"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Momo's Creation depends on knowing the molecular structure of what she creates and using her own body lipids.",
+        "injection": "Creation should require knowledge, planning, and resource management rather than producing any solution instantly.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Creation",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:yaoyorozu-momo"
+        ],
+        "requiredTags": [
+          "quirk:creation"
+        ],
+        "constraints": [
+          "Momo's Creation depends on knowing the molecular structure of what she creates and using her own body lipids."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_half_cold_half_hot_has_psychological_context",
+      "title": "Half-Cold Half-Hot Has Psychological Context",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "fire refusal",
+          "family trauma",
+          "ice and fire"
+        ]
+      },
+      "tags": [
+        "quirk:half-cold-half-hot",
+        "family:todoroki",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki"
+          ],
+          "topicsAny": [
+            "fire refusal",
+            "family trauma",
+            "ice and fire"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto's Half-Cold Half-Hot is powerful, but his refusal to use fire early is tied to family trauma and Endeavor.",
+        "injection": "Before his Sports Festival breakthrough, do not make Shoto casually use his fire side as a normal tool.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Half-Cold Half-Hot",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:todoroki-shoto"
+        ],
+        "requiredTags": [
+          "quirk:half-cold-half-hot"
+        ],
+        "constraints": [
+          "Shoto's Half-Cold Half-Hot is powerful, but his refusal to use fire early is tied to family trauma and Endeavor."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hardening_rewards_resolve",
+      "title": "Hardening Rewards Resolve",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kirishima-eijiro"
+        ],
+        "characters": [
+          "Eijiro Kirishima"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Hardening",
+          "durability",
+          "resolve"
+        ]
+      },
+      "tags": [
+        "quirk:hardening",
+        "character:kirishima-eijiro",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Eijiro Kirishima"
+          ],
+          "topicsAny": [
+            "Hardening",
+            "durability",
+            "resolve"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kirishima's Hardening is defensive and straightforward, but his effectiveness depends on courage, timing, and willingness to take hits.",
+        "injection": "Use Hardening as a durability tool shaped by resolve, not as invulnerability with no emotional stakes.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Hardening",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:kirishima-eijiro"
+        ],
+        "requiredTags": [
+          "quirk:hardening"
+        ],
+        "constraints": [
+          "Kirishima's Hardening is defensive and straightforward, but his effectiveness depends on courage, timing, and willingness to take hits."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_dark_shadow_is_stronger_in_darkness",
+      "title": "Dark Shadow Is Stronger In Darkness",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tokoyami-fumikage"
+        ],
+        "characters": [
+          "Fumikage Tokoyami"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dark Shadow",
+          "light levels",
+          "control"
+        ]
+      },
+      "tags": [
+        "quirk:dark-shadow",
+        "character:tokoyami-fumikage",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Fumikage Tokoyami"
+          ],
+          "topicsAny": [
+            "Dark Shadow",
+            "light levels",
+            "control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tokoyami's Dark Shadow gains strength in darkness but becomes harder to control under extreme conditions.",
+        "injection": "Keep light level and emotional control relevant when Dark Shadow appears.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Dark Shadow",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:tokoyami-fumikage"
+        ],
+        "requiredTags": [
+          "quirk:dark-shadow"
+        ],
+        "constraints": [
+          "Tokoyami's Dark Shadow gains strength in darkness but becomes harder to control under extreme conditions."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_electrification_risks_shorting_kaminari",
+      "title": "Electrification Risks Shorting Kaminari",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kaminari-denki"
+        ],
+        "characters": [
+          "Denki Kaminari"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Electrification",
+          "overuse",
+          "cognitive backlash"
+        ]
+      },
+      "tags": [
+        "quirk:electrification",
+        "character:kaminari-denki",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Denki Kaminari"
+          ],
+          "topicsAny": [
+            "Electrification",
+            "overuse",
+            "cognitive backlash"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kaminari can discharge powerful electricity, but overuse impairs his thinking and leaves him vulnerable.",
+        "injection": "Do not let early Kaminari spam high-output electricity with no cognitive backlash.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Electrification",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:kaminari-denki"
+        ],
+        "requiredTags": [
+          "quirk:electrification"
+        ],
+        "constraints": [
+          "Kaminari can discharge powerful electricity, but overuse impairs his thinking and leaves him vulnerable."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_earphone_jack_supports_recon_and_sound_attacks",
+      "title": "Earphone Jack Supports Recon And Sound Attacks",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka"
+        ],
+        "characters": [
+          "Kyoka Jiro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "sound detection",
+          "recon",
+          "vibration"
+        ]
+      },
+      "tags": [
+        "quirk:earphone-jack",
+        "character:jiro-kyoka",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro"
+          ],
+          "topicsAny": [
+            "sound detection",
+            "recon",
+            "vibration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Jiro's Earphone Jack Quirk is useful for listening, vibration, and sound-based tactics, not only direct combat.",
+        "injection": "Use Jiro for detection, communication, and tactical awareness when sound matters.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Earphone Jack",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:jiro-kyoka"
+        ],
+        "requiredTags": [
+          "quirk:earphone-jack"
+        ],
+        "constraints": [
+          "Jiro's Earphone Jack Quirk is useful for listening, vibration, and sound-based tactics, not only direct combat."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_frog_gives_tsuyu_environmental_utility",
+      "title": "Frog Gives Tsuyu Environmental Utility",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:asui-tsuyu"
+        ],
+        "characters": [
+          "Tsuyu Asui"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Frog",
+          "mobility",
+          "environment"
+        ]
+      },
+      "tags": [
+        "quirk:frog",
+        "character:asui-tsuyu",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tsuyu Asui"
+          ],
+          "topicsAny": [
+            "Frog",
+            "mobility",
+            "environment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tsuyu's Frog Quirk provides mobility, tongue use, swimming, wall-clinging, and practical rescue options.",
+        "injection": "Write Tsuyu as calm and environment-aware, with Quirk utility beyond simple combat hits.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Frog",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:asui-tsuyu"
+        ],
+        "requiredTags": [
+          "quirk:frog"
+        ],
+        "constraints": [
+          "Tsuyu's Frog Quirk provides mobility, tongue use, swimming, wall-clinging, and practical rescue options."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_invisibility_has_communication_limits",
+      "title": "Invisibility Has Communication Limits",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hagakure-toru"
+        ],
+        "characters": [
+          "Toru Hagakure"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "invisibility",
+          "ally coordination",
+          "stealth"
+        ]
+      },
+      "tags": [
+        "quirk:invisibility",
+        "character:hagakure-toru",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Toru Hagakure"
+          ],
+          "topicsAny": [
+            "invisibility",
+            "ally coordination",
+            "stealth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hagakure's invisibility is useful for stealth, but it can complicate targeting, visibility to allies, and expressive staging.",
+        "injection": "Invisible Girl scenes should account for ally coordination and physical tells rather than making invisibility a perfect answer.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Invisibility",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:hagakure-toru"
+        ],
+        "requiredTags": [
+          "quirk:invisibility"
+        ],
+        "constraints": [
+          "Hagakure's invisibility is useful for stealth, but it can complicate targeting, visibility to allies, and expressive staging."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_navel_laser_hurts_aoyama_if_overused",
+      "title": "Navel Laser Hurts Aoyama If Overused",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "characters": [
+          "Yuga Aoyama"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Navel Laser",
+          "stomach strain",
+          "flashy"
+        ]
+      },
+      "tags": [
+        "quirk:navel-laser",
+        "character:aoyama-yuga",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama"
+          ],
+          "topicsAny": [
+            "Navel Laser",
+            "stomach strain",
+            "flashy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama's Navel Laser is flashy and piercing, but overuse strains his stomach and body.",
+        "injection": "Do not let Aoyama fire indefinitely without physical drawback or theatrical self-presentation.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Navel Laser",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "requiredTags": [
+          "quirk:navel-laser"
+        ],
+        "constraints": [
+          "Aoyama's Navel Laser is flashy and piercing, but overuse strains his stomach and body."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_pop_off_is_sticky_utility_not_raw_power",
+      "title": "Pop Off Is Sticky Utility Not Raw Power",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mineta-minoru"
+        ],
+        "characters": [
+          "Minoru Mineta"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Pop Off",
+          "trapping",
+          "utility"
+        ]
+      },
+      "tags": [
+        "quirk:pop-off",
+        "character:mineta-minoru",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Minoru Mineta"
+          ],
+          "topicsAny": [
+            "Pop Off",
+            "trapping",
+            "utility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mineta's Pop Off creates sticky balls useful for trapping, movement, and disruption, but it is not direct brute-force offense.",
+        "injection": "Use Pop Off for tactical nuisance, restraint, and escape rather than treating Mineta as a heavy hitter.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Pop Off",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:mineta-minoru"
+        ],
+        "requiredTags": [
+          "quirk:pop-off"
+        ],
+        "constraints": [
+          "Mineta's Pop Off creates sticky balls useful for trapping, movement, and disruption, but it is not direct brute-force offense."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_tape_supports_mobility_and_capture",
+      "title": "Tape Supports Mobility And Capture",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:sero-hanta"
+        ],
+        "characters": [
+          "Hanta Sero"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tape",
+          "mobility",
+          "binding"
+        ]
+      },
+      "tags": [
+        "quirk:tape",
+        "character:sero-hanta",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Hanta Sero"
+          ],
+          "topicsAny": [
+            "Tape",
+            "mobility",
+            "binding"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Sero's Tape Quirk is useful for swinging, binding, pulling, and movement control.",
+        "injection": "Use Tape as positional control and mobility support rather than a generic projectile power.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Tape",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:sero-hanta"
+        ],
+        "requiredTags": [
+          "quirk:tape"
+        ],
+        "constraints": [
+          "Sero's Tape Quirk is useful for swinging, binding, pulling, and movement control."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_dupli_arms_supports_sensing_and_rescue",
+      "title": "Dupli-Arms Supports Sensing And Rescue",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shoji-mezo"
+        ],
+        "characters": [
+          "Mezo Shoji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dupli-Arms",
+          "sensing",
+          "rescue"
+        ]
+      },
+      "tags": [
+        "quirk:dupli-arms",
+        "character:shoji-mezo",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Mezo Shoji"
+          ],
+          "topicsAny": [
+            "Dupli-Arms",
+            "sensing",
+            "rescue"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoji's Dupli-Arms can replicate sensory organs and limbs, making him valuable for search, shielding, and team support.",
+        "injection": "Use Shoji for sensory coverage and protection when the scene involves confusion, rescue, or group movement.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Dupli-Arms",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:shoji-mezo"
+        ],
+        "requiredTags": [
+          "quirk:dupli-arms"
+        ],
+        "constraints": [
+          "Shoji's Dupli-Arms can replicate sensory organs and limbs, making him valuable for search, shielding, and team support."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_sugar_rush_trades_power_for_cognition",
+      "title": "Sugar Rush Trades Power For Cognition",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:sato-rikido"
+        ],
+        "characters": [
+          "Rikido Sato"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sugar Rush",
+          "strength",
+          "cognitive drawback"
+        ]
+      },
+      "tags": [
+        "quirk:sugar-rush",
+        "character:sato-rikido",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Rikido Sato"
+          ],
+          "topicsAny": [
+            "Sugar Rush",
+            "strength",
+            "cognitive drawback"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Sato's Sugar Rush increases strength after sugar intake but can impair cognition afterward.",
+        "injection": "Do not use Sugar Rush as free strength with no timing, intake, or mental drawback.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Sugar Rush",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:sato-rikido"
+        ],
+        "requiredTags": [
+          "quirk:sugar-rush"
+        ],
+        "constraints": [
+          "Sato's Sugar Rush increases strength after sugar intake but can impair cognition afterward."
+        ],
+        "antiLore": []
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_acid_requires_control_and_safety",
+      "title": "Acid Requires Control And Safety",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ashido-mina"
+        ],
+        "characters": [
+          "Mina Ashido"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Acid",
+          "control",
+          "mobility"
+        ]
+      },
+      "tags": [
+        "quirk:acid",
+        "character:ashido-mina",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Mina Ashido"
+          ],
+          "topicsAny": [
+            "Acid",
+            "control",
+            "mobility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mina's Acid can be used for mobility, offense, and defense, but concentration and safety control matter.",
+        "injection": "Use Acid as flexible and dangerous; avoid making it harmless slime unless she deliberately controls it that way.",
+        "constraints": [
+          "Respect this Quirk's activation, drawback, maturity, and current story-stage limits."
+        ],
+        "antiLore": [
+          "Do not grant later mastery or unlimited output before Context supports it."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core Quirk rules",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Acid",
+        "stage": "contextual",
+        "ownerEntityIds": [
+          "mha:ashido-mina"
+        ],
+        "requiredTags": [
+          "quirk:acid"
+        ],
+        "constraints": [
+          "Mina's Acid can be used for mobility, offense, and defense, but concentration and safety control matter."
+        ],
+        "antiLore": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,1186 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:sports-festival": {
+      "label": "Sports Festival",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Sports Festival tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "sports festival"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:ua-beginnings": {
+      "label": "Ua Beginnings",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Ua Beginnings tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "ua beginnings"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:usj": {
+      "label": "Usj",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Usj tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aizawa-shota": {
+      "label": "Aizawa Shota",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Aizawa Shota tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "aizawa shota"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asui-tsuyu": {
+      "label": "Asui Tsuyu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Asui Tsuyu tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "asui tsuyu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bakugo-katsuki": {
+      "label": "Bakugo Katsuki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Bakugo Katsuki tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "bakugo katsuki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:iida-tenya": {
+      "label": "Iida Tenya",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Iida Tenya tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "iida tenya"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:inko-midoriya": {
+      "label": "Inko Midoriya",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Inko Midoriya tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "inko midoriya"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kurogiri": {
+      "label": "Kurogiri",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kurogiri tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midoriya-izuku": {
+      "label": "Midoriya Izuku",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Midoriya Izuku tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "midoriya izuku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mineta-minoru": {
+      "label": "Mineta Minoru",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Mineta Minoru tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "mineta minoru"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:present-mic": {
+      "label": "Present Mic",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Present Mic tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:recovery-girl": {
+      "label": "Recovery Girl",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Recovery Girl tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shigaraki-tomura": {
+      "label": "Shigaraki Tomura",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Shigaraki Tomura tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "shigaraki tomura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:thirteen": {
+      "label": "Thirteen",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Thirteen tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:uraraka-ochaco": {
+      "label": "Uraraka Ochaco",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Uraraka Ochaco tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "uraraka ochaco"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:usj-nomu": {
+      "label": "Usj Nomu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Usj Nomu tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "usj nomu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yagi-toshinori": {
+      "label": "Yagi Toshinori",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yagi Toshinori tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "yagi toshinori"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "class:ua-1a": {
+      "label": "Ua 1A",
+      "color": "#1d5f99",
+      "textColor": "#ffffff",
+      "description": "Ua 1A tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "ua 1a"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:mha-manga-main": {
+      "label": "Mha Manga Main",
+      "color": "#44546a",
+      "textColor": "#ffffff",
+      "description": "Mha Manga Main tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "mha manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:battle-trial": {
+      "label": "Battle Trial",
+      "color": "#8a4b08",
+      "textColor": "#ffffff",
+      "description": "Battle Trial tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "battle trial"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:class-rep-election": {
+      "label": "Class Rep Election",
+      "color": "#8a4b08",
+      "textColor": "#ffffff",
+      "description": "Class Rep Election tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "class rep election"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:entrance-exam": {
+      "label": "Entrance Exam",
+      "color": "#8a4b08",
+      "textColor": "#ffffff",
+      "description": "Entrance Exam tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "entrance exam"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:ofa-transfer": {
+      "label": "Ofa Transfer",
+      "color": "#8a4b08",
+      "textColor": "#ffffff",
+      "description": "Ofa Transfer tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "ofa transfer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:quirk-apprehension-test": {
+      "label": "Quirk Apprehension Test",
+      "color": "#8a4b08",
+      "textColor": "#ffffff",
+      "description": "Quirk Apprehension Test tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "quirk apprehension test"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:sludge-villain": {
+      "label": "Sludge Villain",
+      "color": "#8a4b08",
+      "textColor": "#ffffff",
+      "description": "Sludge Villain tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "sludge villain"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:league-of-villains": {
+      "label": "League Of Villains",
+      "color": "#5c2a72",
+      "textColor": "#ffffff",
+      "description": "League Of Villains tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "league of villains"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "family:midoriya": {
+      "label": "Midoriya",
+      "color": "#7a3e48",
+      "textColor": "#ffffff",
+      "description": "Midoriya tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "midoriya"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:mha": {
+      "label": "Mha",
+      "color": "#2f4f6f",
+      "textColor": "#ffffff",
+      "description": "Mha tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "mha"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:all-might": {
+      "label": "All Might",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "All Might tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "all might"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:deku": {
+      "label": "Deku",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Deku tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "deku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:dynamight": {
+      "label": "Dynamight",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Dynamight tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "dynamight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:eraser-head": {
+      "label": "Eraser Head",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Eraser Head tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "eraser head"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:froppy": {
+      "label": "Froppy",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Froppy tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "froppy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:grape-juice": {
+      "label": "Grape Juice",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Grape Juice tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "grape juice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:ingenium": {
+      "label": "Ingenium",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Ingenium tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "ingenium"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:present-mic": {
+      "label": "Present Mic",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Present Mic tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:recovery-girl": {
+      "label": "Recovery Girl",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Recovery Girl tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:thirteen": {
+      "label": "Thirteen",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Thirteen tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:uravity": {
+      "label": "Uravity",
+      "color": "#11695d",
+      "textColor": "#ffffff",
+      "description": "Uravity tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "uravity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:public-limited": {
+      "label": "Public Limited",
+      "color": "#6b4f1d",
+      "textColor": "#ffffff",
+      "description": "Public Limited tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "public limited"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "knowledge:timeline": {
+      "label": "Timeline",
+      "color": "#6b4f1d",
+      "textColor": "#ffffff",
+      "description": "Timeline tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "timeline"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:aldera-junior-high": {
+      "label": "Aldera Junior High",
+      "color": "#595959",
+      "textColor": "#ffffff",
+      "description": "Aldera Junior High tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "aldera junior high"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:dagobah-beach": {
+      "label": "Dagobah Beach",
+      "color": "#595959",
+      "textColor": "#ffffff",
+      "description": "Dagobah Beach tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "dagobah beach"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:ua-high": {
+      "label": "Ua High",
+      "color": "#595959",
+      "textColor": "#ffffff",
+      "description": "Ua High tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:usj": {
+      "label": "Usj",
+      "color": "#595959",
+      "textColor": "#ffffff",
+      "description": "Usj tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:future-guard": {
+      "label": "Future Guard",
+      "color": "#666666",
+      "textColor": "#ffffff",
+      "description": "Future Guard tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft-reference": {
+      "label": "Draft Reference",
+      "color": "#555555",
+      "textColor": "#ffffff",
+      "description": "Draft Reference tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "draft reference"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:black-hole": {
+      "label": "Black Hole",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Black Hole tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "black hole"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:decay": {
+      "label": "Decay",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Decay tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "decay"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:engine": {
+      "label": "Engine",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Engine tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "engine"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:erasure": {
+      "label": "Erasure",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Erasure tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "erasure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:explosion": {
+      "label": "Explosion",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Explosion tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "explosion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:frog": {
+      "label": "Frog",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Frog tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "frog"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:heal": {
+      "label": "Heal",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Heal tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "heal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:one-for-all": {
+      "label": "One For All",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:pop-off": {
+      "label": "Pop Off",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Pop Off tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "pop off"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:shock-absorption": {
+      "label": "Shock Absorption",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Shock Absorption tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "shock absorption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:voice": {
+      "label": "Voice",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Voice tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "voice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:warp-gate": {
+      "label": "Warp Gate",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Warp Gate tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "warp gate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:zero-gravity": {
+      "label": "Zero Gravity",
+      "color": "#5d3a9b",
+      "textColor": "#ffffff",
+      "description": "Zero Gravity tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "zero gravity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:all-might-deku": {
+      "label": "All Might Deku",
+      "color": "#7c4a67",
+      "textColor": "#ffffff",
+      "description": "All Might Deku tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "all might deku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:deku-bakugo": {
+      "label": "Deku Bakugo",
+      "color": "#7c4a67",
+      "textColor": "#ffffff",
+      "description": "Deku Bakugo tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "deku bakugo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:deku-iida": {
+      "label": "Deku Iida",
+      "color": "#7c4a67",
+      "textColor": "#ffffff",
+      "description": "Deku Iida tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "deku iida"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:deku-uraraka": {
+      "label": "Deku Uraraka",
+      "color": "#7c4a67",
+      "textColor": "#ffffff",
+      "description": "Deku Uraraka tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "deku uraraka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:pre-ua": {
+      "label": "Pre Ua",
+      "color": "#114b8a",
+      "textColor": "#ffffff",
+      "description": "Pre Ua tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "pre ua"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:ua-high": {
+      "label": "Ua High",
+      "color": "#114b8a",
+      "textColor": "#ffffff",
+      "description": "Ua High tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:all-might-injury": {
+      "label": "All Might Injury",
+      "color": "#6b1f45",
+      "textColor": "#ffffff",
+      "description": "All Might Injury tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "all might injury"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:nomu-origin": {
+      "label": "Nomu Origin",
+      "color": "#6b1f45",
+      "textColor": "#ffffff",
+      "description": "Nomu Origin tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "nomu origin"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:one-for-all": {
+      "label": "One For All",
+      "color": "#6b1f45",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:shigaraki-origin": {
+      "label": "Shigaraki Origin",
+      "color": "#6b1f45",
+      "textColor": "#ffffff",
+      "description": "Shigaraki Origin tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "shigaraki origin"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:injury": {
+      "label": "Injury",
+      "color": "#3f4c6b",
+      "textColor": "#ffffff",
+      "description": "Injury tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "injury"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:ofa-finger-breaking": {
+      "label": "Ofa Finger Breaking",
+      "color": "#3f4c6b",
+      "textColor": "#ffffff",
+      "description": "Ofa Finger Breaking tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "ofa finger breaking"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:ofa-uncontrolled": {
+      "label": "Ofa Uncontrolled",
+      "color": "#3f4c6b",
+      "textColor": "#ffffff",
+      "description": "Ofa Uncontrolled tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "ofa uncontrolled"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "status:usj-aftermath": {
+      "label": "Usj Aftermath",
+      "color": "#3f4c6b",
+      "textColor": "#ffffff",
+      "description": "Usj Aftermath tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "usj aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:persistence": {
+      "label": "Persistence",
+      "color": "#4d5f44",
+      "textColor": "#ffffff",
+      "description": "Persistence tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "persistence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "theme:saving": {
+      "label": "Saving",
+      "color": "#4d5f44",
+      "textColor": "#ffffff",
+      "description": "Saving tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "saving"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-analysis": {
+      "label": "Hero Analysis",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Hero Analysis tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "hero analysis"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-licensing": {
+      "label": "Hero Licensing",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Hero Licensing tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "hero licensing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:improvisation": {
+      "label": "Improvisation",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Improvisation tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "improvisation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:media": {
+      "label": "Media",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Media tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "media"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-trust": {
+      "label": "Public Trust",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Public Trust tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "public trust"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-control": {
+      "label": "Quirk Control",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Quirk Control tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "quirk control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-hierarchy": {
+      "label": "Quirk Hierarchy",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Quirk Hierarchy tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "quirk hierarchy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirklessness": {
+      "label": "Quirklessness",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Quirklessness tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "quirklessness"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue": {
+      "label": "Rescue",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Rescue tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "rescue"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:responsibility": {
+      "label": "Responsibility",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Responsibility tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "responsibility"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:school-security": {
+      "label": "School Security",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "School Security tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "school security"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:training": {
+      "label": "Training",
+      "color": "#4f4f4f",
+      "textColor": "#ffffff",
+      "description": "Training tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "villain:kurogiri": {
+      "label": "Kurogiri",
+      "color": "#7a1f2b",
+      "textColor": "#ffffff",
+      "description": "Kurogiri tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "villain:nomu": {
+      "label": "Nomu",
+      "color": "#7a1f2b",
+      "textColor": "#ffffff",
+      "description": "Nomu tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "nomu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "villain:shigaraki": {
+      "label": "Shigaraki",
+      "color": "#7a1f2b",
+      "textColor": "#ffffff",
+      "description": "Shigaraki tag for My Hero Academia Loredeck retrieval and filtering.",
+      "aliases": [
+        "shigaraki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

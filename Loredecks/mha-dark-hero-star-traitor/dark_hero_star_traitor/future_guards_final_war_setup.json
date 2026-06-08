@@ -1,0 +1,1236 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_gearshift_remains_future_gated",
+      "title": "Gearshift Remains Future-Gated",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:second-ofa-user",
+          "mha:gearshift"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Second One For All User"
+        ],
+        "locations": [],
+        "objects": [
+          "Gearshift"
+        ],
+        "factions": [],
+        "topics": [
+          "Gearshift",
+          "OFA future guard",
+          "ability gate"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "quirk:gearshift",
+        "character:midoriya-izuku",
+        "character:second-ofa-user",
+        "topic:gearshift",
+        "topic:ofa-future-guard",
+        "topic:ability-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Second One For All User"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Gearshift"
+          ],
+          "topicsAny": [
+            "Gearshift",
+            "OFA future guard",
+            "ability gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s full Gearshift deployment belongs to later Final War Context, not Dark Hero or U.A. Traitor play.",
+        "injection": "Keep Gearshift out of active combat until the Final War deck is loaded or the story explicitly diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:second-ofa-user"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_bakugo_final_war_injury_must_not_leak",
+      "title": "Bakugo Final War Injury Must Not Leak",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Bakugo spoiler",
+          "Final War injury",
+          "future status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:bakugo-katsuki",
+        "faction:ua-class-1a",
+        "topic:bakugo-spoiler",
+        "topic:final-war-injury",
+        "topic:future-status"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Bakugo spoiler",
+            "Final War injury",
+            "future status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s later Final War condition is not known during this deck’s timeframe.",
+        "injection": "Do not foreshadow or state Bakugo’s later battlefield injury as active knowledge in Dark Hero, Star, or U.A. Traitor scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_toga_ochaco_final_resolution_must_not_leak",
+      "title": "Toga Ochaco Final Resolution Must Not Leak",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:himiko-toga",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Himiko Toga",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toga Ochaco",
+          "Final War guard",
+          "relationship resolution"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:himiko-toga",
+        "character:uraraka-ochaco",
+        "topic:toga-ochaco",
+        "topic:final-war-guard",
+        "topic:relationship-resolution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Toga Ochaco",
+            "Final War guard",
+            "relationship resolution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga and Ochaco’s final emotional resolution belongs to the Final War, not this prewar stage.",
+        "injection": "Keep Toga/Ochaco tension unresolved unless the Context moves into the Final War deck.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:himiko-toga",
+          "mha:uraraka-ochaco"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_dabi_todoroki_final_resolution_must_not_leak",
+      "title": "Dabi Todoroki Final Resolution Must Not Leak",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:endeavor"
+        ],
+        "characters": [
+          "Dabi",
+          "Shoto Todoroki",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Todoroki family",
+          "Dabi guard",
+          "Final War resolution"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:dabi",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "topic:todoroki-family",
+        "topic:dabi-guard",
+        "topic:final-war-resolution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Shoto Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Todoroki family",
+            "Dabi guard",
+            "Final War resolution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The final Todoroki family confrontation has not occurred during this deck’s active Context.",
+        "injection": "Do not resolve Dabi/Toya and the Todoroki family arc before the Final War Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:endeavor"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_shigaraki_tenko_resolution_must_not_leak",
+      "title": "Shigaraki Tenko Resolution Must Not Leak",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Tenko Shimura",
+          "ending guard",
+          "future identity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:shigaraki-tomura",
+        "topic:tenko-shimura",
+        "topic:ending-guard",
+        "topic:future-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Tenko Shimura",
+            "ending guard",
+            "future identity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The later handling of Tenko Shimura within Shigaraki is future material.",
+        "injection": "Do not treat Shigaraki’s inner resolution or ending as known before the Final War and epilogue Contexts.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_postwar_quirk_status_must_not_leak",
+      "title": "Deku Postwar Quirk Status Must Not Leak",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "postwar Deku",
+          "Quirk status guard",
+          "epilogue guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:postwar-deku",
+        "topic:quirk-status-guard",
+        "topic:epilogue-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "postwar Deku",
+            "Quirk status guard",
+            "epilogue guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s postwar Quirk status is not active knowledge before the Final War and epilogue.",
+        "injection": "Do not use postwar Deku outcomes in Dark Hero, Star, or Traitor scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_class_1_a_has_not_graduated",
+      "title": "Class 1-A Has Not Graduated",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. High"
+        ],
+        "topics": [
+          "student status",
+          "graduation guard",
+          "epilogue guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "faction:ua-class-1a",
+        "faction:ua-high",
+        "topic:student-status",
+        "topic:graduation-guard",
+        "topic:epilogue-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "student status",
+            "graduation guard",
+            "epilogue guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A remains U.A. students preparing for war, not adult pro heroes or graduates.",
+        "injection": "Keep Class 1-A in student/prewar status until epilogue or custom AU Context changes it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_star_damage_is_delay_not_victory",
+      "title": "Star Damage Is Delay Not Victory",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.shigaraki-delay",
+        "sortKeyFrom": 18125,
+        "sortKeyTo": 18125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Star damage delays Shigaraki completion"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:star-and-stripe",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Star and Stripe",
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "planning window",
+          "not victory",
+          "villain still active"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:star-and-stripe",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "faction:pro-heroes",
+        "topic:planning-window",
+        "topic:not-victory",
+        "topic:villain-still-active"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Star and Stripe",
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "planning window",
+            "not victory",
+            "villain still active"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star’s sacrifice delays and damages Shigaraki/AFO but does not neutralize him.",
+        "injection": "After Star, keep AFO/Shigaraki dangerous; the heroes have a window, not a solved problem.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 334",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:star-and-stripe",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_all_for_one_still_has_initiative",
+      "title": "All For One Still Has Initiative",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.final-war-prep",
+        "sortKeyFrom": 18650,
+        "sortKeyTo": 18650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes prepare final operation after traitor reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:league-of-villains",
+          "mha:all-for-one-escapees"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains",
+          "All For One Escapees"
+        ],
+        "topics": [
+          "AFO strategy",
+          "villain initiative",
+          "prewar pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:all-for-one",
+        "faction:league-of-villains",
+        "faction:all-for-one-escapees",
+        "topic:afo-strategy",
+        "topic:villain-initiative",
+        "topic:prewar-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains",
+            "All For One Escapees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "AFO strategy",
+            "villain initiative",
+            "prewar pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Despite setbacks, All For One remains strategically dangerous and is preparing for the final conflict.",
+        "injection": "Prewar scenes should treat AFO as pressured but not cornered into incompetence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 339-342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    }
+  ]
+}

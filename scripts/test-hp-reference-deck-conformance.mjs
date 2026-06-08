@@ -87,6 +87,7 @@ const {
   DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
   DEFAULT_HP_LOREDECK_STACK,
   DEFAULT_LOTR_LOREDECK_IDS,
+  DEFAULT_MHA_LOREDECK_IDS,
   HP_LEGACY_LOREDECK_ID,
 } = await import('../loredeck-defaults.js');
 const { DEFAULT_SETTINGS, getDefaultState } = await import('../constants.js');
@@ -104,9 +105,12 @@ const bundledDefaultIds = Array.from(DEFAULT_BUNDLED_LOREDECK_IDS);
 const bundledDefaultRecords = Array.from(DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS);
 const hpDefaultIds = Array.from(DEFAULT_HP_LOREDECK_IDS);
 const lotrDefaultIds = Array.from(DEFAULT_LOTR_LOREDECK_IDS);
+const mhaDefaultIds = Array.from(DEFAULT_MHA_LOREDECK_IDS);
 const hpFolderPath = ['Harry Potter', 'Golden Trio'];
 const lotrFolderPath = ['Lord of The Rings', 'War of the Ring'];
+const mhaFolderPath = ['My Hero Academia', 'Manga Main'];
 const lotrFolderId = createFolderIdFromPath(lotrFolderPath);
+const mhaFolderId = createFolderIdFromPath(mhaFolderPath);
 const defaultState = getDefaultState();
 const defaultLibraryIndex = normalizeLoredeckLibraryIndex(defaultState.loredeckRegistry, {
   packs: defaultState.loredeckRegistry.packs,
@@ -131,8 +135,10 @@ assert.deepEqual(Object.keys(DEFAULT_SETTINGS.loredeckLibrary.packs), bundledDef
 assert.deepEqual(Object.keys(defaultState.loredeckRegistry.packs), bundledDefaultIds, 'State default Loredeck registry should include every bundled deck.');
 assert.deepEqual(Object.keys(defaultState.loredeckContexts), bundledDefaultIds, 'State default Loredeck Contexts should include every bundled deck.');
 assert.deepEqual(hpDefaultIds, bundledDefaultIds.slice(0, hpDefaultIds.length), 'HP bundled decks should remain first in bundled order.');
-assert.deepEqual(lotrDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length), 'LOTR bundled decks should follow HP bundled decks.');
+assert.deepEqual(lotrDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length, hpDefaultIds.length + lotrDefaultIds.length), 'LOTR bundled decks should follow HP bundled decks.');
+assert.deepEqual(mhaDefaultIds, bundledDefaultIds.slice(hpDefaultIds.length + lotrDefaultIds.length), 'MHA bundled decks should follow LOTR bundled decks.');
 assert.deepEqual(getFolderPath(lotrFolderId, defaultLibraryIndex), lotrFolderPath, 'Default Library index should create the Lord of The Rings War of the Ring folder.');
+assert.deepEqual(getFolderPath(mhaFolderId, defaultLibraryIndex), mhaFolderPath, 'Default Library index should create the My Hero Academia Manga Main folder.');
 
 for (const deckId of hpDefaultIds) {
   assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, hpFolderPath, `${deckId} should stay in the HP Golden Trio folder.`);
@@ -143,6 +149,12 @@ for (const deckId of lotrDefaultIds) {
   assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, lotrFolderPath, `${deckId} should live under the Lord of The Rings War of the Ring folder.`);
   assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
   assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, lotrFolderId, `${deckId} should be placed in the default Lord of The Rings folder.`);
+}
+
+for (const deckId of mhaDefaultIds) {
+  assert.deepEqual(DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS[deckId].library?.suggestedPath, mhaFolderPath, `${deckId} should live under the My Hero Academia Manga Main folder.`);
+  assert.equal(DEFAULT_BUNDLED_LOREDECK_CONTEXTS[deckId].contextType, 'anchor_window', `${deckId} should use anchor-window Context defaults.`);
+  assert.equal(defaultLibraryIndex.deckPlacements.find(item => item.deckId === deckId)?.folderId, mhaFolderId, `${deckId} should be placed in the default My Hero Academia folder.`);
 }
 
 for (const deckId of bundledDefaultIds) {
@@ -193,9 +205,11 @@ for (const deckId of bundledDefaultIds) {
 
   const source = await loadLoredeckSourceById(deckId);
   assert.equal(source.health.errors.length, 0, `${deckId} should have no Deck Health errors.`);
-  if (hpDefaultIds.includes(deckId)) {
+  if (hpDefaultIds.includes(deckId) || mhaDefaultIds.includes(deckId)) {
     assert.equal(source.health.status, 'good', `${deckId} Deck Health should be good.`);
     assert.equal(source.health.warnings.length, 0, `${deckId} should have no Deck Health warnings.`);
+  }
+  if (hpDefaultIds.includes(deckId)) {
     assert.equal(source.health.suggestions.length, 0, `${deckId} should have no Deck Health suggestions.`);
   }
   assert.equal(source.health.summary.entryCount, manifest.stats.entryCount, `${deckId} health entry count should match manifest.`);

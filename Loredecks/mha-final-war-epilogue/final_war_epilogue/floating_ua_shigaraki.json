@@ -1,0 +1,3158 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_floating-u-a-is-a-mobile-prison-battlefield",
+      "title": "Floating U.A. Is A Mobile Prison Battlefield",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.floating-ua-battle-starts",
+        "sortKeyFrom": 19250,
+        "sortKeyTo": 19250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Floating U.A. battle begins against Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:aizawa-shota",
+          "mha:monoma-neito",
+          "mha:floating-u-a",
+          "mha:heroes",
+          "mha:u-a-high"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "Aizawa Shota",
+          "Monoma Neito"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "U.A. High"
+        ],
+        "topics": [
+          "floating fortress",
+          "containment battlefield"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:aizawa-shota",
+        "character:monoma-neito",
+        "location:floating-u-a",
+        "faction:heroes",
+        "faction:u-a-high",
+        "topic:floating-fortress",
+        "topic:containment-battlefield",
+        "event:floating-u-a-battle-begins-against-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "Aizawa Shota",
+            "Monoma Neito"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes",
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "floating fortress",
+            "containment battlefield"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Floating U.A. is built to contain Shigaraki away from civilians while support systems and Erasure suppress his Quirks.",
+        "injection": "Use Floating U.A. as a fragile engineered battlefield; its supports, barriers, propulsion, and Erasure logistics matter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shigaraki-mutates-without-active-quirks",
+      "title": "Shigaraki Mutates Without Active Quirks",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shigaraki-mutation-escalates",
+        "sortKeyFrom": 19600,
+        "sortKeyTo": 19600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki mutation escalates under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:aizawa-shota",
+          "mha:monoma-neito",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "Aizawa Shota",
+          "Monoma Neito"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "mutation",
+          "Erasure limitation",
+          "body horror"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:aizawa-shota",
+        "character:monoma-neito",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:mutation",
+        "topic:erasure-limitation",
+        "topic:body-horror",
+        "event:shigaraki-mutation-escalates-under-erasure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "Aizawa Shota",
+            "Monoma Neito"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "mutation",
+            "Erasure limitation",
+            "body horror"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even under Erasure, Shigaraki’s body produces overwhelming hand-like growths and physical pressure that are not treated as ordinary active Quirk use.",
+        "injection": "Do not have Erasure fully neutralize Shigaraki; it suppresses Quirks but does not make him a normal human opponent.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 347-360",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Shigaraki Mutates Without Active Quirks",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:shigaraki-tomura",
+          "mha:aizawa-shota"
+        ],
+        "requiredTags": [],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-and-shigaraki-identity-remains-unstable",
+      "title": "AFO And Shigaraki Identity Remains Unstable",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shigaraki-mutation-escalates",
+        "sortKeyFrom": 19600,
+        "sortKeyTo": 19600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki mutation escalates under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:floating-u-a",
+          "mha:villains"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "All For One"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "identity instability",
+          "possession",
+          "selfhood conflict"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "location:floating-u-a",
+        "faction:villains",
+        "topic:identity-instability",
+        "topic:possession",
+        "topic:selfhood-conflict",
+        "event:shigaraki-mutation-escalates-under-erasure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "identity instability",
+            "possession",
+            "selfhood conflict"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the Floating U.A. fight, Shigaraki’s body and will are entangled with All For One’s control, but Tomura’s self is not gone forever.",
+        "injection": "Keep the Shigaraki/AFO identity unstable; avoid portraying him as only AFO or only independent Tomura before the relevant shifts occur.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 347-360",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_erasure-support-is-a-battlefield-lifeline",
+      "title": "Erasure Support Is A Battlefield Lifeline",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.floating-ua-battle-starts",
+        "sortKeyFrom": 19250,
+        "sortKeyTo": 19250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Floating U.A. battle begins against Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:monoma-neito",
+          "mha:manual",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Aizawa Shota",
+          "Monoma Neito",
+          "Manual"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Erasure support",
+          "line of sight",
+          "support chain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:aizawa-shota",
+        "character:monoma-neito",
+        "character:manual",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:erasure-support",
+        "topic:line-of-sight",
+        "topic:support-chain",
+        "event:floating-u-a-battle-begins-against-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aizawa Shota",
+            "Monoma Neito",
+            "Manual"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Erasure support",
+            "line of sight",
+            "support chain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa, Monoma, and support personnel keep Shigaraki’s active Quirks suppressed through a fragile support chain.",
+        "injection": "Treat Erasure support as essential infrastructure; if it breaks, Shigaraki becomes far more dangerous.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Erasure Support Is A Battlefield Lifeline",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:aizawa-shota",
+          "mha:monoma-neito"
+        ],
+        "requiredTags": [],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_big-three-buy-time-against-shigaraki",
+      "title": "Big Three Buy Time Against Shigaraki",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.big-three-hold-line",
+        "sortKeyFrom": 19650,
+        "sortKeyTo": 19650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The Big Three hold the line at Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:tamaki-amajiki",
+          "mha:nejire-hado",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:big-three",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Tamaki Amajiki",
+          "Nejire Hado",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Big Three",
+          "Heroes"
+        ],
+        "topics": [
+          "delay action",
+          "student/pro hero pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:mirio-togata",
+        "character:tamaki-amajiki",
+        "character:nejire-hado",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:big-three",
+        "faction:heroes",
+        "topic:delay-action",
+        "topic:student-pro-hero-pressure",
+        "event:the-big-three-hold-the-line-at-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Tamaki Amajiki",
+            "Nejire Hado",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Big Three",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "delay action",
+            "student/pro hero pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio, Tamaki, and Nejire cannot simply defeat Shigaraki, but their attacks and misdirection buy time for Deku’s arrival.",
+        "injection": "Use the Big Three as high-skill delay fighters; their role is courage and tactical pressure, not an easy win.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 360-362",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_suneater-plasma-cannon-is-a-desperate-peak-attack",
+      "title": "Suneater Plasma Cannon Is A Desperate Peak Attack",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.big-three-hold-line",
+        "sortKeyFrom": 19650,
+        "sortKeyTo": 19650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The Big Three hold the line at Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tamaki-amajiki",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:big-three"
+        ],
+        "characters": [
+          "Tamaki Amajiki",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Big Three"
+        ],
+        "topics": [
+          "Manifest",
+          "plasma cannon",
+          "desperate attack"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:tamaki-amajiki",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:big-three",
+        "topic:manifest",
+        "topic:plasma-cannon",
+        "topic:desperate-attack",
+        "event:the-big-three-hold-the-line-at-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tamaki Amajiki",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Big Three"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Manifest",
+            "plasma cannon",
+            "desperate attack"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tamaki’s enormous Manifest attack represents preparation and desperation, not a repeatable casual move.",
+        "injection": "Make Suneater’s peak attack costly, prepared, and insufficient by itself against Shigaraki’s scale.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 360-362",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Suneater Plasma Cannon Is A Desperate Peak Attack",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:tamaki-amajiki",
+          "mha:shigaraki-tomura"
+        ],
+        "requiredTags": [],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_mirio-uses-emotional-provocation-to-disrupt-shigaraki",
+      "title": "Mirio Uses Emotional Provocation To Disrupt Shigaraki",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.big-three-hold-line",
+        "sortKeyFrom": 19650,
+        "sortKeyTo": 19650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The Big Three hold the line at Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:big-three"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Big Three"
+        ],
+        "topics": [
+          "provocation",
+          "psychological disruption"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:mirio-togata",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:big-three",
+        "topic:provocation",
+        "topic:psychological-disruption",
+        "event:the-big-three-hold-the-line-at-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Big Three"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "provocation",
+            "psychological disruption"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio’s humor and emotional jabs can briefly disrupt Shigaraki’s composure, but cannot solve the battle alone.",
+        "injection": "Let Mirio’s optimism and provocation create openings without turning him into the primary finisher.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 360-362",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-suffers-a-near-fatal-battlefield-state",
+      "title": "Bakugo Suffers A Near-Fatal Battlefield State",
+      "kind": "status_change",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-heart-stops",
+        "sortKeyFrom": 19700,
+        "sortKeyTo": 19700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo is mortally wounded at Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "near death",
+          "battlefield trauma"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:near-death",
+        "topic:battlefield-trauma",
+        "event:bakugo-is-mortally-wounded-at-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "near death",
+            "battlefield trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo is gravely injured at Floating U.A., forcing the battlefield into crisis before his later return.",
+        "injection": "Gate Bakugo’s near-death and return carefully; before this anchor he must not be written with post-revival knowledge or status.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 362-364",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:bakugo-katsuki",
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_edgeshot-sacrifices-himself-to-repair-bakugo",
+      "title": "Edgeshot Sacrifices Himself To Repair Bakugo",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.edgeshot-begins-repair",
+        "sortKeyFrom": 19750,
+        "sortKeyTo": 19750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Edgeshot begins repairing Bakugo"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:edgeshot",
+          "mha:bakugo-katsuki",
+          "mha:best-jeanist",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Edgeshot",
+          "Bakugo Katsuki",
+          "Best Jeanist"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "sacrifice",
+          "field surgery",
+          "hero rescue"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:edgeshot",
+        "character:bakugo-katsuki",
+        "character:best-jeanist",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:sacrifice",
+        "topic:field-surgery",
+        "topic:hero-rescue",
+        "event:edgeshot-begins-repairing-bakugo"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Edgeshot",
+            "Bakugo Katsuki",
+            "Best Jeanist"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "sacrifice",
+            "field surgery",
+            "hero rescue"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Edgeshot uses his body and Quirk in a desperate attempt to repair Bakugo’s fatal injury.",
+        "injection": "Treat Bakugo’s survival as a costly emergency intervention, not a quick heal or ordinary medical reset.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 364-365",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_floating-u-a-support-system-can-collapse",
+      "title": "Floating U.A. Support System Can Collapse",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ua-system-fails",
+        "sortKeyFrom": 20050,
+        "sortKeyTo": 20050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Floating U.A. systems fail under pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mei-hatsume",
+          "mha:power-loader",
+          "mha:la-brava",
+          "mha:gentle-criminal",
+          "mha:floating-u-a",
+          "mha:u-a-high",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Mei Hatsume",
+          "Power Loader",
+          "La Brava",
+          "Gentle Criminal"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Heroes"
+        ],
+        "topics": [
+          "support infrastructure",
+          "system failure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:mei-hatsume",
+        "character:power-loader",
+        "character:la-brava",
+        "character:gentle-criminal",
+        "location:floating-u-a",
+        "faction:u-a-high",
+        "faction:heroes",
+        "topic:support-infrastructure",
+        "topic:system-failure",
+        "event:floating-u-a-systems-fail-under-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mei Hatsume",
+            "Power Loader",
+            "La Brava",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "support infrastructure",
+            "system failure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Floating U.A. depends on support-course engineering, power, and external help; damage can make the battlefield fail.",
+        "injection": "Keep support infrastructure visible in Floating U.A. scenes; the battlefield is a machine under attack, not just scenery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 377-379",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-must-control-rage-on-arrival",
+      "title": "Deku Must Control Rage On Arrival",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-arrives-floating-ua",
+        "sortKeyFrom": 19800,
+        "sortKeyTo": 19800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku reaches Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:mirio-togata",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Mirio Togata",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "anger control",
+          "battlefield composure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:mirio-togata",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:anger-control",
+        "topic:battlefield-composure",
+        "event:deku-reaches-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Mirio Togata",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "anger control",
+            "battlefield composure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "When Deku arrives and sees the battlefield damage, he risks losing focus and must be grounded before fighting Shigaraki effectively.",
+        "injection": "Write Deku’s anger as dangerous but redirected; he should fight with purpose, not blind berserker rage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 366-367",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_gearshift-is-a-final-war-trump-card",
+      "title": "Gearshift Is A Final War Trump Card",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gearshift-used",
+        "sortKeyFrom": 19850,
+        "sortKeyTo": 19850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Gearshift against Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:second-user",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:heroes",
+          "mha:gearshift"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Second User",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [
+          "Gearshift"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "OFA final Quirk",
+          "time limit",
+          "speed change"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:second-user",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:heroes",
+        "item:gearshift",
+        "topic:ofa-final-quirk",
+        "topic:time-limit",
+        "topic:speed-change",
+        "event:deku-uses-gearshift-against-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Second User",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Gearshift"
+          ],
+          "topicsAny": [
+            "OFA final Quirk",
+            "time limit",
+            "speed change"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gearshift lets Deku alter motion at extreme levels, but its use has severe time and body consequences.",
+        "injection": "Do not make Gearshift a consequence-free speed buff; after use, Deku is on a narrowing timer.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 368-369",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Gearshift",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:second-user"
+        ],
+        "requiredTags": [
+          "item:gearshift"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_gentle-holds-u-a-up-through-redemption",
+      "title": "Gentle Holds U.A. Up Through Redemption",
+      "kind": "status_change",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gentle-la-brava-support",
+        "sortKeyFrom": 20100,
+        "sortKeyTo": 20100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava support the heroes"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:floating-u-a",
+          "mha:reformed-villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Reformed Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "redemption support",
+          "Elasticity",
+          "hacking"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "location:floating-u-a",
+        "faction:reformed-villains",
+        "faction:heroes",
+        "topic:redemption-support",
+        "topic:elasticity",
+        "topic:hacking",
+        "event:gentle-and-la-brava-support-the-heroes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Reformed Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "redemption support",
+            "Elasticity",
+            "hacking"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle and La Brava’s return gives critical support to Floating U.A. and reframes them as reformed allies during the war.",
+        "injection": "Use Gentle and La Brava as support-rescue assets in this Context, not school-festival antagonists.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 378-379",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_lady-nagant-support-shot-is-limited-but-critical",
+      "title": "Lady Nagant Support Shot Is Limited But Critical",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.nagant-support-shot",
+        "sortKeyFrom": 20150,
+        "sortKeyTo": 20150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lady Nagant fires support shot from hospital"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:hospital",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "Izuku Midoriya",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Hospital",
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "long range support",
+          "hospital recovery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:lady-nagant",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "location:hospital",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:long-range-support",
+        "topic:hospital-recovery",
+        "event:lady-nagant-fires-support-shot-from-hospital"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "Izuku Midoriya",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Hospital",
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "long range support",
+            "hospital recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Lady Nagant can aid Deku with a limited long-range shot despite still being medically compromised.",
+        "injection": "Keep Nagant’s support precise and constrained; she is not fully recovered or rejoining as a front-line hero.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 378-379",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_tomura-pushes-back-against-all-for-one",
+      "title": "Tomura Pushes Back Against All For One",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shigaraki-self-reemerges",
+        "sortKeyFrom": 20200,
+        "sortKeyTo": 20200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki’s self reemerges against AFO control"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:floating-u-a",
+          "mha:villains"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "All For One"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "selfhood",
+          "possession conflict"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "location:floating-u-a",
+        "faction:villains",
+        "topic:selfhood",
+        "topic:possession-conflict",
+        "event:shigaraki-s-self-reemerges-against-afo-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "selfhood",
+            "possession conflict"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tomura’s selfhood resurfaces against All For One’s attempt to use him as a vessel.",
+        "injection": "After this point, scenes should acknowledge the internal conflict; All For One does not cleanly own Shigaraki’s will.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 379-380",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-does-not-yet-know-the-full-tenko-truth",
+      "title": "Deku Does Not Yet Know The Full Tenko Truth",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-arrives-floating-ua",
+        "sortKeyFrom": 19800,
+        "sortKeyTo": 19800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku reaches Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shigaraki Tomura",
+          "All For One"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "future truth gate",
+          "Tenko origin"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:future-truth-gate",
+        "topic:tenko-origin",
+        "event:deku-reaches-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shigaraki Tomura",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future truth gate",
+            "Tenko origin"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "When Deku first arrives at Floating U.A., he does not yet know the full depth of Tenko’s origin or All For One’s manipulation.",
+        "injection": "Block later origin revelations until the vestige conflict reaches them; Deku must not speak as if he already understands all of Tenko’s past.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 366-367",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shigaraki-hand-growth-attacks-emotion-and-space",
+      "title": "Shigaraki Hand Growth Attacks Emotion And Space",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shigaraki-mutation-escalates",
+        "sortKeyFrom": 19600,
+        "sortKeyTo": 19600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki mutation escalates under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a"
+        ],
+        "characters": [
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mutation field",
+          "body horror"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "topic:mutation-field",
+        "topic:body-horror",
+        "event:shigaraki-mutation-escalates-under-erasure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mutation field",
+            "body horror"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s growths overwhelm space and morale even when they are not active Decay.",
+        "injection": "Use the hand growth as claustrophobic body horror and battlefield denial.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 347-360",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-hallucinatory-all-might-card-carries-origin-weight",
+      "title": "Bakugo Hallucinatory All Might Card Carries Origin Weight",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-heart-stops",
+        "sortKeyFrom": 19700,
+        "sortKeyTo": 19700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo is mortally wounded at Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:floating-u-a"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "All Might"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "All Might card",
+          "hero origin"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:all-might",
+        "location:floating-u-a",
+        "topic:all-might-card",
+        "topic:hero-origin",
+        "event:bakugo-is-mortally-wounded-at-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "All Might card",
+            "hero origin"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s near-death imagery connects to his long-held All Might admiration and unresolved guilt.",
+        "injection": "Use Bakugo’s near-death state to expose vulnerability beneath pride.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 362-364",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_mirio-prevents-deku-from-wasting-the-opening",
+      "title": "Mirio Prevents Deku From Wasting The Opening",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-arrives-floating-ua",
+        "sortKeyFrom": 19800,
+        "sortKeyTo": 19800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku reaches Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:izuku-midoriya",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "emotional grounding",
+          "battlefield control"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:mirio-togata",
+        "character:izuku-midoriya",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:emotional-grounding",
+        "topic:battlefield-control",
+        "event:deku-reaches-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "emotional grounding",
+            "battlefield control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio’s reassurance helps Deku avoid wasting his arrival in rage.",
+        "injection": "Let Mirio’s words redirect Deku into controlled action.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 366-367",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_mirko-keeps-fighting-while-losing-parts",
+      "title": "Mirko Keeps Fighting While Losing Parts",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.floating-ua-battle-starts",
+        "sortKeyFrom": 19250,
+        "sortKeyTo": 19250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Floating U.A. battle begins against Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirko",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Mirko",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "body sacrifice",
+          "close combat"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:mirko",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:body-sacrifice",
+        "topic:close-combat",
+        "event:floating-u-a-battle-begins-against-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirko",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "body sacrifice",
+            "close combat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirko continues fighting through extreme bodily loss, emphasizing ferocity and cost.",
+        "injection": "Write Mirko’s final-war presence as brutal endurance, not invulnerability.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_second-user-warns-gearshift-cannot-be-sustained",
+      "title": "Second User Warns Gearshift Cannot Be Sustained",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gearshift-used",
+        "sortKeyFrom": 19850,
+        "sortKeyTo": 19850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Gearshift against Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.floating-ua",
+          "label": "Floating U.A. battlefield",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-shigaraki",
+          "label": "Deku and Shigaraki route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:second-user",
+          "mha:izuku-midoriya",
+          "mha:floating-u-a",
+          "mha:one-for-all-vestiges"
+        ],
+        "characters": [
+          "Second User",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "time limit",
+          "OFA warning"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:second-user",
+        "character:izuku-midoriya",
+        "location:floating-u-a",
+        "faction:one-for-all-vestiges",
+        "topic:time-limit",
+        "topic:ofa-warning",
+        "event:deku-uses-gearshift-against-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Second User",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "time limit",
+            "OFA warning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The second user warns that Gearshift creates a harsh limit on Deku’s body and timing.",
+        "injection": "Keep Deku under a strict post-Gearshift consequence window.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 368-369",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

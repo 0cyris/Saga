@@ -1,0 +1,755 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "mha:all-might": {
+      "type": "character",
+      "label": "All Might",
+      "aliases": [],
+      "canonicalNames": [
+        "All Might"
+      ],
+      "tags": [
+        "character:all-might"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:asui-tsuyu": {
+      "type": "character",
+      "label": "Tsuyu Asui",
+      "aliases": [
+        "Froppy"
+      ],
+      "canonicalNames": [
+        "Tsuyu Asui"
+      ],
+      "tags": [
+        "character:asui-tsuyu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:bakugo-katsuki": {
+      "type": "character",
+      "label": "Katsuki Bakugo",
+      "aliases": [
+        "Bakugo",
+        "Dynamight"
+      ],
+      "canonicalNames": [
+        "Katsuki Bakugo"
+      ],
+      "tags": [
+        "character:bakugo-katsuki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:big-three": {
+      "type": "faction",
+      "label": "The Big Three",
+      "aliases": [
+        "Big Three"
+      ],
+      "canonicalNames": [
+        "The Big Three"
+      ],
+      "tags": [
+        "faction:big-three"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:class-1a": {
+      "type": "faction",
+      "label": "Former Class A",
+      "aliases": [
+        "Class 1-A",
+        "Class A"
+      ],
+      "canonicalNames": [
+        "Former Class A"
+      ],
+      "tags": [
+        "faction:class-1a"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:deku-support-suit": {
+      "type": "item",
+      "label": "Deku Support Suit",
+      "aliases": [
+        "Support suit"
+      ],
+      "canonicalNames": [
+        "Deku Support Suit"
+      ],
+      "tags": [
+        "item:deku-support-suit"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:fat-gum": {
+      "type": "character",
+      "label": "Fat Gum",
+      "aliases": [],
+      "canonicalNames": [
+        "Fat Gum"
+      ],
+      "tags": [
+        "character:fat-gum"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:general-public": {
+      "type": "character",
+      "label": "General Public",
+      "aliases": [],
+      "canonicalNames": [
+        "General Public"
+      ],
+      "tags": [
+        "character:general-public"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:hawks": {
+      "type": "character",
+      "label": "Keigo Takami",
+      "aliases": [
+        "Hawks"
+      ],
+      "canonicalNames": [
+        "Keigo Takami"
+      ],
+      "tags": [
+        "character:hawks"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:hero-billboard-chart-jp": {
+      "type": "system",
+      "label": "Hero Billboard Chart JP",
+      "aliases": [],
+      "canonicalNames": [
+        "Hero Billboard Chart JP"
+      ],
+      "tags": [
+        "system:hero-billboard-chart-jp"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:hero-public-safety-commission": {
+      "type": "faction",
+      "label": "Hero Public Safety Commission",
+      "aliases": [],
+      "canonicalNames": [
+        "Hero Public Safety Commission"
+      ],
+      "tags": [
+        "faction:hero-public-safety-commission"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:izuku-midoriya": {
+      "type": "character",
+      "label": "Izuku Midoriya",
+      "aliases": [
+        "Deku"
+      ],
+      "canonicalNames": [
+        "Izuku Midoriya"
+      ],
+      "tags": [
+        "character:izuku-midoriya"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:jiro-kyoka": {
+      "type": "character",
+      "label": "Kyoka Jiro",
+      "aliases": [],
+      "canonicalNames": [
+        "Kyoka Jiro"
+      ],
+      "tags": [
+        "character:jiro-kyoka"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:kaminari-denki": {
+      "type": "character",
+      "label": "Denki Kaminari",
+      "aliases": [],
+      "canonicalNames": [
+        "Denki Kaminari"
+      ],
+      "tags": [
+        "character:kaminari-denki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:kinoko-komori": {
+      "type": "character",
+      "label": "Kinoko Komori",
+      "aliases": [],
+      "canonicalNames": [
+        "Kinoko Komori"
+      ],
+      "tags": [
+        "character:kinoko-komori"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:kirishima-eijiro": {
+      "type": "character",
+      "label": "Eijiro Kirishima",
+      "aliases": [
+        "Red Riot"
+      ],
+      "canonicalNames": [
+        "Eijiro Kirishima"
+      ],
+      "tags": [
+        "character:kirishima-eijiro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:ministry-of-education": {
+      "type": "faction",
+      "label": "Ministry of Education",
+      "aliases": [],
+      "canonicalNames": [
+        "Ministry of Education"
+      ],
+      "tags": [
+        "faction:ministry-of-education"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:mirio-togata": {
+      "type": "character",
+      "label": "Mirio Togata",
+      "aliases": [
+        "Lemillion"
+      ],
+      "canonicalNames": [
+        "Mirio Togata"
+      ],
+      "tags": [
+        "character:mirio-togata"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:nejire-hado": {
+      "type": "character",
+      "label": "Nejire Hado",
+      "aliases": [
+        "Nejire Chan"
+      ],
+      "canonicalNames": [
+        "Nejire Hado"
+      ],
+      "tags": [
+        "character:nejire-hado"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:one-for-all": {
+      "type": "ability",
+      "label": "One For All",
+      "aliases": [],
+      "canonicalNames": [
+        "One For All"
+      ],
+      "tags": [
+        "quirk:one-for-all"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:quirk-counseling": {
+      "type": "program",
+      "label": "Quirk Counseling",
+      "aliases": [],
+      "canonicalNames": [
+        "Quirk Counseling"
+      ],
+      "tags": [
+        "topic:quirk-counseling"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:shigaraki-tomura": {
+      "type": "character",
+      "label": "Tomura Shigaraki",
+      "aliases": [],
+      "canonicalNames": [
+        "Tomura Shigaraki"
+      ],
+      "tags": [
+        "character:shigaraki-tomura"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:shihai-kuroiro": {
+      "type": "character",
+      "label": "Shihai Kuroiro",
+      "aliases": [],
+      "canonicalNames": [
+        "Shihai Kuroiro"
+      ],
+      "tags": [
+        "character:shihai-kuroiro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:shinso-hitoshi": {
+      "type": "character",
+      "label": "Hitoshi Shinso",
+      "aliases": [],
+      "canonicalNames": [
+        "Hitoshi Shinso"
+      ],
+      "tags": [
+        "character:shinso-hitoshi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:tamaki-amajiki": {
+      "type": "character",
+      "label": "Tamaki Amajiki",
+      "aliases": [
+        "Suneater"
+      ],
+      "canonicalNames": [
+        "Tamaki Amajiki"
+      ],
+      "tags": [
+        "character:tamaki-amajiki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:todoroki-shoto": {
+      "type": "character",
+      "label": "Shoto Todoroki",
+      "aliases": [
+        "Shoto"
+      ],
+      "canonicalNames": [
+        "Shoto Todoroki"
+      ],
+      "tags": [
+        "character:todoroki-shoto"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:toga-himiko": {
+      "type": "character",
+      "label": "Himiko Toga",
+      "aliases": [
+        "Toga"
+      ],
+      "canonicalNames": [
+        "Himiko Toga"
+      ],
+      "tags": [
+        "character:toga-himiko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:toya-todoroki": {
+      "type": "character",
+      "label": "Toya Todoroki",
+      "aliases": [],
+      "canonicalNames": [
+        "Toya Todoroki"
+      ],
+      "tags": [
+        "character:toya-todoroki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:uraraka-ochaco": {
+      "type": "character",
+      "label": "Ochaco Uraraka",
+      "aliases": [
+        "Uravity"
+      ],
+      "canonicalNames": [
+        "Ochaco Uraraka"
+      ],
+      "tags": [
+        "character:uraraka-ochaco"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    },
+    "mha:yokumiru-mera": {
+      "type": "character",
+      "label": "Yokumiru Mera",
+      "aliases": [],
+      "canonicalNames": [
+        "Yokumiru Mera"
+      ],
+      "tags": [
+        "character:yokumiru-mera"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.78
+      }
+    }
+  }
+}

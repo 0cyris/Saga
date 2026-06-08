@@ -1,0 +1,1667 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_league_of_villains_begins_small_but_symbolic",
+      "title": "League Of Villains Begins Small But Symbolic",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kurogiri",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kurogiri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "League emergence",
+          "symbolic threat",
+          "villain organization"
+        ]
+      },
+      "tags": [
+        "faction:league-of-villains",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kurogiri"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "League emergence",
+            "symbolic threat",
+            "villain organization"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The early League of Villains is not yet a massive army, but its attack on U.A. gives it symbolic threat value.",
+        "injection": "Before later villain expansion, portray the League as dangerous, ideologically disruptive, and backed by hidden support rather than numerically dominant.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_shigaraki_is_an_immature_leader_early",
+      "title": "Shigaraki Is An Immature Leader Early",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "immature villain leader",
+          "league leadership",
+          "threat"
+        ]
+      },
+      "tags": [
+        "villain:shigaraki",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "immature villain leader",
+            "league leadership",
+            "threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early Tomura Shigaraki is dangerous but emotionally immature, impatient, and dependent on hidden support.",
+        "injection": "Early Shigaraki should feel volatile and underdeveloped as a leader, not yet the evolved ideological center he becomes later.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_kurogiri_enables_league_mobility",
+      "title": "Kurogiri Enables League Mobility",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kurogiri",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Kurogiri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "warping",
+          "villain mobility",
+          "extraction"
+        ]
+      },
+      "tags": [
+        "villain:kurogiri",
+        "quirk:warp-gate",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Kurogiri"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "warping",
+            "villain mobility",
+            "extraction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kurogiri's Warp Gate makes the early League far more operationally dangerous than its numbers imply.",
+        "injection": "If Kurogiri is available, account for infiltration, extraction, and battlefield separation as core League tactics.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_faculty_are_a_defensive_faction",
+      "title": "U.A. Faculty Are A Defensive Faction",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:yagi-toshinori",
+          "mha:thirteen",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "All Might",
+          "Thirteen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "faculty defense",
+          "student protection",
+          "containment"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "All Might",
+            "Thirteen"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "faculty defense",
+            "student protection",
+            "containment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During attacks on U.A., faculty operate as a protective pro-hero force around students and civilians.",
+        "injection": "U.A. faculty should respond as trained heroes, prioritizing containment, evacuation, and student survival.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_class_1_a_is_not_a_military_unit",
+      "title": "Class 1-A Is Not A Military Unit",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "student team",
+          "improvised tactics",
+          "youth"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "topic:student-inexperience",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "student team",
+            "improvised tactics",
+            "youth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A can act bravely under pressure, but early students are not a formal combat squad with mature command structure.",
+        "injection": "Do not write early Class 1-A as a polished tactical military team; their cooperation should still be improvised and developing.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_police_depend_on_hero_support_against_quirks",
+      "title": "Police Depend On Hero Support Against Quirks",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "police",
+          "hero support",
+          "Quirk incidents"
+        ]
+      },
+      "tags": [
+        "faction:police",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "police",
+            "hero support",
+            "Quirk incidents"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Police remain legally important, but many high-risk Quirk incidents require licensed heroes for practical intervention.",
+        "injection": "Crime scenes should include the division of labor between police procedure and hero capability.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_agencies_create_professional_networks",
+      "title": "Hero Agencies Create Professional Networks",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "agencies",
+          "professional network",
+          "mentorship"
+        ]
+      },
+      "tags": [
+        "topic:hero-agencies",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "agencies",
+            "professional network",
+            "mentorship"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Agencies connect students, pros, mentors, sidekicks, public image, and future opportunities.",
+        "injection": "Use agencies as social and career infrastructure whenever internships or professional paths arise.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_villain_groups_exploit_systemic_failure",
+      "title": "Villain Groups Exploit Systemic Failure",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "recruitment",
+          "alienation",
+          "systemic failure"
+        ]
+      },
+      "tags": [
+        "faction:league-of-villains",
+        "theme:outsiders",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "recruitment",
+            "alienation",
+            "systemic failure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Villain factions can recruit or manipulate people who feel abandoned, stigmatized, or harmed by hero society.",
+        "injection": "Villain motivation must not be reduced to random evil when systemic alienation or manipulation is relevant.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_the_public_safety_commission_has_its_own_agenda",
+      "title": "The Public Safety Commission Has Its Own Agenda",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "commission agenda",
+          "stability",
+          "public order"
+        ]
+      },
+      "tags": [
+        "faction:hero-public-safety-commission",
+        "topic:state-power",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Hero Public Safety Commission"
+          ],
+          "topicsAny": [
+            "commission agenda",
+            "stability",
+            "public order"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Hero Public Safety Commission can prioritize stability, control, and public order even when individual heroes disagree.",
+        "injection": "Commission involvement should introduce institutional priorities beyond classroom, agency, or personal morality.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_society_treats_u_a_as_a_symbol",
+      "title": "Hero Society Treats U.A. As A Symbol",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nezu",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Nezu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "U.A. symbol",
+          "future heroes",
+          "villain target"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:public-symbol",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Nezu"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "U.A. symbol",
+            "future heroes",
+            "villain target"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. is not only a school; it is a public symbol of future hero society and therefore a target for villains and media.",
+        "injection": "Threats to U.A. should matter publicly because they imply the system cannot protect its own future heroes.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_nomu_are_not_ordinary_villains",
+      "title": "Nomu Are Not Ordinary Villains",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nomu-usj",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "USJ Nomu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Nomu",
+          "engineered weapon",
+          "combat asset"
+        ]
+      },
+      "tags": [
+        "villain:nomu",
+        "quirk:shock-absorption",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "USJ Nomu"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "Nomu",
+            "engineered weapon",
+            "combat asset"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nomu are engineered weapons rather than ordinary recruits, and their behavior should be more limited and mission-driven.",
+        "injection": "If a Nomu appears, write it as a constructed combat asset with specific capacities, not as a normal criminal with social motives.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_the_league_targets_symbolic_weak_points",
+      "title": "The League Targets Symbolic Weak Points",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:yagi-toshinori",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "symbolic attack",
+          "All Might target",
+          "undermine confidence"
+        ]
+      },
+      "tags": [
+        "faction:league-of-villains",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All Might"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "symbolic attack",
+            "All Might target",
+            "undermine confidence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The early League seeks attacks that undermine confidence in heroes, especially U.A. and All Might.",
+        "injection": "League plots should carry symbolic logic: exposing weakness matters as much as immediate casualties.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_villain_backing_can_be_hidden",
+      "title": "Villain Backing Can Be Hidden",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kurogiri",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kurogiri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "hidden backing",
+          "resources",
+          "sponsors"
+        ]
+      },
+      "tags": [
+        "faction:league-of-villains",
+        "knowledge:hidden",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kurogiri"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "hidden backing",
+            "resources",
+            "sponsors"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A small visible villain group may have resources, planning, or sponsors that students and teachers cannot yet see.",
+        "injection": "Do not assume the visible villains on scene are the whole threat if their logistics imply backing.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_students_are_future_assets",
+      "title": "U.A. Students Are Future Assets",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "future heroes",
+          "public attention",
+          "strategic target"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "topic:public-attention",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "future heroes",
+            "public attention",
+            "strategic target"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Villains, pros, media, and schools may view U.A. students as future symbols or assets, not just children in classes.",
+        "injection": "When Class 1-A becomes public, remember that attention to them can be strategic, predatory, or reputational.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_society_has_uneven_protection",
+      "title": "Hero Society Has Uneven Protection",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "uneven protection",
+          "resentment",
+          "vulnerability"
+        ]
+      },
+      "tags": [
+        "theme:systemic-failure",
+        "topic:uneven-protection",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "uneven protection",
+            "resentment",
+            "vulnerability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Places and people outside glamorous hero attention may receive less reliable protection or social support.",
+        "injection": "Use uneven protection to explain resentment, vulnerability, and villain recruitment without making every hero malicious.",
+        "constraints": [
+          "Preserve faction scale and maturity according to current Context."
+        ],
+        "antiLore": [
+          "Do not apply later-war faction scale or competence to early arcs unless the story explicitly diverges."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core factions",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

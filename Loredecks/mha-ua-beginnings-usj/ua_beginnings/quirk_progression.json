@@ -1,0 +1,1132 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_deku_is_in_finger_smash_stage",
+      "title": "Deku Is In Finger-Smash Stage",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.quirk-apprehension-test",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 1900,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Finger-smash OFA stage"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "finger smash",
+          "OFA stage",
+          "injury"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "status:ofa-finger-breaking",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "finger smash",
+            "OFA stage",
+            "injury"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "From the Quirk Apprehension Test through USJ, Deku can deliberately focus OFA into fingers but still injures himself.",
+        "injection": "During this stage, use finger smashes as limited tactical bursts, not safe repeatable attacks.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "requiredTags": [
+          "quirk:one-for-all"
+        ],
+        "constraints": [
+          "From the Quirk Apprehension Test through USJ, Deku can deliberately focus OFA into fingers but still injures himself."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_deku_has_no_full_cowl_at_usj",
+      "title": "Deku Has No Full Cowl At USJ",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Full Cowl absence",
+          "timeline gate",
+          "OFA control"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "meta:future-guard",
+        "knowledge:timeline",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "Full Cowl absence",
+            "timeline gate",
+            "OFA control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku has not yet developed Full Cowl during USJ.",
+        "injection": "Do not write USJ-era Deku using full-body percentage control, Shoot Style, Blackwhip, or later OFA techniques.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "requiredTags": [
+          "quirk:one-for-all"
+        ],
+        "constraints": [
+          "Deku has not yet developed Full Cowl during USJ."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_dekus_tactical_value_exceeds_control",
+      "title": "Deku's Tactical Value Exceeds Control",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early OFA adaptation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "analysis",
+          "courage",
+          "dangerous bursts"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "analysis",
+            "courage",
+            "dangerous bursts"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even with poor OFA control, Deku contributes through analysis, courage, communication, and risky decisive action.",
+        "injection": "Do not reduce early Deku to either useless or overpowered; his value is judgment plus dangerous bursts.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "requiredTags": [
+          "quirk:one-for-all"
+        ],
+        "constraints": [
+          "Even with poor OFA control, Deku contributes through analysis, courage, communication, and risky decisive action."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_bakugos_control_is_already_advanced",
+      "title": "Bakugo's Control Is Already Advanced",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.accepted-to-ua",
+        "validToAnchor": "mha.usj.class-rep-election",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 2200,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "First days of Class 1-A"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Explosion control",
+          "movement",
+          "offense"
+        ]
+      },
+      "tags": [
+        "quirk:explosion",
+        "character:bakugo-katsuki",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "topicsAny": [
+            "Explosion control",
+            "movement",
+            "offense"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo enters U.A. with unusually strong control over Explosion for movement and offense.",
+        "injection": "Early Bakugo should be technically skilled even when emotionally immature.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Explosion",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "requiredTags": [
+          "quirk:explosion"
+        ],
+        "constraints": [
+          "Bakugo enters U.A. with unusually strong control over Explosion for movement and offense."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_ochacos_limit_is_physical_not_moral",
+      "title": "Ochaco's Limit Is Physical Not Moral",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early Ochaco Quirk use"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "nausea",
+          "release timing",
+          "courage"
+        ]
+      },
+      "tags": [
+        "quirk:zero-gravity",
+        "character:uraraka-ochaco",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka"
+          ],
+          "topicsAny": [
+            "nausea",
+            "release timing",
+            "courage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco is willing to help but must manage Zero Gravity nausea and release timing.",
+        "injection": "Use Ochaco's limits as physical constraints, not lack of courage.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Zero Gravity",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:uraraka-ochaco"
+        ],
+        "requiredTags": [
+          "quirk:zero-gravity"
+        ],
+        "constraints": [
+          "Ochaco is willing to help but must manage Zero Gravity nausea and release timing."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_iidas_speed_requires_space",
+      "title": "Iida's Speed Requires Space",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.accepted-to-ua",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early Iida Quirk use"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya"
+        ],
+        "characters": [
+          "Tenya Iida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "speed",
+          "space",
+          "escape"
+        ]
+      },
+      "tags": [
+        "quirk:engine",
+        "character:iida-tenya",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida"
+          ],
+          "topicsAny": [
+            "speed",
+            "space",
+            "escape"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida's Engine is most useful when he has room to accelerate, reposition, or escape with purpose.",
+        "injection": "In cramped scenes, account for turning, obstacles, and role choice rather than treating speed as universal.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Engine",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:iida-tenya"
+        ],
+        "requiredTags": [
+          "quirk:engine"
+        ],
+        "constraints": [
+          "Iida's Engine is most useful when he has room to accelerate, reposition, or escape with purpose."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_aizawas_blink_limit_matters_at_usj",
+      "title": "Aizawa's Blink Limit Matters At USJ",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "blink limit",
+          "line of sight",
+          "overwhelmed"
+        ]
+      },
+      "tags": [
+        "quirk:erasure",
+        "hero:eraser-head",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "topicsAny": [
+            "blink limit",
+            "line of sight",
+            "overwhelmed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At USJ, Aizawa's Erasure is limited by line of sight, blinking, and being physically overwhelmed.",
+        "injection": "Use Erasure powerfully but with endurance and tactical limits under mass attack.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Erasure",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:aizawa-shota"
+        ],
+        "requiredTags": [
+          "quirk:erasure"
+        ],
+        "constraints": [
+          "At USJ, Aizawa's Erasure is limited by line of sight, blinking, and being physically overwhelmed."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_nomus_shock_absorption_counters_strikes",
+      "title": "Nomu's Shock Absorption Counters Strikes",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nomu-usj",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "USJ Nomu",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "shock absorption",
+          "counter All Might",
+          "overwhelming output"
+        ]
+      },
+      "tags": [
+        "villain:nomu",
+        "quirk:shock-absorption",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "USJ Nomu",
+            "All Might"
+          ],
+          "topicsAny": [
+            "shock absorption",
+            "counter All Might",
+            "overwhelming output"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The USJ Nomu's shock absorption makes normal impact force inadequate against it and pushes All Might toward overwhelming output.",
+        "injection": "Nomu should force All Might to exceed ordinary attack logic rather than fall to a simple punch exchange.",
+        "constraints": [
+          "Apply Quirk mastery according to the current early-U.A. Context."
+        ],
+        "antiLore": [
+          "Do not give students later techniques or maturity before the relevant arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 5-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Shock Absorption",
+        "stage": "early_ua_beginnings",
+        "ownerEntityIds": [
+          "mha:nomu-usj",
+          "mha:yagi-toshinori"
+        ],
+        "requiredTags": [
+          "quirk:shock-absorption"
+        ],
+        "constraints": [
+          "The USJ Nomu's shock absorption makes normal impact force inadequate against it and pushes All Might toward overwhelming output."
+        ],
+        "antiLore": [
+          "Do not import later mastery or later reveal state into early U.A./USJ scenes."
+        ]
+      }
+    }
+  ]
+}

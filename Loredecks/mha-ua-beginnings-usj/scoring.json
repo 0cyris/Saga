@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 3,
+  "weights": {
+    "contextMatch": 30,
+    "contextUnresolvedPenalty": -8,
+    "anchorProximity": 16,
+    "characterMatch": 25,
+    "locationMatch": 12,
+    "topicMatch": 18,
+    "tagMatch": 18,
+    "priority": 15,
+    "packStack": 10,
+    "sourceConfidence": 8,
+    "futureGuard": 20,
+    "healthWarningPenalty": -4,
+    "duplicatePenalty": -25,
+    "conflictPenalty": -50
+  },
+  "kindBoosts": {
+    "future_guard": 20,
+    "knowledge_gate": 18,
+    "ability_gate": 18,
+    "secret": 20
+  },
+  "packTypeBoosts": {
+    "bundled": 4,
+    "custom": 2,
+    "generated": 0
+  }
+}

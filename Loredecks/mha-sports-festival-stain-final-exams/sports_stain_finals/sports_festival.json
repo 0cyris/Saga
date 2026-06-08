@@ -1,0 +1,4484 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_u_a_sports_festival_is_a_public_recruitment_stage",
+      "title": "U.A. Sports Festival Is A Public Recruitment Stage",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-announced",
+        "sortKeyFrom": 3050,
+        "sortKeyTo": 3050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. Sports Festival announced"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:sports-festival",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "sports festival",
+          "public showcase",
+          "pro hero scouting"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:sports-festival",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School",
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "sports festival",
+            "public showcase",
+            "pro hero scouting"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Sports Festival turns first-year performance into public reputation, internship attention, and rival-course pressure.",
+        "injection": "Sports Festival scenes should feel public: agencies, media, families, rival courses, and future internships all watch.",
+        "constraints": [
+          "The festival is school activity, recruitment stage, and public spectacle at once."
+        ],
+        "antiLore": [
+          "Do not treat the Sports Festival as a private class tournament."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-23",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_post_usj_security_makes_the_festival_defiant",
+      "title": "Post-USJ Security Makes The Festival Defiant",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.post-usj-security",
+        "sortKeyFrom": 3000,
+        "sortKeyTo": 3000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Post-USJ security pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:sports-festival"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "post-USJ security",
+          "public confidence",
+          "institutional defiance"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "continuity:mha-manga-main",
+        "event:sports-festival",
+        "event:usj",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "post-USJ security",
+            "public confidence",
+            "institutional defiance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After USJ, U.A. continues with the Sports Festival while increasing security, turning the event into a public assertion that the school is not cowed by villain attack.",
+        "injection": "After USJ, U.A. should feel security-conscious but determined to project confidence through the Sports Festival.",
+        "constraints": [
+          "Security can be mentioned without making the event lockdown-like."
+        ],
+        "antiLore": [
+          "Do not ignore the institutional pressure created by USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_class_1_a_carries_a_post_usj_reputation",
+      "title": "Class 1-A Carries A Post-USJ Reputation",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.class-1a-public-target",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A becomes a public target"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. High School"
+        ],
+        "topics": [
+          "USJ survivors",
+          "public reputation",
+          "peer resentment"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:usj",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "USJ survivors",
+            "public reputation",
+            "peer resentment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A enters the Sports Festival with unusual attention because they survived a real villain attack at USJ.",
+        "injection": "During the Sports Festival, other students can view Class 1-A as lucky, overpraised, dangerous, or legitimate competition because of USJ.",
+        "constraints": [
+          "The reputation affects peer rivalry more than formal ranking."
+        ],
+        "antiLore": [
+          "Do not make all other students admire Class 1-A uncritically."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-24",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_other_courses_resent_hero_course_visibility",
+      "title": "Other Courses Resent Hero Course Visibility",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.class-1a-public-target",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A becomes a public target"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:general-studies",
+          "mha:class-1a",
+          "mha:class-1b"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "Hitoshi Shinso",
+          "Neito Monoma"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "General Studies",
+          "Hero Course"
+        ],
+        "topics": [
+          "course rivalry",
+          "hero-course privilege",
+          "public stage"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "class:ua-1a",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "school:general-studies"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "Hitoshi Shinso",
+            "Neito Monoma"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "General Studies",
+            "Hero Course"
+          ],
+          "topicsAny": [
+            "course rivalry",
+            "hero-course privilege",
+            "public stage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Students outside Class 1-A may resent how much visibility and opportunity the Hero Course receives.",
+        "injection": "Sports Festival scenes should allow rival courses to push back against Class 1-A attention, especially General Studies students who want a path into Heroics.",
+        "constraints": [
+          "Rivalry can be ambitious and institutional, not only petty."
+        ],
+        "antiLore": [
+          "Do not reduce non-Hero Course students to background spectators."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-24",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_bakugo_declares_first_place_without_diplomacy",
+      "title": "Bakugo Declares First Place Without Diplomacy",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.opening-declaration",
+        "sortKeyFrom": 3200,
+        "sortKeyTo": 3200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo declares he will win"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:sports-festival"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "declaration",
+          "public arrogance",
+          "competitive pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:bakugo-katsuki",
+        "continuity:mha-manga-main",
+        "event:sports-festival",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "declaration",
+            "public arrogance",
+            "competitive pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo declares he will take first place in a way that angers other students but reflects sincere confidence rather than showmanship.",
+        "injection": "When Bakugo speaks at the Sports Festival, keep his arrogance blunt and alienating, but grounded in real competitive seriousness.",
+        "constraints": [
+          "His declaration increases pressure on Class 1-A."
+        ],
+        "antiLore": [
+          "Do not portray Bakugo as making a friendly motivational speech."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 23-24",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_targets_izuku_before_the_festival",
+      "title": "Todoroki Targets Izuku Before The Festival",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.todoroki-challenges-izuku",
+        "sortKeyFrom": 3150,
+        "sortKeyTo": 3150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki challenges Izuku before the festival"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "challenge",
+          "All Might connection",
+          "rivalry"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "relationship:midoriya-todoroki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "challenge",
+            "All Might connection",
+            "rivalry"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto Todoroki challenges Izuku partly because he suspects a special connection between Izuku and All Might.",
+        "injection": "Before their match, Shoto should treat Izuku as a serious rival tied to All Might, not merely as another classmate.",
+        "constraints": [
+          "Shoto does not know One For All."
+        ],
+        "antiLore": [
+          "Do not let Shoto correctly identify One For All."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 23-24",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_obstacle_race_rewards_adaptation_over_raw_power",
+      "title": "Obstacle Race Rewards Adaptation Over Raw Power",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.obstacle-race-start",
+        "sortKeyFrom": 3250,
+        "sortKeyTo": 3250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Obstacle race begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:sports-festival",
+          "mha:midoriya-izuku",
+          "mha:todoroki-shoto",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shoto Todoroki",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "obstacle race",
+          "adaptation",
+          "student tactics"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "event:obstacle-race",
+        "event:sports-festival",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shoto Todoroki",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "obstacle race",
+            "adaptation",
+            "student tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The obstacle race tests movement, situational judgment, and adaptation, letting Izuku compete through analysis rather than safe One For All control.",
+        "injection": "In the obstacle race, emphasize improvised tactics and battlefield reading. Izuku should avoid casually using One For All as if it is already controlled.",
+        "constraints": [
+          "Izuku can win without proving superior baseline power."
+        ],
+        "antiLore": [
+          "Do not portray Izuku as safely mobile with Full Cowling yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 24-26",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_izuku_uses_scraps_and_mines_to_win_the_race",
+      "title": "Izuku Uses Scraps And Mines To Win The Race",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.izuku-obstacle-race-win",
+        "sortKeyFrom": 3300,
+        "sortKeyTo": 3300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku wins the obstacle race"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:sports-festival"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "land mine field",
+          "scrap metal",
+          "improvisation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "event:obstacle-race",
+        "event:sports-festival",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "land mine field",
+            "scrap metal",
+            "improvisation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku wins the obstacle race by using debris and land mines to launch himself ahead rather than by brute-force mastery of One For All.",
+        "injection": "After the obstacle race, Izuku should be recognized for tactical improvisation, not because he has already mastered his Quirk.",
+        "constraints": [
+          "This makes him a massive target in the cavalry battle."
+        ],
+        "antiLore": [
+          "Do not treat the race win as proof Izuku can freely control One For All."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 26-27",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_ten_million_points_makes_izuku_the_target",
+      "title": "Ten Million Points Makes Izuku The Target",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.cavalry-battle-announced",
+        "sortKeyFrom": 3350,
+        "sortKeyTo": 3350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Cavalry battle announced"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:sports-festival"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "cavalry battle",
+          "ten million points",
+          "target pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "event:cavalry-battle",
+        "event:sports-festival",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "cavalry battle",
+            "ten million points",
+            "target pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Because Izuku places first in the obstacle race, the cavalry battle assigns him a ten-million-point headband that makes him the main target.",
+        "injection": "During the cavalry battle, Izuku should feel hunted by nearly everyone because his headband can overturn the standings.",
+        "constraints": [
+          "Alliances and tactics matter more than simple combat."
+        ],
+        "antiLore": [
+          "Do not let Izuku move through the cavalry battle unnoticed."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 27-28",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_team_midoriya_is_a_tactical_improvisation_group",
+      "title": "Team Midoriya Is A Tactical Improvisation Group",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.team-midoriya-forms",
+        "sortKeyFrom": 3400,
+        "sortKeyTo": 3400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Team Midoriya forms for cavalry battle"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco",
+          "mha:tokoyami-fumikage",
+          "mha:hatsume-mei"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka",
+          "Fumikage Tokoyami",
+          "Mei Hatsume"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "Support Course"
+        ],
+        "topics": [
+          "Team Midoriya",
+          "cavalry battle tactics",
+          "support gear"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:hatsume-mei",
+        "character:midoriya-izuku",
+        "character:tokoyami-fumikage",
+        "character:uraraka-ochaco",
+        "continuity:mha-manga-main",
+        "event:cavalry-battle",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka",
+            "Fumikage Tokoyami",
+            "Mei Hatsume"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Support Course"
+          ],
+          "topicsAny": [
+            "Team Midoriya",
+            "cavalry battle tactics",
+            "support gear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Team Midoriya survives the cavalry battle through a mix of Ochaco’s mobility, Tokoyami’s defense, Mei’s self-promotion, and Izuku’s planning.",
+        "injection": "When Team Midoriya is active, show uneven motives and complementary abilities rather than a polished combat unit.",
+        "constraints": [
+          "Mei’s support-course agenda is openly self-promotional."
+        ],
+        "antiLore": [
+          "Do not make the team look like a trained permanent squad."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 27-29",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_mei_uses_the_festival_to_advertise_support_gear",
+      "title": "Mei Uses The Festival To Advertise Support Gear",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.team-midoriya-forms",
+        "sortKeyFrom": 3400,
+        "sortKeyTo": 3400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Team Midoriya forms for cavalry battle"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hatsume-mei",
+          "mha:support-course",
+          "mha:sports-festival"
+        ],
+        "characters": [
+          "Mei Hatsume"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "Support Course"
+        ],
+        "topics": [
+          "support gear",
+          "self-promotion",
+          "inventor behavior"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:hatsume-mei",
+        "continuity:mha-manga-main",
+        "event:sports-festival",
+        "fandom:mha",
+        "school:support-course"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mei Hatsume"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "Support Course"
+          ],
+          "topicsAny": [
+            "support gear",
+            "self-promotion",
+            "inventor behavior"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mei Hatsume treats the Sports Festival as an advertising platform for her inventions and support gear.",
+        "injection": "Mei should prioritize showing off her “babies” to companies and viewers, even when cooperating with hero-course students.",
+        "constraints": [
+          "Her help can be real while still self-serving."
+        ],
+        "antiLore": [
+          "Do not portray Mei as motivated mainly by tournament glory."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 27-29",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_shinso_brainwashing_requires_a_verbal_response",
+      "title": "Shinso Brainwashing Requires A Verbal Response",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.shinso-vs-izuku",
+        "sortKeyFrom": 3500,
+        "sortKeyTo": 3500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shinso faces Izuku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shinso-hitoshi",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Hitoshi Shinso",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "General Studies"
+        ],
+        "topics": [
+          "Brainwashing Quirk",
+          "verbal response",
+          "counterplay"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:midoriya-izuku",
+        "character:shinso-hitoshi",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:brainwashing",
+        "school:general-studies"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hitoshi Shinso",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "General Studies"
+          ],
+          "topicsAny": [
+            "Brainwashing Quirk",
+            "verbal response",
+            "counterplay"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hitoshi Shinso’s Brainwashing activates when a target verbally responds to him, making provocation and silence tactically important.",
+        "injection": "When Shinso is involved, treat speech as a tactical hazard. Characters who understand his Quirk should avoid answering him directly.",
+        "constraints": [
+          "At this point Shinso lacks hero-course combat training but has a dangerous capture condition."
+        ],
+        "antiLore": [
+          "Do not let Brainwashing trigger without a response."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 31-34",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Brainwashing",
+        "stage": "sports_festival_reveal",
+        "ownerEntityIds": [
+          "mha:shinso-hitoshi"
+        ],
+        "constraints": [
+          "Requires the target to verbally respond to Shinso.",
+          "Physical shock or outside interference can break control."
+        ],
+        "antiLore": [
+          "Do not make Brainwashing a passive aura or eye-contact power."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_shinso_exposes_hero_course_gatekeeping",
+      "title": "Shinso Exposes Hero Course Gatekeeping",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.shinso-vs-izuku",
+        "sortKeyFrom": 3500,
+        "sortKeyTo": 3500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shinso faces Izuku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shinso-hitoshi",
+          "mha:general-studies"
+        ],
+        "characters": [
+          "Hitoshi Shinso"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "General Studies",
+          "Hero Course"
+        ],
+        "topics": [
+          "hero-course gatekeeping",
+          "resentment",
+          "ambition"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:shinso-hitoshi",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "school:general-studies"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hitoshi Shinso"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "General Studies",
+            "Hero Course"
+          ],
+          "topicsAny": [
+            "hero-course gatekeeping",
+            "resentment",
+            "ambition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shinso resents being outside the Hero Course despite having a Quirk suited to capture work and heroics.",
+        "injection": "Shinso scenes should carry institutional frustration: he wants recognition, not pity, and he tests Hero Course privilege directly.",
+        "constraints": [
+          "His resentment does not make him a villain."
+        ],
+        "antiLore": [
+          "Do not frame Shinso’s Quirk as inherently villainous."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 31-34",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_vestige_interference_saves_izuku_against_shinso",
+      "title": "Vestige Interference Saves Izuku Against Shinso",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.shinso-vs-izuku",
+        "sortKeyFrom": 3500,
+        "sortKeyTo": 3500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shinso faces Izuku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all",
+          "mha:shinso-hitoshi"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Hitoshi Shinso"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "One For All vestige hint",
+          "Brainwashing escape",
+          "hidden inheritance"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:midoriya-izuku",
+        "character:shinso-hitoshi",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:brainwashing",
+        "quirk:one-for-all",
+        "secret:ofa-vestiges"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Hitoshi Shinso"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "One For All vestige hint",
+            "Brainwashing escape",
+            "hidden inheritance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku breaks Shinso’s Brainwashing through an early, poorly understood One For All vestige-like intervention.",
+        "injection": "In the Shinso match, Izuku must not fully understand why he escaped Brainwashing. Treat the moment as a mysterious One For All anomaly, not as mastered vestige communication.",
+        "constraints": [
+          "This is a future-seeded clue, not a fully explained power system yet."
+        ],
+        "antiLore": [
+          "Do not reveal the full vestige system during the Sports Festival."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 31-34",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:general-studies"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_ochaco_chooses_a_direct_fight_with_bakugo",
+      "title": "Ochaco Chooses A Direct Fight With Bakugo",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.ochaco-vs-bakugo",
+        "sortKeyFrom": 3550,
+        "sortKeyTo": 3550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco faces Bakugo"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Uraraka vs Bakugo",
+          "independence",
+          "tournament tactics"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:bakugo-katsuki",
+        "character:uraraka-ochaco",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Uraraka vs Bakugo",
+            "independence",
+            "tournament tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco fights Bakugo with her own plan and resolve rather than relying on Izuku’s protection or being treated as helpless.",
+        "injection": "In Ochaco vs. Bakugo scenes, preserve Ochaco’s agency. Her strategy can fail without making her weak or decorative.",
+        "constraints": [
+          "Bakugo takes her seriously as an opponent."
+        ],
+        "antiLore": [
+          "Do not frame Bakugo holding back because Ochaco is a girl."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 35-36",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_bakugo_takes_ochaco_seriously",
+      "title": "Bakugo Takes Ochaco Seriously",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.ochaco-vs-bakugo",
+        "sortKeyFrom": 3550,
+        "sortKeyTo": 3550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco faces Bakugo"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "respectful combat",
+          "no holding back",
+          "Uraraka strategy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:bakugo-katsuki",
+        "character:uraraka-ochaco",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "respectful combat",
+            "no holding back",
+            "Uraraka strategy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo treats Ochaco as dangerous enough to fight seriously, which is harsh but not dismissive.",
+        "injection": "When Bakugo faces Ochaco, his refusal to go easy should read as combat respect through his abrasive worldview.",
+        "constraints": [
+          "His language can still be crude and aggressive."
+        ],
+        "antiLore": [
+          "Do not make Bakugo secretly gentle or patronizing in this match."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 35-36",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_rejects_his_fire_because_of_endeavor",
+      "title": "Todoroki Rejects His Fire Because Of Endeavor",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.todoroki-origin-revealed",
+        "sortKeyFrom": 3650,
+        "sortKeyTo": 3650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shoto Todoroki origin revealed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:todoroki-rei",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Endeavor",
+          "Rei Todoroki"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki family"
+        ],
+        "topics": [
+          "fire refusal",
+          "family trauma",
+          "Endeavor abuse"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:endeavor",
+        "character:todoroki-rei",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "family:todoroki",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Endeavor",
+            "Rei Todoroki"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "Todoroki family"
+          ],
+          "topicsAny": [
+            "fire refusal",
+            "family trauma",
+            "Endeavor abuse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto refuses to use his left-side fire because he associates it with Endeavor’s abuse and his family’s trauma.",
+        "injection": "Before and during the Izuku match, Shoto’s fire refusal should be emotional and ideological, not a simple tactical preference.",
+        "constraints": [
+          "His ice side is powerful but emotionally tied to rejection of Endeavor."
+        ],
+        "antiLore": [
+          "Do not portray Shoto’s fire avoidance as laziness or lack of ability."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 37-39",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_endeavor_views_shoto_as_a_project",
+      "title": "Endeavor Views Shoto As A Project",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.endeavor-approaches-izuku",
+        "sortKeyFrom": 3600,
+        "sortKeyTo": 3600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor approaches Izuku about Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki family",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Endeavor ambition",
+          "Shoto project",
+          "surpassing All Might"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:endeavor",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "family:todoroki",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "Todoroki family",
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "Endeavor ambition",
+            "Shoto project",
+            "surpassing All Might"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor treats Shoto as the product of his ambition to surpass All Might, placing heavy pressure on Shoto’s public performance.",
+        "injection": "During the Sports Festival, Endeavor should be intense, controlling, and fixated on Shoto’s usefulness as proof of his own ambition.",
+        "constraints": [
+          "Endeavor is not yet in his later atonement stage."
+        ],
+        "antiLore": [
+          "Do not soften Endeavor into a supportive parent in this arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 37",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_izuku_pushes_shoto_to_claim_his_own_power",
+      "title": "Izuku Pushes Shoto To Claim His Own Power",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Deku vs Todoroki",
+          "own power",
+          "emotional breakthrough"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "relationship:midoriya-todoroki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Deku vs Todoroki",
+            "own power",
+            "emotional breakthrough"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku pushes Shoto to see his fire as his own power rather than Endeavor’s possession.",
+        "injection": "In Izuku vs. Shoto, make Izuku’s provocation moral and empathetic: he wants Shoto to fight fully as himself, even at personal cost.",
+        "constraints": [
+          "This is a relationship pivot, not just a battle tactic."
+        ],
+        "antiLore": [
+          "Do not make Izuku’s goal simply tournament victory."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_uses_fire_publicly_against_izuku",
+      "title": "Todoroki Uses Fire Publicly Against Izuku",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:midoriya-izuku",
+          "mha:endeavor"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Izuku Midoriya",
+          "Endeavor"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "Todoroki family"
+        ],
+        "topics": [
+          "fire breakthrough",
+          "public use",
+          "identity shift"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:endeavor",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "family:todoroki",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Izuku Midoriya",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Todoroki family"
+          ],
+          "topicsAny": [
+            "fire breakthrough",
+            "public use",
+            "identity shift"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto uses his fire publicly against Izuku, marking a breakthrough in his relationship to his own power.",
+        "injection": "After the Izuku match, Shoto’s use of fire is possible but emotionally complicated; do not make him instantly healed or fully integrated.",
+        "constraints": [
+          "The breakthrough opens a path, not a completed recovery."
+        ],
+        "antiLore": [
+          "Do not make Shoto casually spam fire with no emotional residue immediately after."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_izuku_injures_himself_to_force_full_effort",
+      "title": "Izuku Injures Himself To Force Full Effort",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "finger-breaking OFA",
+          "self-injury",
+          "sports festival match"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "finger-breaking OFA",
+            "self-injury",
+            "sports festival match"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku still uses One For All in body-damaging bursts during the Sports Festival, repeatedly injuring himself to push Shoto.",
+        "injection": "Sports Festival Izuku can make spectacular attacks, but each One For All burst should carry injury cost and tactical limitation.",
+        "constraints": [
+          "He has not developed Full Cowling yet."
+        ],
+        "antiLore": [
+          "Do not portray him as using Full Cowling during the Sports Festival."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "finger_breaking_burst_use",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Burst use causes severe self-injury at this stage.",
+          "Izuku must ration fingers and limbs as tactical resources."
+        ],
+        "antiLore": [
+          "Do not give Izuku safe continuous One For All control before Gran Torino."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_bakugo_wins_but_feels_denied_a_true_victory",
+      "title": "Bakugo Wins But Feels Denied A True Victory",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.bakugo-vs-todoroki-final",
+        "sortKeyFrom": 3750,
+        "sortKeyTo": 3750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo faces Todoroki in the final"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "tournament final",
+          "unsatisfying victory",
+          "rivalry"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "tournament final",
+            "unsatisfying victory",
+            "rivalry"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo wins the Sports Festival final, but Todoroki’s refusal to use fire makes the victory feel hollow to him.",
+        "injection": "After the final, Bakugo should be furious because winning without full resistance does not satisfy his competitive standard.",
+        "constraints": [
+          "He wants to prove superiority against opponents at full strength."
+        ],
+        "antiLore": [
+          "Do not portray the gold medal as emotionally satisfying for Bakugo."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 42-43",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_sports_festival_rankings_shape_internship_offers",
+      "title": "Sports Festival Rankings Shape Internship Offers",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-ends",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sports Festival ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:sports-festival",
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "internship offers",
+          "scouting",
+          "public performance"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:sports-festival",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "topic:internships"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "internship offers",
+            "scouting",
+            "public performance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Sports Festival performance directly affects which students receive attention and workplace training offers from pro heroes.",
+        "injection": "After the Sports Festival, internship opportunities should reflect public performance, Quirk visibility, and pro-hero scouting interests.",
+        "constraints": [
+          "High visibility can help or burden students."
+        ],
+        "antiLore": [
+          "Do not make internship offers unrelated to Sports Festival exposure."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_visits_his_mother_after_the_festival",
+      "title": "Todoroki Visits His Mother After The Festival",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-ends",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sports Festival ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:todoroki-rei",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Rei Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Todoroki family"
+        ],
+        "topics": [
+          "mother visit",
+          "family trauma",
+          "first repair step"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:todoroki-rei",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "family:todoroki",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Rei Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki family"
+          ],
+          "topicsAny": [
+            "mother visit",
+            "family trauma",
+            "first repair step"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the Sports Festival, Shoto decides to visit his mother, beginning a difficult personal step rather than resolving the family trauma instantly.",
+        "injection": "Post-Sports Festival Shoto may seek contact with his mother, but keep the family wound active and unresolved.",
+        "constraints": [
+          "This is not Endeavor’s redemption arc."
+        ],
+        "antiLore": [
+          "Do not make the Todoroki family healed after one match."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_iida_loses_focus_after_tensei_is_hurt",
+      "title": "Iida Loses Focus After Tensei Is Hurt",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-ends",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sports Festival ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:iida-tensei"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Tensei Iida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ingenium injury",
+          "brotherhood",
+          "revenge seed"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:iida-tensei",
+        "character:iida-tenya",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:ingenium"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Tensei Iida"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "Ingenium injury",
+            "brotherhood",
+            "revenge seed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Tensei is attacked by Stain, Tenya’s usual discipline is destabilized by grief and anger.",
+        "injection": "After Tensei’s injury, Iida should seem outwardly controlled but internally pulled toward revenge and the Ingenium legacy.",
+        "constraints": [
+          "This emotional state leads into Hosu."
+        ],
+        "antiLore": [
+          "Do not keep Iida purely rule-bound and emotionally untouched after Tensei’s injury."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_monoma_turns_class_rivalry_into_provocation",
+      "title": "Monoma Turns Class Rivalry Into Provocation",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.class-1a-public-target",
+        "sortKeyFrom": 3100,
+        "sortKeyTo": 3100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A becomes a public target"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:monoma-neito",
+          "mha:class-1b",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Neito Monoma",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "Class 1-A rivalry",
+          "provocation",
+          "Class 1-B pride"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:monoma-neito",
+        "class:ua-1a",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Neito Monoma",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-B"
+          ],
+          "topicsAny": [
+            "Class 1-A rivalry",
+            "provocation",
+            "Class 1-B pride"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Neito Monoma often channels Class 1-B pride through theatrical provocation toward Class 1-A.",
+        "injection": "Use Monoma as a rival-course irritant whose barbs reflect Class 1-B resentment and ambition, not just random malice.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray all Class 1-B rivalry through Monoma alone."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-24",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_general_studies_sees_the_festival_as_a_transfer_chance",
+      "title": "General Studies Sees The Festival As A Transfer Chance",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.shinso-vs-izuku",
+        "sortKeyFrom": 3500,
+        "sortKeyTo": 3500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shinso faces Izuku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:general-studies",
+          "mha:shinso-hitoshi"
+        ],
+        "characters": [
+          "Hitoshi Shinso"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "General Studies"
+        ],
+        "topics": [
+          "course transfer",
+          "hero course aspiration"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:shinso-hitoshi",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "school:general-studies"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hitoshi Shinso"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "General Studies"
+          ],
+          "topicsAny": [
+            "course transfer",
+            "hero course aspiration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "For General Studies students like Shinso, the Sports Festival can be a rare path toward recognition and possible Hero Course transfer.",
+        "injection": "General Studies ambition should feel structurally motivated: the festival is one of the few public chances to be seen.",
+        "constraints": [],
+        "antiLore": [
+          "Do not treat Shinso’s ambition as merely personal jealousy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 31-34",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_sports_festival_does_not_reveal_one_for_all_publicly",
+      "title": "Sports Festival Does Not Reveal One For All Publicly",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "public misunderstanding"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:one-for-all",
+        "secret:ofa-transfer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "OFA secrecy",
+            "public misunderstanding"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Sports Festival shows Izuku’s strange power but does not publicly reveal One For All’s transfer lineage.",
+        "injection": "Audience members may notice Izuku’s power resembles All Might’s, but they must not know the One For All secret from the festival alone.",
+        "constraints": [
+          "Todoroki suspects a special connection, not the full mechanism."
+        ],
+        "antiLore": [
+          "Do not let classmates or media casually identify One For All."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:general-studies"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_recovery_girl_warns_against_repeated_self_destruction",
+      "title": "Recovery Girl Warns Against Repeated Self-Destruction",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "injury limit",
+          "Recovery Girl warning",
+          "OFA drawback"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:one-for-all",
+        "topic:injury"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "injury limit",
+            "Recovery Girl warning",
+            "OFA drawback"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku’s repeated One For All injuries create real medical concern and cannot be healed indefinitely without consequences.",
+        "injection": "After major Sports Festival injuries, Recovery Girl and responsible adults should treat Izuku’s self-destruction as a serious problem.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make healing remove all cost from repeated limb destruction."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_sports_festival_outcomes_should_not_grant_pro_licenses",
+      "title": "Sports Festival Outcomes Should Not Grant Pro Licenses",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-ends",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sports Festival ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:sports-festival",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "license boundary",
+          "student status",
+          "internships"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:sports-festival",
+        "fandom:mha",
+        "topic:hero-licensing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "license boundary",
+            "student status",
+            "internships"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Sports Festival success brings attention and offers, not provisional licenses or independent authority to act as pro heroes.",
+        "injection": "After the Sports Festival, students remain unlicensed first-years; internships must still be supervised by pro heroes.",
+        "constraints": [],
+        "antiLore": [
+          "Do not let tournament success make students legally independent heroes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_does_not_become_fully_social_overnight",
+      "title": "Todoroki Does Not Become Fully Social Overnight",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-ends",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sports Festival ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "post-breakthrough reserve",
+          "social growth"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "post-breakthrough reserve",
+            "social growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto’s breakthrough softens his isolation but does not instantly make him socially fluent or emotionally open.",
+        "injection": "Post-festival Shoto can be more willing to connect, but he should remain reserved and awkward while processing family trauma.",
+        "constraints": [],
+        "antiLore": [
+          "Do not turn him into a cheerful extrovert immediately."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

@@ -1,0 +1,1822 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_izuku_begins_as_quirkless_hero_fan",
+      "title": "Izuku Begins As Quirkless Hero Fan",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Quirkless Deku",
+          "hero analysis",
+          "dream"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "topic:quirklessness",
+        "arc:ua-beginnings",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "Quirkless Deku",
+            "hero analysis",
+            "dream"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku begins Quirkless, analytical, socially dismissed, and unable to abandon the instinct to save.",
+        "injection": "Early Izuku is insecure but observant and compulsively helpful; his courage precedes his power.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_bakugo_bullies_izuku_from_childhood",
+      "title": "Bakugo Bullies Izuku From Childhood",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "childhood bullying",
+          "Kacchan",
+          "rivalry"
+        ]
+      },
+      "tags": [
+        "character:bakugo-katsuki",
+        "relationship:deku-bakugo",
+        "arc:ua-beginnings",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "topicsAny": [
+            "childhood bullying",
+            "Kacchan",
+            "rivalry"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo's early relationship with Izuku is shaped by superiority, resentment, nickname cruelty, and fear of Izuku's persistence.",
+        "injection": "Before their later growth, Bakugo must not treat Izuku as an equal friend; the dynamic is hostile and loaded.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_izuku_records_hero_analysis",
+      "title": "Izuku Records Hero Analysis",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hero notebooks",
+          "analysis",
+          "tactics"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "topic:hero-analysis",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "hero notebooks",
+            "analysis",
+            "tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku's notebooks and observations show that he studies hero tactics, Quirks, and rescue behavior seriously even without a Quirk.",
+        "injection": "Use Izuku's analysis as a practical skill: he notices patterns, weaknesses, and rescue options under pressure.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_sludge_villain_exposes_izukus_instinct",
+      "title": "Sludge Villain Exposes Izuku's Instinct",
+      "kind": "event_anchor",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.sludge-villain-first-attack",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sludge Villain incident"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sludge Villain",
+          "saving instinct",
+          "heroism"
+        ]
+      },
+      "tags": [
+        "event:sludge-villain",
+        "character:midoriya-izuku",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "All Might"
+          ],
+          "topicsAny": [
+            "Sludge Villain",
+            "saving instinct",
+            "heroism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku runs toward danger to save Bakugo before he has power, proving his saving instinct to All Might.",
+        "injection": "Izuku's first defining heroic act should be self-endangering rescue instinct, not combat strength.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_all_might_initially_discourages_izuku",
+      "title": "All Might Initially Discourages Izuku",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "discouragement",
+          "Quirkless hero dream",
+          "professional risk"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "character:midoriya-izuku",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "topicsAny": [
+            "discouragement",
+            "Quirkless hero dream",
+            "professional risk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might first tells Izuku that hero work without a Quirk is not realistically safe, reflecting professional risk rather than malice.",
+        "injection": "All Might's early discouragement should be pragmatic and painful, not casual cruelty.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_all_might_chooses_izuku_after_rescue_instinct",
+      "title": "All Might Chooses Izuku After Rescue Instinct",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.all-might-offers-training",
+        "sortKeyFrom": 1200,
+        "sortKeyTo": 1200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might chooses Izuku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "successor choice",
+          "saving instinct",
+          "OFA"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "quirk:one-for-all",
+        "relationship:all-might-deku",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "topicsAny": [
+            "successor choice",
+            "saving instinct",
+            "OFA"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might chooses Izuku as successor because Izuku moved to save someone before having power.",
+        "injection": "Frame All Might's choice around heroic instinct and moral reflex, not grades, pedigree, or combat ability.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_dagobah_training_builds_a_vessel",
+      "title": "Dagobah Training Builds A Vessel",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.dagobah-training",
+        "sortKeyFrom": 1300,
+        "sortKeyTo": 1300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dagobah training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori",
+          "mha:dagobah-beach"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "Dagobah Municipal Beach Park"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "beach training",
+          "conditioning",
+          "vessel"
+        ]
+      },
+      "tags": [
+        "location:dagobah-beach",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Dagobah Municipal Beach Park"
+          ],
+          "topicsAny": [
+            "beach training",
+            "conditioning",
+            "vessel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's ten-month training prepares Izuku's body to receive One For All through exhausting physical labor.",
+        "injection": "Before the entrance exam, show Izuku's progress as earned conditioning, not instant power delivery.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_one_for_all_transfer_is_awkward_and_secret",
+      "title": "One For All Transfer Is Awkward And Secret",
+      "kind": "event_anchor",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1400,
+        "sortKeyTo": 1400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "OFA transfer",
+          "DNA",
+          "secret"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "secret:one-for-all",
+        "event:ofa-transfer",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "topicsAny": [
+            "OFA transfer",
+            "DNA",
+            "secret"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The One For All transfer occurs through consuming All Might's DNA and is treated as private, strange, and serious.",
+        "injection": "Do not present the transfer as public ceremony; it is intimate, awkward, and hidden from everyone else.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_izuku_enters_u_a_with_no_control",
+      "title": "Izuku Enters U.A. With No Control",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "uncontrolled OFA",
+          "entrance exam",
+          "no control"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "status:ofa-uncontrolled",
+        "event:entrance-exam",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "uncontrolled OFA",
+            "entrance exam",
+            "no control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku takes the entrance exam immediately after receiving One For All and has no practical control over it.",
+        "injection": "At the entrance exam, Deku can unleash power only at terrible physical cost, not fight like a trained OFA user.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_inko_fears_for_izukus_dream",
+      "title": "Inko Fears For Izuku's Dream",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:inko-midoriya",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Inko Midoriya",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Inko",
+          "parental fear",
+          "support"
+        ]
+      },
+      "tags": [
+        "character:inko-midoriya",
+        "family:midoriya",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Inko Midoriya",
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "Inko",
+            "parental fear",
+            "support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Inko Midoriya supports Izuku but carries guilt and fear from years of watching his dream seem impossible.",
+        "injection": "Inko scenes should include love, anxiety, and regret rather than simple cheerleading.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_izukus_courage_precedes_recognition",
+      "title": "Izuku's Courage Precedes Recognition",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "heroic impulse",
+          "recognition",
+          "qualification"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "theme:saving",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "heroic impulse",
+            "recognition",
+            "qualification"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku acts heroically before institutions recognize him as a candidate for hero training.",
+        "injection": "Early scenes should distinguish public qualification from actual heroic impulse.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_bakugos_attack_confirms_izukus_growth",
+      "title": "Bakugo's Attack Confirms Izuku's Growth",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.sludge-villain-first-attack",
+        "sortKeyFrom": 1100,
+        "sortKeyTo": 1100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo rescue"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescuing Bakugo",
+          "moral reflex",
+          "bullying"
+        ]
+      },
+      "tags": [
+        "relationship:deku-bakugo",
+        "event:sludge-villain",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "topicsAny": [
+            "rescuing Bakugo",
+            "moral reflex",
+            "bullying"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku's response to Bakugo's crisis shows that his desire to save includes people who mistreated him.",
+        "injection": "Do not write Izuku's rescue instinct as conditional on being treated kindly.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_all_might_sees_his_own_ideal_in_izuku",
+      "title": "All Might Sees His Own Ideal In Izuku",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mentor recognition",
+          "saving ideal",
+          "successor"
+        ]
+      },
+      "tags": [
+        "relationship:all-might-deku",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "topicsAny": [
+            "mentor recognition",
+            "saving ideal",
+            "successor"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might recognizes in Izuku the reflex to save before calculating personal safety.",
+        "injection": "All Might's mentorship begins because Izuku reflects the ideal behind the Symbol of Peace, not because he is already impressive.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_aldera_treats_hero_ambition_as_hierarchy",
+      "title": "Aldera Treats Hero Ambition As Hierarchy",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:aldaera-junior-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "Aldera Junior High"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Aldera",
+          "Quirk hierarchy",
+          "school bullying"
+        ]
+      },
+      "tags": [
+        "location:aldera-junior-high",
+        "topic:quirk-hierarchy",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "Aldera Junior High"
+          ],
+          "topicsAny": [
+            "Aldera",
+            "Quirk hierarchy",
+            "school bullying"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At Aldera, students and teachers treat hero ambition through Quirk hierarchy, making Izuku's dream seem laughable.",
+        "injection": "Use Aldera scenes to show social pressure around Quirk worth and Bakugo's status.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_izuku_keeps_moving_after_rejection",
+      "title": "Izuku Keeps Moving After Rejection",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.origin.quirkless-childhood",
+        "validToAnchor": "mha.usj.ofa-transfer",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 1400,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Origin through One For All transfer"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-ua",
+          "label": "Before U.A.",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-quirkless-to-ofa",
+          "label": "Quirkless to OFA transfer",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "persistence",
+          "self-doubt",
+          "action"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "theme:persistence",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "persistence",
+            "self-doubt",
+            "action"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku's early arc is defined by continuing to move despite humiliation, fear, and discouragement.",
+        "injection": "Early Izuku should be anxious and self-doubting but not passive when someone needs help.",
+        "constraints": [
+          "Keep this origin state anchored before Izuku has stable One For All control."
+        ],
+        "antiLore": [
+          "Do not import later Deku confidence, Full Cowl, or public hero status into this period."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 1-3",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

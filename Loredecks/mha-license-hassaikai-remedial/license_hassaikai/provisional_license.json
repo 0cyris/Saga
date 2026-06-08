@@ -1,0 +1,3399 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_post_kamino_dorm_life_is_a_security_response",
+      "title": "Post-Kamino Dorm Life Is A Security Response",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.dorms-after-kamino",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 8000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A lives under the new U.A. dorm system"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "dorm system",
+          "school security",
+          "post-Kamino restrictions"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:dorm-system",
+        "topic:post-kamino-restrictions",
+        "topic:school-security"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "dorm system",
+            "school security",
+            "post-Kamino restrictions"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Kamino, Class 1-A lives in U.A. dorms as part of a school security escalation and trust-repair effort.",
+        "injection": "During this period, keep Class 1-A under the new dorm system: closer to each other, more supervised by U.A., and less free to move like ordinary commuters.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-99",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_special_moves_are_license_readiness_tools",
+      "title": "Special Moves Are License Readiness Tools",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.special-moves-training",
+        "sortKeyFrom": 8050,
+        "sortKeyTo": 8050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Special moves training begins for license preparation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "special moves",
+          "provisional license preparation",
+          "combat readiness"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:combat-readiness",
+        "topic:provisional-license-preparation",
+        "topic:special-moves"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "special moves",
+            "provisional license preparation",
+            "combat readiness"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Special moves training converts Quirk talent into repeatable, situation-ready techniques for licensing conditions.",
+        "injection": "Frame special moves as practical readiness work, not cosmetic attack names. Students are learning reliability under stress.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-100",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_shoot_style_redirects_izuku_away_from_arm_destruction",
+      "title": "Shoot Style Redirects Izuku Away From Arm Destruction",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.special-moves-training",
+        "sortKeyFrom": 8050,
+        "sortKeyTo": 8050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Special moves training begins for license preparation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Shoot Style",
+          "One For All adaptation",
+          "arm injury avoidance"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:arm-injury-avoidance",
+        "topic:one-for-all-adaptation",
+        "topic:shoot-style"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Shoot Style",
+            "One For All adaptation",
+            "arm injury avoidance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku begins building Shoot Style to reduce arm-damaging punches and route One For All through kicks and mobility.",
+        "injection": "Use Shoot Style as Izuku’s practical adaptation to One For All injuries: legs, movement, and controlled bursts rather than reckless arm-smashing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-100",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "early-shoot-style",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Incomplete control; no later vestige Quirks."
+        ],
+        "antiLore": [
+          "Do not use Blackwhip, Float, Fa Jin, Gearshift, or other later abilities here."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_license_exam_legally_matters_more_than_passing_a_test",
+      "title": "License Exam Legally Matters More Than Passing A Test",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.provisional-exam-arrival",
+        "sortKeyFrom": 8150,
+        "sortKeyTo": 8150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A arrives at the Provisional Hero License Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hero law",
+          "legal authority",
+          "public emergency permissions"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hero-law",
+        "topic:legal-authority",
+        "topic:public-emergency-permissions"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero law",
+            "legal authority",
+            "public emergency permissions"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A provisional license gives students limited legal authority to perform hero activity in public emergencies; without it, public combat or rescue action can violate hero law.",
+        "injection": "Treat provisional licensing as legal permission with stakes. Passing changes what students can do in public; failing limits their lawful hero activity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 100-102",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_the_exam_tests_public_hero_conduct_not_only_combat",
+      "title": "The Exam Tests Public Hero Conduct Not Only Combat",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.provisional-exam-arrival",
+        "sortKeyFrom": 8150,
+        "sortKeyTo": 8150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A arrives at the Provisional Hero License Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue conduct",
+          "public communication",
+          "exam standards"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:exam-standards",
+        "topic:public-communication",
+        "topic:rescue-conduct"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue conduct",
+            "public communication",
+            "exam standards"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The license exam tests combat, rescue priorities, communication, and public-facing hero conduct rather than raw Quirk strength alone.",
+        "injection": "Evaluate students by rescue judgment, coordination, speech, and lawful hero conduct, not just who wins a fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 100-102",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_other_schools_target_u_a_because_sports_festival_exposed_them",
+      "title": "Other Schools Target U.A. Because Sports Festival Exposed Them",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.ua-crush-strategy",
+        "sortKeyFrom": 8350,
+        "sortKeyTo": 8350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Other schools target U.A. because Sports Festival footage exposed them"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Sports Festival footage",
+          "U.A. targeting",
+          "public exposure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:public-exposure",
+        "topic:sports-festival-footage",
+        "topic:u-a-targeting"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Sports Festival footage",
+            "U.A. targeting",
+            "public exposure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Other examinees can study U.A. students because the Sports Festival publicly exposed their Quirks, tactics, and personalities.",
+        "injection": "Let rival schools exploit Sports Festival knowledge. U.A.’s fame is a tactical disadvantage, not only prestige.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 102-105",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_shiketsu_is_a_peer_institution_not_a_joke_rival",
+      "title": "Shiketsu Is A Peer Institution Not A Joke Rival",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.shiketsu-introduced",
+        "sortKeyFrom": 8200,
+        "sortKeyTo": 8200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shiketsu High appears as a major rival school"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rival hero school",
+          "elite training culture",
+          "license exam rivalry"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:elite-training-culture",
+        "topic:license-exam-rivalry",
+        "topic:rival-hero-school"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rival hero school",
+            "elite training culture",
+            "license exam rivalry"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shiketsu High is a serious peer institution to U.A., with disciplined training culture and students capable of challenging U.A. directly.",
+        "injection": "Use Shiketsu as a credible elite rival school; its students must not read as comic background extras.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 100-103",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_ketsubutsu_uses_u_a_fame_against_them",
+      "title": "Ketsubutsu Uses U.A. Fame Against Them",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.ketsubutsu-introduced",
+        "sortKeyFrom": 8250,
+        "sortKeyTo": 8250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ketsubutsu Academy targets U.A. through public knowledge"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rival school tactics",
+          "U.A. crush strategy",
+          "public footage"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:public-footage",
+        "topic:rival-school-tactics",
+        "topic:u-a-crush-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rival school tactics",
+            "U.A. crush strategy",
+            "public footage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ketsubutsu Academy students exploit U.A.’s public fame and Sports Festival exposure during the license exam.",
+        "injection": "When Ketsubutsu appears, emphasize tactical opportunism: they know U.A. is famous, studied, and worth eliminating early.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 102-104",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_camie_in_this_exam_is_toga_in_disguise",
+      "title": "Camie In This Exam Is Toga In Disguise",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.deku-isolated-camie",
+        "sortKeyFrom": 8400,
+        "sortKeyTo": 8400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku is isolated by Camie impersonation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Camie impersonation",
+          "Toga infiltration",
+          "blood theft"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:blood-theft",
+        "topic:camie-impersonation",
+        "topic:toga-infiltration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Camie impersonation",
+            "Toga infiltration",
+            "blood theft"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Camie who interacts with Izuku during the license exam is Himiko Toga in disguise, not the real Camie Utsushimi.",
+        "injection": "Hide the Camie impersonation unless the scene is from Toga’s informed perspective or after the reveal. Her behavior should feel flirtatious, invasive, and strategically odd.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 104-106",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Transform",
+        "stage": "blood-based-impersonation",
+        "ownerEntityIds": [
+          "mha:toga-himiko"
+        ],
+        "constraints": [
+          "Toga needs blood to impersonate a target."
+        ],
+        "antiLore": [
+          "Do not treat Camie’s actual Quirk as active in these scenes."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:toga-himiko"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:class-1a",
+          "mha:shiketsu-high"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_toga_steals_izuku_blood_for_later_use",
+      "title": "Toga Steals Izuku Blood For Later Use",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.toga-blood-theft",
+        "sortKeyFrom": 8450,
+        "sortKeyTo": 8450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga steals Izuku blood while disguised as Camie"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "blood theft",
+          "future infiltration setup",
+          "Transform Quirk"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:blood-theft",
+        "topic:future-infiltration-setup",
+        "topic:transform-quirk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "blood theft",
+            "future infiltration setup",
+            "Transform Quirk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga steals Izuku’s blood during the license exam, creating future disguise risk.",
+        "injection": "Preserve the hidden consequence: Toga has obtained Izuku’s blood. Do not reveal that consequence to uninformed characters prematurely.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 104-106",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:toga-himiko"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_rescue_stage_uses_huc_victim_actors",
+      "title": "Rescue Stage Uses HUC Victim Actors",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.rescue-stage-starts",
+        "sortKeyFrom": 8550,
+        "sortKeyTo": 8550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second stage tests rescue conduct under disaster simulation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue simulation",
+          "victim communication",
+          "civilian scoring"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:civilian-scoring",
+        "topic:rescue-simulation",
+        "topic:victim-communication"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue simulation",
+            "victim communication",
+            "civilian scoring"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The second stage uses H.U.C. victim actors to grade rescue behavior, triage, communication, and composure under disaster conditions.",
+        "injection": "Treat H.U.C. civilians as evaluators with expectations. Students must communicate, prioritize, and reassure, not just move bodies.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 109-111",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_gang_orca_adds_combat_pressure_to_rescue_priorities",
+      "title": "Gang Orca Adds Combat Pressure To Rescue Priorities",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.gang-orca-villain-test",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 8600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gang Orca enters as villain-pressure test"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue under attack",
+          "villain-pressure test",
+          "triage under combat"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:rescue-under-attack",
+        "topic:triage-under-combat",
+        "topic:villain-pressure-test"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue under attack",
+            "villain-pressure test",
+            "triage under combat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gang Orca’s villain-pressure role forces examinees to balance rescue, defense, communication, and teamwork.",
+        "injection": "Keep the tension on rescue priorities under attack: students must protect civilians while responding to a staged villain threat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 111-114",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_inasa_and_shoto_fail_through_personal_conflict",
+      "title": "Inasa And Shoto Fail Through Personal Conflict",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.inasa-shoto-conflict",
+        "sortKeyFrom": 8650,
+        "sortKeyTo": 8650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Inasa and Shoto conflict disrupts rescue-stage combat"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Todoroki resentment",
+          "Endeavor shadow",
+          "failed teamwork"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:endeavor-shadow",
+        "topic:failed-teamwork",
+        "topic:todoroki-resentment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Todoroki resentment",
+            "Endeavor shadow",
+            "failed teamwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Inasa and Shoto’s unresolved resentment around Endeavor disrupts their teamwork and contributes to license failure.",
+        "injection": "Make Inasa and Shoto’s conflict operationally harmful: personal resentment interferes with cooperative hero work.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 112-114",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_bakugo_fails_because_hero_conduct_requires_more_than_strength",
+      "title": "Bakugo Fails Because Hero Conduct Requires More Than Strength",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-rescue-bedside-manner-fails",
+        "sortKeyFrom": 8700,
+        "sortKeyTo": 8700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo fails rescue bedside-manner expectations"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "bedside manner",
+          "rescue communication",
+          "hero conduct"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:bedside-manner",
+        "topic:hero-conduct",
+        "topic:rescue-communication"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "bedside manner",
+            "rescue communication",
+            "hero conduct"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s combat skill is not enough to pass when his rescue communication and civilian-facing behavior fail exam standards.",
+        "injection": "Treat Bakugo’s failure as a conduct problem, not a power problem. He can be formidable and still fail hero-facing expectations.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 111-114",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_izuku_passing_expands_his_legal_agency",
+      "title": "Izuku Passing Expands His Legal Agency",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.deku-passes-license",
+        "sortKeyFrom": 8750,
+        "sortKeyTo": 8750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku earns his provisional license"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "licensed student status",
+          "legal agency",
+          "public hero action"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:legal-agency",
+        "topic:licensed-student-status",
+        "topic:public-hero-action"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "licensed student status",
+            "legal agency",
+            "public hero action"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After passing, Izuku has provisional legal authority to act in emergencies under student-license limits.",
+        "injection": "After Izuku passes, he can lawfully participate in limited hero activity and work-study emergencies; before this, his public action is legally constrained.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 114-115",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_bakugo_and_shoto_must_take_remedial_path",
+      "title": "Bakugo And Shoto Must Take Remedial Path",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-shoto-fail",
+        "sortKeyFrom": 8800,
+        "sortKeyTo": 8800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo and Shoto fail the provisional license exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "license failure",
+          "remedial course",
+          "delayed legal authority"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:delayed-legal-authority",
+        "topic:license-failure",
+        "topic:remedial-course"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "license failure",
+            "remedial course",
+            "delayed legal authority"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo and Shoto fail the license exam and must complete remedial work before they can obtain provisional licenses.",
+        "injection": "Keep Bakugo and Shoto legally behind classmates who passed. They need remedial training before full provisional eligibility.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 114-115",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_ground_beta_fight_is_bakugo_processing_kamino_guilt",
+      "title": "Ground Beta Fight Is Bakugo Processing Kamino Guilt",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.deku-vs-bakugo-second-fight",
+        "sortKeyFrom": 8900,
+        "sortKeyTo": 8900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo challenges Izuku to fight after the license exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rivalry reset",
+          "Kamino guilt",
+          "One For All secrecy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:kamino-guilt",
+        "topic:one-for-all-secrecy",
+        "topic:rivalry-reset"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rivalry reset",
+            "Kamino guilt",
+            "One For All secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s post-license fight with Izuku is driven by guilt, rivalry, and his deduction that Izuku and All Might share a secret.",
+        "injection": "Write Bakugo as angry and perceptive but emotionally wounded by Kamino. The fight is about guilt, rivalry, and the hidden One For All bond.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 117-119",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_bakugo_joins_the_one_for_all_secret_circle",
+      "title": "Bakugo Joins The One For All Secret Circle",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-learns-ofa-secret",
+        "sortKeyFrom": 8950,
+        "sortKeyTo": 8950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo learns the truth about One For All"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "One For All secret",
+          "shared burden",
+          "successor knowledge"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:one-for-all-secret",
+        "topic:shared-burden",
+        "topic:successor-knowledge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "One For All secret",
+            "shared burden",
+            "successor knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Ground Beta, Bakugo knows the truth about One For All and becomes one of the few people included in the secret.",
+        "injection": "After Bakugo learns about One For All, he can discuss Izuku’s inheritance privately with Izuku and All Might, but the secret remains hidden from classmates and the public.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 119-121",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes",
+          "mha:ua-high"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_izuku_and_bakugo_rivalry_becomes_more_explicitly_mutual",
+      "title": "Izuku And Bakugo Rivalry Becomes More Explicitly Mutual",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.rivalry-resets-after-ground-beta",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo rivalry resets around shared secrecy"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mutual rivalry",
+          "shared secrecy",
+          "competitive growth"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:competitive-growth",
+        "topic:mutual-rivalry",
+        "topic:shared-secrecy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mutual rivalry",
+            "shared secrecy",
+            "competitive growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After their second fight, Izuku and Bakugo’s rivalry becomes more openly mutual and entangled with shared knowledge of One For All.",
+        "injection": "Write Izuku and Bakugo as rivals who now share a private burden. Their competition can sharpen both without reverting to simple one-sided hostility.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 119-121",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_all_might_is_now_a_teacher_more_than_active_symbol",
+      "title": "All Might Is Now A Teacher More Than Active Symbol",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.dorms-after-kamino",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 8000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A lives under the new U.A. dorm system"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "retired mentor",
+          "teaching role",
+          "Symbol aftermath"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:retired-mentor",
+        "topic:symbol-aftermath",
+        "topic:teaching-role"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "retired mentor",
+            "teaching role",
+            "Symbol aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Kamino, All Might’s role shifts from active Symbol of Peace to mentor, teacher, and secret-holder.",
+        "injection": "Portray All Might as physically retired from front-line Symbol work while still morally central to Izuku and U.A.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-99",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_license_exam_separates_rescue_from_showmanship",
+      "title": "License Exam Separates Rescue From Showmanship",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.rescue-stage-starts",
+        "sortKeyFrom": 8550,
+        "sortKeyTo": 8550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second stage tests rescue conduct under disaster simulation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue scoring",
+          "civilian reassurance",
+          "hero professionalism"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:civilian-reassurance",
+        "topic:hero-professionalism",
+        "topic:rescue-scoring"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue scoring",
+            "civilian reassurance",
+            "hero professionalism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The rescue stage penalizes students who treat civilians as props or ignore communication under pressure.",
+        "injection": "Reward calm reassurance and triage; punish showy behavior that makes civilians feel unsafe.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 109-111",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_uraraka_controls_feelings_to_focus_on_hero_work",
+      "title": "Uraraka Controls Feelings To Focus On Hero Work",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.provisional-exam-arrival",
+        "sortKeyFrom": 8150,
+        "sortKeyTo": 8150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A arrives at the Provisional Hero License Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "romantic feelings",
+          "professional focus",
+          "hero growth"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hero-growth",
+        "topic:professional-focus",
+        "topic:romantic-feelings"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "romantic feelings",
+            "professional focus",
+            "hero growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Around this period, Uraraka becomes more aware of her feelings for Izuku but tries to place hero work first.",
+        "injection": "When Uraraka’s feelings surface, keep her focused on becoming a capable hero rather than turning every scene into romance.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 100-102",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_inasa_s_wind_is_powerful_but_teamwork_sensitive",
+      "title": "Inasa’s Wind Is Powerful But Teamwork-Sensitive",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.gang-orca-villain-test",
+        "sortKeyFrom": 8600,
+        "sortKeyTo": 8600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gang Orca enters as villain-pressure test"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "wind control",
+          "friendly-fire risk",
+          "team coordination"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:friendly-fire-risk",
+        "topic:team-coordination",
+        "topic:wind-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "wind control",
+            "friendly-fire risk",
+            "team coordination"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Inasa’s Whirlwind is powerful enough to dominate terrain, but poor coordination can endanger teamwork.",
+        "injection": "Use Inasa’s wind as large-scale battlefield control that requires cooperation; resentment makes it dangerous.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 111-114",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_shoto_s_fire_use_still_carries_endeavor_baggage",
+      "title": "Shoto’s Fire Use Still Carries Endeavor Baggage",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.inasa-shoto-conflict",
+        "sortKeyFrom": 8650,
+        "sortKeyTo": 8650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Inasa and Shoto conflict disrupts rescue-stage combat"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "fire side baggage",
+          "Endeavor shadow",
+          "identity conflict"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:endeavor-shadow",
+        "topic:fire-side-baggage",
+        "topic:identity-conflict"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "fire side baggage",
+            "Endeavor shadow",
+            "identity conflict"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto’s fire use is improving, but his relationship to Endeavor still colors how others perceive him and how he reacts.",
+        "injection": "Shoto can use fire, but Endeavor-related baggage remains active in his judgment and relationships.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 112-114",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_katsuki_reads_izuku_more_accurately_than_most_classmates",
+      "title": "Katsuki Reads Izuku More Accurately Than Most Classmates",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.deku-vs-bakugo-second-fight",
+        "sortKeyFrom": 8900,
+        "sortKeyTo": 8900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo challenges Izuku to fight after the license exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "perception",
+          "rivalry insight",
+          "secret deduction"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:perception",
+        "topic:rivalry-insight",
+        "topic:secret-deduction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "perception",
+            "rivalry insight",
+            "secret deduction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo notices patterns in Izuku and All Might that most classmates miss, allowing him to infer a hidden connection.",
+        "injection": "Write Bakugo as abrasive but perceptive; his deductions should feel earned through rivalry and attention.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 117-119",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_aizawa_punishes_ground_beta_but_preserves_the_lesson",
+      "title": "Aizawa Punishes Ground Beta But Preserves The Lesson",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.rivalry-resets-after-ground-beta",
+        "sortKeyFrom": 9000,
+        "sortKeyTo": 9000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo rivalry resets around shared secrecy"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "discipline",
+          "unsanctioned fight",
+          "teacher judgment"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:discipline",
+        "topic:teacher-judgment",
+        "topic:unsanctioned-fight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "discipline",
+            "unsanctioned fight",
+            "teacher judgment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa disciplines the unauthorized Ground Beta fight while still recognizing the underlying student growth problem.",
+        "injection": "After the fight, include consequences for rule-breaking; Aizawa must not ignore unsanctioned combat even when it produces clarity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 119-121",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_provisional_licenses_do_not_make_students_independent_pros",
+      "title": "Provisional Licenses Do Not Make Students Independent Pros",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.license-results-aftermath",
+        "sortKeyFrom": 8850,
+        "sortKeyTo": 8850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "License results change who may act in public emergencies"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "provisional limits",
+          "student supervision",
+          "legal constraints"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:legal-constraints",
+        "topic:provisional-limits",
+        "topic:student-supervision"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "provisional limits",
+            "student supervision",
+            "legal constraints"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Passing the provisional exam grants limited student authority, not full professional independence.",
+        "injection": "Keep licensed students under supervision and student limitations; provisional status is not a full pro license.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 114-116",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_real_camie_was_absent_from_the_license_exam",
+      "title": "Real Camie Was Absent From The License Exam",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.toga-blood-theft",
+        "sortKeyFrom": 8450,
+        "sortKeyTo": 8450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga steals Izuku blood while disguised as Camie"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Camie absence",
+          "impersonation aftermath",
+          "Shiketsu confusion"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:camie-absence",
+        "topic:impersonation-aftermath",
+        "topic:shiketsu-confusion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Camie absence",
+            "impersonation aftermath",
+            "Shiketsu confusion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Because Toga impersonates Camie, the real Camie’s absence creates continuity pressure around what she did or did not know.",
+        "injection": "Keep clear that real Camie was not responsible for Toga’s exam infiltration or behavior.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 104-106",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

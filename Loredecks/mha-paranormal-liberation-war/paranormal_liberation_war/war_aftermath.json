@@ -1,0 +1,1776 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_war_ends_in_public_catastrophe_not_hero_victory",
+      "title": "War Ends In Public Catastrophe Not Hero Victory",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.war-collapse",
+        "sortKeyFrom": 16600,
+        "sortKeyTo": 16600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "War battle collapses into mass casualty aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-society",
+          "mha:civilians",
+          "mha:pro-heroes",
+          "mha:jaku-city",
+          "mha:hero-hospital",
+          "mha:paranormal-liberation-war"
+        ],
+        "characters": [],
+        "locations": [
+          "Jaku City",
+          "Hero Hospital"
+        ],
+        "objects": [
+          "Paranormal Liberation War"
+        ],
+        "factions": [
+          "Hero Society",
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "mass casualties",
+          "social collapse",
+          "pyrrhic outcome"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:hero-society",
+        "faction:civilians",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "location:hero-hospital",
+        "event:paranormal-liberation-war",
+        "topic:mass-casualties",
+        "topic:social-collapse",
+        "topic:pyrrhic-outcome"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Jaku City",
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "Hero Society",
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Paranormal Liberation War"
+          ],
+          "topicsAny": [
+            "mass casualties",
+            "social collapse",
+            "pyrrhic outcome"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Paranormal Liberation War ends with mass casualties, escaped villains, exposed secrets, devastated cities, and shattered public confidence.",
+        "injection": "After the war, do not write society as relieved by a clean win. The dominant state is collapse, grief, and institutional damage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 296",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hero_casualties_change_the_professional_landscape",
+      "title": "Hero Casualties Change The Professional Landscape",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.war-collapse",
+        "sortKeyFrom": 16600,
+        "sortKeyTo": 16600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "War battle collapses into mass casualty aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:crust",
+          "mha:midnight",
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:mirko",
+          "mha:pro-heroes",
+          "mha:hero-society",
+          "mha:hero-hospital"
+        ],
+        "characters": [
+          "Crust",
+          "Midnight",
+          "Hawks",
+          "Endeavor",
+          "Mirko"
+        ],
+        "locations": [
+          "Hero Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Hero Society"
+        ],
+        "topics": [
+          "hero casualties",
+          "depleted capacity",
+          "professional loss"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:crust",
+        "character:midnight",
+        "character:hawks",
+        "character:endeavor",
+        "character:mirko",
+        "faction:pro-heroes",
+        "faction:hero-society",
+        "location:hero-hospital",
+        "topic:hero-casualties",
+        "topic:depleted-capacity",
+        "topic:professional-loss"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Crust",
+            "Midnight",
+            "Hawks",
+            "Endeavor",
+            "Mirko"
+          ],
+          "locationsAny": [
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero casualties",
+            "depleted capacity",
+            "professional loss"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The war removes, injures, or discredits many heroes, changing who can protect civilians and who the public trusts.",
+        "injection": "Post-war scenes should account for depleted hero capacity and shaken legitimacy, not merely damaged buildings.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 296",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_midnight_death_hits_students_as_a_teacher_loss",
+      "title": "Midnight Death Hits Students As A Teacher Loss",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 89,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.war-collapse",
+        "sortKeyFrom": 16600,
+        "sortKeyTo": 16600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "War battle collapses into mass casualty aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midnight",
+          "mha:yaoyorozu-momo",
+          "mha:ashido-mina",
+          "mha:kirishima-eijiro",
+          "mha:u-a-students",
+          "mha:pro-heroes",
+          "mha:hero-hospital"
+        ],
+        "characters": [
+          "Midnight",
+          "Momo Yaoyorozu",
+          "Mina Ashido",
+          "Eijiro Kirishima"
+        ],
+        "locations": [
+          "Hero Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "teacher death",
+          "student grief",
+          "war cost"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midnight",
+        "character:yaoyorozu-momo",
+        "character:ashido-mina",
+        "character:kirishima-eijiro",
+        "faction:u-a-students",
+        "faction:pro-heroes",
+        "location:hero-hospital",
+        "topic:teacher-death",
+        "topic:student-grief",
+        "topic:war-cost"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Midnight",
+            "Momo Yaoyorozu",
+            "Mina Ashido",
+            "Eijiro Kirishima"
+          ],
+          "locationsAny": [
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "teacher death",
+            "student grief",
+            "war cost"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Midnight’s death matters to students not only as a casualty report but as the loss of a teacher who guided them during the Machia crisis.",
+        "injection": "If Midnight’s death is referenced, connect it to student grief and the cost of putting children near war.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 296",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_villain_prison_breaks_make_the_country_unsafe",
+      "title": "Villain Prison Breaks Make The Country Unsafe",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.prison-breaks",
+        "sortKeyFrom": 16625,
+        "sortKeyTo": 16625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One triggers prison breaks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:police",
+          "mha:hero-society",
+          "mha:civilians",
+          "mha:tartarus",
+          "mha:tartarus-breakout"
+        ],
+        "characters": [
+          "All For One",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Tartarus"
+        ],
+        "objects": [
+          "Tartarus Breakout"
+        ],
+        "factions": [
+          "Police",
+          "Hero Society",
+          "Civilians"
+        ],
+        "topics": [
+          "prison breakouts",
+          "national insecurity",
+          "villain resurgence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "faction:police",
+        "faction:hero-society",
+        "faction:civilians",
+        "location:tartarus",
+        "event:tartarus-breakout",
+        "topic:prison-breakouts",
+        "topic:national-insecurity",
+        "topic:villain-resurgence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Tartarus"
+          ],
+          "factionsAny": [
+            "Police",
+            "Hero Society",
+            "Civilians"
+          ],
+          "objectsAny": [
+            "Tartarus Breakout"
+          ],
+          "topicsAny": [
+            "prison breakouts",
+            "national insecurity",
+            "villain resurgence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s prison break strategy releases many villains and turns post-war Japan into a broader security crisis.",
+        "injection": "After Tartarus breaks, street-level safety should collapse. Pro heroes face too many threats and not enough trust or manpower.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 297-298",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_public_trust_in_heroes_breaks_after_multiple_revelations",
+      "title": "Public Trust In Heroes Breaks After Multiple Revelations",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 95,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.public-trust-collapses",
+        "sortKeyFrom": 16700,
+        "sortKeyTo": 16700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Public trust in hero society collapses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:hero-society",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Dabi",
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Society",
+          "Civilians"
+        ],
+        "topics": [
+          "public anger",
+          "layered scandal",
+          "hero trust collapse"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:dabi",
+        "character:hawks",
+        "character:endeavor",
+        "faction:hero-society",
+        "faction:civilians",
+        "topic:public-anger",
+        "topic:layered-scandal",
+        "topic:hero-trust-collapse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Society",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public anger",
+            "layered scandal",
+            "hero trust collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s broadcast, Hawks’ killing of Twice, Endeavor’s family history, mass casualties, and prison breaks combine to break public trust.",
+        "injection": "In post-war society scenes, public anger should be broad and layered. It is not caused by one scandal alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 300-306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_civilians_become_more_suspicious_and_self_protective",
+      "title": "Civilians Become More Suspicious And Self-Protective",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 89,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.public-trust-collapses",
+        "sortKeyFrom": 16700,
+        "sortKeyTo": 16700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Public trust in hero society collapses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:civilians",
+          "mha:hero-society"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Hero Society"
+        ],
+        "topics": [
+          "civilian distrust",
+          "self-protection",
+          "political volatility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:civilians",
+        "faction:hero-society",
+        "topic:civilian-distrust",
+        "topic:self-protection",
+        "topic:political-volatility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Civilians",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian distrust",
+            "self-protection",
+            "political volatility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the war, many civilians lose faith in professional protection and become more fearful, angry, or self-protective.",
+        "injection": "Post-war civilians must not behave like normal background crowds. They are frightened, distrustful, and politically volatile.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 300-306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_deku_hospital_state_is_physically_and_emotionally_transitional",
+      "title": "Deku Hospital State Is Physically And Emotionally Transitional",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hospital-aftermath",
+        "sortKeyFrom": 16650,
+        "sortKeyTo": 16650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Surviving students and heroes wake to losses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:u-a-high",
+          "mha:pro-heroes",
+          "mha:hero-hospital",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "Hero Hospital"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "U.A. High",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "hospital recovery",
+          "OFA burden",
+          "isolation setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "faction:u-a-high",
+        "faction:pro-heroes",
+        "location:hero-hospital",
+        "quirk:one-for-all",
+        "topic:hospital-recovery",
+        "topic:ofa-burden",
+        "topic:isolation-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "hospital recovery",
+            "OFA burden",
+            "isolation setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku wakes after catastrophic overuse, new OFA knowledge, and a collapsing society that pushes him toward leaving U.A.",
+        "injection": "Hospital Deku should feel transitional: injured, burdened, and moving toward isolation rather than restored normal school life.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 299-303",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_one_for_all_secret_narrows_around_a_few_trusted_people",
+      "title": "One For All Secret Narrows Around A Few Trusted People",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.ofa-council",
+        "sortKeyFrom": 16750,
+        "sortKeyTo": 16750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku confronts One For All vestiges in hospital state"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:bakugo-katsuki",
+          "mha:one-for-all-vestiges",
+          "mha:hero-hospital",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "Hero Hospital"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "restricted OFA knowledge",
+          "secret strain",
+          "trusted circle"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:one-for-all",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "character:bakugo-katsuki",
+        "faction:one-for-all-vestiges",
+        "location:hero-hospital",
+        "quirk:one-for-all",
+        "topic:restricted-ofa-knowledge",
+        "topic:secret-strain",
+        "topic:trusted-circle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "restricted OFA knowledge",
+            "secret strain",
+            "trusted circle"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the war, One For All’s truth becomes more urgent but still remains restricted to a small circle.",
+        "injection": "Do not make OFA public after the war. Its secrecy is strained, not erased.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 304-305",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_vestiges_debate_whether_shigaraki_can_be_saved",
+      "title": "Vestiges Debate Whether Shigaraki Can Be Saved",
+      "kind": "relationship_state",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.ofa-council",
+        "sortKeyFrom": 16750,
+        "sortKeyTo": 16750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku confronts One For All vestiges in hospital state"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:shigaraki-tomura",
+          "mha:nana-shimura",
+          "mha:yoichi-shigaraki",
+          "mha:one-for-all-vestiges",
+          "mha:hero-hospital",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tomura Shigaraki",
+          "Nana Shimura",
+          "Yoichi Shigaraki"
+        ],
+        "locations": [
+          "Hero Hospital"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "save Shigaraki",
+          "vestige debate",
+          "hero ideal"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "character:nana-shimura",
+        "character:yoichi-shigaraki",
+        "faction:one-for-all-vestiges",
+        "location:hero-hospital",
+        "quirk:one-for-all",
+        "topic:save-shigaraki",
+        "topic:vestige-debate",
+        "topic:hero-ideal"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tomura Shigaraki",
+            "Nana Shimura",
+            "Yoichi Shigaraki"
+          ],
+          "locationsAny": [
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "save Shigaraki",
+            "vestige debate",
+            "hero ideal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The OFA vestige conversation reframes Shigaraki as someone Deku may want to save, not merely an enemy to kill.",
+        "injection": "In OFA council scenes, let the saving-killing question matter. Deku’s later choices grow from this burden.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 304-305",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_deku_leaves_u_a_to_reduce_danger_to_others",
+      "title": "Deku Leaves U.A. To Reduce Danger To Others",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-leaves-ua",
+        "sortKeyFrom": 16800,
+        "sortKeyTo": 16800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to protect others"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:ua-class-1a",
+          "mha:u-a-high",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "Deku leaves U.A.",
+          "isolation choice",
+          "Dark Hero setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "faction:ua-class-1a",
+        "faction:u-a-high",
+        "quirk:one-for-all",
+        "topic:deku-leaves-u-a",
+        "topic:isolation-choice",
+        "topic:dark-hero-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Deku leaves U.A.",
+            "isolation choice",
+            "Dark Hero setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku leaves U.A. because One For All makes him a target and he believes staying near classmates endangers them.",
+        "injection": "At the end of this deck, Deku’s departure should be protective, isolating, and fear-driven, setting up Dark Hero rather than resolving it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_class_1_a_does_not_yet_fully_understand_deku_s_departure",
+      "title": "Class 1-A Does Not Yet Fully Understand Deku’s Departure",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-leaves-ua",
+        "sortKeyFrom": 16800,
+        "sortKeyTo": 16800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to protect others"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:u-a-high",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "class ignorance",
+          "departure letters",
+          "limited explanation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:one-for-all",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:u-a-high",
+        "quirk:one-for-all",
+        "topic:class-ignorance",
+        "topic:departure-letters",
+        "topic:limited-explanation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "class ignorance",
+            "departure letters",
+            "limited explanation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "When Deku leaves U.A., his classmates receive limited explanation and do not yet fully share the OFA burden.",
+        "injection": "Do not have Class 1-A immediately understand every OFA secret or accept Deku’s isolation as resolved.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_all_might_can_support_deku_but_cannot_carry_the_fight_physically",
+      "title": "All Might Can Support Deku But Cannot Carry The Fight Physically",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-leaves-ua",
+        "sortKeyFrom": 16800,
+        "sortKeyTo": 16800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to protect others"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "mentor support",
+          "retired limitation",
+          "Deku isolation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:mentor-support",
+        "topic:retired-limitation",
+        "topic:deku-isolation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "mentor support",
+            "retired limitation",
+            "Deku isolation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the war, All Might remains emotionally and strategically important to Deku but cannot fight as the Symbol of Peace.",
+        "injection": "Use All Might as mentor support, not battlefield solution. His post-retirement limits still matter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

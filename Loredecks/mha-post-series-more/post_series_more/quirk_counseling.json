@@ -1,0 +1,1138 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_ochaco-leads-quirk-counseling-work",
+      "title": "Ochaco Leads Quirk Counseling Work",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.quirk-counseling-fieldwork",
+        "sortKeyFrom": 23050,
+        "sortKeyTo": 23050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco's Quirk Counseling fieldwork"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:quirk-counseling"
+        ],
+        "characters": [
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [
+          "Quirk Counseling"
+        ],
+        "factions": [],
+        "topics": [
+          "Quirk Counseling",
+          "children support",
+          "communication"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "topic:quirk-counseling",
+        "topic:children-support",
+        "topic:communication"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Quirk Counseling"
+          ],
+          "topicsAny": [
+            "Quirk Counseling",
+            "children support",
+            "communication"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Ochaco is actively involved in Quirk Counseling work that supports children before Quirk problems become shame, isolation, or violence.",
+        "injection": "When Ochaco appears in Chapter 431 Context, foreground her Quirk Counseling mission: communication, trust, early intervention, and making children feel safe enough to open up.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_quirk-counseling-is-preventive-hero-work",
+      "title": "Quirk Counseling Is Preventive Hero Work",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.quirk-counseling-fieldwork",
+        "sortKeyFrom": 23050,
+        "sortKeyTo": 23050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco's Quirk Counseling fieldwork"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:quirk-counseling"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [
+          "Quirk Counseling"
+        ],
+        "factions": [],
+        "topics": [
+          "preventive care",
+          "Quirk education",
+          "social reform"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "topic:quirk-counseling",
+        "topic:preventive-care",
+        "topic:quirk-education",
+        "topic:social-reform"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Quirk Counseling"
+          ],
+          "topicsAny": [
+            "preventive care",
+            "Quirk education",
+            "social reform"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Quirk Counseling functions as preventive hero work, addressing young people's Quirk-related anxieties before they harden into harm or rejection.",
+        "injection": "Treat Quirk Counseling as legitimate hero-system labor, not a side hobby. It should connect rescue ideals to education, communication, and prevention.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_ochaco-teaches-openness-without-forcing-confession",
+      "title": "Ochaco Teaches Openness Without Forcing Confession",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.quirk-counseling-fieldwork",
+        "sortKeyFrom": 23050,
+        "sortKeyTo": 23050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco's Quirk Counseling fieldwork"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:quirk-counseling"
+        ],
+        "characters": [
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [
+          "Quirk Counseling"
+        ],
+        "factions": [],
+        "topics": [
+          "communication",
+          "children boundaries",
+          "trust building"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "topic:quirk-counseling",
+        "topic:communication",
+        "topic:children-boundaries",
+        "topic:trust-building"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Quirk Counseling"
+          ],
+          "topicsAny": [
+            "communication",
+            "children boundaries",
+            "trust building"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Ochaco emphasizes friendliness and continued communication so children can open up when ready, not coercive confession or instant emotional exposure.",
+        "injection": "Portray Ochaco's counseling style as patient and relational: she invites trust and keeps showing up rather than forcing children to disclose problems immediately.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_hawks-helps-improve-quirk-education-policy",
+      "title": "Hawks Helps Improve Quirk Education Policy",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.quirk-counseling-fieldwork",
+        "sortKeyFrom": 23050,
+        "sortKeyTo": 23050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco's Quirk Counseling fieldwork"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:yokumiru-mera",
+          "mha:hero-public-safety-commission",
+          "mha:ministry-of-education"
+        ],
+        "characters": [
+          "Hawks",
+          "Yokumiru Mera"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission",
+          "Ministry of Education"
+        ],
+        "topics": [
+          "Quirk education",
+          "policy reform",
+          "HPSC"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:hawks",
+        "character:yokumiru-mera",
+        "faction:hero-public-safety-commission",
+        "faction:ministry-of-education",
+        "topic:quirk-education",
+        "topic:policy-reform",
+        "topic:hpsc"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Yokumiru Mera"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Public Safety Commission",
+            "Ministry of Education"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Quirk education",
+            "policy reform",
+            "HPSC"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "By Chapter 431, Hawks at the Hero Public Safety Commission supports improvements to Quirk education through policy coordination with education authorities.",
+        "injection": "Use Hawks as a postwar institutional reform actor here: his role is policy and coordination, not covert assassination or PLF infiltration.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_tsuyu-supports-ochacos-emotional-and-professional-load",
+      "title": "Tsuyu Supports Ochaco's Emotional And Professional Load",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.ochaco-tsuyu-train-talk",
+        "sortKeyFrom": 23100,
+        "sortKeyTo": 23100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco and Tsuyu discuss Toga dreams"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:asui-tsuyu"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Tsuyu Asui"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "friendship support",
+          "Quirk Counseling strain",
+          "emotional honesty"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "character:asui-tsuyu",
+        "topic:friendship-support",
+        "topic:quirk-counseling-strain",
+        "topic:emotional-honesty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Tsuyu Asui"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "friendship support",
+            "Quirk Counseling strain",
+            "emotional honesty"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Tsuyu remains close enough to Ochaco to support both her professional work and her private stress over recurring dreams of Himiko Toga.",
+        "injection": "In More-era scenes, let Tsuyu be a steady adult friend who notices Ochaco's strain and gives grounded emotional support without taking over her choices.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_ochacos-toga-dreams-signal-unresolved-empathy",
+      "title": "Ochaco's Toga Dreams Signal Unresolved Empathy",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.ochaco-toga-dream",
+        "sortKeyFrom": 23025,
+        "sortKeyTo": 23025,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco dreams of Toga"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Himiko Toga"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "dreams",
+          "survivor guilt",
+          "unresolved empathy",
+          "blood transfusion"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "topic:dreams",
+        "topic:survivor-guilt",
+        "topic:unresolved-empathy",
+        "topic:blood-transfusion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Himiko Toga"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "dreams",
+            "survivor guilt",
+            "unresolved empathy",
+            "blood transfusion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Ochaco has recurring dreams of Himiko Toga and interprets them through stress, memory, gratitude, and the blood transfusion that saved her life.",
+        "injection": "Use Ochaco's Toga dreams as unresolved emotional memory and survivor empathy. They should shape Ochaco's self-understanding without making Toga physically alive again.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:uraraka-ochaco",
+          "mha:asui-tsuyu"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_togas-dream-presence-pushes-ochaco-toward-life",
+      "title": "Toga's Dream Presence Pushes Ochaco Toward Life",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.deku-ochaco-conversation",
+        "sortKeyFrom": 23225,
+        "sortKeyTo": 23225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Ochaco choose to speak honestly"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:izuku-midoriya"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Himiko Toga",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "emotional permission",
+          "life after grief",
+          "love after loss"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "character:izuku-midoriya",
+        "topic:emotional-permission",
+        "topic:life-after-grief",
+        "topic:love-after-loss"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Himiko Toga",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "emotional permission",
+            "life after grief",
+            "love after loss"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "In the Chapter 431 emotional resolution, Toga's dream presence functions as a push for Ochaco to live, love, and step toward her own future.",
+        "injection": "If Toga's memory appears in More Context, use it as emotional permission for Ochaco to keep living rather than as a villainous haunting or literal resurrection.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_the-big-three-assist-quirk-counseling-as-public-models",
+      "title": "The Big Three Assist Quirk Counseling As Public Models",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 85,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.big-three-assist",
+        "sortKeyFrom": 23075,
+        "sortKeyTo": 23075,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The Big Three assist Quirk Counseling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:nejire-hado",
+          "mha:tamaki-amajiki",
+          "mha:uraraka-ochaco",
+          "mha:big-three",
+          "mha:quirk-counseling"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Nejire Hado",
+          "Tamaki Amajiki",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [
+          "Quirk Counseling"
+        ],
+        "factions": [
+          "Big Three"
+        ],
+        "topics": [
+          "children outreach",
+          "public trust",
+          "pro hero modeling"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:mirio-togata",
+        "character:nejire-hado",
+        "character:tamaki-amajiki",
+        "character:uraraka-ochaco",
+        "faction:big-three",
+        "topic:quirk-counseling",
+        "topic:children-outreach",
+        "topic:public-trust",
+        "topic:pro-hero-modeling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Nejire Hado",
+            "Tamaki Amajiki",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Big Three"
+          ],
+          "objectsAny": [
+            "Quirk Counseling"
+          ],
+          "topicsAny": [
+            "children outreach",
+            "public trust",
+            "pro hero modeling"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "The Big Three assist Ochaco's Quirk Counseling work, using their public hero presence to help children engage with Quirk support.",
+        "injection": "When the Big Three appear in More's counseling sequence, use them as friendly adult pro-hero models who make prevention and education feel exciting rather than punitive.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

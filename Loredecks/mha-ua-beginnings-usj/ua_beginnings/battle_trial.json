@@ -1,0 +1,1186 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_battle_trial_introduces_hero_villain_framing",
+      "title": "Battle Trial Introduces Hero-Villain Framing",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "All Might",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "battle trial",
+          "hero-villain exercise",
+          "bomb scenario"
+        ]
+      },
+      "tags": [
+        "event:battle-trial",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "battle trial",
+            "hero-villain exercise",
+            "bomb scenario"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's battle trial makes students roleplay heroes and villains inside an indoor bomb scenario.",
+        "injection": "The battle trial should feel artificial but emotionally revealing because students project real rivalry into assigned roles.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_deku_uses_analysis_against_bakugo",
+      "title": "Deku Uses Analysis Against Bakugo",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "analysis",
+          "Bakugo habits",
+          "battle trial"
+        ]
+      },
+      "tags": [
+        "relationship:deku-bakugo",
+        "event:battle-trial",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "analysis",
+            "Bakugo habits",
+            "battle trial"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku leverages his long observation of Bakugo's habits during the battle trial.",
+        "injection": "Deku should survive Bakugo not by overpowering him, but by using analysis, prediction, and teamwork.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_bakugo_takes_dekus_resistance_personally",
+      "title": "Bakugo Takes Deku's Resistance Personally",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "personal rivalry",
+          "old hierarchy",
+          "anger"
+        ]
+      },
+      "tags": [
+        "character:bakugo-katsuki",
+        "relationship:deku-bakugo",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "personal rivalry",
+            "old hierarchy",
+            "anger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo treats Deku's resistance in the battle trial as a personal challenge to their old hierarchy.",
+        "injection": "Bakugo's aggression should feel personal and destabilized, not just standard class competitiveness.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_ochaco_and_iida_define_team_contrast",
+      "title": "Ochaco And Iida Define Team Contrast",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:iida-tenya",
+          "mha:midoriya-izuku",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Tenya Iida",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "team contrast",
+          "improvisation",
+          "roleplay"
+        ]
+      },
+      "tags": [
+        "character:uraraka-ochaco",
+        "character:iida-tenya",
+        "event:battle-trial",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Tenya Iida",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "team contrast",
+            "improvisation",
+            "roleplay"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco improvises with Deku while Iida commits seriously to the villain-role exercise.",
+        "injection": "Use Ochaco/Iida as a contrast between flexible cooperation and rule-bound performance.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_dekus_arm_smash_is_still_destructive",
+      "title": "Deku's Arm Smash Is Still Destructive",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "arm smash",
+          "structural damage",
+          "OFA injury"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "status:ofa-uncontrolled",
+        "event:battle-trial",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "arm smash",
+            "structural damage",
+            "OFA injury"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the battle trial, Deku's big One For All use remains self-damaging and structurally destructive.",
+        "injection": "Do not let battle-trial Deku punch freely; the power should threaten the building and his body.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_all_might_watches_as_teacher_and_secret_mentor",
+      "title": "All Might Watches As Teacher And Secret Mentor",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:midoriya-izuku",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "teacher mentor",
+          "secret worry",
+          "battle trial"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "secret:one-for-all",
+        "relationship:all-might-deku",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "teacher mentor",
+            "secret worry",
+            "battle trial"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might observes the battle trial as class teacher while privately worrying about his successor's growth and safety.",
+        "injection": "All Might's reactions should carry double context: public teacher and secret OFA mentor.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_bakugo_loses_without_being_weak",
+      "title": "Bakugo Loses Without Being Weak",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "loss",
+          "emotional blind spot",
+          "talent"
+        ]
+      },
+      "tags": [
+        "character:bakugo-katsuki",
+        "event:battle-trial",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "loss",
+            "emotional blind spot",
+            "talent"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo's battle-trial loss does not mean he is weak; it exposes emotional blind spots and teamwork failure.",
+        "injection": "After the trial, Bakugo should be shaken because his worldview is threatened, not because he lacks talent.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_deku_wins_at_a_cost",
+      "title": "Deku Wins At A Cost",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "costly win",
+          "injury",
+          "readiness"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "event:battle-trial",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "costly win",
+            "injury",
+            "readiness"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku helps win the exercise but injures himself and cannot treat the win as clean proof of readiness.",
+        "injection": "Battle-trial victory should remain costly, messy, and medically consequential.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_ochaco_shows_practical_courage",
+      "title": "Ochaco Shows Practical Courage",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.battle-trial-start",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 2000,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hero Battle Trial"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "improvisation",
+          "tactical agency",
+          "courage"
+        ]
+      },
+      "tags": [
+        "character:uraraka-ochaco",
+        "event:battle-trial",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "improvisation",
+            "tactical agency",
+            "courage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco's battle-trial actions show that she can improvise under pressure despite early nervousness.",
+        "injection": "Early Ochaco should be allowed tactical agency rather than only reacting to Deku.",
+        "constraints": [
+          "Keep the trial artificial but emotionally consequential."
+        ],
+        "antiLore": [
+          "Do not treat the battle trial as real villain combat or a clean power-scaling proof."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 8-11",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

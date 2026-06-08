@@ -669,6 +669,635 @@
         "timelineAnchorCount": 69,
         "timelineWindowCount": 19
       }
+    },
+    {
+      "packId": "mha-core",
+      "manifest": "mha-core/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Core",
+      "description": "Core Quirk society, hero system, U.A., factions, identity aliases, Quirk rules, and spoiler-safe knowledge gates for manga-primary My Hero Academia roleplay.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 10
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck Cover for My Hero Academia: Core",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner for My Hero Academia: Core"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Main continuity core",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 121,
+        "categoryCounts": {
+          "character": 10,
+          "faction": 29,
+          "knowledge": 20,
+          "rule": 59,
+          "secret": 3
+        },
+        "timelineAnchorCount": 14,
+        "timelineWindowCount": 9
+      }
+    },
+    {
+      "packId": "mha-ua-beginnings-usj",
+      "manifest": "mha-ua-beginnings-usj/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: U.A. Beginnings and USJ",
+      "description": "Context-aware Lorecards for Izuku's origin, One For All transfer, U.A. entrance, early Class 1-A, Battle Trial, and the USJ attack.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 20
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck Cover for My Hero Academia: U.A. Beginnings and USJ",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner for My Hero Academia: U.A. Beginnings and USJ"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "U.A. Beginnings through USJ",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 75,
+        "categoryCounts": {
+          "character": 15,
+          "event": 35,
+          "knowledge": 8,
+          "relationship": 9,
+          "rule": 8
+        },
+        "timelineAnchorCount": 21,
+        "timelineWindowCount": 10
+      }
+    },
+    {
+      "packId": "mha-sports-festival-stain-final-exams",
+      "manifest": "mha-sports-festival-stain-final-exams/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Sports Festival, Stain, and Final Exams",
+      "description": "Sports Festival, Hero Killer Stain/Hosu, workplace training, and Final Exams Context-aware Lorecards for manga-primary My Hero Academia.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 30
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck Cover for My Hero Academia: Sports Festival, Stain, and Final Exams",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner for My Hero Academia: Sports Festival, Stain, and Final Exams"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Sports Festival through Final Exams",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:sports-festival",
+        "arc:hero-killer",
+        "arc:final-exams",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 88,
+        "categoryCounts": {
+          "character": 27,
+          "event": 12,
+          "faction": 5,
+          "knowledge": 11,
+          "location": 1,
+          "relationship": 9,
+          "rule": 18,
+          "secret": 4,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 38,
+        "timelineWindowCount": 13
+      }
+    },
+    {
+      "packId": "mha-training-camp-kamino",
+      "manifest": "mha-training-camp-kamino/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Training Camp and Kamino",
+      "description": "Forest Training Camp, Vanguard Action Squad, Bakugo capture, Hideout Raid, Kamino Ward, All Might vs All For One, and dorm transition Lorecards for manga-primary My Hero Academia.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 40
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck Cover for My Hero Academia: Training Camp and Kamino",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner for My Hero Academia: Training Camp and Kamino"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Forest Training Camp through Kamino aftermath",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "arc:hideout-raid",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 84,
+        "categoryCounts": {
+          "character": 17,
+          "event": 13,
+          "faction": 9,
+          "item": 1,
+          "knowledge": 16,
+          "location": 5,
+          "relationship": 5,
+          "rule": 10,
+          "secret": 7,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 36,
+        "timelineWindowCount": 12
+      }
+    },
+    {
+      "packId": "mha-license-hassaikai-remedial",
+      "manifest": "mha-license-hassaikai-remedial/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: License Exam and Shie Hassaikai",
+      "description": "Provisional Hero License Exam, Shie Hassaikai raid, Eri/Overhaul, Mirio/Nighteye, and Remedial Course Context for manga-primary My Hero Academia roleplay and fanfiction.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 50
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Provisional Hero License Exam, Shie Hassaikai, and Remedial Course",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:provisional-license",
+        "arc:shie-hassaikai",
+        "arc:remedial-course",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 92,
+        "categoryCounts": {
+          "character": 18,
+          "event": 6,
+          "faction": 6,
+          "knowledge": 30,
+          "location": 2,
+          "relationship": 7,
+          "rule": 15,
+          "secret": 8
+        },
+        "timelineAnchorCount": 52,
+        "timelineWindowCount": 11
+      }
+    },
+    {
+      "packId": "mha-school-festival-pro-hero",
+      "manifest": "mha-school-festival-pro-hero/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: School Festival and Pro Hero",
+      "description": "U.A. School Festival, Eri recovery, Gentle/La Brava, Pro Hero rankings, Endeavor/Hawks, High-End, Todoroki family pressure, and One For All vestige Context for manga-primary MHA roleplay and fanfiction.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 60
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "U.A. School Festival and Pro Hero",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:school-festival",
+        "arc:pro-hero",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 108,
+        "categoryCounts": {
+          "character": 25,
+          "event": 8,
+          "faction": 8,
+          "item": 1,
+          "knowledge": 11,
+          "location": 2,
+          "relationship": 13,
+          "rule": 15,
+          "secret": 24,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 29,
+        "timelineWindowCount": 7
+      }
+    },
+    {
+      "packId": "mha-joint-training-villain-academia-endeavor-agency",
+      "manifest": "mha-joint-training-villain-academia-endeavor-agency/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Joint Training, Villain Academia, and Endeavor Agency",
+      "description": "Joint Training, Blackwhip awakening, My Villain Academia, Meta Liberation Army, PLF formation, Endeavor Agency work studies, Hawks coded warning, Todoroki family pressure, and pre-war setup for manga-primary MHA roleplay and fanfiction.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 70
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Joint Training through Endeavor Agency",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:joint-training",
+        "arc:meta-liberation-army",
+        "arc:endeavor-agency",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 122,
+        "categoryCounts": {
+          "character": 23,
+          "event": 40,
+          "faction": 1,
+          "knowledge": 9,
+          "relationship": 7,
+          "rule": 26,
+          "secret": 15,
+          "timeline": 1
+        },
+        "timelineAnchorCount": 37,
+        "timelineWindowCount": 9
+      }
+    },
+    {
+      "packId": "mha-paranormal-liberation-war",
+      "manifest": "mha-paranormal-liberation-war/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Paranormal Liberation War",
+      "description": "Context-gated story-state, knowledge, ability, faction, and aftermath lore for the Paranormal Liberation War arc of manga-primary My Hero Academia.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 80
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder for My Hero Academia: Paranormal Liberation War",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder for My Hero Academia: Paranormal Liberation War"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Paranormal Liberation War and immediate aftermath",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 102,
+        "categoryCounts": {
+          "character": 42,
+          "event": 23,
+          "faction": 7,
+          "knowledge": 2,
+          "location": 1,
+          "relationship": 3,
+          "rule": 7,
+          "secret": 17
+        },
+        "timelineAnchorCount": 44,
+        "timelineWindowCount": 11
+      }
+    },
+    {
+      "packId": "mha-dark-hero-star-traitor",
+      "manifest": "mha-dark-hero-star-traitor/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor",
+      "description": "Context-gated story-state, knowledge, ability, relationship, and spoiler-guard lore for Dark Hero, Star and Stripe, and U.A. Traitor material in manga-primary My Hero Academia.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 90
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder for My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder for My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Dark Hero through U.A. Traitor",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:dark-hero",
+        "arc:star-and-stripe",
+        "arc:ua-traitor",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 109,
+        "categoryCounts": {
+          "character": 32,
+          "event": 11,
+          "faction": 4,
+          "knowledge": 15,
+          "location": 3,
+          "relationship": 20,
+          "rule": 13,
+          "secret": 11
+        },
+        "timelineAnchorCount": 35,
+        "timelineWindowCount": 6
+      }
+    },
+    {
+      "packId": "mha-final-war-epilogue",
+      "manifest": "mha-final-war-epilogue/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Final War and Epilogue",
+      "description": "Context-gated story-state, battle-route, knowledge, ability, relationship, aftermath, and spoiler-guard lore for the Final War and Chapter 430 epilogue in manga-primary My Hero Academia.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 100
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder for My Hero Academia: Final War and Epilogue",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder for My Hero Academia: Final War and Epilogue"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Final War through Chapter 430 Epilogue",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:final-war",
+        "arc:epilogue",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 140,
+        "categoryCounts": {
+          "character": 47,
+          "event": 23,
+          "faction": 11,
+          "knowledge": 4,
+          "location": 3,
+          "relationship": 24,
+          "rule": 7,
+          "secret": 21
+        },
+        "timelineAnchorCount": 47,
+        "timelineWindowCount": 12
+      }
+    },
+    {
+      "packId": "mha-post-series-more",
+      "manifest": "mha-post-series-more/loredeck.json",
+      "type": "bundled",
+      "title": "My Hero Academia: Post-Series Extra - More",
+      "description": "Optional Chapter 431 'More' post-series extra overlay for manga-primary My Hero Academia. Adds adult-life, Quirk Counseling, relationship, ranking, and future-guard lore that should not leak into the default Chapter 430 epilogue deck.",
+      "library": {
+        "suggestedPath": [
+          "My Hero Academia",
+          "Manga Main"
+        ],
+        "familyOrder": 110
+      },
+      "assets": {
+        "cover": {
+          "path": "assets/cover.png",
+          "alt": "Deck cover placeholder for My Hero Academia: Post-Series Extra - More",
+          "aspect": "3:4",
+          "focalPoint": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        "banner": {
+          "path": "assets/banner.png",
+          "alt": "Wide banner placeholder for My Hero Academia: Post-Series Extra - More"
+        }
+      },
+      "entrySchemaVersion": 3,
+      "version": "0.11.0",
+      "author": "Saga",
+      "fandom": "My Hero Academia",
+      "era": "Post-series extra: Chapter 431 More",
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "quality:draft-reference"
+      ],
+      "updatedAt": 1780876800000,
+      "stats": {
+        "entryCount": 47,
+        "categoryCounts": {
+          "character": 12,
+          "event": 2,
+          "faction": 5,
+          "knowledge": 1,
+          "relationship": 15,
+          "rule": 4,
+          "secret": 2,
+          "timeline": 6
+        },
+        "timelineAnchorCount": 11,
+        "timelineWindowCount": 4
+      }
     }
   ]
 }

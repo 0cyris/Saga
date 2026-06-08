@@ -1,0 +1,1638 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_training_camp_is_a_secret_intensive_course",
+      "title": "Training Camp Is A Secret Intensive Course",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.camp-announced",
+        "sortKeyFrom": 6000,
+        "sortKeyTo": 6000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Summer training camp begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:beast-forest",
+          "mha:class-1a",
+          "mha:class-1b"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "secret training site",
+          "summer training",
+          "remote security"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "class:ua-1a",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:beast-forest",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:summer-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "secret training site",
+            "summer training",
+            "remote security"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The summer training camp moves Class 1-A and Class 1-B into a remote, controlled site meant to accelerate combat and Quirk growth away from ordinary school routines.",
+        "injection": "At the training camp, treat the remote forest site as an intensive U.A. training environment: exhausting, supervised, isolated, and not casually accessible to outsiders.",
+        "constraints": [
+          "The camp is not a public event like the Sports Festival.",
+          "Students are still first-years under school authority."
+        ],
+        "antiLore": [
+          "Do not portray the camp as a casual vacation or open civilian venue."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-71",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_wild_wild_pussycats_control_the_camp_environment",
+      "title": "Wild Wild Pussycats Control The Camp Environment",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.pussycats-introduced",
+        "sortKeyFrom": 6050,
+        "sortKeyTo": 6050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Wild Wild Pussycats host training camp"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:wild-wild-pussycats",
+          "mha:mandalay",
+          "mha:pixie-bob",
+          "mha:ragdoll",
+          "mha:tiger"
+        ],
+        "characters": [
+          "Mandalay",
+          "Pixie-Bob",
+          "Ragdoll",
+          "Tiger"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "Wild Wild Pussycats"
+        ],
+        "topics": [
+          "rescue heroes",
+          "camp supervision",
+          "terrain control"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:mandalay",
+        "character:pixie-bob",
+        "character:ragdoll",
+        "character:tiger",
+        "continuity:mha-manga-main",
+        "faction:wild-wild-pussycats",
+        "fandom:mha",
+        "people:pro-heroes",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mandalay",
+            "Pixie-Bob",
+            "Ragdoll",
+            "Tiger"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "Wild Wild Pussycats"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue heroes",
+            "camp supervision",
+            "terrain control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Wild Wild Pussycats are pro heroes responsible for camp supervision and terrain-based training, with rescue and search-oriented specialties that shape the setting.",
+        "injection": "Use the Pussycats as active camp authorities with rescue, terrain, telepathic, and search utility rather than background chaperones.",
+        "constraints": [
+          "Their presence makes the camp structured and supervised before the attack."
+        ],
+        "antiLore": [
+          "Do not ignore the Pussycats when camp logistics, warnings, or evacuation matter."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-74",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_kota_rejects_hero_culture_from_personal_grief",
+      "title": "Kota Rejects Hero Culture From Personal Grief",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.kota-introduced",
+        "sortKeyFrom": 6100,
+        "sortKeyTo": 6100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kota introduced as anti-hero child"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kota-izumi",
+          "mha:midoriya-izuku",
+          "mha:mandalay"
+        ],
+        "characters": [
+          "Kota Izumi",
+          "Izuku Midoriya",
+          "Mandalay"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "Wild Wild Pussycats"
+        ],
+        "topics": [
+          "anti-hero grief",
+          "child trauma",
+          "hero family loss"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:kota-izumi",
+        "character:mandalay",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hero-skepticism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kota Izumi",
+            "Izuku Midoriya",
+            "Mandalay"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "Wild Wild Pussycats"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "anti-hero grief",
+            "child trauma",
+            "hero family loss"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kota rejects heroes because his parents died as heroes, making him hostile to heroic ideals rather than simply rude or childish.",
+        "injection": "Before Izuku saves Kota, portray Kota’s hostility as grief-driven rejection of hero culture, not generic bratty behavior.",
+        "constraints": [
+          "He must not instantly admire U.A. students before his crisis with Muscular."
+        ],
+        "antiLore": [
+          "Do not make Kota a cheerful hero fan at camp start."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 71-76",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_quirk_training_pushes_specific_weaknesses",
+      "title": "Quirk Training Pushes Specific Weaknesses",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.training-intensifies",
+        "sortKeyFrom": 6150,
+        "sortKeyTo": 6150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Quirk training intensifies under camp conditions"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:class-1b"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "quirk training",
+          "weakness targeting",
+          "first-year growth"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "class:ua-1a",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:quirk-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "quirk training",
+            "weakness targeting",
+            "first-year growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The camp training targets each student’s Quirk limits and weaknesses through repeated physical strain, endurance, and specialized exercises.",
+        "injection": "During camp training scenes, emphasize individualized Quirk strain and weakness-targeted drills instead of generic sparring.",
+        "constraints": [
+          "Students are improving but remain first-years with limited stamina and incomplete control."
+        ],
+        "antiLore": [
+          "Do not jump students to later-war mastery levels during this arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-73",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_class_1_b_shares_the_training_stage",
+      "title": "Class 1-B Shares The Training Stage",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.class-1b-at-camp",
+        "sortKeyFrom": 6200,
+        "sortKeyTo": 6200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-B trains alongside Class 1-A"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:class-1b",
+          "mha:monoma-neito",
+          "mha:kendo-itsuka",
+          "mha:tetsutetsu-tetsutetsu"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B",
+          "Neito Monoma",
+          "Itsuka Kendo",
+          "Tetsutetsu Tetsutetsu"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "Class 1-B presence",
+          "class rivalry",
+          "shared crisis"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:kendo-itsuka",
+        "character:monoma-neito",
+        "character:tetsutetsu-tetsutetsu",
+        "class:ua-1a",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B",
+            "Neito Monoma",
+            "Itsuka Kendo",
+            "Tetsutetsu Tetsutetsu"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Class 1-B presence",
+            "class rivalry",
+            "shared crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-B is present at the training camp, giving the attack wider stakes than a Class 1-A-only incident.",
+        "injection": "At the camp, include Class 1-B as part of the training cohort and crisis environment; do not treat the forest attack as affecting only Class 1-A.",
+        "constraints": [
+          "Class 1-B students have their own competence and reactions."
+        ],
+        "antiLore": [
+          "Do not omit Class 1-B when the camp-wide evacuation or gas battle matters."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-83",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_aizawa_keeps_camp_authority_blunt_and_practical",
+      "title": "Aizawa Keeps Camp Authority Blunt And Practical",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.training-intensifies",
+        "sortKeyFrom": 6150,
+        "sortKeyTo": 6150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Quirk training intensifies under camp conditions"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "Aizawa supervision",
+          "strict teaching",
+          "emergency authority"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:aizawa-shota",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Aizawa supervision",
+            "strict teaching",
+            "emergency authority"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa’s camp role is strict, pragmatic supervision; he focuses on survival, training value, and student accountability rather than reassurance.",
+        "injection": "Use Aizawa as terse emergency authority at camp: practical, unsentimental, and protective through discipline rather than comfort.",
+        "constraints": [
+          "He can be concerned without softening his teaching style."
+        ],
+        "antiLore": [
+          "Do not make Aizawa casually permissive about student recklessness."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-84",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_camp_location_does_not_prevent_villain_infiltration",
+      "title": "Camp Location Does Not Prevent Villain Infiltration",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.vanguard-attack-starts",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 6300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vanguard Action Squad attacks the camp"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:league-of-villains",
+          "mha:vanguard-action-squad",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "League of Villains"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains",
+          "Vanguard Action Squad",
+          "U.A. High School"
+        ],
+        "topics": [
+          "information leak",
+          "camp secrecy failure",
+          "villain infiltration"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "faction:vanguard-action-squad",
+        "fandom:mha",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "school:ua-high",
+        "secret:camp-location-leak"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "League of Villains"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "League of Villains",
+            "Vanguard Action Squad",
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "information leak",
+            "camp secrecy failure",
+            "villain infiltration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The League finds the supposedly secret camp location, proving U.A.’s security assumptions are compromised.",
+        "injection": "Once the Vanguard attacks, frame the camp breach as a serious security failure. Before the attack, do not let students know the League already found them.",
+        "constraints": [
+          "The leak source should remain unresolved in this arc."
+        ],
+        "antiLore": [
+          "Do not reveal the later traitor answer during the training camp."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 74",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:league-of-villains"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:class-1b"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_pixie_bob_terrain_beasts_are_training_obstacles",
+      "title": "Pixie-Bob Terrain Beasts Are Training Obstacles",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.pussycats-introduced",
+        "sortKeyFrom": 6050,
+        "sortKeyTo": 6050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Wild Wild Pussycats host training camp"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pixie-bob",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Pixie-Bob",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "Wild Wild Pussycats"
+        ],
+        "topics": [
+          "earth beasts",
+          "training obstacles",
+          "terrain manipulation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:pixie-bob",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Pixie-Bob",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "Wild Wild Pussycats"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "earth beasts",
+            "training obstacles",
+            "terrain manipulation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Pixie-Bob’s created earth beasts turn the forest route into Quirk-training resistance rather than normal hiking.",
+        "injection": "During the arrival challenge, use Pixie-Bob’s terrain beasts as controlled training pressure, not actual villains.",
+        "constraints": [
+          "The threat is artificial before the Vanguard attack."
+        ],
+        "antiLore": [
+          "Do not confuse Pussycats training obstacles with League creatures."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-71",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_kendo_shows_class_1_b_leadership_under_pressure",
+      "title": "Kendo Shows Class 1-B Leadership Under Pressure",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.mustard-gas-battle",
+        "sortKeyFrom": 6600,
+        "sortKeyTo": 6600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mustard gas battle endangers students"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kendo-itsuka",
+          "mha:tetsutetsu-tetsutetsu",
+          "mha:class-1b"
+        ],
+        "characters": [
+          "Itsuka Kendo",
+          "Tetsutetsu Tetsutetsu",
+          "U.A. Class 1-B"
+        ],
+        "locations": [
+          "Beast Forest"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "Class 1-B leadership",
+          "gas battle",
+          "student cooperation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:kendo-itsuka",
+        "character:tetsutetsu-tetsutetsu",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Itsuka Kendo",
+            "Tetsutetsu Tetsutetsu",
+            "U.A. Class 1-B"
+          ],
+          "locationsAny": [
+            "Beast Forest"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-B"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Class 1-B leadership",
+            "gas battle",
+            "student cooperation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kendo’s leadership and tactical judgment help Class 1-B respond to Mustard’s gas crisis.",
+        "injection": "Use Kendo as a competent Class 1-B leader in the gas battle, coordinating rather than panicking.",
+        "constraints": [
+          "Her role is practical leadership under pressure."
+        ],
+        "antiLore": [
+          "Do not treat Class 1-B as passive victims during the camp attack."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 78-80",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_students_are_split_across_the_forest_during_the_attack",
+      "title": "Students Are Split Across The Forest During The Attack",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.vanguard-attack-starts",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 6300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vanguard Action Squad attacks the camp"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:class-1b"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "scattered students",
+          "limited information",
+          "forest chaos"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "class:ua-1a",
+        "class:ua-1b",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "scattered students",
+            "limited information",
+            "forest chaos"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Vanguard attack scatters students across the forest, limiting communication and making local decisions matter.",
+        "injection": "During the camp attack, avoid omniscient class coordination; students should act from partial information and local danger.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_teachers_cannot_instantly_protect_every_student",
+      "title": "Teachers Cannot Instantly Protect Every Student",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.vanguard-attack-starts",
+        "sortKeyFrom": 6300,
+        "sortKeyTo": 6300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Vanguard Action Squad attacks the camp"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.forest-training-camp",
+          "label": "Forest Training Camp",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-first-year",
+          "label": "Class 1-A before dorm system",
+          "required": false
+        },
+        {
+          "axis": "training_state",
+          "id": "mha.training.summer-camp",
+          "label": "Summer training camp",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.vanguard-camp-attack",
+          "label": "League deploys Vanguard Action Squad",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early-high-risk",
+          "label": "Deku early Full Cowling with catastrophic burst risk",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:wild-wild-pussycats",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Wild Wild Pussycats",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "teacher limits",
+          "camp-wide crisis",
+          "student vulnerability"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "character:aizawa-shota",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "faction:wild-wild-pussycats",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Wild Wild Pussycats",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "teacher limits",
+            "camp-wide crisis",
+            "student vulnerability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The camp attack overwhelms adult coverage, forcing first-year students into dangerous survival decisions.",
+        "injection": "Keep adult heroes limited by distance, simultaneous threats, and evacuation pressure; they cannot appear everywhere at once.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

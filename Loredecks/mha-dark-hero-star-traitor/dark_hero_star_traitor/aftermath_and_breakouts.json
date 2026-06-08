@@ -1,0 +1,1986 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_tartarus_breakout_releases_afo",
+      "title": "Tartarus Breakout Releases AFO",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.tartarus-breakout",
+        "sortKeyFrom": 17000,
+        "sortKeyTo": 17000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tartarus breakout releases All For One and prisoners"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:tartarus-prison",
+          "mha:all-for-one-escapees",
+          "mha:tartarus"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Tartarus"
+        ],
+        "objects": [],
+        "factions": [
+          "Tartarus Prison",
+          "All For One Escapees"
+        ],
+        "topics": [
+          "prison breakout",
+          "national collapse",
+          "villain resurgence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:all-for-one",
+        "faction:tartarus-prison",
+        "faction:all-for-one-escapees",
+        "location:tartarus",
+        "topic:prison-breakout",
+        "topic:national-collapse",
+        "topic:villain-resurgence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Tartarus"
+          ],
+          "factionsAny": [
+            "Tartarus Prison",
+            "All For One Escapees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "prison breakout",
+            "national collapse",
+            "villain resurgence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One escapes Tartarus, turning the postwar crisis from a manhunt into a national collapse.",
+        "injection": "After Tartarus, treat All For One as physically free and actively rebuilding pressure through escapees, not as a contained prison threat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 297-306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_multiple_prisons_fail_after_tartarus",
+      "title": "Multiple Prisons Fail After Tartarus",
+      "kind": "location_state",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.prisons-fall",
+        "sortKeyFrom": 17025,
+        "sortKeyTo": 17025,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Multiple prison breakouts destabilize Japan"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:police",
+          "mha:all-for-one-escapees",
+          "mha:hero-society",
+          "mha:japan"
+        ],
+        "characters": [],
+        "locations": [
+          "Japan"
+        ],
+        "objects": [],
+        "factions": [
+          "Police",
+          "All For One Escapees",
+          "Hero Society"
+        ],
+        "topics": [
+          "prison system failure",
+          "escaped villains",
+          "public safety"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:police",
+        "faction:all-for-one-escapees",
+        "faction:hero-society",
+        "location:japan",
+        "topic:prison-system-failure",
+        "topic:escaped-villains",
+        "topic:public-safety"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Japan"
+          ],
+          "factionsAny": [
+            "Police",
+            "All For One Escapees",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "prison system failure",
+            "escaped villains",
+            "public safety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tartarus is not the only prison failure; the breakout wave destabilizes containment across Japan.",
+        "injection": "Postwar Japan should feel under-secured: police and heroes face multiple escaped villains, not a single isolated Tartarus incident.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 297-306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_hero_society_enters_trust_collapse",
+      "title": "Hero Society Enters Trust Collapse",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.hero-society-collapse",
+        "sortKeyFrom": 17050,
+        "sortKeyTo": 17050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero society collapses under postwar fear"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-society",
+          "mha:civilians",
+          "mha:pro-heroes",
+          "mha:japan"
+        ],
+        "characters": [],
+        "locations": [
+          "Japan"
+        ],
+        "objects": [],
+        "factions": [
+          "Hero Society",
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public trust",
+          "hero society collapse",
+          "fear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:hero-society",
+        "faction:civilians",
+        "faction:pro-heroes",
+        "location:japan",
+        "topic:public-trust",
+        "topic:hero-society-collapse",
+        "topic:fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Japan"
+          ],
+          "factionsAny": [
+            "Hero Society",
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public trust",
+            "hero society collapse",
+            "fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The public no longer trusts hero society as a stable protective system after the war and prison breakouts.",
+        "injection": "In Dark Hero scenes, civilians should be frightened, angry, and skeptical of hero authority; trust has to be earned locally rather than assumed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 306-307",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_many_heroes_quit_under_social_pressure",
+      "title": "Many Heroes Quit Under Social Pressure",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.hero-society-collapse",
+        "sortKeyFrom": 17050,
+        "sortKeyTo": 17050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero society collapses under postwar fear"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes",
+          "mha:hero-society",
+          "mha:civilians"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Hero Society",
+          "Civilians"
+        ],
+        "topics": [
+          "hero resignations",
+          "demoralization",
+          "public resentment"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:pro-heroes",
+        "faction:hero-society",
+        "faction:civilians",
+        "topic:hero-resignations",
+        "topic:demoralization",
+        "topic:public-resentment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hero Society",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero resignations",
+            "demoralization",
+            "public resentment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A visible number of heroes quit or withdraw as criticism, danger, and public resentment intensify.",
+        "injection": "Do not portray the pro hero system as fully staffed and confident after the war; attrition and demoralization should shape response capacity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 306-307",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_civilians_arm_and_shelter_themselves",
+      "title": "Civilians Arm And Shelter Themselves",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.hero-society-collapse",
+        "sortKeyFrom": 17050,
+        "sortKeyTo": 17050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero society collapses under postwar fear"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:civilians",
+          "mha:pro-heroes",
+          "mha:destroyed-city",
+          "mha:civilian-shelter"
+        ],
+        "characters": [],
+        "locations": [
+          "Destroyed City",
+          "Civilian Shelter"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "civilian self-defense",
+          "evacuation refusal",
+          "fear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:civilians",
+        "faction:pro-heroes",
+        "location:destroyed-city",
+        "location:civilian-shelter",
+        "topic:civilian-self-defense",
+        "topic:evacuation-refusal",
+        "topic:fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Destroyed City",
+            "Civilian Shelter"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian self-defense",
+            "evacuation refusal",
+            "fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Some civilians distrust evacuation orders and choose armed self-defense or improvised shelters.",
+        "injection": "Postwar civilian scenes should include suspicion, self-protection, rumor, and refusal to rely automatically on pros.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 306-307",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_public_rumor_becomes_a_threat_vector",
+      "title": "Public Rumor Becomes A Threat Vector",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.hero-society-collapse",
+        "sortKeyFrom": 17050,
+        "sortKeyTo": 17050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero society collapses under postwar fear"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:civilians",
+          "mha:hero-society"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Hero Society"
+        ],
+        "topics": [
+          "rumor",
+          "media panic",
+          "partial knowledge"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:civilians",
+        "faction:hero-society",
+        "topic:rumor",
+        "topic:media-panic",
+        "topic:partial-knowledge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Civilians",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rumor",
+            "media panic",
+            "partial knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Rumors, media fragments, and partial truths amplify panic after the war.",
+        "injection": "Let incomplete public information distort scenes: civilians may know Dabi’s broadcast, hero failures, and prison breakouts without understanding OFA or AFO strategy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 306-307",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_leaves_u_a_to_protect_others",
+      "title": "Deku Leaves U.A. To Protect Others",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-leaves-ua",
+        "sortKeyFrom": 17100,
+        "sortKeyTo": 17100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to draw danger away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-high",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "self-isolation",
+          "protecting classmates",
+          "OFA target"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-high",
+        "faction:ua-class-1a",
+        "topic:self-isolation",
+        "topic:protecting-classmates",
+        "topic:ofa-target"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "self-isolation",
+            "protecting classmates",
+            "OFA target"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the war, Izuku leaves U.A. because he believes proximity to him endangers others.",
+        "injection": "Dark Hero Izuku isolates from protective guilt, not because he stops caring about Class 1-A.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_letters_reveal_ofa_to_class_1_a",
+      "title": "Deku Letters Reveal OFA To Class 1-A",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ofa-council-truth",
+        "sortKeyFrom": 17125,
+        "sortKeyTo": 17125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All truth is shared with selected allies"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "OFA secret",
+          "letters",
+          "class knowledge"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "quirk:one-for-all",
+        "topic:ofa-secret",
+        "topic:letters",
+        "topic:class-knowledge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA secret",
+            "letters",
+            "class knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku leaves letters explaining One For All to his classmates, widening the circle of people who know his secret.",
+        "injection": "After the letters, Class 1-A can know Deku inherited One For All, but the wider public still must not understand OFA’s full nature.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:ua-class-1a",
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians",
+          "mha:hero-society"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_top_heroes_know_more_than_the_public",
+      "title": "Top Heroes Know More Than The Public",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.top-hero-network",
+        "sortKeyFrom": 17150,
+        "sortKeyTo": 17150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku works with All Might and top heroes"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:best-jeanist",
+          "mha:top-pro-heroes",
+          "mha:civilians",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might",
+          "Endeavor",
+          "Hawks",
+          "Best Jeanist"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Top Pro Heroes",
+          "Civilians"
+        ],
+        "topics": [
+          "selective knowledge",
+          "OFA secrecy",
+          "top hero coordination"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "character:endeavor",
+        "character:hawks",
+        "character:best-jeanist",
+        "faction:top-pro-heroes",
+        "faction:civilians",
+        "quirk:one-for-all",
+        "topic:selective-knowledge",
+        "topic:ofa-secrecy",
+        "topic:top-hero-coordination"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might",
+            "Endeavor",
+            "Hawks",
+            "Best Jeanist"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Top Pro Heroes",
+            "Civilians"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "selective knowledge",
+            "OFA secrecy",
+            "top hero coordination"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Selected top heroes know enough about One For All and All For One to coordinate with Deku, while civilians remain uninformed.",
+        "injection": "Keep OFA operational knowledge limited to Deku, All Might, selected top heroes, and direct allies; ordinary evacuees must not understand the full conflict.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:best-jeanist"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_all_might_supports_from_the_road",
+      "title": "All Might Supports From The Road",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.top-hero-network",
+        "sortKeyFrom": 17150,
+        "sortKeyTo": 17150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku works with All Might and top heroes"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:top-pro-heroes"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Top Pro Heroes"
+        ],
+        "topics": [
+          "mentor support",
+          "road campaign",
+          "physical limits"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "faction:top-pro-heroes",
+        "topic:mentor-support",
+        "topic:road-campaign",
+        "topic:physical-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Top Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "mentor support",
+            "road campaign",
+            "physical limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might follows and supports Deku with supplies and care, but he cannot physically keep pace with Deku’s escalating solo campaign.",
+        "injection": "In Dark Hero scenes, All Might should be emotionally invested and logistically helpful, yet increasingly unable to stop Deku’s deterioration by himself.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_top_hero_network_is_small_and_strained",
+      "title": "Top Hero Network Is Small And Strained",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.top-hero-network",
+        "sortKeyFrom": 17150,
+        "sortKeyTo": 17150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku works with All Might and top heroes"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:best-jeanist",
+          "mha:all-might",
+          "mha:tsukauchi",
+          "mha:top-pro-heroes",
+          "mha:police"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hawks",
+          "Best Jeanist",
+          "All Might",
+          "Tsukauchi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Top Pro Heroes",
+          "Police"
+        ],
+        "topics": [
+          "hero coordination",
+          "small network",
+          "postwar strain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:endeavor",
+        "character:hawks",
+        "character:best-jeanist",
+        "character:all-might",
+        "character:tsukauchi",
+        "faction:top-pro-heroes",
+        "faction:police",
+        "topic:hero-coordination",
+        "topic:small-network",
+        "topic:postwar-strain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hawks",
+            "Best Jeanist",
+            "All Might",
+            "Tsukauchi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Top Pro Heroes",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero coordination",
+            "small network",
+            "postwar strain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor, Hawks, Best Jeanist, All Might, and select police contacts operate as a narrow response network around Deku.",
+        "injection": "Do not portray all pro heroes as fully coordinated around Deku; the active network is small, secretive, tired, and politically constrained.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_hero_public_safety_commission_cannot_control_events",
+      "title": "Hero Public Safety Commission Cannot Control Events",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.hero-society-collapse",
+        "sortKeyFrom": 17050,
+        "sortKeyTo": 17050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero society collapses under postwar fear"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-public-safety-commission",
+          "mha:hero-society"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission",
+          "Hero Society"
+        ],
+        "topics": [
+          "institutional failure",
+          "public safety bureaucracy",
+          "postwar governance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:hero-public-safety-commission",
+        "faction:hero-society",
+        "topic:institutional-failure",
+        "topic:public-safety-bureaucracy",
+        "topic:postwar-governance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Public Safety Commission",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "institutional failure",
+            "public safety bureaucracy",
+            "postwar governance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Hero Public Safety Commission no longer functions as the clean command center it once appeared to be.",
+        "injection": "After the war, avoid treating the Commission as an omnipotent bureaucracy; its legacy matters, but the crisis has outrun its control.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 306-307",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_u_a_becomes_a_high_security_refuge",
+      "title": "U.A. Becomes A High-Security Refuge",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ua-refugee-conflict",
+        "sortKeyFrom": 17700,
+        "sortKeyTo": 17700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Civilians at U.A. reject Deku sheltering there"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:ua-refugees",
+          "mha:civilians",
+          "mha:ua-barrier"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High",
+          "U.A. Barrier"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "U.A. Refugees",
+          "Civilians"
+        ],
+        "topics": [
+          "civilian shelter",
+          "fortified school",
+          "evacuation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:ua-high",
+        "faction:ua-refugees",
+        "faction:civilians",
+        "location:ua-barrier",
+        "topic:civilian-shelter",
+        "topic:fortified-school",
+        "topic:evacuation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High",
+            "U.A. Barrier"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "U.A. Refugees",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian shelter",
+            "fortified school",
+            "evacuation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. is converted into a fortified refuge for civilians and students during the collapse.",
+        "injection": "When scenes move to U.A. during Dark Hero, treat it as a tense shelter and fortress, not a normal school campus.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 323-324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_class_1_a_remains_behind_without_deku",
+      "title": "Class 1-A Remains Behind Without Deku",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-leaves-ua",
+        "sortKeyFrom": 17100,
+        "sortKeyTo": 17100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to draw danger away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-breakout-network",
+          "label": "All For One breakout network active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "class absence",
+          "worry",
+          "friendship strain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:class-absence",
+        "topic:worry",
+        "topic:friendship-strain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "class absence",
+            "worry",
+            "friendship strain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A is left behind with Deku’s letters and must process his absence while preparing for danger.",
+        "injection": "Scenes with Class 1-A after Deku leaves should carry worry, frustration, and a sense that Deku has tried to take the burden alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

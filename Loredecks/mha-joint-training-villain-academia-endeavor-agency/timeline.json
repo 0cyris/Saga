@@ -1,0 +1,957 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.jt.class-a-vs-b-announced",
+      "label": "Joint Training battle is announced",
+      "sortKey": 12000,
+      "aliases": [
+        "Joint Training begins",
+        "Class A vs Class B begins"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "class:ua-1a",
+        "class:ua-1b"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 194-195"
+      }
+    },
+    {
+      "id": "mha.jt.shinso-joins-training",
+      "label": "Shinso joins the exercise as a transfer candidate",
+      "sortKey": 12050,
+      "aliases": [
+        "Shinso joins Joint Training",
+        "Hitoshi Shinso training"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "character:hitoshi-shinso"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 194-195"
+      }
+    },
+    {
+      "id": "mha.jt.match-1-start",
+      "label": "Joint Training Match 1 starts",
+      "sortKey": 12100,
+      "aliases": [
+        "Match 1 starts",
+        "Tsuyu team vs Shishida team"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-1"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 195-197"
+      }
+    },
+    {
+      "id": "mha.jt.match-1-conclusion",
+      "label": "Joint Training Match 1 concludes",
+      "sortKey": 12150,
+      "aliases": [
+        "Match 1 ends",
+        "Class A wins Match 1"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-1"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 197-198"
+      }
+    },
+    {
+      "id": "mha.jt.match-2-start",
+      "label": "Joint Training Match 2 starts",
+      "sortKey": 12200,
+      "aliases": [
+        "Match 2 starts",
+        "Momo vs Kendo match starts"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-2"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 199-200"
+      }
+    },
+    {
+      "id": "mha.jt.match-2-conclusion",
+      "label": "Joint Training Match 2 concludes",
+      "sortKey": 12250,
+      "aliases": [
+        "Match 2 ends",
+        "Class B wins Match 2"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-2"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 200-201"
+      }
+    },
+    {
+      "id": "mha.jt.match-3-start",
+      "label": "Joint Training Match 3 starts",
+      "sortKey": 12300,
+      "aliases": [
+        "Match 3 starts",
+        "Todoroki and Iida match starts"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-3"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 202-203"
+      }
+    },
+    {
+      "id": "mha.jt.match-3-conclusion",
+      "label": "Joint Training Match 3 ends in a draw",
+      "sortKey": 12350,
+      "aliases": [
+        "Match 3 draw",
+        "Todoroki vs Tetsutetsu draw"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-3"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 203-206"
+      }
+    },
+    {
+      "id": "mha.jt.match-4-start",
+      "label": "Joint Training Match 4 starts",
+      "sortKey": 12400,
+      "aliases": [
+        "Match 4 starts",
+        "Bakugo team starts"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-4"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 207-208"
+      }
+    },
+    {
+      "id": "mha.jt.match-4-conclusion",
+      "label": "Bakugo leads a decisive Match 4 win",
+      "sortKey": 12450,
+      "aliases": [
+        "Bakugo wins Match 4",
+        "Match 4 conclusion"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-4",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 208-209"
+      }
+    },
+    {
+      "id": "mha.jt.match-5-start",
+      "label": "Joint Training Match 5 starts",
+      "sortKey": 12500,
+      "aliases": [
+        "Match 5 starts",
+        "Deku and Shinso rematch begins"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-5"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 209-210"
+      }
+    },
+    {
+      "id": "mha.jt.ofa-vestige-dream",
+      "label": "Deku receives a deeper One For All vestige dream",
+      "sortKey": 12525,
+      "aliases": [
+        "OFA vestige dream",
+        "Blackwhip prelude"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "topic:vestiges"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 210"
+      }
+    },
+    {
+      "id": "mha.jt.blackwhip-awakens",
+      "label": "Blackwhip erupts from One For All",
+      "sortKey": 12550,
+      "aliases": [
+        "Blackwhip awakens",
+        "Deku loses control of Blackwhip"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "quirk:blackwhip",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 211-213"
+      }
+    },
+    {
+      "id": "mha.jt.uraraka-shinso-contain-deku",
+      "label": "Uraraka and Shinso help contain Deku",
+      "sortKey": 12575,
+      "aliases": [
+        "Uraraka stops Deku",
+        "Shinso brainwashes Deku"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "character:uraraka-ochaco",
+        "character:hitoshi-shinso"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 212-214"
+      }
+    },
+    {
+      "id": "mha.jt.match-5-conclusion",
+      "label": "Joint Training concludes after Match 5",
+      "sortKey": 12600,
+      "aliases": [
+        "Joint Training ends",
+        "Class A vs Class B concludes"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-match-5"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 215-217"
+      }
+    },
+    {
+      "id": "mha.jt.ofa-multiple-quirks-revealed",
+      "label": "One For All is revealed to contain multiple Quirks",
+      "sortKey": 12625,
+      "aliases": [
+        "multiple OFA Quirks revealed",
+        "Deku learns about past user Quirks"
+      ],
+      "tags": [
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "quirk:blackwhip"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217"
+      }
+    },
+    {
+      "id": "mha.mla.giran-kidnapped",
+      "label": "Giran is kidnapped by the Meta Liberation Army",
+      "sortKey": 13000,
+      "aliases": [
+        "Giran kidnapped",
+        "MLA lures the League"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:giran",
+        "faction:meta-liberation-army"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 218-219"
+      }
+    },
+    {
+      "id": "mha.mla.league-destitute",
+      "label": "League of Villains is exhausted and under-resourced",
+      "sortKey": 13025,
+      "aliases": [
+        "League destitute",
+        "League on the run"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 218-220"
+      }
+    },
+    {
+      "id": "mha.mla.gigantomachia-test",
+      "label": "Gigantomachia tests Shigaraki as successor",
+      "sortKey": 13050,
+      "aliases": [
+        "Gigantomachia challenge",
+        "Machia tests Shigaraki"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:gigantomachia",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 221-222"
+      }
+    },
+    {
+      "id": "mha.mla.deika-city-trap",
+      "label": "The League enters Deika City trap",
+      "sortKey": 13100,
+      "aliases": [
+        "Deika City",
+        "Revival Party begins"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "location:deika-city",
+        "faction:meta-liberation-army"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 223-224"
+      }
+    },
+    {
+      "id": "mha.mla.toga-vs-curious",
+      "label": "Toga fights Curious and evolves Transform usage",
+      "sortKey": 13150,
+      "aliases": [
+        "Toga vs Curious",
+        "Toga uses Uraraka blood"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:toga-himiko",
+        "character:curious",
+        "quirk:transform"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 225-226"
+      }
+    },
+    {
+      "id": "mha.mla.twice-overcomes-trauma",
+      "label": "Twice overcomes clone trauma",
+      "sortKey": 13200,
+      "aliases": [
+        "Twice trauma breakthrough",
+        "Sad Man Parade begins"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:twice",
+        "quirk:double"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 227-230"
+      }
+    },
+    {
+      "id": "mha.mla.sad-mans-parade",
+      "label": "Sad Man's Parade overwhelms Deika",
+      "sortKey": 13225,
+      "aliases": [
+        "Sad Man Parade",
+        "Twice army"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:twice",
+        "quirk:double"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 230-231"
+      }
+    },
+    {
+      "id": "mha.mla.shigaraki-memories-return",
+      "label": "Shigaraki's Tenko Shimura memories return",
+      "sortKey": 13275,
+      "aliases": [
+        "Tenko memories return",
+        "Shigaraki remembers his family"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:shigaraki-tomura",
+        "secret:tenko-shimura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 233-237"
+      }
+    },
+    {
+      "id": "mha.mla.decay-awakens",
+      "label": "Shigaraki's Decay expands destructively",
+      "sortKey": 13300,
+      "aliases": [
+        "Decay awakens",
+        "Shigaraki destroys Deika"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:shigaraki-tomura",
+        "quirk:decay"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 234-238"
+      }
+    },
+    {
+      "id": "mha.mla.shigaraki-defeats-redestro",
+      "label": "Shigaraki defeats Re-Destro",
+      "sortKey": 13350,
+      "aliases": [
+        "Shigaraki vs Re-Destro conclusion",
+        "Re-Destro submits"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "character:re-destro",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 238-239"
+      }
+    },
+    {
+      "id": "mha.mla.plf-formed",
+      "label": "Paranormal Liberation Front is formed",
+      "sortKey": 13400,
+      "aliases": [
+        "PLF formed",
+        "League and MLA merge"
+      ],
+      "tags": [
+        "arc:meta-liberation-army",
+        "faction:paranormal-liberation-front"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240"
+      }
+    },
+    {
+      "id": "mha.ea.class-interviews",
+      "label": "Class 1-A public interviews and winter school life",
+      "sortKey": 14000,
+      "aliases": [
+        "Class interviews",
+        "Do That Interview"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 241"
+      }
+    },
+    {
+      "id": "mha.ea.christmas",
+      "label": "U.A. Christmas gathering before work studies",
+      "sortKey": 14025,
+      "aliases": [
+        "Christmas at U.A.",
+        "Have a Merry Christmas"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 242"
+      }
+    },
+    {
+      "id": "mha.ea.work-studies-resume",
+      "label": "Hero work studies resume",
+      "sortKey": 14050,
+      "aliases": [
+        "work studies resume",
+        "students return to agencies"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "topic:work-studies"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 242-243"
+      }
+    },
+    {
+      "id": "mha.ea.deku-bakugo-shoto-join-endeavor",
+      "label": "Deku, Bakugo, and Shoto join Endeavor Agency",
+      "sortKey": 14100,
+      "aliases": [
+        "Off to Endeavor Agency",
+        "Endeavor interns"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "character:endeavor",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 243"
+      }
+    },
+    {
+      "id": "mha.ea.hawks-coded-warning",
+      "label": "Hawks sends Endeavor a coded warning",
+      "sortKey": 14150,
+      "aliases": [
+        "Hawks coded message",
+        "Recommended Reading"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "character:hawks",
+        "character:endeavor",
+        "faction:paranormal-liberation-front"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 244-246"
+      }
+    },
+    {
+      "id": "mha.ea.endeavor-training-begins",
+      "label": "Endeavor begins focused agency training",
+      "sortKey": 14200,
+      "aliases": [
+        "one thing at a time",
+        "Endeavor training starts"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "character:endeavor",
+        "topic:agency-training"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248"
+      }
+    },
+    {
+      "id": "mha.ea.todoroki-family-dinner",
+      "label": "Todoroki family dinner exposes unresolved harm",
+      "sortKey": 14250,
+      "aliases": [
+        "Todoroki family dinner",
+        "hellish Todoroki family"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:endeavor"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 249"
+      }
+    },
+    {
+      "id": "mha.ea.ending-kidnaps-natsuo",
+      "label": "Ending kidnaps Natsuo Todoroki",
+      "sortKey": 14300,
+      "aliases": [
+        "Ending kidnaps Natsuo",
+        "Natsuo rescue"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "character:natsuo-todoroki",
+        "character:ending"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 250-251"
+      }
+    },
+    {
+      "id": "mha.ea.interns-save-natsuo",
+      "label": "The interns save Natsuo before Endeavor can act",
+      "sortKey": 14325,
+      "aliases": [
+        "interns save Natsuo",
+        "Deku Bakugo Shoto save Natsuo"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "topic:internship"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 251"
+      }
+    },
+    {
+      "id": "mha.ea.pre-war-countdown",
+      "label": "Heroes begin moving toward a hidden war countdown",
+      "sortKey": 14400,
+      "aliases": [
+        "pre war countdown",
+        "PLF countdown",
+        "before Paranormal Liberation War"
+      ],
+      "tags": [
+        "arc:endeavor-agency",
+        "faction:paranormal-liberation-front",
+        "event:pre-war-countdown"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.window.joint-training.full",
+      "label": "Joint Training Arc",
+      "anchorFrom": "mha.jt.class-a-vs-b-announced",
+      "anchorTo": "mha.jt.ofa-multiple-quirks-revealed",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12625,
+      "tags": [
+        "arc:joint-training"
+      ]
+    },
+    {
+      "id": "mha.window.joint-training.matches",
+      "label": "Class 1-A vs Class 1-B match sequence",
+      "anchorFrom": "mha.jt.match-1-start",
+      "anchorTo": "mha.jt.match-5-conclusion",
+      "sortKeyFrom": 12100,
+      "sortKeyTo": 12600,
+      "tags": [
+        "arc:joint-training",
+        "event:joint-training-battle"
+      ]
+    },
+    {
+      "id": "mha.window.ofa-blackwhip",
+      "label": "Blackwhip awakening and containment",
+      "anchorFrom": "mha.jt.ofa-vestige-dream",
+      "anchorTo": "mha.jt.ofa-multiple-quirks-revealed",
+      "sortKeyFrom": 12525,
+      "sortKeyTo": 12625,
+      "tags": [
+        "quirk:one-for-all",
+        "quirk:blackwhip"
+      ]
+    },
+    {
+      "id": "mha.window.meta-liberation-army.full",
+      "label": "Meta Liberation Army / My Villain Academia",
+      "anchorFrom": "mha.mla.giran-kidnapped",
+      "anchorTo": "mha.mla.plf-formed",
+      "sortKeyFrom": 13000,
+      "sortKeyTo": 13400,
+      "tags": [
+        "arc:meta-liberation-army"
+      ]
+    },
+    {
+      "id": "mha.window.deika-city",
+      "label": "Deika City battle",
+      "anchorFrom": "mha.mla.deika-city-trap",
+      "anchorTo": "mha.mla.shigaraki-defeats-redestro",
+      "sortKeyFrom": 13100,
+      "sortKeyTo": 13350,
+      "tags": [
+        "location:deika-city",
+        "arc:meta-liberation-army"
+      ]
+    },
+    {
+      "id": "mha.window.shigaraki-origin",
+      "label": "Shigaraki memory recovery and Decay awakening",
+      "anchorFrom": "mha.mla.shigaraki-memories-return",
+      "anchorTo": "mha.mla.decay-awakens",
+      "sortKeyFrom": 13275,
+      "sortKeyTo": 13300,
+      "tags": [
+        "character:shigaraki-tomura",
+        "secret:tenko-shimura",
+        "quirk:decay"
+      ]
+    },
+    {
+      "id": "mha.window.endeavor-agency.full",
+      "label": "Endeavor Agency Arc",
+      "anchorFrom": "mha.ea.class-interviews",
+      "anchorTo": "mha.ea.pre-war-countdown",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14400,
+      "tags": [
+        "arc:endeavor-agency"
+      ]
+    },
+    {
+      "id": "mha.window.endeavor-training",
+      "label": "Endeavor agency training period",
+      "anchorFrom": "mha.ea.deku-bakugo-shoto-join-endeavor",
+      "anchorTo": "mha.ea.interns-save-natsuo",
+      "sortKeyFrom": 14100,
+      "sortKeyTo": 14325,
+      "tags": [
+        "arc:endeavor-agency",
+        "topic:agency-training"
+      ]
+    },
+    {
+      "id": "mha.window.todoroki-family-pressure",
+      "label": "Todoroki family pressure before the war",
+      "anchorFrom": "mha.ea.todoroki-family-dinner",
+      "anchorTo": "mha.ea.interns-save-natsuo",
+      "sortKeyFrom": 14250,
+      "sortKeyTo": 14325,
+      "tags": [
+        "family:todoroki"
+      ]
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "arc",
+      "id": "mha.arc.joint-training",
+      "label": "Joint Training",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 12625,
+      "aliases": [
+        "Joint Training",
+        "Class A vs Class B"
+      ]
+    },
+    {
+      "axis": "arc",
+      "id": "mha.arc.meta-liberation-army",
+      "label": "Meta Liberation Army / My Villain Academia",
+      "sortKeyFrom": 13000,
+      "sortKeyTo": 13400,
+      "aliases": [
+        "My Villain Academia",
+        "Meta Liberation Army",
+        "MLA arc"
+      ]
+    },
+    {
+      "axis": "arc",
+      "id": "mha.arc.endeavor-agency",
+      "label": "Endeavor Agency",
+      "sortKeyFrom": 14000,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "Endeavor Agency",
+        "Endeavor work study"
+      ]
+    },
+    {
+      "axis": "school_stage",
+      "id": "mha.school.first-year-winter",
+      "label": "Class 1-A first-year winter",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "first year winter",
+        "winter at U.A."
+      ]
+    },
+    {
+      "axis": "quirk_stage",
+      "id": "mha.quirk.deku-blackwhip-awakened",
+      "label": "Deku awakens Blackwhip but lacks mastery",
+      "sortKeyFrom": 12550,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "Blackwhip awakened",
+        "multiple OFA Quirks"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "id": "mha.villains.league-before-plf",
+      "label": "League before PLF merger",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 13400,
+      "aliases": [
+        "League before PLF",
+        "League of Villains pre-PLF"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "id": "mha.villains.plf-formed-hidden",
+      "label": "Paranormal Liberation Front formed but hidden from public",
+      "sortKeyFrom": 13400,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "PLF formed",
+        "Paranormal Liberation Front"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.post-all-might-pre-war",
+      "label": "Post-All Might society before the Paranormal Liberation War",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "before the war",
+        "post All Might pre war"
+      ]
+    },
+    {
+      "axis": "internship_state",
+      "id": "mha.internship.endeavor-agency",
+      "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+      "sortKeyFrom": 14100,
+      "sortKeyTo": 14325,
+      "aliases": [
+        "Endeavor interns",
+        "Endeavor work study"
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "id": "manga-primary",
+      "label": "Manga primary continuity",
+      "sortKeyFrom": 12000,
+      "sortKeyTo": 14400,
+      "aliases": [
+        "manga",
+        "manga primary"
+      ]
+    }
+  ]
+}

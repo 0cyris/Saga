@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "id": "mha-dark-hero-star-traitor",
+  "type": "bundled",
+  "title": "My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor",
+  "description": "Context-gated story-state, knowledge, ability, relationship, and spoiler-guard lore for Dark Hero, Star and Stripe, and U.A. Traitor material in manga-primary My Hero Academia.",
+  "fandom": "My Hero Academia",
+  "era": "Dark Hero through U.A. Traitor",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.11.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:mha",
+    "continuity:mha-manga-main",
+    "arc:dark-hero",
+    "arc:star-and-stripe",
+    "arc:ua-traitor",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover placeholder for My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor",
+      "aspect": "3:4",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    "banner": {
+      "path": "assets/banner.png",
+      "alt": "Wide banner placeholder for My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor"
+    }
+  },
+  "continuity": {
+    "continuityId": "mha-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+    "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "dark_hero_star_traitor/aftermath_and_breakouts.json",
+    "dark_hero_star_traitor/class_1a_rescue_ua_refuge.json",
+    "dark_hero_star_traitor/future_guards_final_war_setup.json",
+    "dark_hero_star_traitor/lady_nagant_overhaul.json",
+    "dark_hero_star_traitor/star_and_stripe.json",
+    "dark_hero_star_traitor/ua_traitor.json",
+    "dark_hero_star_traitor/vigilante_deku.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "mha-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core My Hero Academia entities, Quirk-system tags, hero-system tags, and baseline continuity anchors."
+    }
+  ],
+  "stats": {
+    "entryCount": 109,
+    "categoryCounts": {
+      "character": 32,
+      "event": 11,
+      "faction": 4,
+      "knowledge": 15,
+      "location": 3,
+      "relationship": 20,
+      "rule": 13,
+      "secret": 11
+    },
+    "timelineAnchorCount": 35,
+    "timelineWindowCount": 6
+  },
+  "license": {
+    "name": "Draft fan reference data",
+    "notes": "For local testing. Requires human canon review before reference release."
+  },
+  "health": {
+    "status": "good",
+    "notes": "Local smoke validation only; not a substitute for in-app Saga Deck Health or human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "My Hero Academia",
+      "Manga Main"
+    ],
+    "familyOrder": 90
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1780876800000
+}

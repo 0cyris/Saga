@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to the My Hero Academia Paranormal Liberation War deck.",
+  "preferredFields": [
+    "arc",
+    "front",
+    "beforeAfter",
+    "majorEvent",
+    "chapterRange"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer manga-primary Paranormal Liberation War anchors and front windows. Do not resolve Dark Hero or Final War phrases into this deck except as future-boundary guards.",
+  "localPatterns": [
+    {
+      "pattern": "during the paranormal liberation war",
+      "result": {
+        "anchorFrom": "mha.plw.heroes-mobilize",
+        "anchorTo": "mha.plw.war-collapse",
+        "label": "During the Paranormal Liberation War"
+      }
+    },
+    {
+      "pattern": "during the hospital raid",
+      "result": {
+        "anchorFrom": "mha.plw.hospital-raid-start",
+        "anchorTo": "mha.plw.afo-vestige-pressure",
+        "label": "Jaku Hospital raid"
+      }
+    },
+    {
+      "pattern": "during the villa raid",
+      "result": {
+        "anchorFrom": "mha.plw.villa-raid-start",
+        "anchorTo": "mha.plw.mr-compress-sacrifice",
+        "label": "Gunga Mountain Villa raid"
+      }
+    },
+    {
+      "pattern": "after shigaraki awakens",
+      "result": {
+        "anchorFrom": "mha.plw.shigaraki-awakens",
+        "label": "After Shigaraki awakens"
+      }
+    },
+    {
+      "pattern": "after the dabi reveal",
+      "result": {
+        "anchorFrom": "mha.plw.dabi-broadcast",
+        "label": "After Dabi broadcast"
+      }
+    },
+    {
+      "pattern": "after the war",
+      "result": {
+        "anchorFrom": "mha.plw.war-collapse",
+        "label": "After the Paranormal Liberation War"
+      }
+    },
+    {
+      "pattern": "before deku leaves ua",
+      "result": {
+        "anchorTo": "mha.plw.deku-leaves-ua",
+        "label": "Before Deku leaves U.A."
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

@@ -1,0 +1,2104 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_deku_enters_the_main_fight_before_he_is_ready_for_its_scale",
+      "title": "Deku Enters The Main Fight Before He Is Ready For Its Scale",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-bakugo-rush",
+        "sortKeyFrom": 15550,
+        "sortKeyTo": 15550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Bakugo draw Shigaraki away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:shigaraki-tomura",
+          "mha:u-a-students",
+          "mha:pro-heroes",
+          "mha:jaku-city",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "U.A. Students",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "overextension",
+          "battlefield escalation",
+          "Deku strain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "faction:u-a-students",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:overextension",
+        "topic:battlefield-escalation",
+        "topic:deku-strain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "overextension",
+            "battlefield escalation",
+            "Deku strain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku joins the Shigaraki battle with new abilities and urgency, but he is not emotionally or technically prepared for the war’s scale.",
+        "injection": "Write Deku as brave and overextended. His body, judgment, and emotions are under more strain than his training prepared him for.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-275",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_bakugo_reads_deku_s_self_destructive_pattern",
+      "title": "Bakugo Reads Deku’s Self-Destructive Pattern",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-bakugo-rush",
+        "sortKeyFrom": 15550,
+        "sortKeyTo": 15550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Bakugo draw Shigaraki away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku",
+          "mha:jaku-city",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "self-sacrifice pattern",
+          "Bakugo concern",
+          "Deku danger"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:self-sacrifice-pattern",
+        "topic:bakugo-concern",
+        "topic:deku-danger"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "self-sacrifice pattern",
+            "Bakugo concern",
+            "Deku danger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo recognizes that Deku tends to destroy himself for victory and becomes increasingly alert to that danger during the Shigaraki fight.",
+        "injection": "Use Bakugo’s perspective as tactical and personal: he knows Deku’s self-sacrificial pattern and watches for it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-275",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_float_changes_deku_s_mobility_but_not_his_maturity",
+      "title": "Float Changes Deku’s Mobility But Not His Maturity",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.float-awakens",
+        "sortKeyFrom": 15700,
+        "sortKeyTo": 15700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Float in battle"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:nana-shimura",
+          "mha:jaku-city",
+          "mha:float",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Nana Shimura"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Float",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "aerial mobility",
+          "OFA progression",
+          "emotional instability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "quirk:float",
+        "character:midoriya-izuku",
+        "character:nana-shimura",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:aerial-mobility",
+        "topic:ofa-progression",
+        "topic:emotional-instability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Nana Shimura"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Float",
+            "One For All"
+          ],
+          "topicsAny": [
+            "aerial mobility",
+            "OFA progression",
+            "emotional instability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s use of Float gives him new aerial control during the Shigaraki battle, but it does not make him calm, experienced, or fully balanced.",
+        "injection": "After Float activates, Deku can keep people airborne and maneuver vertically, but he can still panic, rage, and overuse his body.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 283",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Float",
+        "stage": "first-battlefield-use",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Float adds aerial mobility but does not replace training or emotional control."
+        ],
+        "antiLore": [
+          "Do not treat Float as full flight mastery immediately."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_blackwhip_becomes_rescue_rigging_in_the_air",
+      "title": "Blackwhip Becomes Rescue Rigging In The Air",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.float-awakens",
+        "sortKeyFrom": 15700,
+        "sortKeyTo": 15700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Float in battle"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:pro-heroes",
+          "mha:jaku-city",
+          "mha:blackwhip",
+          "mha:one-for-all",
+          "mha:float"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Blackwhip",
+          "One For All",
+          "Float"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "airborne rescue",
+          "Blackwhip restraint",
+          "OFA combo"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "quirk:blackwhip",
+        "quirk:one-for-all",
+        "quirk:float",
+        "topic:airborne-rescue",
+        "topic:blackwhip-restraint",
+        "topic:ofa-combo"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Blackwhip",
+            "One For All",
+            "Float"
+          ],
+          "topicsAny": [
+            "airborne rescue",
+            "Blackwhip restraint",
+            "OFA combo"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku uses Blackwhip with Float to suspend and move allies during the Shigaraki battle.",
+        "injection": "Use Blackwhip here as restraint, rescue rigging, and emergency positioning, not only as an attack tendril.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 283",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_deku_rage_after_bakugo_injury_risks_losing_tactical_judgment",
+      "title": "Deku Rage After Bakugo Injury Risks Losing Tactical Judgment",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.bakugo-rising",
+        "sortKeyFrom": 15750,
+        "sortKeyTo": 15750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo takes a hit meant for Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:shigaraki-tomura",
+          "mha:jaku-city",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "rage state",
+          "tactical instability",
+          "Bakugo injury"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:shigaraki-tomura",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:rage-state",
+        "topic:tactical-instability",
+        "topic:bakugo-injury"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "rage state",
+            "tactical instability",
+            "Bakugo injury"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s injury pushes Deku into rage, making him more aggressive and less tactically balanced against Shigaraki and All For One influence.",
+        "injection": "After Bakugo is hit, Deku’s anger should affect his choices. Do not keep him perfectly composed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 285",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_bakugo_rising_is_protective_instinct_not_instant_redemption",
+      "title": "Bakugo Rising Is Protective Instinct Not Instant Redemption",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.bakugo-rising",
+        "sortKeyFrom": 15750,
+        "sortKeyTo": 15750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo takes a hit meant for Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "protective instinct",
+          "relationship growth",
+          "unfinished apology"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "location:jaku-city",
+        "topic:protective-instinct",
+        "topic:relationship-growth",
+        "topic:unfinished-apology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "protective instinct",
+            "relationship growth",
+            "unfinished apology"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s protective action for Deku is a major growth marker, but it does not erase their past or complete his emotional arc by itself.",
+        "injection": "Write Bakugo’s save as significant but not magically absolving. It shows change under pressure, not a finished apology arc.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 285",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_all_for_one_influence_competes_with_shigaraki_s_will",
+      "title": "All For One Influence Competes With Shigaraki’s Will",
+      "kind": "relationship_state",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 93,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.afo-vestige-pressure",
+        "sortKeyFrom": 15800,
+        "sortKeyTo": 15800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One influence pressures Shigaraki from within"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "All For One"
+        ],
+        "factions": [],
+        "topics": [
+          "vestige pressure",
+          "will conflict",
+          "possession tension"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "location:jaku-city",
+        "topic:vestige-pressure",
+        "topic:will-conflict",
+        "topic:possession-tension"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "All For One"
+          ],
+          "topicsAny": [
+            "vestige pressure",
+            "will conflict",
+            "possession tension"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Inside the battle, All For One’s influence pressures Shigaraki’s body and will, complicating whether Shigaraki acts entirely as himself.",
+        "injection": "When AFO influence appears, write Shigaraki as contested rather than replaced cleanly. His hatred and AFO’s agenda overlap but are not identical.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 286-287",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_one_for_all_vestiges_are_active_but_not_public_knowledge",
+      "title": "One For All Vestiges Are Active But Not Public Knowledge",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.ofa-council",
+        "sortKeyFrom": 16750,
+        "sortKeyTo": 16750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku confronts One For All vestiges in hospital state"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:yoichi-shigaraki",
+          "mha:nana-shimura",
+          "mha:banjo-daigoro",
+          "mha:en",
+          "mha:one-for-all-vestiges",
+          "mha:hero-hospital",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might",
+          "Yoichi Shigaraki",
+          "Nana Shimura",
+          "Daigoro Banjo",
+          "En"
+        ],
+        "locations": [
+          "Hero Hospital"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "OFA vestiges",
+          "hidden guidance",
+          "successor burden"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "topic:vestiges",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "character:yoichi-shigaraki",
+        "character:nana-shimura",
+        "character:banjo-daigoro",
+        "character:en",
+        "faction:one-for-all-vestiges",
+        "location:hero-hospital",
+        "quirk:one-for-all",
+        "topic:ofa-vestiges",
+        "topic:hidden-guidance",
+        "topic:successor-burden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might",
+            "Yoichi Shigaraki",
+            "Nana Shimura",
+            "Daigoro Banjo",
+            "En"
+          ],
+          "locationsAny": [
+            "Hero Hospital"
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA vestiges",
+            "hidden guidance",
+            "successor burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The One For All vestiges become more directly involved in guiding Deku, but this remains hidden from nearly everyone outside OFA’s circle.",
+        "injection": "Do not let classmates or the public know about OFA vestiges unless the Context is a private OFA scene or later explicit reveal.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 304-305",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_danger_sense_should_not_appear_before_its_context",
+      "title": "Danger Sense Should Not Appear Before Its Context",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.float-awakens",
+        "sortKeyFrom": 15700,
+        "sortKeyTo": 15700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Float in battle"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:jaku-city",
+          "mha:danger-sense",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Danger Sense",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Danger Sense guard",
+          "OFA progression",
+          "future Quirk"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "quirk:danger-sense",
+        "character:midoriya-izuku",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:danger-sense-guard",
+        "topic:ofa-progression",
+        "topic:future-quirk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Danger Sense",
+            "One For All"
+          ],
+          "topicsAny": [
+            "Danger Sense guard",
+            "OFA progression",
+            "future Quirk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Danger Sense is not an all-purpose early warning system for Deku before the story reaches the relevant OFA progression.",
+        "injection": "Before Danger Sense activation/recognition, do not give Deku clean danger radar simply because later arcs use that Quirk.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 283",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_shigaraki_is_not_fully_all_for_one_yet",
+      "title": "Shigaraki Is Not Fully All For One Yet",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.afo-vestige-pressure",
+        "sortKeyFrom": 15800,
+        "sortKeyTo": 15800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One influence pressures Shigaraki from within"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "All For One"
+        ],
+        "factions": [],
+        "topics": [
+          "future guard",
+          "possession state",
+          "Final War boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:final-war",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "location:jaku-city",
+        "topic:future-guard",
+        "topic:possession-state",
+        "topic:final-war-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "All For One"
+          ],
+          "topicsAny": [
+            "future guard",
+            "possession state",
+            "Final War boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During this arc, Shigaraki is under All For One pressure but has not become the final-war personality state.",
+        "injection": "Do not import Final War possession-state conclusions into this battle. Preserve the unstable war-stage conflict between Shigaraki and AFO.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 286-287",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_endeavor_prominence_burn_moment_is_desperate_containment",
+      "title": "Endeavor Prominence Burn Moment Is Desperate Containment",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.afo-vestige-pressure",
+        "sortKeyFrom": 15800,
+        "sortKeyTo": 15800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One influence pressures Shigaraki from within"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:shigaraki-tomura",
+          "mha:pro-heroes",
+          "mha:jaku-city",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "maximum firepower",
+          "desperate containment",
+          "Prominence Burn"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:endeavor",
+        "character:shigaraki-tomura",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "quirk:hellflame",
+        "topic:maximum-firepower",
+        "topic:desperate-containment",
+        "topic:prominence-burn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "maximum firepower",
+            "desperate containment",
+            "Prominence Burn"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s high-output attack against Shigaraki is a desperate attempt to end a battle that normal restraint cannot contain.",
+        "injection": "When Endeavor uses maximum firepower here, frame it as last-resort containment, not casual overkill.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 286-287",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_heroes_cannot_publicly_explain_one_for_all_targeting",
+      "title": "Heroes Cannot Publicly Explain One For All Targeting",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-bakugo-rush",
+        "sortKeyFrom": 15550,
+        "sortKeyTo": 15550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Bakugo draw Shigaraki away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:endeavor",
+          "mha:aizawa-shota",
+          "mha:pro-heroes",
+          "mha:jaku-city",
+          "mha:one-for-all",
+          "mha:search"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Endeavor",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "One For All",
+          "Search"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "OFA secrecy",
+          "Shigaraki targeting",
+          "limited explanation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:one-for-all",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:endeavor",
+        "character:aizawa-shota",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "quirk:search",
+        "topic:ofa-secrecy",
+        "topic:shigaraki-targeting",
+        "topic:limited-explanation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Endeavor",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "One For All",
+            "Search"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "Shigaraki targeting",
+            "limited explanation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Because One For All remains secret, heroes cannot easily explain why Shigaraki is fixating on Deku.",
+        "injection": "In mixed-hero scenes, keep OFA targeting difficult to discuss. Characters can notice Shigaraki wants Deku without knowing why.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-275",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_shigaraki_physical_strength_persists_even_under_erasure",
+      "title": "Shigaraki Physical Strength Persists Even Under Erasure",
+      "kind": "rule_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-erasure-battle",
+        "sortKeyFrom": 15600,
+        "sortKeyTo": 15600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa holds Shigaraki under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:aizawa-shota",
+          "mha:jaku-city",
+          "mha:erasure",
+          "mha:overclocked-body"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Erasure",
+          "Overclocked Body"
+        ],
+        "factions": [],
+        "topics": [
+          "enhanced strength",
+          "Erasure limitation",
+          "body modification"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:shigaraki-tomura",
+        "character:aizawa-shota",
+        "location:jaku-city",
+        "quirk:erasure",
+        "quirk:overclocked-body",
+        "topic:enhanced-strength",
+        "topic:erasure-limitation",
+        "topic:body-modification"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Erasure",
+            "Overclocked Body"
+          ],
+          "topicsAny": [
+            "enhanced strength",
+            "Erasure limitation",
+            "body modification"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even while Quirks are suppressed, Shigaraki’s enhanced body remains physically dangerous.",
+        "injection": "Do not make Erasure reduce Shigaraki to normal human strength. His body enhancement remains a threat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 275-282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_deku_overuse_damages_his_body_again_during_war",
+      "title": "Deku Overuse Damages His Body Again During War",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.bakugo-rising",
+        "sortKeyFrom": 15750,
+        "sortKeyTo": 15750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo takes a hit meant for Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:jaku-city",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "body damage",
+          "power overuse",
+          "arm risk"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:body-damage",
+        "topic:power-overuse",
+        "topic:arm-risk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "body damage",
+            "power overuse",
+            "arm risk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s repeated high-output attacks in the war push his arms and body back into severe overuse risk.",
+        "injection": "In PLW combat, keep Deku’s power use costly. He cannot spam maximum output without physical consequences.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 285",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

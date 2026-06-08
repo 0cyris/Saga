@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.usj.origin.quirkless-childhood",
+      "label": "Izuku grows up Quirkless",
+      "sortKey": 1000,
+      "aliases": [
+        "quirkless Deku",
+        "Deku childhood"
+      ],
+      "tags": [
+        "arc:ua-beginnings",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.sludge-villain-first-attack",
+      "label": "Sludge Villain attack and All Might rescue",
+      "sortKey": 1100,
+      "aliases": [
+        "sludge villain",
+        "Deku meets All Might"
+      ],
+      "tags": [
+        "event:sludge-villain",
+        "hero:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.all-might-offers-training",
+      "label": "All Might accepts Izuku as successor candidate",
+      "sortKey": 1200,
+      "aliases": [
+        "All Might trains Deku",
+        "successor training begins"
+      ],
+      "tags": [
+        "quirk:one-for-all",
+        "relationship:all-might-deku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.dagobah-training",
+      "label": "Dagobah beach training",
+      "sortKey": 1300,
+      "aliases": [
+        "beach training",
+        "ten months training"
+      ],
+      "tags": [
+        "location:dagobah-beach",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.ofa-transfer",
+      "label": "One For All transfer before entrance exam",
+      "sortKey": 1400,
+      "aliases": [
+        "OFA transfer",
+        "hair strand"
+      ],
+      "tags": [
+        "quirk:one-for-all",
+        "event:ofa-transfer"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.entrance-exam",
+      "label": "U.A. entrance exam",
+      "sortKey": 1500,
+      "aliases": [
+        "entrance exam",
+        "zero pointer"
+      ],
+      "tags": [
+        "event:entrance-exam",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.rescue-points-revealed",
+      "label": "Rescue points reveal Izuku passes",
+      "sortKey": 1600,
+      "aliases": [
+        "rescue points",
+        "Uraraka rescue points"
+      ],
+      "tags": [
+        "event:entrance-exam",
+        "character:uraraka-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.accepted-to-ua",
+      "label": "Izuku accepted to U.A.",
+      "sortKey": 1700,
+      "aliases": [
+        "accepted to UA",
+        "Deku gets into UA"
+      ],
+      "tags": [
+        "school:ua-high",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.first-day-class-1a",
+      "label": "First day in Class 1-A",
+      "sortKey": 1800,
+      "aliases": [
+        "first day",
+        "Aizawa homeroom"
+      ],
+      "tags": [
+        "class:ua-1a",
+        "hero:eraser-head"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.quirk-apprehension-test",
+      "label": "Quirk Apprehension Test",
+      "sortKey": 1900,
+      "aliases": [
+        "Quirk apprehension test",
+        "Aizawa test"
+      ],
+      "tags": [
+        "event:quirk-apprehension-test",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.battle-trial-start",
+      "label": "Hero Battle Trial begins",
+      "sortKey": 2000,
+      "aliases": [
+        "battle trial",
+        "heroes vs villains class exercise"
+      ],
+      "tags": [
+        "event:battle-trial",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.deku-vs-bakugo-battle",
+      "label": "Deku and Bakugo battle trial confrontation",
+      "sortKey": 2100,
+      "aliases": [
+        "Deku vs Bakugo",
+        "battle trial fight"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.class-rep-election",
+      "label": "Class representative election and cafeteria panic",
+      "sortKey": 2200,
+      "aliases": [
+        "class rep",
+        "UA press intrusion"
+      ],
+      "tags": [
+        "class:ua-1a",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.usj-departure",
+      "label": "Class 1-A departs for USJ",
+      "sortKey": 2300,
+      "aliases": [
+        "bus to USJ",
+        "USJ rescue training"
+      ],
+      "tags": [
+        "location:usj",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.usj-attack-begins",
+      "label": "League attacks USJ",
+      "sortKey": 2400,
+      "aliases": [
+        "USJ attack begins",
+        "Kurogiri portal"
+      ],
+      "tags": [
+        "arc:usj",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.kurogiri-splits-students",
+      "label": "Kurogiri scatters Class 1-A",
+      "sortKey": 2500,
+      "aliases": [
+        "students scattered",
+        "USJ zones"
+      ],
+      "tags": [
+        "villain:kurogiri",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.aizawa-vs-villains",
+      "label": "Aizawa holds off villains",
+      "sortKey": 2600,
+      "aliases": [
+        "Aizawa fights villains",
+        "Eraser Head at USJ"
+      ],
+      "tags": [
+        "hero:eraser-head",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.nomus-threat",
+      "label": "USJ Nomu overwhelms Aizawa and threatens All Might",
+      "sortKey": 2700,
+      "aliases": [
+        "USJ Nomu",
+        "Nomu shock absorption"
+      ],
+      "tags": [
+        "villain:nomu",
+        "hero:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.all-might-arrives-usj",
+      "label": "All Might arrives at USJ",
+      "sortKey": 2800,
+      "aliases": [
+        "All Might arrives",
+        "Plus Ultra USJ"
+      ],
+      "tags": [
+        "hero:all-might",
+        "arc:usj"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.usj-attack-ends",
+      "label": "USJ attack ends",
+      "sortKey": 2900,
+      "aliases": [
+        "USJ ends",
+        "villains retreat"
+      ],
+      "tags": [
+        "arc:usj",
+        "status:usj-aftermath"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    },
+    {
+      "id": "mha.usj.after-usj-school-continues",
+      "label": "After USJ, school continues under threat",
+      "sortKey": 3000,
+      "aliases": [
+        "after USJ",
+        "school continues after attack"
+      ],
+      "tags": [
+        "status:usj-aftermath",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 1-21"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.usj.window.origin-through-ofa",
+      "label": "Origin through One For All transfer",
+      "anchorFrom": "mha.usj.origin.quirkless-childhood",
+      "anchorTo": "mha.usj.ofa-transfer",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1400,
+      "aliases": [
+        "Deku origin",
+        "before entrance exam"
+      ]
+    },
+    {
+      "id": "mha.usj.window.entrance-exam",
+      "label": "U.A. Entrance Exam",
+      "anchorFrom": "mha.usj.entrance-exam",
+      "anchorTo": "mha.usj.rescue-points-revealed",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 1600,
+      "aliases": [
+        "entrance exam"
+      ]
+    },
+    {
+      "id": "mha.usj.window.first-days",
+      "label": "First Days of Class 1-A",
+      "anchorFrom": "mha.usj.accepted-to-ua",
+      "anchorTo": "mha.usj.class-rep-election",
+      "sortKeyFrom": 1700,
+      "sortKeyTo": 2200,
+      "aliases": [
+        "first week at UA",
+        "early class 1-A"
+      ]
+    },
+    {
+      "id": "mha.usj.window.battle-trial",
+      "label": "Hero Battle Trial",
+      "anchorFrom": "mha.usj.battle-trial-start",
+      "anchorTo": "mha.usj.deku-vs-bakugo-battle",
+      "sortKeyFrom": 2000,
+      "sortKeyTo": 2100,
+      "aliases": [
+        "battle trial",
+        "Deku versus Bakugo"
+      ]
+    },
+    {
+      "id": "mha.usj.window.usj-attack",
+      "label": "USJ Attack",
+      "anchorFrom": "mha.usj.usj-attack-begins",
+      "anchorTo": "mha.usj.usj-attack-ends",
+      "sortKeyFrom": 2400,
+      "sortKeyTo": 2900,
+      "aliases": [
+        "USJ attack",
+        "League attacks UA"
+      ]
+    },
+    {
+      "id": "mha.usj.window.after-usj",
+      "label": "After USJ",
+      "anchorFrom": "mha.usj.usj-attack-ends",
+      "anchorTo": "mha.usj.after-usj-school-continues",
+      "sortKeyFrom": 2900,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "USJ aftermath"
+      ]
+    }
+  ],
+  "arcs": [
+    {
+      "id": "mha.arc.ua-beginnings",
+      "label": "U.A. Beginnings",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 2300,
+      "aliases": [
+        "UA beginnings",
+        "Deku origin"
+      ],
+      "tags": [
+        "arc:ua-beginnings"
+      ]
+    },
+    {
+      "id": "mha.arc.usj",
+      "label": "USJ Arc",
+      "sortKeyFrom": 2300,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "USJ",
+        "Unforeseen Simulation Joint"
+      ],
+      "tags": [
+        "arc:usj"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "mha.phase.pre-ua",
+      "label": "Before U.A.",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 1700,
+      "aliases": [
+        "pre-UA"
+      ],
+      "tags": [
+        "school:pre-ua"
+      ]
+    },
+    {
+      "id": "mha.phase.ua-first-term",
+      "label": "U.A. First Term Begins",
+      "sortKeyFrom": 1700,
+      "sortKeyTo": 3000,
+      "aliases": [
+        "first term"
+      ],
+      "tags": [
+        "school:ua-high"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "ua-beginnings",
+        "usj"
+      ]
+    },
+    {
+      "axis": "school_stage",
+      "label": "School Stage",
+      "values": [
+        "pre-ua",
+        "ua-first-term"
+      ]
+    },
+    {
+      "axis": "quirk_stage",
+      "label": "Izuku One For All Stage",
+      "values": [
+        "quirkless",
+        "ofa-inherited-uncontrolled",
+        "ofa-finger-breaking"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "label": "Villain Organization State",
+      "values": [
+        "league-hidden",
+        "league-first-attack"
+      ]
+    },
+    {
+      "axis": "class_state",
+      "label": "Class 1-A State",
+      "values": [
+        "forming",
+        "first-exercises",
+        "first-crisis"
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "label": "Adaptation",
+      "values": [
+        "manga-primary"
+      ]
+    }
+  ]
+}

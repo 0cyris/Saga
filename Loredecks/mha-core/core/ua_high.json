@@ -1,0 +1,1644 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_is_elite_and_dangerous",
+      "title": "U.A. Is Elite And Dangerous",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. High School"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "elite school",
+          "risk",
+          "hero training"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:elite-school",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "elite school",
+            "risk",
+            "hero training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. High is an elite hero school whose training exposes students to high stakes earlier than ordinary education would.",
+        "injection": "Write U.A. as prestigious, competitive, and risky; its promise of training does not make it a safe bubble.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_class_1_a_is_a_mixed_talent_cohort",
+      "title": "Class 1-A Is A Mixed Talent Cohort",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Class 1-A",
+          "student diversity",
+          "team dynamics"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "topic:student-cohort",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Class 1-A",
+            "student diversity",
+            "team dynamics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A combines prodigies, disciplined students, comic personalities, anxious beginners, and unconventional Quirks.",
+        "injection": "Class 1-A should feel like a varied cohort, not a uniform squad of equally mature combat specialists.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_aizawa_teaches_through_pressure",
+      "title": "Aizawa Teaches Through Pressure",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. Class 1-A"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "Aizawa teaching",
+          "pressure",
+          "expulsion threat"
+        ]
+      },
+      "tags": [
+        "hero:eraser-head",
+        "school:ua-high",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "Aizawa teaching",
+            "pressure",
+            "expulsion threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa uses harsh tests, blunt warnings, and controlled pressure to force students to confront hero work realistically.",
+        "injection": "Aizawa should sound severe and practical; his pressure is meant to expose risk and weakness, not to provide warm encouragement first.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_all_might_is_an_inexperienced_teacher_early",
+      "title": "All Might Is An Inexperienced Teacher Early",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "All Might teaching",
+          "awkward teacher",
+          "mentor"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "school:ua-high",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "All Might teaching",
+            "awkward teacher",
+            "mentor"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might is a legendary hero but initially lacks polished classroom teaching instincts.",
+        "injection": "Early All Might teaching scenes should show charisma and hero wisdom mixed with awkward planning and secrecy.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_security_becomes_a_plot_pressure",
+      "title": "U.A. Security Becomes A Plot Pressure",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. High School"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "security",
+          "targeted school",
+          "villain threat"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:school-security",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. High School"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "security",
+            "targeted school",
+            "villain threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Attacks and media intrusion force U.A. to tighten security and treat the school as a target.",
+        "injection": "After villain contact, U.A. security should become an active concern rather than background decoration.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_the_hero_course_is_competitive",
+      "title": "The Hero Course Is Competitive",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. Class 1-A"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "competition",
+          "rivalry",
+          "growth pressure"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:competition",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "competition",
+            "rivalry",
+            "growth pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hero Course students know they are being measured against peers, pro expectations, and their own public ambitions.",
+        "injection": "Student scenes should preserve competition, insecurity, rivalry, and growth pressure without making classmates purely hostile.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_training_exercises_have_hidden_scoring",
+      "title": "Training Exercises Have Hidden Scoring",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "hidden scoring",
+          "judgment",
+          "training"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:evaluation",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "hidden scoring",
+            "judgment",
+            "training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. exercises often test judgment, cooperation, rescue sense, and self-control beyond the stated objective.",
+        "injection": "Do not treat U.A. exercises as simple win-loss games; teachers may be measuring qualities students do not notice yet.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_students_learn_hero_public_identity",
+      "title": "Students Learn Hero Public Identity",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. Class 1-A"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "public identity",
+          "hero names",
+          "costumes"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:hero-names",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "public identity",
+            "hero names",
+            "costumes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. pushes students to develop hero names, costumes, teamwork, interviews, and public-facing self-presentation.",
+        "injection": "School scenes can include identity formation because hero work requires public presentation as well as power.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_dorms_are_not_present_at_story_start",
+      "title": "Dorms Are Not Present At Story Start",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "dorm timing",
+          "school living",
+          "timeline"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "knowledge:timeline",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "dorm timing",
+            "school living",
+            "timeline"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A does not begin the story living in dorms; dorm life is a later safety response after major villain escalation.",
+        "injection": "Before the dorm move, do not place Class 1-A in U.A. dorms.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_faculty_balance_education_and_crisis",
+      "title": "U.A. Faculty Balance Education And Crisis",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:yagi-toshinori",
+          "mha:nezu",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "All Might",
+          "Nezu"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "faculty",
+          "crisis management",
+          "school operations"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "All Might",
+            "Nezu"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "faculty",
+            "crisis management",
+            "school operations"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. faculty must continue education while responding to direct threats against students and the institution.",
+        "injection": "After attacks, faculty scenes should carry both school-management and hero-crisis responsibilities.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_class_1_a_bonds_through_shared_threat",
+      "title": "Class 1-A Bonds Through Shared Threat",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. Class 1-A"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "class bond",
+          "shared danger",
+          "trust"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "relationship:class-1a",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "class bond",
+            "shared danger",
+            "trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A's cohesion strengthens as students face real danger together earlier than expected.",
+        "injection": "Early Class 1-A scenes should allow unfamiliarity at first, then sharper trust after shared crises.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_school_events_are_public_stages",
+      "title": "School Events Are Public Stages",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "public event",
+          "reputation",
+          "scouting"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:public-event",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "public event",
+            "reputation",
+            "scouting"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Major U.A. events can become public performances that shape reputation and recruitment.",
+        "injection": "When a U.A. event is public, make reputation, scouting, audience reaction, and future internships relevant.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_first_year_students_lack_field_judgment",
+      "title": "First-Year Students Lack Field Judgment",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:uraraka-ochaco",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. Class 1-A"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "inexperience",
+          "student mistakes",
+          "field judgment"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "topic:inexperience",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. Class 1-A"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "inexperience",
+            "student mistakes",
+            "field judgment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early Class 1-A students may be brave and talented but often lack field judgment, emotional control, and experience.",
+        "injection": "Before major training and internships, students should make plausible beginner mistakes under pressure.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_teachers_can_be_secretive",
+      "title": "U.A. Teachers Can Be Secretive",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 72,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Class 1-A school-year story"
+      },
+      "coordinates": [
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:nezu",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Nezu"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "teacher secrecy",
+          "school reputation",
+          "student safety"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "knowledge:hidden",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Nezu"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "teacher secrecy",
+            "school reputation",
+            "student safety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Teachers may withhold full context to manage student safety, morale, school reputation, or hero operations.",
+        "injection": "Faculty must not explain every institutional secret to students immediately, especially after villain events.",
+        "constraints": [
+          "Keep student age, supervision, school routine, and institutional risk visible when U.A. is the scene frame."
+        ],
+        "antiLore": [
+          "Do not write U.A. as a consequence-free superhero clubhouse."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core U.A. structure",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    }
+  ]
+}

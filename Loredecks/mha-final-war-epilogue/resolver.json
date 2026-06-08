@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to Final War or Chapter 430 epilogue Context for manga-primary My Hero Academia.",
+  "preferredFields": [
+    "arc",
+    "beforeAfter",
+    "majorEvent",
+    "battlefield",
+    "character",
+    "quirkStage"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Final War battlefields, major reveals, or the Chapter 430 epilogue window. Do not import Chapter 431 'More' material unless its overlay deck is active.",
+  "localPatterns": [
+    {
+      "pattern": "during final war",
+      "result": {
+        "anchorFrom": "mha.fwe.aoyama-trap-begins",
+        "anchorTo": "mha.fwe.war-ends",
+        "label": "Final War Arc"
+      }
+    },
+    {
+      "pattern": "floating ua",
+      "result": {
+        "anchorFrom": "mha.fwe.floating-ua-battle-starts",
+        "anchorTo": "mha.fwe.afo-shigaraki-conflict-ends",
+        "label": "Floating U.A. battlefield"
+      }
+    },
+    {
+      "pattern": "coffin in the sky",
+      "result": {
+        "anchorFrom": "mha.fwe.floating-ua-battle-starts",
+        "anchorTo": "mha.fwe.afo-shigaraki-conflict-ends",
+        "label": "Floating U.A. battlefield"
+      }
+    },
+    {
+      "pattern": "dabi final fight",
+      "result": {
+        "anchorFrom": "mha.fwe.kamino-dabi-battle-starts",
+        "anchorTo": "mha.fwe.todoroki-family-converges",
+        "label": "Dabi and Todoroki family final confrontation"
+      }
+    },
+    {
+      "pattern": "toga and ochaco final fight",
+      "result": {
+        "anchorFrom": "mha.fwe.toga-sad-mans-parade",
+        "anchorTo": "mha.fwe.toga-transfusion",
+        "label": "Ochaco and Toga final confrontation"
+      }
+    },
+    {
+      "pattern": "armored all might",
+      "result": {
+        "anchorId": "mha.fwe.all-might-armored-fight",
+        "label": "Armored All Might fights All For One"
+      }
+    },
+    {
+      "pattern": "bakugo returns",
+      "result": {
+        "anchorId": "mha.fwe.bakugo-returns",
+        "label": "Bakugo returns to save All Might"
+      }
+    },
+    {
+      "pattern": "deku vs shigaraki final",
+      "result": {
+        "anchorFrom": "mha.fwe.danger-sense-stolen",
+        "anchorTo": "mha.fwe.afo-shigaraki-conflict-ends",
+        "label": "Deku and Shigaraki final confrontation"
+      }
+    },
+    {
+      "pattern": "after the war",
+      "result": {
+        "anchorFrom": "mha.fwe.war-ends",
+        "anchorTo": "mha.fwe.deku-support-suit",
+        "label": "Epilogue through Chapter 430"
+      }
+    },
+    {
+      "pattern": "chapter 430",
+      "result": {
+        "anchorId": "mha.fwe.deku-support-suit",
+        "label": "Chapter 430 adult future and support suit"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "arc": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

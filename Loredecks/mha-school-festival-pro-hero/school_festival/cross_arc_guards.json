@@ -1,0 +1,1535 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_league_evolution_is_not_yet_my_villain_academia",
+      "title": "League Evolution Is Not Yet My Villain Academia",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "sortKeyFrom": 10850,
+        "sortKeyTo": 10850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:dabi",
+          "mha:toga-himiko",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Dabi",
+          "Himiko Toga"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "future guard",
+          "MVA locked",
+          "PLF locked"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:shigaraki-tomura",
+        "character:dabi",
+        "character:toga-himiko",
+        "faction:league-of-villains",
+        "topic:future-guard",
+        "topic:mva-locked",
+        "topic:plf-locked"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Dabi",
+            "Himiko Toga"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "MVA locked",
+            "PLF locked"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During School Festival and Pro Hero, the League has not yet reached the Meta Liberation Army transformation shown later.",
+        "injection": "Do not import My Villain Academia, PLF structure, or Shigaraki awakening into this Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 179-183",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_toga_blood_from_license_exam_is_not_used_here",
+      "title": "Toga Blood From License Exam Is Not Used Here",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:midoriya-izuku",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Himiko Toga",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "future guard",
+          "Toga blood",
+          "later payoff locked"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:toga-himiko",
+        "character:midoriya-izuku",
+        "faction:league-of-villains",
+        "topic:future-guard",
+        "topic:toga-blood",
+        "topic:later-payoff-locked"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Toga blood",
+            "later payoff locked"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Although Toga previously stole Izuku’s blood, the School Festival arc must not prematurely trigger later disguise or war uses.",
+        "injection": "Keep Toga’s stolen blood as unresolved background unless the active Context reaches its later payoff.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_mirio_permeation_remains_lost_in_this_period",
+      "title": "Mirio Permeation Remains Lost In This Period",
+      "kind": "ability_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:eri",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Eri"
+        ],
+        "locations": [],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [],
+        "topics": [
+          "Permeation lost",
+          "Mirio future guard",
+          "Eri restoration locked"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:mirio-togata",
+        "character:eri",
+        "quirk:rewind",
+        "topic:permeation-lost",
+        "topic:mirio-future-guard",
+        "topic:eri-restoration-locked"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Eri"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "Permeation lost",
+            "Mirio future guard",
+            "Eri restoration locked"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio still lacks Permeation during the School Festival and Pro Hero period.",
+        "injection": "Do not restore Mirio’s Quirk in this deck. Keep his hero identity emotionally present but mechanically limited.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_sir_nighteye_death_remains_immediate_backstory",
+      "title": "Sir Nighteye Death Remains Immediate Backstory",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.post-hassaikai-recovery",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Post-Hassaikai recovery and school life resume"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Nighteye death",
+          "recent grief",
+          "Hassaikai aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:mirio-togata",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "faction:pro-heroes",
+        "topic:nighteye-death",
+        "topic:recent-grief",
+        "topic:hassaikai-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nighteye death",
+            "recent grief",
+            "Hassaikai aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Sir Nighteye’s death is recent backstory affecting Mirio, All Might, and the work-study students.",
+        "injection": "When Nighteye is referenced, keep grief recent. Do not treat the Hassaikai arc as emotionally distant yet.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_all_might_remains_retired_and_mentoring",
+      "title": "All Might Remains Retired And Mentoring",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.billboard-chart",
+        "sortKeyFrom": 10900,
+        "sortKeyTo": 10900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:pro-heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "All Might retired",
+          "mentor role",
+          "symbol absence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "faction:pro-heroes",
+        "quirk:one-for-all",
+        "topic:all-might-retired",
+        "topic:mentor-role",
+        "topic:symbol-absence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "All Might retired",
+            "mentor role",
+            "symbol absence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might remains retired from active hero work and functions as mentor rather than battlefield Symbol of Peace.",
+        "injection": "Do not reinsert All Might as active combat solution. His role is guidance, history, and emotional support.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_bakugo_still_does_not_know_full_ofa_truth_publicly",
+      "title": "Bakugo Still Does Not Know Full OFA Truth Publicly",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:class-1a",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "OFA secrecy",
+          "Bakugo knowledge",
+          "class boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "class:ua-1a",
+        "quirk:one-for-all",
+        "topic:ofa-secrecy",
+        "topic:bakugo-knowledge",
+        "topic:class-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "Bakugo knowledge",
+            "class boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s knowledge of One For All remains private and limited; it is not class-wide or public knowledge.",
+        "injection": "Do not let Class 1-A casually discuss OFA transfer mechanics. Keep Bakugo’s knowledge private when relevant.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_aoyama_traitor_reveal_remains_locked",
+      "title": "Aoyama Traitor Reveal Remains Locked",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "All For One"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "Aoyama traitor guard",
+          "future guard",
+          "All For One coercion locked"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:aoyama-yuga",
+        "character:all-for-one",
+        "class:ua-1a",
+        "topic:aoyama-traitor-guard",
+        "topic:future-guard",
+        "topic:all-for-one-coercion-locked"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "All For One"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Aoyama traitor guard",
+            "future guard",
+            "All For One coercion locked"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama’s later traitor reveal is not known or active as revealed truth in this period.",
+        "injection": "Before the U.A. traitor Context, write Aoyama as eccentric and class-adjacent without exposing his coercion by All For One.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_star_and_stripe_has_no_role_in_this_period",
+      "title": "Star And Stripe Has No Role In This Period",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "future guard",
+          "Star and Stripe locked",
+          "international crisis locked"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "faction:pro-heroes",
+        "topic:future-guard",
+        "topic:star-and-stripe-locked",
+        "topic:international-crisis-locked"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Star and Stripe locked",
+            "international crisis locked"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star and Stripe and the international late-series crisis are outside this Context.",
+        "injection": "Do not import Star and Stripe, New Order, or international final-act escalation into School Festival or Pro Hero scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_dark_hero_deku_has_not_happened",
+      "title": "Dark Hero Deku Has Not Happened",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:class-1a",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "future guard",
+          "Dark Hero locked",
+          "U.A. student state"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "class:ua-1a",
+        "quirk:one-for-all",
+        "topic:future-guard",
+        "topic:dark-hero-locked",
+        "topic:ua-student-state"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "future guard",
+            "Dark Hero locked",
+            "U.A. student state"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku has not yet left U.A. as a solo vigilante-style figure during this period.",
+        "injection": "Keep Deku embedded in U.A. school life and training. Do not import Dark Hero exhaustion, solo patrols, or civilian backlash yet.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_final_war_character_statuses_are_locked",
+      "title": "Final War Character Statuses Are Locked",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes",
+          "mha:league-of-villains"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Class 1-A",
+          "Pro Heroes",
+          "League of Villains"
+        ],
+        "topics": [
+          "future guard",
+          "Final War locked",
+          "status spoilers"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "class:ua-1a",
+        "faction:pro-heroes",
+        "faction:league-of-villains",
+        "topic:future-guard",
+        "topic:final-war-locked",
+        "topic:status-spoilers"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Class 1-A",
+            "Pro Heroes",
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Final War locked",
+            "status spoilers"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Final War injuries, deaths, reconciliations, and postwar statuses are not valid knowledge in this period.",
+        "injection": "Do not use Final War outcomes to guide dialogue or relationship states during School Festival or Pro Hero Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_and_la_brava_later_rehabilitation_should_not_backfill",
+      "title": "Gentle And La Brava Later Rehabilitation Should Not Backfill",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "sortKeyFrom": 10850,
+        "sortKeyTo": 10850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Police"
+        ],
+        "topics": [
+          "future guard",
+          "rehabilitation locked",
+          "Gentle later role"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "topic:future-guard",
+        "topic:rehabilitation-locked",
+        "topic:gentle-later-role"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "rehabilitation locked",
+            "Gentle later role"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Later material involving Gentle and La Brava must not be treated as known during their School Festival arrest.",
+        "injection": "At capture, keep their future unresolved. Do not let police, heroes, or Gentle himself speak with knowledge of later redemption beats.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 179-183",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_pro_hero_arc_does_not_begin_endeavor_agency_training_yet",
+      "title": "Pro Hero Arc Does Not Begin Endeavor Agency Training Yet",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:pro-heroes",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Endeavor",
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Class 1-A"
+        ],
+        "topics": [
+          "future guard",
+          "Endeavor Agency locked",
+          "arc boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "faction:pro-heroes",
+        "class:ua-1a",
+        "topic:future-guard",
+        "topic:endeavor-agency-locked",
+        "topic:arc-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Endeavor Agency locked",
+            "arc boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The later Endeavor Agency training arc has not begun by the end of Pro Hero.",
+        "injection": "Do not move Deku, Bakugo, and Shoto into Endeavor’s agency in this Context. That belongs to the later Endeavor Agency deck.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

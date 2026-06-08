@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve early My Hero Academia Context from origin through USJ.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "schoolStage",
+    "quirkStage"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known arc, chapter, and before/after anchors over invented exact dates.",
+  "localPatterns": [
+    {
+      "pattern": "before deku gets one for all",
+      "result": {
+        "anchorTo": "mha.usj.ofa-transfer",
+        "label": "Before One For All transfer"
+      }
+    },
+    {
+      "pattern": "after the sludge villain",
+      "result": {
+        "anchorFrom": "mha.usj.sludge-villain-first-attack",
+        "label": "After Sludge Villain incident"
+      }
+    },
+    {
+      "pattern": "during beach training",
+      "result": {
+        "anchorId": "mha.usj.dagobah-training",
+        "label": "Dagobah training"
+      }
+    },
+    {
+      "pattern": "during the entrance exam",
+      "result": {
+        "anchorFrom": "mha.usj.entrance-exam",
+        "anchorTo": "mha.usj.rescue-points-revealed",
+        "label": "U.A. Entrance Exam"
+      }
+    },
+    {
+      "pattern": "during the quirk apprehension test",
+      "result": {
+        "anchorId": "mha.usj.quirk-apprehension-test",
+        "label": "Quirk Apprehension Test"
+      }
+    },
+    {
+      "pattern": "during battle trial",
+      "result": {
+        "anchorFrom": "mha.usj.battle-trial-start",
+        "anchorTo": "mha.usj.deku-vs-bakugo-battle",
+        "label": "Hero Battle Trial"
+      }
+    },
+    {
+      "pattern": "during usj",
+      "result": {
+        "anchorFrom": "mha.usj.usj-attack-begins",
+        "anchorTo": "mha.usj.usj-attack-ends",
+        "label": "USJ Attack"
+      }
+    },
+    {
+      "pattern": "after usj",
+      "result": {
+        "anchorFrom": "mha.usj.usj-attack-ends",
+        "label": "After USJ"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "sceneDate": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

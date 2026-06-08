@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character",
+      "color": "#4a5568",
+      "description": "character Lorecards."
+    },
+    "event": {
+      "label": "Event",
+      "color": "#4a5568",
+      "description": "event Lorecards."
+    },
+    "location": {
+      "label": "Location",
+      "color": "#4a5568",
+      "description": "location Lorecards."
+    },
+    "item": {
+      "label": "Item",
+      "color": "#4a5568",
+      "description": "item Lorecards."
+    },
+    "faction": {
+      "label": "Faction",
+      "color": "#4a5568",
+      "description": "faction Lorecards."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "color": "#4a5568",
+      "description": "relationship Lorecards."
+    },
+    "rule": {
+      "label": "Rule",
+      "color": "#4a5568",
+      "description": "rule Lorecards."
+    },
+    "timeline": {
+      "label": "Timeline",
+      "color": "#4a5568",
+      "description": "timeline Lorecards."
+    },
+    "knowledge": {
+      "label": "Knowledge",
+      "color": "#4a5568",
+      "description": "knowledge Lorecards."
+    },
+    "secret": {
+      "label": "Secret",
+      "color": "#4a5568",
+      "description": "secret Lorecards."
+    },
+    "other": {
+      "label": "Other",
+      "color": "#4a5568",
+      "description": "other Lorecards."
+    }
+  },
+  "canonStatuses": {
+    "canon": {
+      "label": "Canon"
+    }
+  },
+  "truthStatuses": {
+    "true": {
+      "label": "True"
+    },
+    "hidden": {
+      "label": "Hidden"
+    },
+    "secret": {
+      "label": "Secret"
+    }
+  },
+  "revealPolicies": {
+    "public": {
+      "label": "Public"
+    },
+    "private": {
+      "label": "Private"
+    },
+    "contextual": {
+      "label": "Contextual"
+    }
+  }
+}

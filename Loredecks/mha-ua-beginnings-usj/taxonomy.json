@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character",
+      "color": "#34495e",
+      "description": "Character identity, status, behavior, or role."
+    },
+    "event": {
+      "label": "Event",
+      "color": "#8e5a2a",
+      "description": "A story event or Context waypoint."
+    },
+    "location": {
+      "label": "Location",
+      "color": "#566573",
+      "description": "Place and local state."
+    },
+    "item": {
+      "label": "Item",
+      "color": "#6c5ce7",
+      "description": "Objects, gear, or artifacts."
+    },
+    "spell": {
+      "label": "Spell",
+      "color": "#6c5ce7",
+      "description": "Legacy compatibility category."
+    },
+    "faction": {
+      "label": "Faction",
+      "color": "#7d3c98",
+      "description": "Organizations, classes, villain groups, schools, or agencies."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "color": "#b04a7a",
+      "description": "Relationship states and social dynamics."
+    },
+    "rule": {
+      "label": "Rule",
+      "color": "#2e86c1",
+      "description": "World rules, Quirk rules, and constraints."
+    },
+    "timeline": {
+      "label": "Timeline",
+      "color": "#b9770e",
+      "description": "Timeline anchors and story-position facts."
+    },
+    "knowledge": {
+      "label": "Knowledge",
+      "color": "#7b7d7d",
+      "description": "Who knows, believes, hides, or misunderstands something."
+    },
+    "secret": {
+      "label": "Secret",
+      "color": "#922b21",
+      "description": "Spoiler, hidden identity, or dangerous knowledge."
+    },
+    "other": {
+      "label": "Other",
+      "color": "#5d6d7e",
+      "description": "Other Saga-compatible lore."
+    }
+  },
+  "canon": {
+    "canon": {
+      "label": "Canon",
+      "description": "Primary manga continuity."
+    },
+    "au": {
+      "label": "AU",
+      "description": "Alternate universe or custom divergence."
+    }
+  },
+  "truthStatus": {
+    "true": {
+      "label": "True"
+    },
+    "hidden": {
+      "label": "Hidden"
+    },
+    "secret": {
+      "label": "Secret"
+    },
+    "rumor": {
+      "label": "Rumor"
+    },
+    "contested": {
+      "label": "Contested"
+    }
+  },
+  "revealPolicy": {
+    "public": {
+      "label": "Public"
+    },
+    "private": {
+      "label": "Private"
+    },
+    "spoiler_guard": {
+      "label": "Spoiler Guard"
+    },
+    "contextual": {
+      "label": "Contextual"
+    }
+  }
+}

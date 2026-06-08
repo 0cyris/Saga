@@ -1,0 +1,1625 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_evacuation_students_are_forced_into_war_consequences",
+      "title": "Evacuation Students Are Forced Into War Consequences",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.evacuations-begin",
+        "sortKeyFrom": 15175,
+        "sortKeyTo": 15175,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students assist evacuation before combat escalates"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.evacuation",
+          "label": "Civilian evacuation and student rear guard",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:jiro-kyoka",
+          "mha:ashido-mina",
+          "mha:kirishima-eijiro",
+          "mha:u-a-students",
+          "mha:evacuation-team",
+          "mha:evacuation-zone"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "Kyoka Jiro",
+          "Mina Ashido",
+          "Eijiro Kirishima"
+        ],
+        "locations": [
+          "Evacuation Zone"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students",
+          "Evacuation Team"
+        ],
+        "topics": [
+          "student support roles",
+          "war escalation",
+          "disaster response"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:yaoyorozu-momo",
+        "character:jiro-kyoka",
+        "character:ashido-mina",
+        "character:kirishima-eijiro",
+        "faction:u-a-students",
+        "faction:evacuation-team",
+        "location:evacuation-zone",
+        "topic:student-support-roles",
+        "topic:war-escalation",
+        "topic:disaster-response"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "Kyoka Jiro",
+            "Mina Ashido",
+            "Eijiro Kirishima"
+          ],
+          "locationsAny": [
+            "Evacuation Zone"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "Evacuation Team"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "student support roles",
+            "war escalation",
+            "disaster response"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Students assigned to evacuation and rear support are still drawn into the war’s consequences once Shigaraki and Gigantomachia break containment.",
+        "injection": "Student scenes should retain the shock of escalation. They begin as support personnel and are forced into disaster response.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 258-259",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_midnight_delegates_the_machia_sedative_plan_to_students",
+      "title": "Midnight Delegates The Machia Sedative Plan To Students",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.midnight-falls",
+        "sortKeyFrom": 16275,
+        "sortKeyTo": 16275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Midnight is separated and fatally endangered"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midnight",
+          "mha:yaoyorozu-momo",
+          "mha:gigantomachia",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Midnight",
+          "Momo Yaoyorozu",
+          "Gigantomachia"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "teacher final instruction",
+          "sedative plan",
+          "Machia crisis"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midnight",
+        "character:yaoyorozu-momo",
+        "character:gigantomachia",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "topic:teacher-final-instruction",
+        "topic:sedative-plan",
+        "topic:machia-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Midnight",
+            "Momo Yaoyorozu",
+            "Gigantomachia"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "teacher final instruction",
+            "sedative plan",
+            "Machia crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Midnight, injured and separated, directs students toward a sedative strategy against Gigantomachia before being overwhelmed.",
+        "injection": "When Midnight falls, frame her final instruction as a teacher passing responsibility to students under impossible conditions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 278-279",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_yaoyorozu_turns_panic_into_a_concrete_sedative_plan",
+      "title": "Yaoyorozu Turns Panic Into A Concrete Sedative Plan",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.students-sedative-plan",
+        "sortKeyFrom": 16300,
+        "sortKeyTo": 16300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students attempt sedative plan against Gigantomachia"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:gigantomachia",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa",
+          "mha:creation"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "Gigantomachia"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Creation"
+        ],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "student command",
+          "sedative logistics",
+          "panic management"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:yaoyorozu-momo",
+        "character:gigantomachia",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "quirk:creation",
+        "topic:student-command",
+        "topic:sedative-logistics",
+        "topic:panic-management"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "Gigantomachia"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [
+            "Creation"
+          ],
+          "topicsAny": [
+            "student command",
+            "sedative logistics",
+            "panic management"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Momo organizes a sedative delivery plan under extreme time pressure, converting fear into logistics and coordination.",
+        "injection": "Write Momo as frightened but functional. Her value is planning, material creation, and command under pressure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_kirishima_completes_a_courage_arc_against_machia",
+      "title": "Kirishima Completes A Courage Arc Against Machia",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.students-sedative-plan",
+        "sortKeyFrom": 16300,
+        "sortKeyTo": 16300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students attempt sedative plan against Gigantomachia"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kirishima-eijiro",
+          "mha:gigantomachia",
+          "mha:ashido-mina",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Eijiro Kirishima",
+          "Gigantomachia",
+          "Mina Ashido"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "courage arc",
+          "sedative delivery",
+          "freezing in fear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:kirishima-eijiro",
+        "character:gigantomachia",
+        "character:ashido-mina",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "topic:courage-arc",
+        "topic:sedative-delivery",
+        "topic:freezing-in-fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eijiro Kirishima",
+            "Gigantomachia",
+            "Mina Ashido"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "courage arc",
+            "sedative delivery",
+            "freezing in fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kirishima’s attempt to deliver the sedative against Gigantomachia echoes and answers his earlier fear of freezing in danger.",
+        "injection": "Use Kirishima’s Machia moment as courage under terror, not simple toughness. His action matters because he chooses to move anyway.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mina_freezes_because_machia_triggers_earlier_trauma",
+      "title": "Mina Freezes Because Machia Triggers Earlier Trauma",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.students-sedative-plan",
+        "sortKeyFrom": 16300,
+        "sortKeyTo": 16300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students attempt sedative plan against Gigantomachia"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ashido-mina",
+          "mha:gigantomachia",
+          "mha:kirishima-eijiro",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Mina Ashido",
+          "Gigantomachia",
+          "Eijiro Kirishima"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "trauma trigger",
+          "earlier encounter",
+          "student fear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:ashido-mina",
+        "character:gigantomachia",
+        "character:kirishima-eijiro",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "topic:trauma-trigger",
+        "topic:earlier-encounter",
+        "topic:student-fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mina Ashido",
+            "Gigantomachia",
+            "Eijiro Kirishima"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "trauma trigger",
+            "earlier encounter",
+            "student fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mina briefly freezes against Gigantomachia because his presence recalls her earlier encounter before U.A., making the failure emotionally specific.",
+        "injection": "Do not write Mina’s hesitation as incompetence. It is trauma-triggered and immediately relevant to Kirishima’s follow-through.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_jiro_detects_battlefield_movement_through_sound",
+      "title": "Jiro Detects Battlefield Movement Through Sound",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.students-sedative-plan",
+        "sortKeyFrom": 16300,
+        "sortKeyTo": 16300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students attempt sedative plan against Gigantomachia"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Kyoka Jiro"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "sound detection",
+          "reconnaissance",
+          "rear guard tactics"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:jiro-kyoka",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "topic:sound-detection",
+        "topic:reconnaissance",
+        "topic:rear-guard-tactics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "sound detection",
+            "reconnaissance",
+            "rear guard tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Jiro’s sound detection helps students track danger and coordinate under chaotic battlefield conditions.",
+        "injection": "Use Jiro’s hearing as tactical reconnaissance during the rear-guard crisis, not just music theming.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_gigantomachia_is_a_moving_disaster_zone",
+      "title": "Gigantomachia Is A Moving Disaster Zone",
+      "kind": "rule_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.machia-march",
+        "sortKeyFrom": 16250,
+        "sortKeyTo": 16250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gigantomachia begins destructive march"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gigantomachia",
+          "mha:civilians",
+          "mha:pro-heroes",
+          "mha:jaku-city",
+          "mha:evacuation-zone"
+        ],
+        "characters": [
+          "Gigantomachia"
+        ],
+        "locations": [
+          "Jaku City",
+          "Evacuation Zone"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "moving disaster",
+          "mass destruction",
+          "evacuation collapse"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:gigantomachia",
+        "faction:civilians",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "location:evacuation-zone",
+        "topic:moving-disaster",
+        "topic:mass-destruction",
+        "topic:evacuation-collapse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gigantomachia"
+          ],
+          "locationsAny": [
+            "Jaku City",
+            "Evacuation Zone"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "moving disaster",
+            "mass destruction",
+            "evacuation collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gigantomachia’s march functions like a mobile disaster, crushing terrain, buildings, and evacuation assumptions as he moves toward Shigaraki.",
+        "injection": "Treat Machia as catastrophe-scale. Scenes around him should involve shockwaves, route destruction, impossible size, and evacuation collapse.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 276-279",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mt_lady_and_other_pros_can_slow_machia_but_not_stop_him_alone",
+      "title": "Mt Lady And Other Pros Can Slow Machia But Not Stop Him Alone",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.machia-march",
+        "sortKeyFrom": 16250,
+        "sortKeyTo": 16250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gigantomachia begins destructive march"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mt-lady",
+          "mha:gigantomachia",
+          "mha:kamui-woods",
+          "mha:edgeshot",
+          "mha:pro-heroes",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Mt. Lady",
+          "Gigantomachia",
+          "Kamui Woods",
+          "Edgeshot"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "delay tactics",
+          "giant-scale struggle",
+          "damage reduction"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:mt-lady",
+        "character:gigantomachia",
+        "character:kamui-woods",
+        "character:edgeshot",
+        "faction:pro-heroes",
+        "location:gunga-mountain-villa",
+        "topic:delay-tactics",
+        "topic:giant-scale-struggle",
+        "topic:damage-reduction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mt. Lady",
+            "Gigantomachia",
+            "Kamui Woods",
+            "Edgeshot"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "delay tactics",
+            "giant-scale struggle",
+            "damage reduction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mt. Lady and other heroes physically delay Gigantomachia, but individual strength cannot fully halt him once he is moving.",
+        "injection": "When pros engage Machia, frame their work as delay and damage reduction, not an easy physical contest.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 276-279",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_sedative_success_is_delayed_rather_than_immediate",
+      "title": "Sedative Success Is Delayed Rather Than Immediate",
+      "kind": "rule_constraint",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.students-sedative-plan",
+        "sortKeyFrom": 16300,
+        "sortKeyTo": 16300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students attempt sedative plan against Gigantomachia"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gigantomachia",
+          "mha:yaoyorozu-momo",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Gigantomachia",
+          "Momo Yaoyorozu"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "delayed sedative",
+          "Machia endurance",
+          "student contribution"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:gigantomachia",
+        "character:yaoyorozu-momo",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "topic:delayed-sedative",
+        "topic:machia-endurance",
+        "topic:student-contribution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gigantomachia",
+            "Momo Yaoyorozu"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "delayed sedative",
+            "Machia endurance",
+            "student contribution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The students’ sedative matters, but it does not instantly drop Gigantomachia at the moment of delivery.",
+        "injection": "Do not make the sedative an immediate off-switch. Its delayed effect preserves the march’s devastation and later collapse.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_machia_carries_the_league_toward_shigaraki",
+      "title": "Machia Carries The League Toward Shigaraki",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.machia-reaches-battlefield",
+        "sortKeyFrom": 16350,
+        "sortKeyTo": 16350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gigantomachia reaches the main battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gigantomachia",
+          "mha:dabi",
+          "mha:toga-himiko",
+          "mha:spinner",
+          "mha:mr-compress",
+          "mha:league-of-villains",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Gigantomachia",
+          "Dabi",
+          "Himiko Toga",
+          "Spinner",
+          "Mr. Compress"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "front convergence",
+          "League transport",
+          "battlefield merger"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:gigantomachia",
+        "character:dabi",
+        "character:toga-himiko",
+        "character:spinner",
+        "character:mr-compress",
+        "faction:league-of-villains",
+        "location:jaku-city",
+        "topic:front-convergence",
+        "topic:league-transport",
+        "topic:battlefield-merger"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gigantomachia",
+            "Dabi",
+            "Himiko Toga",
+            "Spinner",
+            "Mr. Compress"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "front convergence",
+            "League transport",
+            "battlefield merger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gigantomachia carries League members toward Shigaraki, merging the villa and hospital fronts into one larger catastrophe.",
+        "injection": "After Machia moves, prepare for fronts to converge. League members physically arrive through Machia, not through clean tactical redeployment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 286-289",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_students_see_the_gap_between_training_and_war",
+      "title": "Students See The Gap Between Training And War",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.students-sedative-plan",
+        "sortKeyFrom": 16300,
+        "sortKeyTo": 16300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students attempt sedative plan against Gigantomachia"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:kirishima-eijiro",
+          "mha:ashido-mina",
+          "mha:jiro-kyoka",
+          "mha:u-a-students",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "Eijiro Kirishima",
+          "Mina Ashido",
+          "Kyoka Jiro"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students"
+        ],
+        "topics": [
+          "training versus war",
+          "student shock",
+          "mass casualty scale"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:yaoyorozu-momo",
+        "character:kirishima-eijiro",
+        "character:ashido-mina",
+        "character:jiro-kyoka",
+        "faction:u-a-students",
+        "location:gunga-mountain-villa",
+        "topic:training-versus-war",
+        "topic:student-shock",
+        "topic:mass-casualty-scale"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "Eijiro Kirishima",
+            "Mina Ashido",
+            "Kyoka Jiro"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "training versus war",
+            "student shock",
+            "mass casualty scale"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The rear-guard students confront a scale of violence far beyond exams, festivals, and controlled training.",
+        "injection": "In student war scenes, show the mismatch between school training and real mass-casualty conditions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

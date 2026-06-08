@@ -1,0 +1,1069 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-use-more-without-overlay-loaded",
+      "title": "Do Not Use More Without Overlay Loaded",
+      "kind": "future_guard",
+      "category": "timeline",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 100,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.chapter-431-start",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Chapter 431 More begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "overlay loading",
+          "spoiler control",
+          "chapter 431"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "topic:overlay-loading",
+        "topic:spoiler-control",
+        "topic:chapter-431",
+        "meta:future-guard",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "overlay loading",
+            "spoiler control",
+            "chapter 431"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 material must stay inactive unless the `mha-post-series-more` deck is loaded and Context is set to the More window.",
+        "injection": "Block Chapter 431 facts from earlier MHA decks unless this overlay is active and the scene is explicitly in the More era.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-backfill-adult-careers-into-school-arcs",
+      "title": "Do Not Backfill Adult Careers Into School Arcs",
+      "kind": "future_guard",
+      "category": "timeline",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.chapter-431-start",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Chapter 431 More begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Class A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "adult career spoilers",
+          "school-era guard",
+          "future leakage"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "faction:class-1a",
+        "topic:adult-career-spoilers",
+        "topic:school-era-guard",
+        "topic:future-leakage",
+        "meta:future-guard",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Class A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "adult career spoilers",
+            "school-era guard",
+            "future leakage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Adult rankings, agencies, teaching roles, and relationships from Chapter 431 must not leak into U.A. school-era scenes.",
+        "injection": "Before Chapter 431 Context, do not reveal adult ranks, agencies, ships, or long-term career outcomes unless the user story explicitly time-skips or diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-treat-more-as-chapter-430-default",
+      "title": "Do Not Treat More As Chapter 430 Default",
+      "kind": "future_guard",
+      "category": "timeline",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.chapter-431-start",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Chapter 431 More begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "chapter 430 guard",
+          "overlay boundary",
+          "epilogue split"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "topic:chapter-430-guard",
+        "topic:overlay-boundary",
+        "topic:epilogue-split",
+        "meta:future-guard",
+        "meta:continuity-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "chapter 430 guard",
+            "overlay boundary",
+            "epilogue split"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 430 and Chapter 431 are separate epilogue states for Saga; Chapter 430 should remain usable without the later More additions.",
+        "injection": "Keep Chapter 430 scenes separate from More. Load More only when the user wants the extra Chapter 431 adult closure layer.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-restore-one-for-all-through-more",
+      "title": "Do Not Restore One For All Through More",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.bakugo-car-ride",
+        "sortKeyFrom": 23125,
+        "sortKeyTo": 23125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo drives Deku and Kirishima"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all",
+          "mha:deku-support-suit"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All",
+          "Support suit"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA guard",
+          "support suit guard",
+          "quirkless status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:izuku-midoriya",
+        "quirk:one-for-all",
+        "item:deku-support-suit",
+        "topic:ofa-guard",
+        "topic:support-suit-guard",
+        "topic:quirkless-status",
+        "meta:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "Support suit"
+          ],
+          "topicsAny": [
+            "OFA guard",
+            "support suit guard",
+            "quirkless status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 does not restore One For All as Deku's stable Quirk; his adult hero activity remains tied to the support suit and experience-sharing work.",
+        "injection": "Do not use More to give Deku full One For All again. His hero activity should rely on the suit, skill, teaching, analysis, and adult experience unless the user story diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-turn-toga-memory-into-active-resurrection",
+      "title": "Do Not Turn Toga Memory Into Active Resurrection",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.ochaco-toga-dream",
+        "sortKeyFrom": 23025,
+        "sortKeyTo": 23025,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco dreams of Toga"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Himiko Toga",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Toga death guard",
+          "dream ambiguity",
+          "resurrection guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "topic:toga-death-guard",
+        "topic:dream-ambiguity",
+        "topic:resurrection-guard",
+        "meta:future-guard",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Toga death guard",
+            "dream ambiguity",
+            "resurrection guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 uses Toga's memory and dream presence for Ochaco's closure, not as a default resurrection or active return to the living cast.",
+        "injection": "Keep Toga dead in More-era canon unless AU changes it. Her presence should be memory, dream, or emotional residue rather than a physical comeback.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-canonize-every-fan-ship-from-more",
+      "title": "Do Not Canonize Every Fan Ship From More",
+      "kind": "future_guard",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.former-class-a-reunion",
+        "sortKeyFrom": 23150,
+        "sortKeyTo": 23150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Former Class A reunion dinner"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Class A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "ship guard",
+          "relationship ambiguity",
+          "fanon boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "faction:class-1a",
+        "topic:ship-guard",
+        "topic:relationship-ambiguity",
+        "topic:fanon-boundary",
+        "meta:fanon-guard",
+        "meta:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Class A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "ship guard",
+            "relationship ambiguity",
+            "fanon boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 confirms or advances some relationship states but leaves many classmate pairings ambiguous or jokingly discussed.",
+        "injection": "Use only explicit More relationship states as canon. Keep ambiguous pairings as teasing, proximity, or fanon unless the user selects that branch.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-add-anime-special-material-to-manga-overlay-by-default",
+      "title": "Do Not Add Anime Special Material To Manga Overlay By Default",
+      "kind": "future_guard",
+      "category": "timeline",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.chapter-431-start",
+        "sortKeyFrom": 23000,
+        "sortKeyTo": 23000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Chapter 431 More begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "anime adaptation guard",
+          "special episode guard",
+          "manga primary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "topic:anime-adaptation-guard",
+        "topic:special-episode-guard",
+        "topic:manga-primary",
+        "meta:adaptation-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "anime adaptation guard",
+            "special episode guard",
+            "manga primary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "The `mha-post-series-more` deck is manga-primary Chapter 431 data; any anime special adaptation should be a separate adaptation overlay if it adds or changes material.",
+        "injection": "Do not import anime-special additions into this manga-primary More overlay unless a separate anime-adaptation deck is loaded.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_do-not-make-more-a-perfectly-resolved-utopia",
+      "title": "Do Not Make More A Perfectly Resolved Utopia",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.more-ending",
+        "sortKeyFrom": 23250,
+        "sortKeyTo": 23250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Chapter 431 More ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Class A"
+        ],
+        "topics": [
+          "imperfect peace",
+          "adult burdens",
+          "postwar realism"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "faction:class-1a",
+        "topic:imperfect-peace",
+        "topic:adult-burdens",
+        "topic:postwar-realism",
+        "meta:tone-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Class A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "imperfect peace",
+            "adult burdens",
+            "postwar realism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 offers closure and warmth, but the world still has work, incidents, emotional residue, and adult responsibilities.",
+        "injection": "Even with More's hopeful ending, keep the setting imperfect: hero work, trauma, prevention, relationships, and personal growth all continue.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

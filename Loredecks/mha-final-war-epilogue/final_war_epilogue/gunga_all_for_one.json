@@ -1,0 +1,2216 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_hawks-coordinates-against-afo-while-damaged",
+      "title": "Hawks Coordinates Against AFO While Damaged",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gunga-afo-battle-starts",
+        "sortKeyFrom": 19350,
+        "sortKeyTo": 19350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gunga battle against All For One begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Hawks",
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "command under injury",
+          "airborne support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:hawks",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:command-under-injury",
+        "topic:airborne-support",
+        "event:gunga-battle-against-all-for-one-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "command under injury",
+            "airborne support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks remains tactically important against All For One despite severe limits after earlier injuries.",
+        "injection": "Use Hawks as a strategist and wounded combatant; do not restore him to effortless pre-war peak.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-354",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_jiro-and-tokoyami-enter-afo-level-danger",
+      "title": "Jiro And Tokoyami Enter AFO-Level Danger",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.hawks-tokoyami-jirou-face-afo",
+        "sortKeyFrom": 19450,
+        "sortKeyTo": 19450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks, Tokoyami, and Jiro face All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:tokoyami-fumikage",
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Jiro Kyoka",
+          "Tokoyami Fumikage",
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "student courage",
+          "AFO intimidation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:jiro-kyoka",
+        "character:tokoyami-fumikage",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:student-courage",
+        "topic:afo-intimidation",
+        "event:hawks-tokoyami-and-jiro-face-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Jiro Kyoka",
+            "Tokoyami Fumikage",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "student courage",
+            "AFO intimidation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Jiro and Tokoyami directly face All For One in a battle far beyond normal student expectations.",
+        "injection": "Emphasize courage under terror; they can create openings, not dominate AFO alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 354-356",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-uses-quirk-theft-as-psychological-terror",
+      "title": "AFO Uses Quirk Theft As Psychological Terror",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.hawks-tokoyami-jirou-face-afo",
+        "sortKeyFrom": 19450,
+        "sortKeyTo": 19450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks, Tokoyami, and Jiro face All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:hawks",
+          "mha:jiro-kyoka",
+          "mha:gunga-mountain-villa",
+          "mha:villains",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All For One",
+          "Hawks",
+          "Jiro Kyoka"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "All For One"
+        ],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "Quirk theft",
+          "intimidation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:hawks",
+        "character:jiro-kyoka",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "item:all-for-one",
+        "topic:quirk-theft",
+        "topic:intimidation",
+        "event:hawks-tokoyami-and-jiro-face-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Hawks",
+            "Jiro Kyoka"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [
+            "All For One"
+          ],
+          "topicsAny": [
+            "Quirk theft",
+            "intimidation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s stolen Quirks and history make his presence psychologically crushing as well as physically dangerous.",
+        "injection": "Portray AFO as predatory and layered; his threat is theft, mockery, pressure, and accumulated power.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 354-356",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "All For One",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:all-for-one",
+          "mha:hawks"
+        ],
+        "requiredTags": [
+          "item:all-for-one"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_endeavor-damages-afo-through-resolve-not-redemption",
+      "title": "Endeavor Damages AFO Through Resolve Not Redemption",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.endeavor-wounds-afo",
+        "sortKeyFrom": 19500,
+        "sortKeyTo": 19500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor wounds All For One at Gunga"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Endeavor",
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Prominence Burn",
+          "atonement under pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:endeavor",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:prominence-burn",
+        "topic:atonement-under-pressure",
+        "event:endeavor-wounds-all-for-one-at-gunga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Prominence Burn",
+            "atonement under pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s successful attack on All For One comes from desperate resolve, not from his family sins being forgiven.",
+        "injection": "Do not treat Endeavor’s battlefield grit as completed redemption; keep hero duty separate from family repair.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 356-357",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-rewind-regression-is-a-time-limit",
+      "title": "AFO Rewind Regression Is A Time Limit",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-rewind-regression",
+        "sortKeyFrom": 19550,
+        "sortKeyTo": 19550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One begins Rewind regression"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:villains",
+          "mha:rewind-derived-drug"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Rewind-derived drug"
+        ],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "regression timer",
+          "self destruction"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "item:rewind-derived-drug",
+        "topic:regression-timer",
+        "topic:self-destruction",
+        "event:all-for-one-begins-rewind-regression"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [
+            "Rewind-derived drug"
+          ],
+          "topicsAny": [
+            "regression timer",
+            "self destruction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One restores and rewinds his body with a Rewind-derived effect that also makes his remaining time finite.",
+        "injection": "After the Rewind effect begins, AFO becomes physically younger and more dangerous but is racing his own disappearance.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 357-363",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Rewind-derived drug",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:all-for-one"
+        ],
+        "requiredTags": [
+          "item:rewind-derived-drug"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_younger-afo-is-more-reckless-and-narcissistic",
+      "title": "Younger AFO Is More Reckless And Narcissistic",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-rewind-regression",
+        "sortKeyFrom": 19550,
+        "sortKeyTo": 19550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One begins Rewind regression"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "narcissism",
+          "reckless pursuit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "topic:narcissism",
+        "topic:reckless-pursuit",
+        "event:all-for-one-begins-rewind-regression"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "narcissism",
+            "reckless pursuit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "As AFO regresses, his arrogance and fixation on reaching Shigaraki intensify.",
+        "injection": "Write regressing AFO as powerful but increasingly tunnel-visioned; he burns time to reach his vessel.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 357-363",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_gunga-battlefields-collide-into-crisis",
+      "title": "Gunga Battlefields Collide Into Crisis",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gunga-dabi-crisis",
+        "sortKeyFrom": 20250,
+        "sortKeyTo": 20250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi turns Gunga into a thermal crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:dabi",
+          "mha:toga-himiko",
+          "mha:gunga-mountain-villa",
+          "mha:heroes",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One",
+          "Dabi",
+          "Toga Himiko"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Villains"
+        ],
+        "topics": [
+          "multi-threat crisis",
+          "battlefield convergence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:dabi",
+        "character:toga-himiko",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "faction:villains",
+        "topic:multi-threat-crisis",
+        "topic:battlefield-convergence",
+        "event:dabi-turns-gunga-into-a-thermal-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Dabi",
+            "Toga Himiko"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "multi-threat crisis",
+            "battlefield convergence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gunga becomes overloaded by All For One, Dabi’s heat crisis, and Toga’s clone swarm.",
+        "injection": "Use Gunga as a convergence disaster; one solution cannot address all active threats.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 375-389",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_kurogiri-warps-make-the-war-less-contained",
+      "title": "Kurogiri Warps Make The War Less Contained",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.kurogiri-warp-chaos",
+        "sortKeyFrom": 19950,
+        "sortKeyTo": 19950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kurogiri creates battlefield chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kurogiri",
+          "mha:shirakumo-oboro",
+          "mha:villains",
+          "mha:heroes",
+          "mha:warp-gate"
+        ],
+        "characters": [
+          "Kurogiri",
+          "Shirakumo Oboro"
+        ],
+        "locations": [],
+        "objects": [
+          "Warp Gate"
+        ],
+        "factions": [
+          "Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "battlefield breakdown",
+          "unstable identity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:kurogiri",
+        "character:shirakumo-oboro",
+        "faction:villains",
+        "faction:heroes",
+        "item:warp-gate",
+        "topic:battlefield-breakdown",
+        "topic:unstable-identity",
+        "event:kurogiri-creates-battlefield-chaos"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kurogiri",
+            "Shirakumo Oboro"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Villains",
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Warp Gate"
+          ],
+          "topicsAny": [
+            "battlefield breakdown",
+            "unstable identity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kurogiri’s reappearance disrupts the heroes’ separation plan and reopens battlefield connectivity.",
+        "injection": "After this anchor, the clean separation plan should feel compromised; Kurogiri is both person and portal threat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-377",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Warp Gate",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:kurogiri",
+          "mha:shirakumo-oboro"
+        ],
+        "requiredTags": [
+          "item:warp-gate"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_spinner-s-hospital-march-carries-heteromorph-grievance",
+      "title": "Spinner’s Hospital March Carries Heteromorph Grievance",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.spinner-kurogiri-hospital",
+        "sortKeyFrom": 19900,
+        "sortKeyTo": 19900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Spinner reaches Kurogiri at Central Hospital"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:spinner",
+          "mha:present-mic",
+          "mha:kurogiri",
+          "mha:central-hospital",
+          "mha:villains",
+          "mha:heteromorph-mob"
+        ],
+        "characters": [
+          "Spinner",
+          "Present Mic",
+          "Kurogiri"
+        ],
+        "locations": [
+          "Central Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains",
+          "Heteromorph Mob"
+        ],
+        "topics": [
+          "heteromorph discrimination",
+          "mob pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:spinner",
+        "character:present-mic",
+        "character:kurogiri",
+        "location:central-hospital",
+        "faction:villains",
+        "faction:heteromorph-mob",
+        "topic:heteromorph-discrimination",
+        "topic:mob-pressure",
+        "event:spinner-reaches-kurogiri-at-central-hospital"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Spinner",
+            "Present Mic",
+            "Kurogiri"
+          ],
+          "locationsAny": [
+            "Central Hospital"
+          ],
+          "factionsAny": [
+            "Villains",
+            "Heteromorph Mob"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "heteromorph discrimination",
+            "mob pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Spinner’s role at the hospital is tied to exploited heteromorph resentment as well as League loyalty.",
+        "injection": "Avoid portraying the hospital riot as mindless monster violence only; grievance is real, even when weaponized.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 370-374",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_reformed-villains-help-without-erasing-their-crimes",
+      "title": "Reformed Villains Help Without Erasing Their Crimes",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gentle-la-brava-support",
+        "sortKeyFrom": 20100,
+        "sortKeyTo": 20100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava support the heroes"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:lady-nagant",
+          "mha:reformed-villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava",
+          "Lady Nagant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Reformed Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "rehabilitation",
+          "second chances"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "character:lady-nagant",
+        "faction:reformed-villains",
+        "faction:heroes",
+        "topic:rehabilitation",
+        "topic:second-chances",
+        "event:gentle-and-la-brava-support-the-heroes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava",
+            "Lady Nagant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Reformed Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rehabilitation",
+            "second chances"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle, La Brava, and Nagant aiding the heroes shows possible rehabilitation without pretending their past harms vanished.",
+        "injection": "Frame reformed-villain support as complicated second chances, not instant clean records.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 378-379",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-body-ending-is-not-the-same-as-afo-influence-ending",
+      "title": "AFO Body Ending Is Not The Same As AFO Influence Ending",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-rewind-regression",
+        "sortKeyFrom": 19550,
+        "sortKeyTo": 19550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One begins Rewind regression"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One",
+          "Shigaraki Tomura"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "vessel plan",
+          "lingering influence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "faction:villains",
+        "topic:vessel-plan",
+        "topic:lingering-influence",
+        "event:all-for-one-begins-rewind-regression"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "vessel plan",
+            "lingering influence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s rewinding body can be defeated while his deeper influence through Shigaraki remains unresolved.",
+        "injection": "Do not end the whole villain threat just because AFO’s original body is failing; the vessel conflict remains active.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 357-363",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_tokoyami-darkness-becomes-strategic-against-afo",
+      "title": "Tokoyami Darkness Becomes Strategic Against AFO",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gunga-afo-battle-starts",
+        "sortKeyFrom": 19350,
+        "sortKeyTo": 19350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gunga battle against All For One begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tokoyami-fumikage",
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Tokoyami Fumikage",
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Dark Shadow",
+          "darkness strategy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:tokoyami-fumikage",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:dark-shadow",
+        "topic:darkness-strategy",
+        "event:gunga-battle-against-all-for-one-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tokoyami Fumikage",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Dark Shadow",
+            "darkness strategy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tokoyami can exploit battlefield darkness and Dark Shadow scale against AFO for critical pressure.",
+        "injection": "Make Tokoyami’s contribution strategic and situational rather than a solo victory.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-354",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shoji-counters-mob-dehumanization",
+      "title": "Shoji Counters Mob Dehumanization",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.spinner-kurogiri-hospital",
+        "sortKeyFrom": 19900,
+        "sortKeyTo": 19900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Spinner reaches Kurogiri at Central Hospital"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shoji-mezo",
+          "mha:spinner",
+          "mha:central-hospital",
+          "mha:heroes",
+          "mha:heteromorph-mob"
+        ],
+        "characters": [
+          "Shoji Mezo",
+          "Spinner"
+        ],
+        "locations": [
+          "Central Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Heteromorph Mob"
+        ],
+        "topics": [
+          "heteromorph advocacy",
+          "nonviolent appeal"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shoji-mezo",
+        "character:spinner",
+        "location:central-hospital",
+        "faction:heroes",
+        "faction:heteromorph-mob",
+        "topic:heteromorph-advocacy",
+        "topic:nonviolent-appeal",
+        "event:spinner-reaches-kurogiri-at-central-hospital"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoji Mezo",
+            "Spinner"
+          ],
+          "locationsAny": [
+            "Central Hospital"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Heteromorph Mob"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "heteromorph advocacy",
+            "nonviolent appeal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoji confronts the hospital mob by addressing heteromorph pain without endorsing violence.",
+        "injection": "Use Shoji as moral counterweight: he validates pain while resisting weaponized hatred.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 370-374",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_present-mic-faces-shirakumo-through-kurogiri",
+      "title": "Present Mic Faces Shirakumo Through Kurogiri",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.kurogiri-warp-chaos",
+        "sortKeyFrom": 19950,
+        "sortKeyTo": 19950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kurogiri creates battlefield chaos"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:present-mic",
+          "mha:kurogiri",
+          "mha:shirakumo-oboro",
+          "mha:central-hospital",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Present Mic",
+          "Kurogiri",
+          "Shirakumo Oboro"
+        ],
+        "locations": [
+          "Central Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "friendship grief",
+          "identity conflict"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:present-mic",
+        "character:kurogiri",
+        "character:shirakumo-oboro",
+        "location:central-hospital",
+        "faction:heroes",
+        "topic:friendship-grief",
+        "topic:identity-conflict",
+        "event:kurogiri-creates-battlefield-chaos"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Present Mic",
+            "Kurogiri",
+            "Shirakumo Oboro"
+          ],
+          "locationsAny": [
+            "Central Hospital"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "friendship grief",
+            "identity conflict"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Present Mic’s confrontation with Kurogiri is also grief for Shirakumo.",
+        "injection": "Write Kurogiri scenes with identity tragedy, not just portal mechanics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-377",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-regression-makes-victory-a-countdown",
+      "title": "AFO Regression Makes Victory A Countdown",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-rewind-regression",
+        "sortKeyFrom": 19550,
+        "sortKeyTo": 19550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One begins Rewind regression"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.gunga",
+          "label": "Gunga battlefield",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villain.afo-rewinding",
+          "label": "All For One rewinding body",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:gunga-mountain-villa",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "countdown",
+          "rewind cost"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "topic:countdown",
+        "topic:rewind-cost",
+        "event:all-for-one-begins-rewind-regression"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "countdown",
+            "rewind cost"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Once regression begins, heroes are trying to force AFO to waste enough time and body to vanish.",
+        "injection": "Frame the fight as attrition against a timer, not just damage accumulation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 357-363",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

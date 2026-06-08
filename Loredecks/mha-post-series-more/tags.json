@@ -1,0 +1,1706 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "description": "Manga tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:post-series-more": {
+      "label": "Post Series More",
+      "description": "Post Series More tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "chapter:431-more": {
+      "label": "431 More",
+      "description": "431 More tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:all-might": {
+      "label": "All Might",
+      "description": "All Might tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asui-tsuyu": {
+      "label": "Asui Tsuyu",
+      "description": "Asui Tsuyu tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bakugo-katsuki": {
+      "label": "Bakugo Katsuki",
+      "description": "Bakugo Katsuki tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:dabi": {
+      "label": "Dabi",
+      "description": "Dabi tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:fat-gum": {
+      "label": "Fat Gum",
+      "description": "Fat Gum tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:hawks": {
+      "label": "Hawks",
+      "description": "Hawks tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:izuku-midoriya": {
+      "label": "Izuku Midoriya",
+      "description": "Izuku Midoriya tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jiro-kyoka": {
+      "label": "Jiro Kyoka",
+      "description": "Jiro Kyoka tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kaminari-denki": {
+      "label": "Kaminari Denki",
+      "description": "Kaminari Denki tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kinoko-komori": {
+      "label": "Kinoko Komori",
+      "description": "Kinoko Komori tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kirishima-eijiro": {
+      "label": "Kirishima Eijiro",
+      "description": "Kirishima Eijiro tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midoriya-izuku": {
+      "label": "Midoriya Izuku",
+      "description": "Midoriya Izuku tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mirio-togata": {
+      "label": "Mirio Togata",
+      "description": "Mirio Togata tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nejire-hado": {
+      "label": "Nejire Hado",
+      "description": "Nejire Hado tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shigaraki-tomura": {
+      "label": "Shigaraki Tomura",
+      "description": "Shigaraki Tomura tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shihai-kuroiro": {
+      "label": "Shihai Kuroiro",
+      "description": "Shihai Kuroiro tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shinso-hitoshi": {
+      "label": "Shinso Hitoshi",
+      "description": "Shinso Hitoshi tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tamaki-amajiki": {
+      "label": "Tamaki Amajiki",
+      "description": "Tamaki Amajiki tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:todoroki-shoto": {
+      "label": "Todoroki Shoto",
+      "description": "Todoroki Shoto tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toga-himiko": {
+      "label": "Toga Himiko",
+      "description": "Toga Himiko tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toya-todoroki": {
+      "label": "Toya Todoroki",
+      "description": "Toya Todoroki tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:uraraka-ochaco": {
+      "label": "Uraraka Ochaco",
+      "description": "Uraraka Ochaco tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yokumiru-mera": {
+      "label": "Yokumiru Mera",
+      "description": "Yokumiru Mera tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:mha-manga-main": {
+      "label": "Mha Manga Main",
+      "description": "Mha Manga Main tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:big-three": {
+      "label": "Big Three",
+      "description": "Big Three tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:class-1a": {
+      "label": "Class 1a",
+      "description": "Class 1a tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hero-billboard-chart-jp": {
+      "label": "Hero Billboard Chart Jp",
+      "description": "Hero Billboard Chart Jp tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:hero-public-safety-commission": {
+      "label": "Hero Public Safety Commission",
+      "description": "Hero Public Safety Commission tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:ministry-of-education": {
+      "label": "Ministry Of Education",
+      "description": "Ministry Of Education tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:mha": {
+      "label": "Mha",
+      "description": "Mha tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:deku-support-suit": {
+      "label": "Deku Support Suit",
+      "description": "Deku Support Suit tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:adaptation-guard": {
+      "label": "Adaptation Guard",
+      "description": "Adaptation Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:au-guard": {
+      "label": "Au Guard",
+      "description": "Au Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:continuity-guard": {
+      "label": "Continuity Guard",
+      "description": "Continuity Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:fanon-guard": {
+      "label": "Fanon Guard",
+      "description": "Fanon Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:future-guard": {
+      "label": "Future Guard",
+      "description": "Future Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:optional-overlay": {
+      "label": "Optional Overlay",
+      "description": "Optional Overlay tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:spoiler": {
+      "label": "Spoiler",
+      "description": "Spoiler tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:tone-guard": {
+      "label": "Tone Guard",
+      "description": "Tone Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft-reference": {
+      "label": "Draft Reference",
+      "description": "Draft Reference tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:one-for-all": {
+      "label": "One For All",
+      "description": "One For All tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:deku-ochaco": {
+      "label": "Deku Ochaco",
+      "description": "Deku Ochaco tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:jiro-kaminari": {
+      "label": "Jiro Kaminari",
+      "description": "Jiro Kaminari tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:kuroiro-kinoko": {
+      "label": "Kuroiro Kinoko",
+      "description": "Kuroiro Kinoko tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-banter": {
+      "label": "Adult Banter",
+      "description": "Adult Banter tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-burdens": {
+      "label": "Adult Burdens",
+      "description": "Adult Burdens tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-career-spoilers": {
+      "label": "Adult Career Spoilers",
+      "description": "Adult Career Spoilers tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-classmate-news": {
+      "label": "Adult Classmate News",
+      "description": "Adult Classmate News tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-epilogue": {
+      "label": "Adult Epilogue",
+      "description": "Adult Epilogue tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-friendship": {
+      "label": "Adult Friendship",
+      "description": "Adult Friendship tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-hero-response": {
+      "label": "Adult Hero Response",
+      "description": "Adult Hero Response tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-life": {
+      "label": "Adult Life",
+      "description": "Adult Life tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-maturity": {
+      "label": "Adult Maturity",
+      "description": "Adult Maturity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-mediation": {
+      "label": "Adult Mediation",
+      "description": "Adult Mediation tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-pro-identity": {
+      "label": "Adult Pro Identity",
+      "description": "Adult Pro Identity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-pro-work": {
+      "label": "Adult Pro Work",
+      "description": "Adult Pro Work tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-reunion": {
+      "label": "Adult Reunion",
+      "description": "Adult Reunion tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-rivalry": {
+      "label": "Adult Rivalry",
+      "description": "Adult Rivalry tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:agency-invitation": {
+      "label": "Agency Invitation",
+      "description": "Agency Invitation tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:agency-proximity": {
+      "label": "Agency Proximity",
+      "description": "Agency Proximity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:agency-talk": {
+      "label": "Agency Talk",
+      "description": "Agency Talk tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:agency-ties": {
+      "label": "Agency Ties",
+      "description": "Agency Ties tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:all-might-legacy": {
+      "label": "All Might Legacy",
+      "description": "All Might Legacy tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:anime-adaptation-guard": {
+      "label": "Anime Adaptation Guard",
+      "description": "Anime Adaptation Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:au-branch-guard": {
+      "label": "Au Branch Guard",
+      "description": "Au Branch Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:awkward-care": {
+      "label": "Awkward Care",
+      "description": "Awkward Care tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bakugo-teasing": {
+      "label": "Bakugo Teasing",
+      "description": "Bakugo Teasing tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:blood-transfusion": {
+      "label": "Blood Transfusion",
+      "description": "Blood Transfusion tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chapter-430-baseline": {
+      "label": "Chapter 430 Baseline",
+      "description": "Chapter 430 Baseline tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chapter-430-guard": {
+      "label": "Chapter 430 Guard",
+      "description": "Chapter 430 Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chapter-431": {
+      "label": "Chapter 431",
+      "description": "Chapter 431 tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:chapter-boundary": {
+      "label": "Chapter Boundary",
+      "description": "Chapter Boundary tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:child-confidence": {
+      "label": "Child Confidence",
+      "description": "Child Confidence tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:children-boundaries": {
+      "label": "Children Boundaries",
+      "description": "Children Boundaries tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:children-outreach": {
+      "label": "Children Outreach",
+      "description": "Children Outreach tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:children-support": {
+      "label": "Children Support",
+      "description": "Children Support tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:classmate-status": {
+      "label": "Classmate Status",
+      "description": "Classmate Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:communication": {
+      "label": "Communication",
+      "description": "Communication tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:confirmed-dating": {
+      "label": "Confirmed Dating",
+      "description": "Confirmed Dating tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:custom-continuity": {
+      "label": "Custom Continuity",
+      "description": "Custom Continuity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:death-aftermath": {
+      "label": "Death Aftermath",
+      "description": "Death Aftermath tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:destiny": {
+      "label": "Destiny",
+      "description": "Destiny tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:distributed-hero-system": {
+      "label": "Distributed Hero System",
+      "description": "Distributed Hero System tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:do-your-best": {
+      "label": "Do Your Best",
+      "description": "Do Your Best tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dream-ambiguity": {
+      "label": "Dream Ambiguity",
+      "description": "Dream Ambiguity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dream-interpretation": {
+      "label": "Dream Interpretation",
+      "description": "Dream Interpretation tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dreams": {
+      "label": "Dreams",
+      "description": "Dreams tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:education-reform": {
+      "label": "Education Reform",
+      "description": "Education Reform tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emotional-closure": {
+      "label": "Emotional Closure",
+      "description": "Emotional Closure tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emotional-honesty": {
+      "label": "Emotional Honesty",
+      "description": "Emotional Honesty tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emotional-permission": {
+      "label": "Emotional Permission",
+      "description": "Emotional Permission tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emotional-realization": {
+      "label": "Emotional Realization",
+      "description": "Emotional Realization tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:emotional-support": {
+      "label": "Emotional Support",
+      "description": "Emotional Support tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:encouragement": {
+      "label": "Encouragement",
+      "description": "Encouragement tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:epilogue-split": {
+      "label": "Epilogue Split",
+      "description": "Epilogue Split tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:experience-sharing": {
+      "label": "Experience Sharing",
+      "description": "Experience Sharing tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family-memory": {
+      "label": "Family Memory",
+      "description": "Family Memory tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fanon-boundary": {
+      "label": "Fanon Boundary",
+      "description": "Fanon Boundary tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fanon-guard": {
+      "label": "Fanon Guard",
+      "description": "Fanon Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:former-classmates": {
+      "label": "Former Classmates",
+      "description": "Former Classmates tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:friendship-banter": {
+      "label": "Friendship Banter",
+      "description": "Friendship Banter tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:friendship-support": {
+      "label": "Friendship Support",
+      "description": "Friendship Support tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-leakage": {
+      "label": "Future Leakage",
+      "description": "Future Leakage tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-billboard-chart": {
+      "label": "Hero Billboard Chart",
+      "description": "Hero Billboard Chart tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-jobs": {
+      "label": "Hero Jobs",
+      "description": "Hero Jobs tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-name": {
+      "label": "Hero Name",
+      "description": "Hero Name tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-rankings": {
+      "label": "Hero Rankings",
+      "description": "Hero Rankings tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:honest-conversation": {
+      "label": "Honest Conversation",
+      "description": "Honest Conversation tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hpsc": {
+      "label": "HPSC",
+      "description": "HPSC tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:imperfect-peace": {
+      "label": "Imperfect Peace",
+      "description": "Imperfect Peace tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:lectures": {
+      "label": "Lectures",
+      "description": "Lectures tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:life-after-grief": {
+      "label": "Life After Grief",
+      "description": "Life After Grief tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:love-after-loss": {
+      "label": "Love After Loss",
+      "description": "Love After Loss tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:manga-primary": {
+      "label": "Manga Primary",
+      "description": "Manga Primary tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:memory-of-shigaraki": {
+      "label": "Memory Of Shigaraki",
+      "description": "Memory Of Shigaraki tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mutual-feelings": {
+      "label": "Mutual Feelings",
+      "description": "Mutual Feelings tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:number-one-hero": {
+      "label": "Number One Hero",
+      "description": "Number One Hero tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ofa-guard": {
+      "label": "OFA Guard",
+      "description": "OFA Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:optional-overlay": {
+      "label": "Optional Overlay",
+      "description": "Optional Overlay tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overlay-behavior": {
+      "label": "Overlay Behavior",
+      "description": "Overlay Behavior tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overlay-boundary": {
+      "label": "Overlay Boundary",
+      "description": "Overlay Boundary tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overlay-loading": {
+      "label": "Overlay Loading",
+      "description": "Overlay Loading tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:part-time-hero": {
+      "label": "Part Time Hero",
+      "description": "Part Time Hero tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:peer-status": {
+      "label": "Peer Status",
+      "description": "Peer Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:personal-aftermath": {
+      "label": "Personal Aftermath",
+      "description": "Personal Aftermath tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:personal-life": {
+      "label": "Personal Life",
+      "description": "Personal Life tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:policy-reform": {
+      "label": "Policy Reform",
+      "description": "Policy Reform tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:possession-guard": {
+      "label": "Possession Guard",
+      "description": "Possession Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:post-series-continuity": {
+      "label": "Post Series Continuity",
+      "description": "Post Series Continuity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar-introspection": {
+      "label": "Postwar Introspection",
+      "description": "Postwar Introspection tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar-prevention": {
+      "label": "Postwar Prevention",
+      "description": "Postwar Prevention tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar-rankings": {
+      "label": "Postwar Rankings",
+      "description": "Postwar Rankings tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:postwar-realism": {
+      "label": "Postwar Realism",
+      "description": "Postwar Realism tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:preventive-care": {
+      "label": "Preventive Care",
+      "description": "Preventive Care tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:private-confidence": {
+      "label": "Private Confidence",
+      "description": "Private Confidence tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:private-reverence": {
+      "label": "Private Reverence",
+      "description": "Private Reverence tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:pro-hero-modeling": {
+      "label": "Pro Hero Modeling",
+      "description": "Pro Hero Modeling tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:professional-distance": {
+      "label": "Professional Distance",
+      "description": "Professional Distance tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:professional-lives": {
+      "label": "Professional Lives",
+      "description": "Professional Lives tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-safety": {
+      "label": "Public Safety",
+      "description": "Public Safety tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-trust": {
+      "label": "Public Trust",
+      "description": "Public Trust tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-counseling": {
+      "label": "Quirk Counseling",
+      "description": "Quirk Counseling tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-counseling-strain": {
+      "label": "Quirk Counseling Strain",
+      "description": "Quirk Counseling Strain tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-education": {
+      "label": "Quirk Education",
+      "description": "Quirk Education tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirkless-status": {
+      "label": "Quirkless Status",
+      "description": "Quirkless Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ranking-celebration": {
+      "label": "Ranking Celebration",
+      "description": "Ranking Celebration tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ranking-status": {
+      "label": "Ranking Status",
+      "description": "Ranking Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:reciprocated-feelings": {
+      "label": "Reciprocated Feelings",
+      "description": "Reciprocated Feelings tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship-ambiguity": {
+      "label": "Relationship Ambiguity",
+      "description": "Relationship Ambiguity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship-boundary": {
+      "label": "Relationship Boundary",
+      "description": "Relationship Boundary tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:relationship-status": {
+      "label": "Relationship Status",
+      "description": "Relationship Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:resurrection-guard": {
+      "label": "Resurrection Guard",
+      "description": "Resurrection Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:reunion-tone": {
+      "label": "Reunion Tone",
+      "description": "Reunion Tone tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:romance-status": {
+      "label": "Romance Status",
+      "description": "Romance Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:romantic-clarity": {
+      "label": "Romantic Clarity",
+      "description": "Romantic Clarity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:romantic-movement": {
+      "label": "Romantic Movement",
+      "description": "Romantic Movement tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:safe-quirk-use": {
+      "label": "Safe Quirk Use",
+      "description": "Safe Quirk Use tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:school-era-guard": {
+      "label": "School Era Guard",
+      "description": "School Era Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:selfhood": {
+      "label": "Selfhood",
+      "description": "Selfhood tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:separate-lives": {
+      "label": "Separate Lives",
+      "description": "Separate Lives tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ship-guard": {
+      "label": "Ship Guard",
+      "description": "Ship Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sidekick-status": {
+      "label": "Sidekick Status",
+      "description": "Sidekick Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:soba": {
+      "label": "Soba",
+      "description": "Soba tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:social-reform": {
+      "label": "Social Reform",
+      "description": "Social Reform tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:special-episode-guard": {
+      "label": "Special Episode Guard",
+      "description": "Special Episode Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:special-treatment": {
+      "label": "Special Treatment",
+      "description": "Special Treatment tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:spoiler-control": {
+      "label": "Spoiler Control",
+      "description": "Spoiler Control tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sudden-impulse": {
+      "label": "Sudden Impulse",
+      "description": "Sudden Impulse tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:support-suit": {
+      "label": "Support Suit",
+      "description": "Support Suit tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:support-suit-data": {
+      "label": "Support Suit Data",
+      "description": "Support Suit Data tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:support-suit-guard": {
+      "label": "Support Suit Guard",
+      "description": "Support Suit Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:survivor-guilt": {
+      "label": "Survivor Guilt",
+      "description": "Survivor Guilt tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:teacher-status": {
+      "label": "Teacher Status",
+      "description": "Teacher Status tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:teaching-career": {
+      "label": "Teaching Career",
+      "description": "Teaching Career tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:time-gap": {
+      "label": "Time Gap",
+      "description": "Time Gap tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:time-skip": {
+      "label": "Time Skip",
+      "description": "Time Skip tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:todoroki-family-aftermath": {
+      "label": "Todoroki Family Aftermath",
+      "description": "Todoroki Family Aftermath tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:toga-death-guard": {
+      "label": "Toga Death Guard",
+      "description": "Toga Death Guard tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:top-pro-heroes": {
+      "label": "Top Pro Heroes",
+      "description": "Top Pro Heroes tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trading-card": {
+      "label": "Trading Card",
+      "description": "Trading Card tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trust-building": {
+      "label": "Trust Building",
+      "description": "Trust Building tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:unresolved-empathy": {
+      "label": "Unresolved Empathy",
+      "description": "Unresolved Empathy tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:vestige-ambiguity": {
+      "label": "Vestige Ambiguity",
+      "description": "Vestige Ambiguity tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-decline": {
+      "label": "Villain Decline",
+      "description": "Villain Decline tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:general-public": {
+      "label": "General Public",
+      "description": "General Public tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "system:hero-billboard-chart-jp": {
+      "label": "Hero Billboard Chart Jp",
+      "description": "Hero Billboard Chart Jp tag for My Hero Academia Saga Loredecks.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to Dark Hero, Star and Stripe, or U.A. Traitor Context for manga-primary My Hero Academia.",
+  "preferredFields": [
+    "arc",
+    "beforeAfter",
+    "majorEvent",
+    "character",
+    "quirkStage"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known anchors or broad arc windows. Do not invent final-war or post-series states for this deck.",
+  "localPatterns": [
+    {
+      "pattern": "during dark hero",
+      "result": {
+        "anchorFrom": "mha.dhst.tartarus-breakout",
+        "anchorTo": "mha.dhst.stain-all-might",
+        "label": "Dark Hero Arc"
+      }
+    },
+    {
+      "pattern": "vigilante deku",
+      "result": {
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "label": "Deku deteriorates through solo hero work"
+      }
+    },
+    {
+      "pattern": "lady nagant fight",
+      "result": {
+        "anchorId": "mha.dhst.deku-vs-lady-nagant",
+        "label": "Deku fights Lady Nagant"
+      }
+    },
+    {
+      "pattern": "after bakugo apology",
+      "result": {
+        "anchorFrom": "mha.dhst.bakugo-apology",
+        "label": "After Bakugo apologizes to Izuku"
+      }
+    },
+    {
+      "pattern": "during star and stripe",
+      "result": {
+        "anchorFrom": "mha.dhst.star-arrives",
+        "anchorTo": "mha.dhst.shigaraki-delay",
+        "label": "Star and Stripe Arc"
+      }
+    },
+    {
+      "pattern": "ua traitor reveal",
+      "result": {
+        "anchorId": "mha.dhst.aoyama-reveal",
+        "label": "Aoyama is revealed as the U.A. traitor"
+      }
+    },
+    {
+      "pattern": "before final war",
+      "result": {
+        "anchorId": "mha.dhst.before-final-war",
+        "label": "Before the Final War begins"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "arc": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

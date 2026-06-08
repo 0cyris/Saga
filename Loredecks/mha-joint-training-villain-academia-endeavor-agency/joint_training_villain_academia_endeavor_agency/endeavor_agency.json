@@ -1,0 +1,4398 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_work_studies_resume_under_a_hidden_war_shadow",
+      "title": "Work Studies Resume Under A Hidden War Shadow",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.work-studies-resume",
+        "sortKeyFrom": 14050,
+        "sortKeyTo": 14050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero work studies resume"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes",
+          "mha:u-a-class-1-a"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "work studies",
+          "hidden war shadow",
+          "student training"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "faction:pro-heroes",
+        "school:ua-high",
+        "topic:work-studies",
+        "topic:hidden-war-shadow",
+        "topic:student-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "work studies",
+            "hidden war shadow",
+            "student training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hero work studies resume while the audience and some pros move toward a hidden war preparation timeline.",
+        "injection": "In Endeavor Agency scenes, school routine and internship growth should coexist with looming danger that most students do not fully understand.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 242-243",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_deku_bakugo_and_shoto_train_under_the_current_number_one",
+      "title": "Deku Bakugo And Shoto Train Under The Current Number One",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.deku-bakugo-shoto-join-endeavor",
+        "sortKeyFrom": 14100,
+        "sortKeyTo": 14100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku, Bakugo, and Shoto join Endeavor Agency"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki",
+          "Endeavor"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "agency training",
+          "top hero internship",
+          "student growth"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "location:endeavor-agency",
+        "topic:agency-training",
+        "topic:top-hero-internship",
+        "topic:student-growth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "agency training",
+            "top hero internship",
+            "student growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku, Bakugo, and Shoto work under Endeavor because his agency provides the speed, danger, and pro-level volume needed for rapid growth.",
+        "injection": "Use the Endeavor Agency as intense professional training, not a casual internship. The students are exposed to high-speed hero work.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 243",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_endeavor_teaches_one_thing_at_a_time",
+      "title": "Endeavor Teaches One Thing At A Time",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Endeavor",
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "one thing at a time",
+          "professional training",
+          "incremental mastery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:endeavor",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "location:endeavor-agency",
+        "topic:one-thing-at-a-time",
+        "topic:professional-training",
+        "topic:incremental-mastery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "one thing at a time",
+            "professional training",
+            "incremental mastery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s training advice focuses on isolating one achievable improvement at a time under repeated live-fire practice.",
+        "injection": "In agency training, use Endeavor’s method as blunt, practical, and incremental: pick one action, repeat it until it becomes usable.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_deku_applies_endeavor_training_to_parallel_processing",
+      "title": "Deku Applies Endeavor Training To Parallel Processing",
+      "kind": "ability_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:endeavor",
+          "mha:one-for-all",
+          "mha:blackwhip"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All",
+          "Blackwhip"
+        ],
+        "factions": [],
+        "topics": [
+          "parallel processing",
+          "Air Force",
+          "Blackwhip practice"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:midoriya-izuku",
+        "character:endeavor",
+        "quirk:one-for-all",
+        "quirk:blackwhip",
+        "topic:parallel-processing",
+        "topic:air-force",
+        "topic:blackwhip-practice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "Blackwhip"
+          ],
+          "topicsAny": [
+            "parallel processing",
+            "Air Force",
+            "Blackwhip practice"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku uses Endeavor’s advice to improve how he processes movement, Air Force, Full Cowling, and Blackwhip as separate tasks.",
+        "injection": "During this arc, Deku is learning to sequence multiple abilities. He must not instantly juggle all OFA powers with final-war competence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_bakugo_uses_agency_work_to_refine_speed_and_rescue_timing",
+      "title": "Bakugo Uses Agency Work To Refine Speed And Rescue Timing",
+      "kind": "ability_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:endeavor",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Endeavor"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue timing",
+          "speed refinement",
+          "agency patrol"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:bakugo-katsuki",
+        "character:endeavor",
+        "location:endeavor-agency",
+        "topic:rescue-timing",
+        "topic:speed-refinement",
+        "topic:agency-patrol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue timing",
+            "speed refinement",
+            "agency patrol"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s Endeavor Agency growth centers on faster decisions, cleaner rescue timing, and pro-level response under real patrol conditions.",
+        "injection": "Write Bakugo here as highly capable but still sharpening rescue and timing, not simply chasing bigger explosions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_shoto_trains_under_endeavor_while_carrying_family_conflict",
+      "title": "Shoto Trains Under Endeavor While Carrying Family Conflict",
+      "kind": "event_anchor",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Endeavor"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "fire training",
+          "family conflict",
+          "professional utility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "location:endeavor-agency",
+        "topic:fire-training",
+        "topic:family-conflict",
+        "topic:professional-utility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "fire training",
+            "family conflict",
+            "professional utility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto uses Endeavor’s agency for fire-side growth while still carrying anger, distance, and unresolved family pain toward his father.",
+        "injection": "Do not make Shoto’s internship equal emotional reconciliation. Training under Endeavor is useful and uncomfortable at the same time.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_hawks_coded_message_must_stay_plausibly_deniable",
+      "title": "Hawks Coded Message Must Stay Plausibly Deniable",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.hawks-coded-warning",
+        "sortKeyFrom": 14150,
+        "sortKeyTo": 14150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks sends Endeavor a coded warning"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:paranormal-liberation-front",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "coded warning",
+          "spy cover",
+          "PLF intel"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:hawks",
+        "character:endeavor",
+        "faction:paranormal-liberation-front",
+        "faction:hero-public-safety-commission",
+        "topic:coded-warning",
+        "topic:spy-cover",
+        "topic:plf-intel"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "coded warning",
+            "spy cover",
+            "PLF intel"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks delivers warning information through coded material because open communication would destroy his PLF cover and endanger the operation.",
+        "injection": "When Hawks warns Endeavor, use coded indirection and urgency. Do not let him openly brief everyone on the PLF in public.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 244-246",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_endeavor_must_decode_hawks_without_full_context",
+      "title": "Endeavor Must Decode Hawks Without Full Context",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.hawks-coded-warning",
+        "sortKeyFrom": 14150,
+        "sortKeyTo": 14150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks sends Endeavor a coded warning"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "partial intelligence",
+          "coded book",
+          "pre-war warning"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:endeavor",
+        "character:hawks",
+        "faction:paranormal-liberation-front",
+        "topic:partial-intelligence",
+        "topic:coded-book",
+        "topic:pre-war-warning"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "partial intelligence",
+            "coded book",
+            "pre-war warning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor receives Hawks’s warning but must interpret incomplete information under pressure rather than receiving a clean strategic briefing.",
+        "injection": "Keep Endeavor’s knowledge partial. The coded book points him toward danger without giving every war detail.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 244-246",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_hawks_is_operating_as_a_double_agent_under_extreme_risk",
+      "title": "Hawks Is Operating As A Double Agent Under Extreme Risk",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.hawks-coded-warning",
+        "sortKeyFrom": 14150,
+        "sortKeyTo": 14150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks sends Endeavor a coded warning"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:dabi",
+          "mha:paranormal-liberation-front",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Hawks",
+          "Dabi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "double agent",
+          "spy pressure",
+          "cover risk"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:hawks",
+        "character:dabi",
+        "faction:paranormal-liberation-front",
+        "faction:hero-public-safety-commission",
+        "topic:double-agent",
+        "topic:spy-pressure",
+        "topic:cover-risk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Dabi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "double agent",
+            "spy pressure",
+            "cover risk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks is embedded near the PLF while secretly serving hero-side intelligence goals, placing him under constant risk of exposure.",
+        "injection": "Hawks should feel controlled, hurried, and dangerous to read. His public ease masks spy pressure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 244-246",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_christmas_at_u_a_is_a_last_soft_school_moment_before_war",
+      "title": "Christmas At U.A. Is A Last Soft School Moment Before War",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.christmas",
+        "sortKeyFrom": 14025,
+        "sortKeyTo": 14025,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. Christmas gathering before work studies"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:uraraka-ochaco",
+          "mha:u-a-class-1-a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Christmas at U.A.",
+          "school warmth",
+          "pre-war calm"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:uraraka-ochaco",
+        "school:ua-high",
+        "topic:christmas-at-u-a",
+        "topic:school-warmth",
+        "topic:pre-war-calm"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Christmas at U.A.",
+            "school warmth",
+            "pre-war calm"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The U.A. Christmas gathering provides temporary student warmth before the narrative shifts into heavier pre-war preparation.",
+        "injection": "Use Christmas as a brief social breath. Do not load it with knowledge of the coming war unless the story has diverged.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 242",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_todoroki_family_dinner_is_not_forgiveness",
+      "title": "Todoroki Family Dinner Is Not Forgiveness",
+      "kind": "event_anchor",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.todoroki-family-dinner",
+        "sortKeyFrom": 14250,
+        "sortKeyTo": 14250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family dinner exposes unresolved harm"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:fuyumi-todoroki",
+          "mha:natsuo-todoroki",
+          "mha:rei-todoroki"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki",
+          "Fuyumi Todoroki",
+          "Natsuo Todoroki",
+          "Rei Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "family dinner",
+          "abuse aftermath",
+          "forgiveness boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "character:fuyumi-todoroki",
+        "character:natsuo-todoroki",
+        "character:rei-todoroki",
+        "topic:family-dinner",
+        "topic:abuse-aftermath",
+        "topic:forgiveness-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki",
+            "Fuyumi Todoroki",
+            "Natsuo Todoroki",
+            "Rei Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "family dinner",
+            "abuse aftermath",
+            "forgiveness boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Todoroki family dinner exposes trauma, resentment, hope, and discomfort; it does not resolve Endeavor’s abuse or earn automatic forgiveness.",
+        "injection": "At the dinner, keep each family member’s response distinct. Fuyumi wants repair, Natsuo resists, Shoto remains conflicted, and Endeavor cannot force absolution.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 249",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_natsuo_refuses_to_make_endeavor_comfortable",
+      "title": "Natsuo Refuses To Make Endeavor Comfortable",
+      "kind": "event_anchor",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.todoroki-family-dinner",
+        "sortKeyFrom": 14250,
+        "sortKeyTo": 14250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family dinner exposes unresolved harm"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:natsuo-todoroki",
+          "mha:endeavor"
+        ],
+        "characters": [
+          "Natsuo Todoroki",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Natsuo resentment",
+          "family boundary",
+          "redemption guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:natsuo-todoroki",
+        "character:endeavor",
+        "topic:natsuo-resentment",
+        "topic:family-boundary",
+        "topic:redemption-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Natsuo Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Natsuo resentment",
+            "family boundary",
+            "redemption guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Natsuo’s anger at Endeavor remains legitimate and active, preventing the story from treating family repair as simple or complete.",
+        "injection": "Write Natsuo as a boundary against easy redemption. His pain must not be brushed aside for Endeavor’s growth.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 249",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_fuyumi_wants_a_family_future_without_erasing_harm",
+      "title": "Fuyumi Wants A Family Future Without Erasing Harm",
+      "kind": "event_anchor",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.todoroki-family-dinner",
+        "sortKeyFrom": 14250,
+        "sortKeyTo": 14250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family dinner exposes unresolved harm"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:fuyumi-todoroki",
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:natsuo-todoroki"
+        ],
+        "characters": [
+          "Fuyumi Todoroki",
+          "Endeavor",
+          "Shoto Todoroki",
+          "Natsuo Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "family repair",
+          "hope",
+          "harm not erased"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:fuyumi-todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "character:natsuo-todoroki",
+        "topic:family-repair",
+        "topic:hope",
+        "topic:harm-not-erased"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Fuyumi Todoroki",
+            "Endeavor",
+            "Shoto Todoroki",
+            "Natsuo Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "family repair",
+            "hope",
+            "harm not erased"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Fuyumi hopes for family repair, but that hope exists alongside the reality of Endeavor’s past harm and everyone’s different limits.",
+        "injection": "Write Fuyumi as hopeful, not naive. Her desire for family connection must not magically heal others.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 249",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_ending_exploits_endeavor_guilt_and_natsuo_vulnerability",
+      "title": "Ending Exploits Endeavor Guilt And Natsuo Vulnerability",
+      "kind": "event_anchor",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.ending-kidnaps-natsuo",
+        "sortKeyFrom": 14300,
+        "sortKeyTo": 14300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ending kidnaps Natsuo Todoroki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ending",
+          "mha:endeavor",
+          "mha:natsuo-todoroki"
+        ],
+        "characters": [
+          "Ending",
+          "Endeavor",
+          "Natsuo Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hostage crisis",
+          "Endeavor guilt",
+          "family vulnerability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:ending",
+        "character:endeavor",
+        "character:natsuo-todoroki",
+        "topic:hostage-crisis",
+        "topic:endeavor-guilt",
+        "topic:family-vulnerability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ending",
+            "Endeavor",
+            "Natsuo Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "hostage crisis",
+            "Endeavor guilt",
+            "family vulnerability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ending targets Natsuo to force Endeavor into a crisis shaped by guilt, hesitation, and the impossibility of clean family heroics.",
+        "injection": "The Ending incident should pressure Endeavor emotionally as much as physically. Natsuo is not just a hostage prop.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 250-251",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_interns_save_natsuo_because_endeavor_hesitates",
+      "title": "Interns Save Natsuo Because Endeavor Hesitates",
+      "kind": "event_anchor",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.interns-save-natsuo",
+        "sortKeyFrom": 14325,
+        "sortKeyTo": 14325,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The interns save Natsuo before Endeavor can act"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:natsuo-todoroki",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki",
+          "Endeavor",
+          "Natsuo Todoroki"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Natsuo rescue",
+          "student growth",
+          "Endeavor hesitation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "character:natsuo-todoroki",
+        "location:endeavor-agency",
+        "topic:natsuo-rescue",
+        "topic:student-growth",
+        "topic:endeavor-hesitation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki",
+            "Endeavor",
+            "Natsuo Todoroki"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Natsuo rescue",
+            "student growth",
+            "Endeavor hesitation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku, Bakugo, and Shoto save Natsuo while Endeavor hesitates under the emotional weight of acting as father and hero.",
+        "injection": "Use the Natsuo rescue as proof of student growth and Endeavor’s emotional limit, not just a villain-of-the-week interruption.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 251",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_the_trio_learns_pro_hero_speed_by_chasing_endeavor",
+      "title": "The Trio Learns Pro Hero Speed By Chasing Endeavor",
+      "kind": "ability_gate",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki",
+          "Endeavor"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "pro speed",
+          "patrol pacing",
+          "decision density"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "location:endeavor-agency",
+        "topic:pro-speed",
+        "topic:patrol-pacing",
+        "topic:decision-density"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "pro speed",
+            "patrol pacing",
+            "decision density"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku, Bakugo, and Shoto learn that pro-level work requires rapid recognition, movement, response, and cleanup at a pace school drills cannot replicate.",
+        "injection": "During agency patrols, make the gap between students and a top pro visible through speed and decision density.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_endeavor_growth_must_stay_incomplete",
+      "title": "Endeavor Growth Must Stay Incomplete",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.interns-save-natsuo",
+        "sortKeyFrom": 14325,
+        "sortKeyTo": 14325,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The interns save Natsuo before Endeavor can act"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:natsuo-todoroki",
+          "mha:fuyumi-todoroki"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki",
+          "Natsuo Todoroki",
+          "Fuyumi Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "redemption incomplete",
+          "family harm",
+          "atonement guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "character:natsuo-todoroki",
+        "character:fuyumi-todoroki",
+        "topic:redemption-incomplete",
+        "topic:family-harm",
+        "topic:atonement-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki",
+            "Natsuo Todoroki",
+            "Fuyumi Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "redemption incomplete",
+            "family harm",
+            "atonement guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor begins changing behavior, but his family harm is not repaired by one rescue, one apology, or one training arc.",
+        "injection": "Do not write Endeavor as forgiven or redeemed. His improvement is incomplete, contested, and costly.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 251",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_deku_does_not_publicly_explain_blackwhip_at_endeavor_agency",
+      "title": "Deku Does Not Publicly Explain Blackwhip At Endeavor Agency",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:endeavor",
+          "mha:all-might",
+          "mha:one-for-all",
+          "mha:blackwhip"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Endeavor",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All",
+          "Blackwhip"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "Blackwhip practice",
+          "Endeavor knowledge limit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "quirk:one-for-all",
+        "quirk:blackwhip",
+        "secret:one-for-all",
+        "character:midoriya-izuku",
+        "character:endeavor",
+        "character:all-might",
+        "topic:ofa-secrecy",
+        "topic:blackwhip-practice",
+        "topic:endeavor-knowledge-limit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Endeavor",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "Blackwhip"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "Blackwhip practice",
+            "Endeavor knowledge limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku can train around Blackwhip and parallel processing, but he does not openly reveal the full One For All secret at Endeavor Agency.",
+        "injection": "Keep Blackwhip practice guarded. Endeavor can observe odd growth without learning the complete OFA transfer history.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_bakugo_still_has_not_settled_a_stable_hero_name",
+      "title": "Bakugo Still Has Not Settled A Stable Hero Name",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.class-interviews",
+        "sortKeyFrom": 14000,
+        "sortKeyTo": 14000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A public interviews and winter school life"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hero name delay",
+          "future guard",
+          "Bakugo identity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "character:bakugo-katsuki",
+        "topic:hero-name-delay",
+        "topic:future-guard",
+        "topic:bakugo-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero name delay",
+            "future guard",
+            "Bakugo identity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During this period, Bakugo’s hero-name issue remains unresolved in a stable public way, despite his growth as a combatant and rescuer.",
+        "injection": "Avoid using later settled Bakugo hero-name presentation too early unless the user story explicitly establishes it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 241",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_plf_war_countdown_is_known_only_through_intelligence_channels",
+      "title": "PLF War Countdown Is Known Only Through Intelligence Channels",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:paranormal-liberation-front",
+          "mha:hero-public-safety-commission",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Hero Public Safety Commission",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "war countdown",
+          "intelligence boundary",
+          "PLF secrecy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "character:hawks",
+        "character:endeavor",
+        "faction:paranormal-liberation-front",
+        "faction:hero-public-safety-commission",
+        "faction:pro-heroes",
+        "topic:war-countdown",
+        "topic:intelligence-boundary",
+        "topic:plf-secrecy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Hero Public Safety Commission",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "war countdown",
+            "intelligence boundary",
+            "PLF secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The four-month threat horizon is intelligence-channel knowledge, not public student gossip or a civilian headline.",
+        "injection": "When the countdown exists, keep access limited to relevant pro/intelligence channels unless the story changes information flow.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_shigaraki_enhancement_has_not_completed_yet",
+      "title": "Shigaraki Enhancement Has Not Completed Yet",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kyudai-garaki",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kyudai Garaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "Shigaraki surgery future guard",
+          "power state boundary",
+          "next arc setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "character:shigaraki-tomura",
+        "character:kyudai-garaki",
+        "faction:paranormal-liberation-front",
+        "topic:shigaraki-surgery-future-guard",
+        "topic:power-state-boundary",
+        "topic:next-arc-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kyudai Garaki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Shigaraki surgery future guard",
+            "power state boundary",
+            "next arc setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "By the end of Endeavor Agency, Shigaraki’s next-stage enhancement is looming but not yet complete or publicly known.",
+        "injection": "Do not give Shigaraki post-surgery power state during Endeavor Agency scenes. That belongs to the Paranormal Liberation War deck.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_kurogiri_shirakumo_reveal_belongs_to_the_next_deck",
+      "title": "Kurogiri Shirakumo Reveal Belongs To The Next Deck",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kurogiri future guard",
+          "Shirakumo reveal",
+          "arc boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "character:aizawa-shota",
+        "topic:kurogiri-future-guard",
+        "topic:shirakumo-reveal",
+        "topic:arc-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Kurogiri future guard",
+            "Shirakumo reveal",
+            "arc boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Kurogiri/Shirakumo hospital revelation begins the next major war-prep sequence and must not bleed backward into Endeavor Agency scenes.",
+        "injection": "Keep Kurogiri/Shirakumo material out of Endeavor Agency unless the user explicitly moves Context into the next deck.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_endeavor_agency_arc_builds_war_readiness_through_everyday_work",
+      "title": "Endeavor Agency Arc Builds War Readiness Through Everyday Work",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:pro-heroes",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hawks",
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "bridge arc",
+          "war readiness",
+          "surface normalcy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "character:endeavor",
+        "character:hawks",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "faction:pro-heroes",
+        "faction:paranormal-liberation-front",
+        "topic:bridge-arc",
+        "topic:war-readiness",
+        "topic:surface-normalcy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hawks",
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "bridge arc",
+            "war readiness",
+            "surface normalcy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The arc improves student readiness through ordinary patrol work while covert intelligence reveals that ordinary hero society is nearing war.",
+        "injection": "Use Endeavor Agency as the bridge between school-training arcs and open war: daily hero work on the surface, strategic crisis underneath.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_deku_air_force_remains_his_cleanest_long_range_tool",
+      "title": "Deku Air Force Remains His Cleanest Long-Range Tool",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Air Force",
+          "ranged control",
+          "Blackwhip limit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:air-force",
+        "topic:ranged-control",
+        "topic:blackwhip-limit"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Air Force",
+            "ranged control",
+            "Blackwhip limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s Air Force is still his most stable ranged option while Blackwhip remains new and sensitive.",
+        "injection": "In Endeavor Agency combat, Deku can use Air Force reliably compared with Blackwhip, which should remain controlled and limited.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_bakugo_watches_endeavor_for_professional_efficiency",
+      "title": "Bakugo Watches Endeavor For Professional Efficiency",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:endeavor"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "professional efficiency",
+          "observation",
+          "speed"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:bakugo-katsuki",
+        "character:endeavor",
+        "topic:professional-efficiency",
+        "topic:observation",
+        "topic:speed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "professional efficiency",
+            "observation",
+            "speed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s learning here includes watching how a top pro compresses observation, movement, attack, and rescue into minimal time.",
+        "injection": "Bakugo should absorb efficiency from Endeavor even if he remains verbally hostile and competitive.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_shoto_uses_endeavor_training_to_face_his_own_fire",
+      "title": "Shoto Uses Endeavor Training To Face His Own Fire",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [],
+        "topics": [
+          "fire-side training",
+          "family trauma",
+          "technical growth"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "quirk:hellflame",
+        "topic:fire-side-training",
+        "topic:family-trauma",
+        "topic:technical-growth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "fire-side training",
+            "family trauma",
+            "technical growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto’s fire training is tied to technical growth and to his unresolved relationship with the person who forced that power on him.",
+        "injection": "Do not make Shoto’s fire growth emotionally neutral. The ability work and family harm are linked.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_endeavor_agency_patrols_are_too_fast_for_classroom_thinking",
+      "title": "Endeavor Agency Patrols Are Too Fast For Classroom Thinking",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki",
+          "Endeavor"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "patrol speed",
+          "classroom gap",
+          "reaction time"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "location:endeavor-agency",
+        "topic:patrol-speed",
+        "topic:classroom-gap",
+        "topic:reaction-time"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "patrol speed",
+            "classroom gap",
+            "reaction time"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Agency patrols force students to act before they can fully analyze, exposing the gap between classroom planning and real pro timing.",
+        "injection": "Use patrol scenes to pressure students into faster recognition. Do not let them pause for long school-style analysis in live incidents.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_endeavor_separates_technical_instruction_from_emotional_repair",
+      "title": "Endeavor Separates Technical Instruction From Emotional Repair",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.endeavor-training-begins",
+        "sortKeyFrom": 14200,
+        "sortKeyTo": 14200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor begins focused agency training"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:endeavor-agency"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "Endeavor Agency"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "technical instruction",
+          "emotional repair",
+          "atonement"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "location:endeavor-agency",
+        "topic:technical-instruction",
+        "topic:emotional-repair",
+        "topic:atonement"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "Endeavor Agency"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "technical instruction",
+            "emotional repair",
+            "atonement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor can be an effective technical instructor while still failing or struggling as a father seeking repair.",
+        "injection": "Keep the duality intact: professional competence does not erase family damage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 247-248",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_hawks_cannot_stop_the_plf_alone",
+      "title": "Hawks Cannot Stop The PLF Alone",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.hawks-coded-warning",
+        "sortKeyFrom": 14150,
+        "sortKeyTo": 14150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks sends Endeavor a coded warning"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:paranormal-liberation-front",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "spy limits",
+          "PLF scale",
+          "intelligence constraint"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:hawks",
+        "faction:paranormal-liberation-front",
+        "faction:hero-public-safety-commission",
+        "topic:spy-limits",
+        "topic:plf-scale",
+        "topic:intelligence-constraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "spy limits",
+            "PLF scale",
+            "intelligence constraint"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks can gather intelligence and send warnings, but he cannot dismantle the PLF alone from inside.",
+        "injection": "Do not overstate Hawks’s agency. His infiltration is critical but constrained by cover, surveillance, and PLF scale.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 244-246",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_plf_intelligence_makes_the_next_arc_a_coordinated_raid_setup",
+      "title": "PLF Intelligence Makes The Next Arc A Coordinated Raid Setup",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "raid setup",
+          "pre-war planning",
+          "intelligence follow-up"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "faction:paranormal-liberation-front",
+        "topic:raid-setup",
+        "topic:pre-war-planning",
+        "topic:intelligence-follow-up"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "raid setup",
+            "pre-war planning",
+            "intelligence follow-up"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "By the end of this deck, hero-side preparation is moving toward a coordinated raid rather than random villain response.",
+        "injection": "Use the end of Endeavor Agency as setup for planned operations, not as spontaneous hero reaction.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

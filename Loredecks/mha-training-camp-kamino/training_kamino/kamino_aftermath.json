@@ -1,0 +1,1958 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_might_retirement_creates_a_hero_society_vacuum",
+      "title": "All Might Retirement Creates A Hero Society Vacuum",
+      "kind": "status_change",
+      "category": "timeline",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "hero society vacuum",
+          "Symbol of Peace retirement",
+          "public fear"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "event:symbol-of-peace-falls",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:public-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero society vacuum",
+            "Symbol of Peace retirement",
+            "public fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Kamino, All Might's retirement leaves hero society without its stabilizing symbol.",
+        "injection": "Post-Kamino scenes should carry symbol-vacuum pressure: public fear, Endeavor's burden, and Izuku's heavier inheritance.",
+        "constraints": [
+          "The transition should affect villains, civilians, students, and pro heroes."
+        ],
+        "antiLore": [
+          "Do not return society to pre-Kamino normal after the fight."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_for_one_imprisonment_does_not_end_the_league",
+      "title": "All For One Imprisonment Does Not End The League",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:league-of-villains",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "All For One",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "AFO imprisoned",
+          "League survival",
+          "villain succession"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "AFO imprisoned",
+            "League survival",
+            "villain succession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One is defeated and imprisoned after Kamino, but the League of Villains survives through Shigaraki and the remaining core members.",
+        "injection": "After Kamino, do not treat villain society as solved. All For One is captured, but Shigaraki’s League remains a future threat.",
+        "constraints": [
+          "Shigaraki is not yet final-war level."
+        ],
+        "antiLore": [
+          "Do not dissolve the League simply because All For One loses."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_bakugo_privately_connects_his_capture_to_all_might_retirement",
+      "title": "Bakugo Privately Connects His Capture To All Might Retirement",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.bakugo-guilt-hidden",
+        "sortKeyFrom": 7850,
+        "sortKeyTo": 7850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo carries private guilt after Kamino"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Bakugo guilt",
+          "All Might retirement",
+          "private pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "secret:bakugo-guilt",
+        "topic:bakugo-guilt"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Bakugo guilt",
+            "All Might retirement",
+            "private pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Kamino, Bakugo privately carries guilt over being the captured target tied to All Might’s final battle and retirement.",
+        "injection": "Post-Kamino, let Bakugo’s anger mask private guilt about All Might’s retirement; do not make him openly process it smoothly.",
+        "constraints": [
+          "This guilt is not yet fully resolved until later confrontation with Izuku."
+        ],
+        "antiLore": [
+          "Do not make Bakugo emotionally transparent or at peace immediately after Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 95-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_u_a_dorms_are_a_security_response_not_a_fun_upgrade",
+      "title": "U.A. Dorms Are A Security Response Not A Fun Upgrade",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.dorm-system-begins",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 7800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. dorm system begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. Dorms",
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "dorm system",
+          "security response",
+          "student containment"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:ua-dorms",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:dorm-system"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. Dorms",
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "dorm system",
+            "security response",
+            "student containment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The U.A. dorm system begins as a security and accountability response to the repeated attacks and Bakugo kidnapping.",
+        "injection": "When dorms begin, frame them as U.A.’s security response and parental compromise, not merely a cozy slice-of-life housing upgrade.",
+        "constraints": [
+          "Dorm life can have bonding moments but is rooted in institutional crisis."
+        ],
+        "antiLore": [
+          "Do not detach the dorm system from Kamino and parental safety concerns."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 96-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_inko_requires_all_might_to_answer_as_an_adult",
+      "title": "Inko Requires All Might To Answer As An Adult",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.inko-rejects-risk",
+        "sortKeyFrom": 7750,
+        "sortKeyTo": 7750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Inko challenges U.A. and All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-inko",
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Inko Midoriya",
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "parental consent",
+          "student safety",
+          "All Might responsibility"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "character:midoriya-inko",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:parental-consent"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Inko Midoriya",
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "parental consent",
+            "student safety",
+            "All Might responsibility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Inko challenges U.A. and All Might over Izuku’s safety, forcing All Might to answer as an adult responsible for a child, not only as a symbol.",
+        "injection": "During home-visit scenes, treat Inko’s fear as legitimate parental concern; All Might must earn consent through responsibility, not fame.",
+        "constraints": [
+          "Inko is not anti-hero; she is afraid for her son."
+        ],
+        "antiLore": [
+          "Do not mock or dismiss Inko’s refusal as irrational nagging."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 95-96",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_might_shifts_from_symbol_to_mentor",
+      "title": "All Might Shifts From Symbol To Mentor",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mentor transition",
+          "retired hero",
+          "OFA succession"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mentor transition",
+            "retired hero",
+            "OFA succession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Kamino, All Might’s role shifts from active Symbol of Peace to mentor supporting Izuku and U.A. without his former combat power.",
+        "injection": "Post-Kamino, write All Might as a retired mentor with emotional authority but little active combat capacity.",
+        "constraints": [
+          "He remains central to Izuku but cannot function as the old battlefield solution."
+        ],
+        "antiLore": [
+          "Do not send All Might back into normal pro hero duty after retirement."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_izuku_inherits_the_burden_more_clearly_after_kamino",
+      "title": "Izuku Inherits The Burden More Clearly After Kamino",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.youre-next",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might points to the next generation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "successor burden",
+          "OFA secrecy",
+          "post-Kamino responsibility"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all",
+        "secret:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "successor burden",
+            "OFA secrecy",
+            "post-Kamino responsibility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Kamino, Izuku understands All Might’s public retirement as a private transfer of burden onto him as One For All’s successor.",
+        "injection": "After “You’re next,” Izuku should carry a sharper private sense that the future of All Might’s power and mission now rests on him.",
+        "constraints": [
+          "Classmates and the public do not know the full successor meaning."
+        ],
+        "antiLore": [
+          "Do not make the One For All secret public after Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_endeavor_becomes_implied_successor_but_not_yet_redeemed",
+      "title": "Endeavor Becomes Implied Successor But Not Yet Redeemed",
+      "kind": "future_guard",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Endeavor",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Number One succession",
+          "Endeavor future guard",
+          "hero ranking shift"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "character:endeavor",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "quality:draft-reference",
+        "topic:hero-rankings"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Number One succession",
+            "Endeavor future guard",
+            "hero ranking shift"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s retirement leaves Endeavor positioned as the next top hero by rank, but his later atonement and No. 1 burden are not yet resolved here.",
+        "injection": "After Kamino, Endeavor can be framed as the likely ranking successor, but do not import later Pro Hero arc growth or family reckoning prematurely.",
+        "constraints": [
+          "His family abuse history remains serious and unresolved."
+        ],
+        "antiLore": [
+          "Do not portray Endeavor as already redeemed immediately after Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_hero_society_does_not_know_one_for_all_mechanics",
+      "title": "Hero Society Does Not Know One For All Mechanics",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:one-for-all",
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "OFA secrecy",
+          "public ignorance",
+          "successor concealment"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all",
+        "secret:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "OFA secrecy",
+            "public ignorance",
+            "successor concealment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even after Kamino, hero society does not know the true transfer mechanics of One For All or Izuku’s role as successor.",
+        "injection": "Keep One For All’s transfer secret after Kamino; pro heroes and civilians can suspect All Might is finished without knowing Izuku inherited his Quirk.",
+        "constraints": [
+          "A small successor circle knows more than the public."
+        ],
+        "antiLore": [
+          "Do not let ordinary pros identify One For All in Izuku by name at this stage."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:gran-torino"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_public_cheers_after_kamino_do_not_remove_fear",
+      "title": "Public Cheers After Kamino Do Not Remove Fear",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes",
+          "mha:all-might"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public reaction",
+          "fear after victory",
+          "hero society uncertainty"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:kamino-aftermath",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public reaction",
+            "fear after victory",
+            "hero society uncertainty"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The public cheers All Might’s victory, but the exposed weakness and retirement leave fear underneath the celebration.",
+        "injection": "Post-Kamino public scenes should mix relief and anxiety; victory does not restore the old sense of safety.",
+        "constraints": [
+          "Civilians may cheer and still feel the future is unstable."
+        ],
+        "antiLore": [
+          "Do not make public trust fully repaired by the win."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_class_1_a_dorm_move_resets_daily_proximity",
+      "title": "Class 1-A Dorm Move Resets Daily Proximity",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.dorm-system-begins",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 7800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. dorm system begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. Dorms"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "daily proximity",
+          "class bonding",
+          "dorm life"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:kamino-aftermath",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:dorm-life"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. Dorms"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "daily proximity",
+            "class bonding",
+            "dorm life"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The dorm system places Class 1-A in constant daily proximity, changing future slice-of-life, conflict, and training scenes.",
+        "injection": "After dorms begin, Class 1-A can interact more constantly and informally, but the setup remains a security response.",
+        "constraints": [
+          "Dorm life increases class cohesion and friction."
+        ],
+        "antiLore": [
+          "Do not use dorm scenes before the dorm system is created."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 96-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_afo_capture_creates_tartarus_status_but_not_peace",
+      "title": "AFO Capture Creates Tartarus Status But Not Peace",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "sortKeyFrom": 7650,
+        "sortKeyTo": 7650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Symbol of Peace era ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:police",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Tartarus"
+        ],
+        "objects": [],
+        "factions": [
+          "Police",
+          "League of Villains"
+        ],
+        "topics": [
+          "Tartarus imprisonment",
+          "villain aftermath",
+          "future guard"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:kamino-aftermath",
+        "character:all-for-one",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "faction:police",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Tartarus"
+          ],
+          "factionsAny": [
+            "Police",
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Tartarus imprisonment",
+            "villain aftermath",
+            "future guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s capture removes him from the field into imprisonment, but it does not create durable peace or end his influence.",
+        "injection": "After Kamino, All For One should be imprisoned and off the open battlefield while his influence and plans remain dangerous.",
+        "constraints": [
+          "Do not use him as freely active outside prison immediately after Kamino."
+        ],
+        "antiLore": [
+          "Do not imply his capture ends the series conflict."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_parents_must_consent_to_u_a_dorm_escalation",
+      "title": "Parents Must Consent To U.A. Dorm Escalation",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.aftermath-home-visits",
+        "sortKeyFrom": 7700,
+        "sortKeyTo": 7700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. home visits seek parental consent"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "parental consent",
+          "home visits",
+          "school accountability"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:kamino-aftermath",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:parental-consent"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "parental consent",
+            "home visits",
+            "school accountability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. must seek parental consent for the dorm escalation because the school has lost trust after repeated attacks.",
+        "injection": "In home-visit scenes, treat parents as stakeholders with legitimate authority over whether students remain at U.A.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_dorm_system_narrows_student_freedom",
+      "title": "Dorm System Narrows Student Freedom",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.dorm-system-begins",
+        "sortKeyFrom": 7800,
+        "sortKeyTo": 7800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. dorm system begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.kamino-aftermath",
+          "label": "Kamino Aftermath",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.dorm-system-start",
+          "label": "U.A. dorm system begins",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.symbol-of-peace-fallen",
+          "label": "Symbol of Peace has fallen",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-imprisoned-league-survives",
+          "label": "All For One imprisoned; League survives",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "student containment",
+          "security policy",
+          "daily supervision"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:kamino-aftermath",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "student containment",
+            "security policy",
+            "daily supervision"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The dorm system increases supervision and reduces student freedom in response to villain escalation.",
+        "injection": "After dorms begin, U.A. students should have more proximity to classmates but less ordinary freedom outside school control.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1457 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-confirmed-chapter-431-relationship-beats-in-default-deck",
+      "title": "No Confirmed Chapter 431 Relationship Beats In Default Deck",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-support-suit",
+        "sortKeyFrom": 21300,
+        "sortKeyTo": 21300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku receives support suit chance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco",
+          "mha:class-1-a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Uraraka Ochaco",
+          "Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "optional overlay guard",
+          "relationship future"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:uraraka-ochaco",
+        "character:class-1-a",
+        "topic:optional-overlay-guard",
+        "topic:relationship-future",
+        "event:deku-receives-support-suit-chance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Uraraka Ochaco",
+            "Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "optional overlay guard",
+            "relationship future"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Any Chapter 431-specific adult relationship beats are outside this default Chapter 430 epilogue deck.",
+        "injection": "Keep romance or adult-extra material from Chapter 431 out of default retrieval unless the optional overlay deck is active.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco",
+          "mha:class-1-a"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_final-war-outcomes-blocked-before-final-war-context",
+      "title": "Final War Outcomes Blocked Before Final War Context",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.war-ends",
+        "sortKeyFrom": 20950,
+        "sortKeyTo": 20950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shigaraki Tomura",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future guard",
+          "war outcome"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "topic:future-guard",
+        "topic:war-outcome",
+        "event:final-war-ends"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shigaraki Tomura",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "war outcome"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Final War survival states, deaths, Quirk losses, and epilogue careers are future canon before this deck’s Context.",
+        "injection": "If a story is set before Final War, do not leak who survives, who loses powers, or how society changes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 424",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-final-war-battlefields-before-the-aoyama-trap",
+      "title": "No Final War Battlefields Before The Aoyama Trap",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.aoyama-trap-begins",
+        "sortKeyFrom": 19000,
+        "sortKeyTo": 19000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama trap begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1-a",
+          "mha:all-for-one",
+          "mha:heroes",
+          "mha:villains"
+        ],
+        "characters": [
+          "Class 1-A",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Villains"
+        ],
+        "topics": [
+          "future guard",
+          "battlefield setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:class-1-a",
+        "character:all-for-one",
+        "faction:heroes",
+        "faction:villains",
+        "topic:future-guard",
+        "topic:battlefield-setup",
+        "event:aoyama-trap-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Class 1-A",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "battlefield setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Before the Aoyama trap, the final battlefield layout and postwar outcomes are not active story state.",
+        "injection": "Block Floating U.A., Gunga, Okuto, and epilogue states in pre-Final War stories.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 343-344",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:class-1-a",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-near-death-must-not-leak-early",
+      "title": "Bakugo Near-Death Must Not Leak Early",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-heart-stops",
+        "sortKeyFrom": 19700,
+        "sortKeyTo": 19700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo is mortally wounded at Floating U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "spoiler guard",
+          "near death"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "faction:heroes",
+        "topic:spoiler-guard",
+        "topic:near-death",
+        "event:bakugo-is-mortally-wounded-at-floating-u-a"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "spoiler guard",
+            "near death"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s near-fatal Final War state is a major spoiler and must not retrieve in earlier arcs.",
+        "injection": "Do not foreshadow or reveal Bakugo’s Final War injury unless the Context reaches it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 362-364",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-tenko-manipulation-must-not-leak-early",
+      "title": "AFO Tenko Manipulation Must Not Leak Early",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-origin-manipulation-revealed",
+        "sortKeyFrom": 20800,
+        "sortKeyTo": 20800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One’s manipulation of Shigaraki is revealed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One",
+          "Shigaraki Tomura"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "spoiler guard",
+          "origin reveal"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "faction:villains",
+        "topic:spoiler-guard",
+        "topic:origin-reveal",
+        "event:all-for-one-s-manipulation-of-shigaraki-is-revealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "spoiler guard",
+            "origin reveal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s deepest manipulation of Tenko is a late Final War reveal.",
+        "injection": "Keep this reveal gated from earlier Shigaraki scenes unless the story diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 419-421",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_adult-careers-must-not-override-student-scenes",
+      "title": "Adult Careers Must Not Override Student Scenes",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.time-skip-adult-future",
+        "sortKeyFrom": 21250,
+        "sortKeyTo": 21250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Time skip shows adult future"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1-a",
+          "mha:u-a-high"
+        ],
+        "characters": [
+          "Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "future guard",
+          "adult careers"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:class-1-a",
+        "faction:u-a-high",
+        "topic:future-guard",
+        "topic:adult-careers",
+        "event:time-skip-shows-adult-future"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "adult careers"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Adult career states from Chapter 430 must not affect student-era scenes.",
+        "injection": "Keep Class 1-A as students until the active Context reaches the time skip.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:class-1-a"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_support-suit-must-not-replace-ofa-progression",
+      "title": "Support Suit Must Not Replace OFA Progression",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-support-suit",
+        "sortKeyFrom": 21300,
+        "sortKeyTo": 21300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku receives support suit chance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "future guard",
+          "support suit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "faction:heroes",
+        "topic:future-guard",
+        "topic:support-suit",
+        "event:deku-receives-support-suit-chance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "support suit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s support suit is a final epilogue opportunity, not a tool available during school arcs or Final War.",
+        "injection": "Do not give Deku the support suit before Chapter 430 Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_toga-final-choice-must-not-reframe-earlier-toga",
+      "title": "Toga Final Choice Must Not Reframe Earlier Toga",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-transfusion",
+        "sortKeyFrom": 20400,
+        "sortKeyTo": 20400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga gives Ochaco blood"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Uraraka Ochaco"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "future guard",
+          "Toga ending"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "faction:league-of-villains",
+        "topic:future-guard",
+        "topic:toga-ending",
+        "event:toga-gives-ochaco-blood"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Toga ending"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s final choice is late-war material and must not make earlier Toga harmless or resolved.",
+        "injection": "Keep earlier Toga dangerous and unresolved before the final Ochaco confrontation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 394-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_todoroki-postwar-aftermath-must-not-heal-early-family-scenes",
+      "title": "Todoroki Postwar Aftermath Must Not Heal Early Family Scenes",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-aftermath",
+        "sortKeyFrom": 21050,
+        "sortKeyTo": 21050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family aftermath after the war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Endeavor",
+          "Dabi",
+          "Todoroki Shoto"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "future guard",
+          "family aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:endeavor",
+        "character:dabi",
+        "character:todoroki-shoto",
+        "faction:todoroki-family",
+        "topic:future-guard",
+        "topic:family-aftermath",
+        "event:todoroki-family-aftermath-after-the-war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Dabi",
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "family aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Postwar Todoroki aftermath must not soften earlier abuse, estrangement, or Dabi conflict.",
+        "injection": "Do not import late aftermath closure into Sports Festival, Endeavor Agency, or early war contexts.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 426-427",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:endeavor",
+          "mha:dabi",
+          "mha:todoroki-shoto"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ochaco-counseling-future-must-not-replace-her-student-goals",
+      "title": "Ochaco Counseling Future Must Not Replace Her Student Goals",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-grief-counseling",
+        "sortKeyFrom": 21150,
+        "sortKeyTo": 21150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco processes grief and resolves to help children"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "future_guard",
+          "id": "mha.future.chapter-431-more",
+          "label": "Chapter 431 More gated separately",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:u-a-high"
+        ],
+        "characters": [
+          "Uraraka Ochaco"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "future guard",
+          "postwar mission"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "faction:u-a-high",
+        "topic:future-guard",
+        "topic:postwar-mission",
+        "event:ochaco-processes-grief-and-resolves-to-help-children"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "postwar mission"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco’s later Quirk-counseling mission is an epilogue outcome, not her full self-understanding in early arcs.",
+        "injection": "Before epilogue, keep Ochaco’s goals tied to family support, hero training, and developing empathy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 428-429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:uraraka-ochaco"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    }
+  ]
+}

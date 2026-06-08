@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to MHA Training Camp/Kamino manga-primary Context.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "majorEvent",
+    "beforeAfter",
+    "heroSocietyState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known anchors/windows from Forest Training Camp and Hideout Raid/Kamino. Do not invent anime-only or movie context.",
+  "localPatterns": [
+    {
+      "pattern": "during forest training camp",
+      "result": {
+        "anchorFrom": "mha.tck.camp-announced",
+        "anchorTo": "mha.tck.bakugo-captured",
+        "label": "Forest Training Camp arc"
+      }
+    },
+    {
+      "pattern": "when bakugo is captured",
+      "result": {
+        "anchorId": "mha.tck.bakugo-captured",
+        "label": "Bakugo captured"
+      }
+    },
+    {
+      "pattern": "during kamino",
+      "result": {
+        "anchorFrom": "mha.tck.all-for-one-arrives",
+        "anchorTo": "mha.tck.united-states-of-smash",
+        "label": "All Might vs All For One at Kamino"
+      }
+    },
+    {
+      "pattern": "after all might retires",
+      "result": {
+        "anchorId": "mha.tck.symbol-of-peace-falls",
+        "label": "After All Might retires"
+      }
+    },
+    {
+      "pattern": "when ua dorms start",
+      "result": {
+        "anchorId": "mha.tck.dorm-system-begins",
+        "label": "U.A. dorm system begins"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

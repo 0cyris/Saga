@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 2,
+  "gateTypes": {
+    "ability_gate": {
+      "label": "Ability Gate",
+      "description": "ability_gate Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "ability_gate"
+    },
+    "behavior_constraint": {
+      "label": "Behavior Constraint",
+      "description": "behavior_constraint Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "behavior_constraint"
+    },
+    "event_anchor": {
+      "label": "Event Anchor",
+      "description": "event_anchor Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "event_anchor"
+    },
+    "faction_state": {
+      "label": "Faction State",
+      "description": "faction_state Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "faction_state"
+    },
+    "future_guard": {
+      "label": "Future Guard",
+      "description": "future_guard Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "future_guard"
+    },
+    "knowledge_gate": {
+      "label": "Knowledge Gate",
+      "description": "knowledge_gate Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "knowledge_gate"
+    },
+    "location_state": {
+      "label": "Location State",
+      "description": "location_state Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "location_state"
+    },
+    "objective": {
+      "label": "Objective",
+      "description": "objective Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "objective"
+    },
+    "relationship_state": {
+      "label": "Relationship State",
+      "description": "relationship_state Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "relationship_state"
+    },
+    "rule_constraint": {
+      "label": "Rule Constraint",
+      "description": "rule_constraint Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "rule_constraint"
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "secret Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "secret"
+    },
+    "status_change": {
+      "label": "Status Change",
+      "description": "status_change Lorecard behavior type.",
+      "defaultPriority": 80,
+      "injectionRole": "status_change"
+    },
+    "timeline": {
+      "label": "Timeline",
+      "description": "Places a Lorecard at a story point, boundary, transition, or future-guard Context.",
+      "defaultPriority": 80,
+      "injectionRole": "context_anchor"
+    }
+  }
+}

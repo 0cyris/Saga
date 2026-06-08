@@ -1,0 +1,788 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.sfp.post-hassaikai-recovery",
+      "label": "Post-Hassaikai recovery and school life resume",
+      "sortKey": 10000,
+      "aliases": [
+        "after Overhaul",
+        "post Hassaikai",
+        "after Eri rescue"
+      ],
+      "tags": [
+        "arc:school-festival",
+        "topic:recovery",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170"
+      }
+    },
+    {
+      "id": "mha.sfp.eri-transfers-ua-care",
+      "label": "Eri is placed under U.A. care and Aizawa monitoring",
+      "sortKey": 10050,
+      "aliases": [
+        "Eri at U.A.",
+        "Eri transferred to U.A.",
+        "Aizawa monitors Eri"
+      ],
+      "tags": [
+        "character:eri",
+        "character:aizawa-shota",
+        "quirk:rewind"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170"
+      }
+    },
+    {
+      "id": "mha.sfp.festival-announced",
+      "label": "U.A. School Festival preparations begin under public doubt",
+      "sortKey": 10100,
+      "aliases": [
+        "school festival planning",
+        "festival preparations",
+        "Class 1-A performance"
+      ],
+      "tags": [
+        "arc:school-festival",
+        "school:ua-high",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172"
+      }
+    },
+    {
+      "id": "mha.sfp.class-1a-performance-plan",
+      "label": "Class 1-A chooses a music-and-dance performance",
+      "sortKey": 10150,
+      "aliases": [
+        "Class 1-A band",
+        "concert plan",
+        "dance team"
+      ],
+      "tags": [
+        "arc:school-festival",
+        "class:ua-1a",
+        "topic:performance"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-173"
+      }
+    },
+    {
+      "id": "mha.sfp.jiro-central-music-role",
+      "label": "Jiro becomes central to the class performance",
+      "sortKey": 10200,
+      "aliases": [
+        "Jiro music",
+        "Jiro band role",
+        "Earphone Jack performance"
+      ],
+      "tags": [
+        "character:jiro-kyoka",
+        "topic:performance"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-173"
+      }
+    },
+    {
+      "id": "mha.sfp.deku-air-force-training",
+      "label": "Izuku trains Air Force finger-flick technique",
+      "sortKey": 10250,
+      "aliases": [
+        "Air Force training",
+        "Deku air force",
+        "finger flicks"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:quirk-training"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-174"
+      }
+    },
+    {
+      "id": "mha.sfp.mei-support-gloves",
+      "label": "Mei Hatsume provides support gear for Air Force",
+      "sortKey": 10300,
+      "aliases": [
+        "Air Force gloves",
+        "Mei gloves",
+        "support gear"
+      ],
+      "tags": [
+        "character:hatsume-mei",
+        "topic:support-gear",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 173-174"
+      }
+    },
+    {
+      "id": "mha.sfp.gentle-la-brava-introduced",
+      "label": "Gentle Criminal and La Brava target online notoriety",
+      "sortKey": 10350,
+      "aliases": [
+        "Gentle and La Brava",
+        "Gentle Criminal introduced",
+        "La Brava introduced"
+      ],
+      "tags": [
+        "character:gentle-criminal",
+        "character:la-brava",
+        "arc:school-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-174"
+      }
+    },
+    {
+      "id": "mha.sfp.gentle-targets-ua",
+      "label": "Gentle chooses U.A. as his target for notoriety",
+      "sortKey": 10400,
+      "aliases": [
+        "Gentle targets U.A.",
+        "U.A. infiltration plan",
+        "festival attack plan"
+      ],
+      "tags": [
+        "character:gentle-criminal",
+        "school:ua-high",
+        "topic:security"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-175"
+      }
+    },
+    {
+      "id": "mha.sfp.festival-morning",
+      "label": "School Festival morning begins",
+      "sortKey": 10450,
+      "aliases": [
+        "festival morning",
+        "day of the festival",
+        "School Festival day"
+      ],
+      "tags": [
+        "arc:school-festival",
+        "event:school-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 175"
+      }
+    },
+    {
+      "id": "mha.sfp.deku-encounters-gentle",
+      "label": "Izuku encounters Gentle and La Brava before the festival",
+      "sortKey": 10500,
+      "aliases": [
+        "Deku meets Gentle",
+        "Deku vs Gentle starts",
+        "construction site fight"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:gentle-criminal",
+        "character:la-brava"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 175-176"
+      }
+    },
+    {
+      "id": "mha.sfp.gentle-elasticity-fight",
+      "label": "Gentle uses Elasticity to control terrain and momentum",
+      "sortKey": 10550,
+      "aliases": [
+        "Elasticity fight",
+        "Gentle elasticity",
+        "Deku vs Gentle"
+      ],
+      "tags": [
+        "quirk:elasticity",
+        "character:gentle-criminal",
+        "topic:terrain-control"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 176-177"
+      }
+    },
+    {
+      "id": "mha.sfp.la-brava-love-boost",
+      "label": "La Brava boosts Gentle through Love",
+      "sortKey": 10600,
+      "aliases": [
+        "La Brava Love",
+        "Gentle power boost",
+        "Love quirk"
+      ],
+      "tags": [
+        "character:la-brava",
+        "quirk:love",
+        "character:gentle-criminal"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 178"
+      }
+    },
+    {
+      "id": "mha.sfp.gentle-defeated",
+      "label": "Izuku defeats Gentle without exposing U.A. to panic",
+      "sortKey": 10650,
+      "aliases": [
+        "Gentle defeated",
+        "Deku stops Gentle",
+        "festival saved"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:gentle-criminal",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 178-179"
+      }
+    },
+    {
+      "id": "mha.sfp.school-festival-starts",
+      "label": "U.A. School Festival starts",
+      "sortKey": 10700,
+      "aliases": [
+        "festival starts",
+        "School Festival starts",
+        "Class 1-A show"
+      ],
+      "tags": [
+        "event:school-festival",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 179"
+      }
+    },
+    {
+      "id": "mha.sfp.class-1a-performance",
+      "label": "Class 1-A performs to lift student morale",
+      "sortKey": 10750,
+      "aliases": [
+        "Class 1-A performance",
+        "Jiro concert",
+        "Let it flow school festival"
+      ],
+      "tags": [
+        "class:ua-1a",
+        "character:jiro-kyoka",
+        "topic:performance"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 180-182"
+      }
+    },
+    {
+      "id": "mha.sfp.eri-smiles",
+      "label": "Eri smiles during the school festival performance",
+      "sortKey": 10800,
+      "aliases": [
+        "Eri smiles",
+        "Eri festival smile",
+        "Eri recovery moment"
+      ],
+      "tags": [
+        "character:eri",
+        "topic:trauma-recovery",
+        "event:school-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182"
+      }
+    },
+    {
+      "id": "mha.sfp.gentle-la-brava-surrender",
+      "label": "Gentle and La Brava accept arrest after protecting each other",
+      "sortKey": 10850,
+      "aliases": [
+        "Gentle arrested",
+        "La Brava arrested",
+        "Gentle surrender"
+      ],
+      "tags": [
+        "character:gentle-criminal",
+        "character:la-brava",
+        "faction:police"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 179-183"
+      }
+    },
+    {
+      "id": "mha.sfp.billboard-chart",
+      "label": "JP Hero Billboard Chart establishes the post-All Might rankings",
+      "sortKey": 10900,
+      "aliases": [
+        "Hero Billboard Chart",
+        "hero rankings",
+        "new rankings"
+      ],
+      "tags": [
+        "arc:pro-hero",
+        "event:hero-billboard-chart",
+        "faction:pro-heroes"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184"
+      }
+    },
+    {
+      "id": "mha.sfp.endeavor-number-one",
+      "label": "Endeavor stands publicly as the new Number One Hero",
+      "sortKey": 10950,
+      "aliases": [
+        "Endeavor Number One",
+        "new Number One",
+        "Endeavor top hero"
+      ],
+      "tags": [
+        "character:endeavor",
+        "faction:pro-heroes",
+        "topic:symbol-of-peace-vacuum"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-185"
+      }
+    },
+    {
+      "id": "mha.sfp.hawks-number-two",
+      "label": "Hawks appears as the young Number Two Hero",
+      "sortKey": 11000,
+      "aliases": [
+        "Hawks Number Two",
+        "Wing Hero Hawks",
+        "Hawks introduced"
+      ],
+      "tags": [
+        "character:hawks",
+        "quirk:fierce-wings",
+        "faction:pro-heroes"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-186"
+      }
+    },
+    {
+      "id": "mha.sfp.hawks-endeavor-team-up",
+      "label": "Hawks draws Endeavor into investigating Nomu rumors",
+      "sortKey": 11050,
+      "aliases": [
+        "Hawks and Endeavor",
+        "Nomu rumors",
+        "team up"
+      ],
+      "tags": [
+        "character:hawks",
+        "character:endeavor",
+        "topic:nomu"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 185-186"
+      }
+    },
+    {
+      "id": "mha.sfp.high-end-attacks",
+      "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting",
+      "sortKey": 11100,
+      "aliases": [
+        "High-End attack",
+        "Hood attacks",
+        "Nomu attacks Endeavor"
+      ],
+      "tags": [
+        "character:hood",
+        "topic:nomu",
+        "character:endeavor"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 186-187"
+      }
+    },
+    {
+      "id": "mha.sfp.endeavor-hawks-vs-hood",
+      "label": "Endeavor and Hawks fight Hood in public view",
+      "sortKey": 11150,
+      "aliases": [
+        "Endeavor vs Hood",
+        "Hawks supports Endeavor",
+        "High-End fight"
+      ],
+      "tags": [
+        "character:endeavor",
+        "character:hawks",
+        "character:hood"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190"
+      }
+    },
+    {
+      "id": "mha.sfp.endeavor-plus-ultra",
+      "label": "Endeavor defeats Hood and raises his fist",
+      "sortKey": 11200,
+      "aliases": [
+        "Endeavor raises fist",
+        "Endeavor defeats Hood",
+        "Plus Ultra Prominence Burn"
+      ],
+      "tags": [
+        "character:endeavor",
+        "event:high-end-fight"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 190"
+      }
+    },
+    {
+      "id": "mha.sfp.dabi-appears-after-hood",
+      "label": "Dabi appears after Hood is defeated",
+      "sortKey": 11250,
+      "aliases": [
+        "Dabi after Hood",
+        "Dabi Hawks Endeavor",
+        "Dabi appears"
+      ],
+      "tags": [
+        "character:dabi",
+        "character:hawks",
+        "character:endeavor"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 191"
+      }
+    },
+    {
+      "id": "mha.sfp.todoroki-family-watches",
+      "label": "Todoroki family processes Endeavor’s public stand",
+      "sortKey": 11300,
+      "aliases": [
+        "Todoroki family watches",
+        "Endeavor family reaction",
+        "Todoroki family"
+      ],
+      "tags": [
+        "family:todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 188-192"
+      }
+    },
+    {
+      "id": "mha.sfp.hawks-double-agent-thread",
+      "label": "Hawks begins operating under dangerous hidden obligations",
+      "sortKey": 11350,
+      "aliases": [
+        "Hawks double agent",
+        "Hawks secret mission",
+        "Hawks and Dabi"
+      ],
+      "tags": [
+        "character:hawks",
+        "faction:hero-public-safety-commission",
+        "character:dabi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 191-192"
+      }
+    },
+    {
+      "id": "mha.sfp.ofa-vestige-dream",
+      "label": "Izuku experiences a deeper One For All vestige dream",
+      "sortKey": 11400,
+      "aliases": [
+        "OFA vestige dream",
+        "One For All dream",
+        "Vestiges"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:vestiges"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.sfp.window.school-festival-full",
+      "label": "U.A. School Festival Arc",
+      "anchorFrom": "mha.sfp.post-hassaikai-recovery",
+      "anchorTo": "mha.sfp.gentle-la-brava-surrender",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10850,
+      "aliases": [
+        "u.a. school festival arc"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.sfp.window.school-festival-prep",
+      "label": "School Festival preparation window",
+      "anchorFrom": "mha.sfp.festival-announced",
+      "anchorTo": "mha.sfp.festival-morning",
+      "sortKeyFrom": 10100,
+      "sortKeyTo": 10450,
+      "aliases": [
+        "school festival preparation window"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.sfp.window.gentle-threat",
+      "label": "Gentle and La Brava threat window",
+      "anchorFrom": "mha.sfp.gentle-la-brava-introduced",
+      "anchorTo": "mha.sfp.gentle-la-brava-surrender",
+      "sortKeyFrom": 10350,
+      "sortKeyTo": 10850,
+      "aliases": [
+        "gentle and la brava threat window"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.sfp.window.festival-day",
+      "label": "School Festival day",
+      "anchorFrom": "mha.sfp.festival-morning",
+      "anchorTo": "mha.sfp.eri-smiles",
+      "sortKeyFrom": 10450,
+      "sortKeyTo": 10800,
+      "aliases": [
+        "school festival day"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.sfp.window.pro-hero-full",
+      "label": "Pro Hero Arc",
+      "anchorFrom": "mha.sfp.billboard-chart",
+      "anchorTo": "mha.sfp.ofa-vestige-dream",
+      "sortKeyFrom": 10900,
+      "sortKeyTo": 11400,
+      "aliases": [
+        "pro hero arc"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.sfp.window.high-end-fight",
+      "label": "High-End fight window",
+      "anchorFrom": "mha.sfp.high-end-attacks",
+      "anchorTo": "mha.sfp.endeavor-plus-ultra",
+      "sortKeyFrom": 11100,
+      "sortKeyTo": 11200,
+      "aliases": [
+        "high-end fight window"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.sfp.window.todoroki-family-pro-hero",
+      "label": "Todoroki family during Pro Hero aftermath",
+      "anchorFrom": "mha.sfp.todoroki-family-watches",
+      "anchorTo": "mha.sfp.hawks-double-agent-thread",
+      "sortKeyFrom": 11300,
+      "sortKeyTo": 11350,
+      "aliases": [
+        "todoroki family during pro hero aftermath"
+      ],
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ]
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "arc",
+      "id": "mha.arc.school-festival",
+      "label": "U.A. School Festival",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 10850,
+      "aliases": [
+        "School Festival",
+        "U.A. School Festival"
+      ]
+    },
+    {
+      "axis": "arc",
+      "id": "mha.arc.pro-hero",
+      "label": "Pro Hero",
+      "sortKeyFrom": 10900,
+      "sortKeyTo": 11400,
+      "aliases": [
+        "Pro Hero",
+        "Hero Billboard",
+        "High-End fight"
+      ]
+    },
+    {
+      "axis": "school_stage",
+      "id": "mha.school.first-year-fall",
+      "label": "Class 1-A first-year fall",
+      "sortKeyFrom": 10000,
+      "sortKeyTo": 11400,
+      "aliases": [
+        "first year fall",
+        "autumn at U.A."
+      ]
+    },
+    {
+      "axis": "quirk_stage",
+      "id": "mha.quirk.deku-air-force-early",
+      "label": "Deku early Air Force training",
+      "sortKeyFrom": 10250,
+      "sortKeyTo": 10850,
+      "aliases": [
+        "Air Force training",
+        "Deku Air Force"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.post-all-might-symbol-vacuum",
+      "label": "Post-All Might symbol vacuum",
+      "sortKeyFrom": 10900,
+      "sortKeyTo": 11400,
+      "aliases": [
+        "after All Might retires",
+        "Endeavor Number One"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "id": "mha.villains.nomus-advance-before-plf",
+      "label": "Nomu escalation before PLF reveal",
+      "sortKeyFrom": 11050,
+      "sortKeyTo": 11400,
+      "aliases": [
+        "High-End Nomu",
+        "Hood"
+      ]
+    }
+  ]
+}

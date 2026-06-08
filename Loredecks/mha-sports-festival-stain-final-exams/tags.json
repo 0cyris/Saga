@@ -1,0 +1,1209 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:final-exams": {
+      "label": "Final Exams",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Final Exams tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:forest-training-camp": {
+      "label": "Forest Training Camp",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Forest Training Camp tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "forest training camp"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:hero-killer": {
+      "label": "Hero Killer",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Hero Killer tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "hero killer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:sports-festival": {
+      "label": "Sports Festival",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Sports Festival tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aizawa-shota": {
+      "label": "Aizawa Shota",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Aizawa Shota tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "aizawa shota"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:all-for-one": {
+      "label": "All For One",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "All For One tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:all-might": {
+      "label": "All Might",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "All Might tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aoyama-yuga": {
+      "label": "Aoyama Yuga",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Aoyama Yuga tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "aoyama yuga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ashido-mina": {
+      "label": "Ashido Mina",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ashido Mina tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ashido mina"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asui-tsuyu": {
+      "label": "Asui Tsuyu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Asui Tsuyu tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "asui tsuyu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bakugo-katsuki": {
+      "label": "Bakugo Katsuki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Bakugo Katsuki tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "bakugo katsuki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:cementoss": {
+      "label": "Cementoss",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Cementoss tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "cementoss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ectoplasm": {
+      "label": "Ectoplasm",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ectoplasm tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ectoplasm"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:endeavor": {
+      "label": "Endeavor",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Endeavor tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "endeavor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gran-torino": {
+      "label": "Gran Torino",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Gran Torino tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "gran torino"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:hagakure-toru": {
+      "label": "Hagakure Toru",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hagakure Toru tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "hagakure toru"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:hatsume-mei": {
+      "label": "Hatsume Mei",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Hatsume Mei tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "hatsume mei"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:iida-tensei": {
+      "label": "Iida Tensei",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Iida Tensei tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "iida tensei"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:iida-tenya": {
+      "label": "Iida Tenya",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Iida Tenya tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "iida tenya"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jiro-kyoka": {
+      "label": "Jiro Kyoka",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Jiro Kyoka tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "jiro kyoka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kaminari-denki": {
+      "label": "Kaminari Denki",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kaminari Denki tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "kaminari denki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kendo-itsuka": {
+      "label": "Kendo Itsuka",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kendo Itsuka tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "kendo itsuka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kirishima-eijiro": {
+      "label": "Kirishima Eijiro",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Kirishima Eijiro tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "kirishima eijiro"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:koda-koji": {
+      "label": "Koda Koji",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Koda Koji tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "koda koji"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:manual": {
+      "label": "Manual",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Manual tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "manual"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midnight": {
+      "label": "Midnight",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Midnight tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "midnight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midoriya-izuku": {
+      "label": "Midoriya Izuku",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Midoriya Izuku tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "midoriya izuku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mineta-minoru": {
+      "label": "Mineta Minoru",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Mineta Minoru tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "mineta minoru"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:monoma-neito": {
+      "label": "Monoma Neito",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Monoma Neito tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "monoma neito"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:native": {
+      "label": "Native",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Native tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "native"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nezu": {
+      "label": "Nezu",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Nezu tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "nezu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ojiro-mashirao": {
+      "label": "Ojiro Mashirao",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Ojiro Mashirao tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ojiro mashirao"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:power-loader": {
+      "label": "Power Loader",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Power Loader tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "power loader"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:present-mic": {
+      "label": "Present Mic",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Present Mic tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "present mic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sato-rikido": {
+      "label": "Sato Rikido",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Sato Rikido tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "sato rikido"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sero-hanta": {
+      "label": "Sero Hanta",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Sero Hanta tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "sero hanta"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shigaraki-tomura": {
+      "label": "Shigaraki Tomura",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Shigaraki Tomura tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "shigaraki tomura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shinso-hitoshi": {
+      "label": "Shinso Hitoshi",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Shinso Hitoshi tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "shinso hitoshi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shoji-mezo": {
+      "label": "Shoji Mezo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Shoji Mezo tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "shoji mezo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:snipe": {
+      "label": "Snipe",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Snipe tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "snipe"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:stain": {
+      "label": "Stain",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Stain tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "stain"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:thirteen": {
+      "label": "Thirteen",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Thirteen tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "thirteen"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:todoroki-rei": {
+      "label": "Todoroki Rei",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Todoroki Rei tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "todoroki rei"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:todoroki-shoto": {
+      "label": "Todoroki Shoto",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Todoroki Shoto tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "todoroki shoto"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tokoyami-fumikage": {
+      "label": "Tokoyami Fumikage",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Tokoyami Fumikage tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "tokoyami fumikage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:uraraka-ochaco": {
+      "label": "Uraraka Ochaco",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Uraraka Ochaco tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "uraraka ochaco"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yaoyorozu-momo": {
+      "label": "Yaoyorozu Momo",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "Yaoyorozu Momo tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "yaoyorozu momo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "class:ua-1a": {
+      "label": "Ua 1A",
+      "color": "#234b7a",
+      "textColor": "#ffffff",
+      "description": "Ua 1A tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ua 1a"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "class:ua-1b": {
+      "label": "Ua 1B",
+      "color": "#234b7a",
+      "textColor": "#ffffff",
+      "description": "Ua 1B tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ua 1b"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:mha-manga-main": {
+      "label": "Mha Manga Main",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Mha Manga Main tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "mha manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:cavalry-battle": {
+      "label": "Cavalry Battle",
+      "color": "#7048a8",
+      "textColor": "#ffffff",
+      "description": "Cavalry Battle tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "cavalry battle"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:final-exams": {
+      "label": "Final Exams",
+      "color": "#7048a8",
+      "textColor": "#ffffff",
+      "description": "Final Exams tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:obstacle-race": {
+      "label": "Obstacle Race",
+      "color": "#7048a8",
+      "textColor": "#ffffff",
+      "description": "Obstacle Race tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "obstacle race"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:sports-festival": {
+      "label": "Sports Festival",
+      "color": "#7048a8",
+      "textColor": "#ffffff",
+      "description": "Sports Festival tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:tournament-bracket": {
+      "label": "Tournament Bracket",
+      "color": "#7048a8",
+      "textColor": "#ffffff",
+      "description": "Tournament Bracket tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "tournament bracket"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:usj": {
+      "label": "Usj",
+      "color": "#7048a8",
+      "textColor": "#ffffff",
+      "description": "Usj tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "usj"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:league-of-villains": {
+      "label": "League Of Villains",
+      "color": "#5a2a2a",
+      "textColor": "#ffffff",
+      "description": "League Of Villains tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "league of villains"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:pro-heroes": {
+      "label": "Pro Heroes",
+      "color": "#5a2a2a",
+      "textColor": "#ffffff",
+      "description": "Pro Heroes tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "pro heroes"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "family:todoroki": {
+      "label": "Todoroki",
+      "color": "#6b3f5f",
+      "textColor": "#ffffff",
+      "description": "Todoroki tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "todoroki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:mha": {
+      "label": "Mha",
+      "color": "#2f4858",
+      "textColor": "#ffffff",
+      "description": "Mha tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "mha"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:all-might": {
+      "label": "All Might",
+      "color": "#1f5d8a",
+      "textColor": "#ffffff",
+      "description": "All Might tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "hero:ingenium": {
+      "label": "Ingenium",
+      "color": "#1f5d8a",
+      "textColor": "#ffffff",
+      "description": "Ingenium tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ingenium"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:hosu-city": {
+      "label": "Hosu City",
+      "color": "#375a3c",
+      "textColor": "#ffffff",
+      "description": "Hosu City tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "hosu city"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:future-guard": {
+      "label": "Future Guard",
+      "color": "#444444",
+      "textColor": "#ffffff",
+      "description": "Future Guard tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft-reference": {
+      "label": "Draft Reference",
+      "color": "#555555",
+      "textColor": "#ffffff",
+      "description": "Draft Reference tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "draft reference"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:all-for-one": {
+      "label": "All For One",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "All For One tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:bloodcurdle": {
+      "label": "Bloodcurdle",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "Bloodcurdle tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "bloodcurdle"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:brainwashing": {
+      "label": "Brainwashing",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "Brainwashing tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "brainwashing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:dark-shadow": {
+      "label": "Dark Shadow",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "Dark Shadow tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "dark shadow"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:erasure": {
+      "label": "Erasure",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "Erasure tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "erasure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:full-cowling": {
+      "label": "Full Cowling",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "Full Cowling tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "full cowling"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:half-cold-half-hot": {
+      "label": "Half Cold Half Hot",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "Half Cold Half Hot tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "half cold half hot"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:one-for-all": {
+      "label": "One For All",
+      "color": "#7a1f3d",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "one for all"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:all-might-deku": {
+      "label": "All Might Deku",
+      "color": "#4f3b78",
+      "textColor": "#ffffff",
+      "description": "All Might Deku tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "all might deku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:bakugo-deku": {
+      "label": "Bakugo Deku",
+      "color": "#4f3b78",
+      "textColor": "#ffffff",
+      "description": "Bakugo Deku tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "bakugo deku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:gran-torino-deku": {
+      "label": "Gran Torino Deku",
+      "color": "#4f3b78",
+      "textColor": "#ffffff",
+      "description": "Gran Torino Deku tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "gran torino deku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "relationship:midoriya-todoroki": {
+      "label": "Midoriya Todoroki",
+      "color": "#4f3b78",
+      "textColor": "#ffffff",
+      "description": "Midoriya Todoroki tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "midoriya todoroki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:general-studies": {
+      "label": "General Studies",
+      "color": "#244f4f",
+      "textColor": "#ffffff",
+      "description": "General Studies tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "general studies"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:support-course": {
+      "label": "Support Course",
+      "color": "#244f4f",
+      "textColor": "#ffffff",
+      "description": "Support Course tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "support course"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:ua-high": {
+      "label": "Ua High",
+      "color": "#244f4f",
+      "textColor": "#ffffff",
+      "description": "Ua High tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ua high"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:all-for-one": {
+      "label": "All For One",
+      "color": "#4c1d95",
+      "textColor": "#ffffff",
+      "description": "All For One tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:all-might-injury": {
+      "label": "All Might Injury",
+      "color": "#4c1d95",
+      "textColor": "#ffffff",
+      "description": "All Might Injury tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "all might injury"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:ofa-transfer": {
+      "label": "Ofa Transfer",
+      "color": "#4c1d95",
+      "textColor": "#ffffff",
+      "description": "Ofa Transfer tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ofa transfer"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:ofa-vestiges": {
+      "label": "Ofa Vestiges",
+      "color": "#4c1d95",
+      "textColor": "#ffffff",
+      "description": "Ofa Vestiges tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "ofa vestiges"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:civilians": {
+      "label": "Civilians",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Civilians tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "civilians"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:exam-rules": {
+      "label": "Exam Rules",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Exam Rules tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "exam rules"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-licensing": {
+      "label": "Hero Licensing",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Hero Licensing tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "hero licensing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-names": {
+      "label": "Hero Names",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Hero Names tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "hero names"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:injury": {
+      "label": "Injury",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Injury tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "injury"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:internships": {
+      "label": "Internships",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Internships tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "internships"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:nomu": {
+      "label": "Nomu",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Nomu tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "nomu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stain-ideology": {
+      "label": "Stain Ideology",
+      "color": "#614b2a",
+      "textColor": "#ffffff",
+      "description": "Stain Ideology tag for My Hero Academia Sports Festival/Stain/Final Exams retrieval and filtering.",
+      "aliases": [
+        "stain ideology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:general-public": {
+      "label": "General Public",
+      "color": "#324f20",
+      "textColor": "#ffffff",
+      "description": "General Public tag for My Hero Academia entity retrieval.",
+      "aliases": [
+        "general public"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

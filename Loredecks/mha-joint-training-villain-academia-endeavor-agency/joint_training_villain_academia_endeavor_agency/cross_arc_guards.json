@@ -1,0 +1,1508 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_reveal_dabi_is_toya_before_the_war_broadcast",
+      "title": "Do Not Reveal Dabi Is Toya Before The War Broadcast",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:toya-todoroki",
+          "mha:endeavor",
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Dabi",
+          "Toya Todoroki",
+          "Endeavor",
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "secret:dabi-toya",
+        "family:todoroki",
+        "meta:future-guard",
+        "character:dabi",
+        "character:toya-todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Toya Todoroki",
+            "Endeavor",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s identity as Toya Todoroki remains hidden through this deck, even though Todoroki family pressure is foregrounded.",
+        "injection": "Before the war broadcast Context, keep Dabi/Toya unknown to heroes, students, and the Todoroki family unless the user story changes it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_reveal_the_u_a_traitor_during_this_deck",
+      "title": "Do Not Reveal The U.A. Traitor During This Deck",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "characters": [
+          "Yuga Aoyama"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "secret:ua-traitor",
+        "meta:future-guard",
+        "character:aoyama-yuga",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The U.A. traitor reveal belongs to a later arc and must not be treated as known during Joint Training, MVA, or Endeavor Agency.",
+        "injection": "Keep traitor knowledge hidden. Do not have teachers or students openly identify the traitor in this deck’s Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_use_later_deku_vigilante_status_early",
+      "title": "Do Not Use Later Deku Vigilante Status Early",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "arc:dark-hero",
+        "meta:future-guard",
+        "character:midoriya-izuku",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku has not entered his Dark Hero solo period during this deck and remains a U.A. student participating in school and agency life.",
+        "injection": "Do not portray Deku as a post-war solo vigilante or exhausted Dark Hero during this Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_treat_the_plf_war_as_publicly_underway_yet",
+      "title": "Do Not Treat The PLF War As Publicly Underway Yet",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "event:paranormal-liberation-war",
+        "meta:future-guard",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Paranormal Liberation War has not openly begun by the end of Endeavor Agency; the threat is covert and preparatory.",
+        "injection": "Keep society in pre-war tension, not open battlefield collapse.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_give_deku_float_danger_sense_fa_jin_smokescreen_or_gearshift_yet",
+      "title": "Do Not Give Deku Float Danger Sense Fa Jin Smokescreen Or Gearshift Yet",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "meta:future-guard",
+        "character:midoriya-izuku",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Only Blackwhip has emerged in this deck; later One For All Quirks belong to later Contexts.",
+        "injection": "After Blackwhip, do not unlock later OFA abilities until their specific future arcs.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_make_hawks_exposed_before_his_cover_breaks",
+      "title": "Do Not Make Hawks Exposed Before His Cover Breaks",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.hawks-coded-warning",
+        "sortKeyFrom": 14150,
+        "sortKeyTo": 14150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks sends Endeavor a coded warning"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:dabi"
+        ],
+        "characters": [
+          "Hawks",
+          "Dabi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "character:hawks",
+        "meta:future-guard",
+        "character:dabi",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Dabi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks’s double-agent role remains hidden and operational through this deck.",
+        "injection": "Hawks must not be publicly outed as a spy here. Preserve the risk and coded-contact tension.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 244-246",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_kill_or_resolve_twice_before_the_war",
+      "title": "Do Not Kill Or Resolve Twice Before The War",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.plf-formed",
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Paranormal Liberation Front is formed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-formed-hidden",
+          "label": "Paranormal Liberation Front formed but hidden from public",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:twice"
+        ],
+        "characters": [
+          "Twice"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:twice",
+        "meta:future-guard",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Twice"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Twice survives this deck and remains a major PLF asset after Sad Man’s Parade.",
+        "injection": "Do not import Twice’s later war outcome into MVA or Endeavor Agency scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_complete_endeavor_redemption_in_this_deck",
+      "title": "Do Not Complete Endeavor Redemption In This Deck",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.todoroki-family-dinner",
+        "sortKeyFrom": 14250,
+        "sortKeyTo": 14250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family dinner exposes unresolved harm"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:natsuo-todoroki",
+          "mha:fuyumi-todoroki"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki",
+          "Natsuo Todoroki",
+          "Fuyumi Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "family:todoroki",
+        "meta:future-guard",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "character:natsuo-todoroki",
+        "character:fuyumi-todoroki",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki",
+            "Natsuo Todoroki",
+            "Fuyumi Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s atonement is ongoing, contested, and incomplete through Endeavor Agency.",
+        "injection": "Prevent one-scene absolution. Training competence and family repair are separate problems.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 249",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_reveal_full_shigaraki_surgery_outcome_yet",
+      "title": "Do Not Reveal Full Shigaraki Surgery Outcome Yet",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kyudai-garaki"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kyudai Garaki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "meta:future-guard",
+        "quirk:decay",
+        "character:shigaraki-tomura",
+        "character:kyudai-garaki",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kyudai Garaki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s major enhancement outcome and post-awakening war state belong to the next deck.",
+        "injection": "Keep Shigaraki’s future power state as looming setup, not active scene truth.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_import_star_and_stripe_or_final_war_material",
+      "title": "Do Not Import Star And Stripe Or Final War Material",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ea.pre-war-countdown",
+        "sortKeyFrom": 14400,
+        "sortKeyTo": 14400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes begin moving toward a hidden war countdown"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.endeavor-agency",
+          "label": "Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.endeavor-agency",
+          "label": "Deku, Bakugo, and Shoto at Endeavor Agency",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:endeavor-agency",
+        "arc:star-and-stripe",
+        "arc:final-war",
+        "meta:future-guard",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star and Stripe, Final War deployments, and epilogue outcomes are far outside this deck’s Context.",
+        "injection": "Keep later international and final-war material out of Joint Training through Endeavor Agency scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 252",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_do_not_treat_class_1_a_as_knowing_mva_details",
+      "title": "Do Not Treat Class 1-A As Knowing MVA Details",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.plf-formed",
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Paranormal Liberation Front is formed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-formed-hidden",
+          "label": "Paranormal Liberation Front formed but hidden from public",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future canon guard",
+          "context boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "class:ua-1a",
+        "meta:future-guard",
+        "topic:future-canon-guard",
+        "topic:context-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future canon guard",
+            "context boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A does not have access to the private villain-side events of My Villain Academia.",
+        "injection": "Students must not casually discuss Shigaraki’s memories, Twice’s breakthrough, or Re-Destro’s submission as known facts.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1541 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_one_for_all_contains_more_than_stockpiled_strength",
+      "title": "One For All Contains More Than Stockpiled Strength",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "past-user Quirks",
+          "OFA vestiges",
+          "multi-ability mastery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "topic:past-user-quirks",
+        "topic:ofa-vestiges",
+        "topic:multi-ability-mastery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "past-user Quirks",
+            "OFA vestiges",
+            "multi-ability mastery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "One For All is revealed to contain the Quirks and vestige traces of previous holders, changing Deku’s training problem from raw strength control to multi-ability mastery.",
+        "injection": "After Chapter 217 Context, OFA must not be treated as only super-strength. Deku has begun learning that past-user Quirks can emerge, but mastery remains distant.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_blackwhip_is_powerful_but_emotionally_volatile_at_awakening",
+      "title": "Blackwhip Is Powerful But Emotionally Volatile At Awakening",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.blackwhip-awakens",
+        "sortKeyFrom": 12550,
+        "sortKeyTo": 12550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Blackwhip erupts from One For All"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:blackwhip",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Blackwhip",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "uncontrolled Blackwhip",
+          "emotional trigger",
+          "Quirk awakening"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "quirk:blackwhip",
+        "topic:uncontrolled-blackwhip",
+        "topic:emotional-trigger",
+        "topic:quirk-awakening"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Blackwhip",
+            "One For All"
+          ],
+          "topicsAny": [
+            "uncontrolled Blackwhip",
+            "emotional trigger",
+            "Quirk awakening"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Blackwhip first manifests as powerful, unstable, and tied to Izuku's emotional state.",
+        "injection": "At awakening, Blackwhip is a safety crisis and secrecy risk; do not write it as clean mastery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 211-213",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_banjo_frames_blackwhip_as_a_tool_shaped_by_heart",
+      "title": "Banjo Frames Blackwhip As A Tool Shaped By Heart",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:blackwhip",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Blackwhip",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Banjo vestige",
+          "emotional control",
+          "past user guidance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "quirk:blackwhip",
+        "topic:banjo-vestige",
+        "topic:emotional-control",
+        "topic:past-user-guidance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Blackwhip",
+            "One For All"
+          ],
+          "topicsAny": [
+            "Banjo vestige",
+            "emotional control",
+            "past user guidance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Daigoro Banjo’s vestige frames Blackwhip as a Quirk that responds badly to rage and requires emotional control.",
+        "injection": "When Banjo is referenced, use him to steer Deku toward emotional control, not as a full exposition dump for every OFA secret.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_all_might_lacks_full_practical_knowledge_of_past_user_quirks",
+      "title": "All Might Lacks Full Practical Knowledge Of Past User Quirks",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:one-for-all",
+          "mha:blackwhip"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All",
+          "Blackwhip"
+        ],
+        "factions": [],
+        "topics": [
+          "All Might knowledge gap",
+          "past-user research",
+          "mentor limits"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "quirk:blackwhip",
+        "topic:all-might-knowledge-gap",
+        "topic:past-user-research",
+        "topic:mentor-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "Blackwhip"
+          ],
+          "topicsAny": [
+            "All Might knowledge gap",
+            "past-user research",
+            "mentor limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might can guide Deku morally and historically, but he does not have direct experience using the additional past-user Quirks.",
+        "injection": "Do not make All Might instantly able to train Blackwhip from personal use. His guidance should be incomplete and research-driven.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_deku_must_keep_blackwhip_development_quiet",
+      "title": "Deku Must Keep Blackwhip Development Quiet",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:blackwhip",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "Blackwhip",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "classmate questions",
+          "training secrecy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "quirk:blackwhip",
+        "topic:ofa-secrecy",
+        "topic:classmate-questions",
+        "topic:training-secrecy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Blackwhip",
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "classmate questions",
+            "training secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Because Blackwhip points toward the hidden structure of One For All, Deku cannot freely explain its origin to classmates.",
+        "injection": "After Blackwhip, Deku can practice and deflect questions, but must not casually reveal OFA inheritance or past-user Quirks to the class.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_blackwhip_does_not_replace_full_cowling",
+      "title": "Blackwhip Does Not Replace Full Cowling",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.blackwhip-awakens",
+        "sortKeyFrom": 12550,
+        "sortKeyTo": 12550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Blackwhip erupts from One For All"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:blackwhip",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Blackwhip",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Full Cowling",
+          "Shoot Style",
+          "ability progression"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "quirk:blackwhip",
+        "topic:full-cowling",
+        "topic:shoot-style",
+        "topic:ability-progression"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Blackwhip",
+            "One For All"
+          ],
+          "topicsAny": [
+            "Full Cowling",
+            "Shoot Style",
+            "ability progression"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Blackwhip adds a new capture and mobility problem, but Deku still relies on Full Cowling as his core movement and combat foundation.",
+        "injection": "Do not let early Blackwhip make Full Cowling obsolete. Deku is still building on physical control and Shoot Style fundamentals.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 211-213",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_monoma_cannot_properly_use_one_for_all_by_copying_it",
+      "title": "Monoma Cannot Properly Use One For All By Copying It",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.match-5-conclusion",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 12600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Joint Training concludes after Match 5"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:monoma-neito",
+          "mha:midoriya-izuku",
+          "mha:copy",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Neito Monoma",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Copy",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Copy limitation",
+          "OFA stockpile",
+          "Quirk mechanics"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:monoma-neito",
+        "character:midoriya-izuku",
+        "quirk:copy",
+        "topic:copy-limitation",
+        "topic:ofa-stockpile",
+        "topic:quirk-mechanics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Neito Monoma",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Copy",
+            "One For All"
+          ],
+          "topicsAny": [
+            "Copy limitation",
+            "OFA stockpile",
+            "Quirk mechanics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Monoma’s Copy does not make One For All useful to him in the way he expects because OFA’s stockpiled nature does not transfer as a ready power bank.",
+        "injection": "When Monoma copies OFA, prevent clean super-strength imitation. The moment should expose Copy limits and OFA’s unusual structure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 215-217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_deku_and_bakugo_remain_the_only_students_with_the_ofa_secret",
+      "title": "Deku And Bakugo Remain The Only Students With The OFA Secret",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA secret circle",
+          "Bakugo knowledge",
+          "student secrecy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:all-might",
+        "topic:ofa-secret-circle",
+        "topic:bakugo-knowledge",
+        "topic:student-secrecy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA secret circle",
+            "Bakugo knowledge",
+            "student secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even after Blackwhip, Deku and Bakugo remain among the few students who understand One For All as All Might’s transferred power.",
+        "injection": "Do not let Class 1-A broadly know OFA’s lineage after Joint Training. Bakugo’s knowledge remains exceptional and private.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_bakugo_treats_ofa_progress_as_competitive_pressure",
+      "title": "Bakugo Treats OFA Progress As Competitive Pressure",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:one-for-all",
+          "mha:blackwhip"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All",
+          "Blackwhip"
+        ],
+        "factions": [],
+        "topics": [
+          "rival pressure",
+          "secret training",
+          "Bakugo knowledge"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "quirk:blackwhip",
+        "topic:rival-pressure",
+        "topic:secret-training",
+        "topic:bakugo-knowledge"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "Blackwhip"
+          ],
+          "topicsAny": [
+            "rival pressure",
+            "secret training",
+            "Bakugo knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo responds to Deku’s OFA development as rival pressure and tactical information, not sentimental awe.",
+        "injection": "When Bakugo discusses OFA here, keep him sharp, impatient, and competitive while still aware that the secret matters.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_ofa_multiple_quirks_are_a_future_training_burden",
+      "title": "OFA Multiple Quirks Are A Future Training Burden",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 89,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "future Quirks",
+          "training burden",
+          "ability gate"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "quirk:one-for-all",
+        "character:midoriya-izuku",
+        "topic:future-quirks",
+        "topic:training-burden",
+        "topic:ability-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "future Quirks",
+            "training burden",
+            "ability gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The reveal of multiple OFA-linked Quirks creates a long-term training burden; it does not immediately give Deku safe access to every ability.",
+        "injection": "After the reveal, treat future Quirks as looming training problems. Do not unlock Float, Danger Sense, Fa Jin, Smokescreen, or Gearshift early.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All / Blackwhip",
+        "stage": "blackwhip-awakened-unmastered",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Deku has not mastered the additional Quirks at this Context."
+        ],
+        "antiLore": [
+          "Do not grant later OFA abilities before their active Context."
+        ]
+      }
+    }
+  ]
+}

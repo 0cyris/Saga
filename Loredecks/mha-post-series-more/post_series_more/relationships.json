@@ -1,0 +1,1681 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_deku-and-ochaco-finally-move-toward-each-other",
+      "title": "Deku And Ochaco Finally Move Toward Each Other",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.deku-ochaco-conversation",
+        "sortKeyFrom": 23225,
+        "sortKeyTo": 23225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Ochaco choose to speak honestly"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mutual feelings",
+          "honest conversation",
+          "romantic movement"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:izuku-midoriya",
+        "character:uraraka-ochaco",
+        "topic:mutual-feelings",
+        "topic:honest-conversation",
+        "topic:romantic-movement",
+        "relationship:deku-ochaco",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mutual feelings",
+            "honest conversation",
+            "romantic movement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 lets Deku and Ochaco acknowledge a more personal, mutual future.",
+        "injection": "With the More overlay active, Deku/Ochaco can move toward romance; do not backfill marriage or certainty beyond the chapter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_deku-does-not-treat-everyone-as-equally-special-after-more",
+      "title": "Deku Does Not Treat Everyone As Equally Special After More",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.deku-ochaco-conversation",
+        "sortKeyFrom": 23225,
+        "sortKeyTo": 23225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Ochaco choose to speak honestly"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "special treatment",
+          "romantic clarity",
+          "emotional realization"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:izuku-midoriya",
+        "character:uraraka-ochaco",
+        "character:bakugo-katsuki",
+        "topic:special-treatment",
+        "topic:romantic-clarity",
+        "topic:emotional-realization",
+        "relationship:deku-ochaco"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "special treatment",
+            "romantic clarity",
+            "emotional realization"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Bakugo's criticism about special treatment helps Deku realize that Ochaco occupies a distinct emotional place for him.",
+        "injection": "Use Bakugo's 'special treatment' pressure as a catalyst for Deku recognizing Ochaco as specifically important, not merely one cherished person among everyone he respects.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_ochaco-reciprocates-without-losing-her-own-mission",
+      "title": "Ochaco Reciprocates Without Losing Her Own Mission",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.deku-ochaco-conversation",
+        "sortKeyFrom": 23225,
+        "sortKeyTo": 23225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Ochaco choose to speak honestly"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:izuku-midoriya",
+          "mha:toga-himiko",
+          "mha:quirk-counseling"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Izuku Midoriya",
+          "Himiko Toga"
+        ],
+        "locations": [],
+        "objects": [
+          "Quirk Counseling"
+        ],
+        "factions": [],
+        "topics": [
+          "reciprocated feelings",
+          "selfhood",
+          "Quirk Counseling"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "character:izuku-midoriya",
+        "character:toga-himiko",
+        "topic:quirk-counseling",
+        "topic:reciprocated-feelings",
+        "topic:selfhood",
+        "relationship:deku-ochaco"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Izuku Midoriya",
+            "Himiko Toga"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Quirk Counseling"
+          ],
+          "topicsAny": [
+            "reciprocated feelings",
+            "selfhood",
+            "Quirk Counseling"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Ochaco responds to Deku's emotional step while remaining defined by her own work, grief, and choice to keep living fully.",
+        "injection": "Do not reduce Ochaco's Chapter 431 role to being Deku's romantic endpoint; keep her advocacy, Toga memory, and independent adult life active.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_deku-and-ochaco-are-not-automatically-married",
+      "title": "Deku And Ochaco Are Not Automatically Married",
+      "kind": "future_guard",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.deku-ochaco-conversation",
+        "sortKeyFrom": 23225,
+        "sortKeyTo": 23225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Ochaco choose to speak honestly"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "relationship boundary",
+          "fanon guard",
+          "romance status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:izuku-midoriya",
+        "character:uraraka-ochaco",
+        "topic:relationship-boundary",
+        "topic:fanon-guard",
+        "topic:romance-status",
+        "relationship:deku-ochaco",
+        "meta:fanon-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "relationship boundary",
+            "fanon guard",
+            "romance status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 moves Deku and Ochaco toward a relationship, but it does not require scenes to treat them as married, cohabiting, or long-established partners.",
+        "injection": "When the More overlay is active, Deku and Ochaco can be beginning a clearer mutual relationship. Do not jump automatically to marriage, children, or a fully defined long-term status unless the user story adds it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_toga-memory-should-not-become-literal-possession",
+      "title": "Toga Memory Should Not Become Literal Possession",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 93,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.ochaco-toga-dream",
+        "sortKeyFrom": 23025,
+        "sortKeyTo": 23025,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco dreams of Toga"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Himiko Toga"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "dream interpretation",
+          "vestige ambiguity",
+          "possession guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "topic:dream-interpretation",
+        "topic:vestige-ambiguity",
+        "topic:possession-guard",
+        "meta:future-guard",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Himiko Toga"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "dream interpretation",
+            "vestige ambiguity",
+            "possession guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Ochaco wonders about Himiko's lingering presence through memory and blood, but Chapter 431 must not be treated as proof that Toga literally possesses Ochaco or survives as an active Quirk-vestige entity.",
+        "injection": "Keep Toga's presence ambiguous and emotional. Avoid literal possession, resurrection, or a new supernatural mechanic unless the story intentionally diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_tsuyu-and-ochaco-remain-close-adult-confidantes",
+      "title": "Tsuyu And Ochaco Remain Close Adult Confidantes",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 83,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.ochaco-tsuyu-train-talk",
+        "sortKeyFrom": 23100,
+        "sortKeyTo": 23100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco and Tsuyu discuss Toga dreams"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:asui-tsuyu",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Tsuyu Asui",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "adult friendship",
+          "private confidence",
+          "emotional support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:asui-tsuyu",
+        "character:uraraka-ochaco",
+        "topic:adult-friendship",
+        "topic:private-confidence",
+        "topic:emotional-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tsuyu Asui",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "adult friendship",
+            "private confidence",
+            "emotional support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Ochaco can speak privately with Tsuyu about recurring Himiko dreams and stress, showing continued adult trust between them.",
+        "injection": "Use Tsuyu/Ochaco friendship as a stable adult confidante bond; Tsuyu can ground Ochaco without dismissing her feelings.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_deku-and-bakugo-function-as-adult-peers",
+      "title": "Deku And Bakugo Function As Adult Peers",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.bakugo-car-ride",
+        "sortKeyFrom": 23125,
+        "sortKeyTo": 23125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo drives Deku and Kirishima"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "adult rivalry",
+          "peer status",
+          "agency talk"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:izuku-midoriya",
+        "character:bakugo-katsuki",
+        "topic:adult-rivalry",
+        "topic:peer-status",
+        "topic:agency-talk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "adult rivalry",
+            "peer status",
+            "agency talk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Deku and Bakugo interact as adults whose rivalry, criticism, and care have matured into peer-level tension rather than childhood bullying or simple hero worship.",
+        "injection": "In More-era scenes, keep Deku and Bakugo's dynamic sharp but adult: teasing and criticism can coexist with respect and practical concern.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_kirishima-mediates-bakugo-without-defanging-him",
+      "title": "Kirishima Mediates Bakugo Without Defanging Him",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.bakugo-car-ride",
+        "sortKeyFrom": 23125,
+        "sortKeyTo": 23125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo drives Deku and Kirishima"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kirishima-eijiro",
+          "mha:bakugo-katsuki",
+          "mha:izuku-midoriya"
+        ],
+        "characters": [
+          "Eijiro Kirishima",
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "friendship banter",
+          "adult mediation",
+          "Bakugo teasing"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:kirishima-eijiro",
+        "character:bakugo-katsuki",
+        "character:izuku-midoriya",
+        "topic:friendship-banter",
+        "topic:adult-mediation",
+        "topic:bakugo-teasing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eijiro Kirishima",
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "friendship banter",
+            "adult mediation",
+            "Bakugo teasing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Kirishima can tease and handle Bakugo's abrasiveness as a close adult friend without needing Bakugo to become gentle or conflict-free.",
+        "injection": "Use Kirishima as a comfortable adult friend who can needle Bakugo and keep scenes moving; do not erase Bakugo's edge to show growth.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_jiro-and-kaminari-are-not-confirmed-by-proximity-alone",
+      "title": "Jiro And Kaminari Are Not Confirmed By Proximity Alone",
+      "kind": "future_guard",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.former-class-a-reunion",
+        "sortKeyFrom": 23150,
+        "sortKeyTo": 23150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Former Class A reunion dinner"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:kaminari-denki"
+        ],
+        "characters": [
+          "Kyoka Jiro",
+          "Denki Kaminari"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "agency proximity",
+          "fanon guard",
+          "relationship ambiguity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:jiro-kyoka",
+        "character:kaminari-denki",
+        "topic:agency-proximity",
+        "topic:fanon-guard",
+        "topic:relationship-ambiguity",
+        "relationship:jiro-kaminari",
+        "meta:fanon-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro",
+            "Denki Kaminari"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "agency proximity",
+            "fanon guard",
+            "relationship ambiguity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 mentions Jiro and Kaminari agency proximity but does not require treating them as a confirmed couple.",
+        "injection": "Do not canonize Jiro/Kaminari romance solely from agency proximity in More. It can be playful ambiguity unless the user story chooses otherwise.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_kuroiro-and-kinoko-are-dating-in-more",
+      "title": "Kuroiro And Kinoko Are Dating In More",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.former-class-a-reunion",
+        "sortKeyFrom": 23150,
+        "sortKeyTo": 23150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Former Class A reunion dinner"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shihai-kuroiro",
+          "mha:kinoko-komori"
+        ],
+        "characters": [
+          "Shihai Kuroiro",
+          "Kinoko Komori"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "confirmed dating",
+          "adult classmate news",
+          "relationship status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:shihai-kuroiro",
+        "character:kinoko-komori",
+        "topic:confirmed-dating",
+        "topic:adult-classmate-news",
+        "topic:relationship-status",
+        "relationship:kuroiro-kinoko",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shihai Kuroiro",
+            "Kinoko Komori"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "confirmed dating",
+            "adult classmate news",
+            "relationship status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "Chapter 431 reveals that Shihai Kuroiro and Kinoko Komori are dating.",
+        "injection": "In Chapter 431 Context, Kuroiro and Kinoko can be treated as a confirmed dating pair; do not backfill this into school-era arcs before the overlay Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_adult-class-banter-should-carry-separate-lives",
+      "title": "Adult Class Banter Should Carry Separate Lives",
+      "kind": "behavior_constraint",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.former-class-a-reunion",
+        "sortKeyFrom": 23150,
+        "sortKeyTo": 23150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Former Class A reunion dinner"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Class A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Class A"
+        ],
+        "topics": [
+          "adult banter",
+          "reunion tone",
+          "separate lives"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "faction:class-1a",
+        "topic:adult-banter",
+        "topic:reunion-tone",
+        "topic:separate-lives"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Class A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Class A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "adult banter",
+            "reunion tone",
+            "separate lives"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "The former classmates joke, tease, and compare adult statuses from the position of people who no longer live the same daily school routine.",
+        "injection": "Write the reunion with easy history and mild awkward distance: they know each other deeply but now have separate agencies, careers, schedules, and adult concerns.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_post_series_more_shigarakis-last-words-still-press-on-deku",
+      "title": "Shigaraki's Last Words Still Press On Deku",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 82,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 85,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.more.former-class-a-reunion",
+        "sortKeyFrom": 23150,
+        "sortKeyTo": 23150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Former Class A reunion dinner"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "required": false
+        },
+        {
+          "axis": "life_stage",
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "memory of Shigaraki",
+          "do your best",
+          "postwar introspection"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:post-series-more",
+        "chapter:431-more",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "topic:memory-of-shigaraki",
+        "topic:do-your-best",
+        "topic:postwar-introspection",
+        "meta:spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "memory of Shigaraki",
+            "do your best",
+            "postwar introspection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia Chapter 431 'More' from Volume 42. Optional post-series extra overlay after Chapter 430; not loaded by default for the Chapter 430 epilogue deck.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded unless added as separate overlay decks. Chapter 431 material should not leak into earlier school-era, war, or Chapter 430 scenes unless this overlay is active."
+      },
+      "content": {
+        "fact": "During Chapter 431, Deku reflects on Shigaraki's final words and on whether there are parts of himself he has not yet discovered.",
+        "injection": "Use Shigaraki's memory as a quiet pressure on Deku's adult self-understanding, not as a literal haunting or active villain return.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431",
+        "confidence": 0.78,
+        "notes": "Draft Saga Lorecard from Chapter 431 'More'; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaReview": {
+          "status": "draft",
+          "reviewNeeded": true,
+          "source": "assisted_generation"
+        },
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

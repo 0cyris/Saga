@@ -1,0 +1,1720 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_camp_attack_leaves_students_injured_and_restricted",
+      "title": "Camp Attack Leaves Students Injured And Restricted",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.camp-aftermath",
+        "sortKeyFrom": 6850,
+        "sortKeyTo": 6850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Training camp aftermath creates institutional crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "injury aftermath",
+          "student restriction",
+          "U.A. crisis"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:camp-aftermath",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "injury aftermath",
+            "student restriction",
+            "U.A. crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the camp attack, students are injured, monitored, and restricted while adults handle the kidnapping crisis.",
+        "injection": "In post-camp scenes, keep students shaken and constrained by adults; they are not officially authorized to mount a rescue.",
+        "constraints": [
+          "Hospital recovery and adult restrictions should shape pacing."
+        ],
+        "antiLore": [
+          "Do not have U.A. casually send students after Bakugo."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 83-84",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_students_feel_guilt_but_lack_authority",
+      "title": "Students Feel Guilt But Lack Authority",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.hospital-aftermath",
+        "sortKeyFrom": 6900,
+        "sortKeyTo": 6900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students recover under guilt and restriction"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:kirishima-eijiro",
+          "mha:iida-tenya",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Eijiro Kirishima",
+          "Tenya Iida",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "rescue guilt",
+          "student illegality",
+          "friendship pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:iida-tenya",
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Eijiro Kirishima",
+            "Tenya Iida",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue guilt",
+            "student illegality",
+            "friendship pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Several students feel responsible for Bakugo’s capture, but they have no legal authority to perform a rescue operation.",
+        "injection": "When students discuss saving Bakugo, frame the impulse as emotionally understandable but legally and professionally dangerous.",
+        "constraints": [
+          "Iida should strongly understand the danger after Hosu."
+        ],
+        "antiLore": [
+          "Do not portray the student rescue plan as fully sanctioned by U.A."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_kirishima_has_the_strongest_personal_pull_to_reach_bakugo",
+      "title": "Kirishima Has The Strongest Personal Pull To Reach Bakugo",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.rescue-squad-forms",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students form Bakugo rescue group"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kirishima-eijiro",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Eijiro Kirishima",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "peer trust",
+          "rescue appeal",
+          "Kirishima and Bakugo"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:kirishima-eijiro",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eijiro Kirishima",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "peer trust",
+            "rescue appeal",
+            "Kirishima and Bakugo"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kirishima’s relationship with Bakugo gives him a uniquely credible chance to reach Bakugo during the rescue extraction.",
+        "injection": "In rescue-planning scenes, let Kirishima’s bond with Bakugo carry practical weight; he is not just another classmate in the extraction plan.",
+        "constraints": [
+          "Bakugo is more likely to accept Kirishima’s hand than most classmates."
+        ],
+        "antiLore": [
+          "Do not make Izuku the only emotionally relevant rescuer for Bakugo."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-92",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_iida_opposes_recklessness_because_hosu_changed_him",
+      "title": "Iida Opposes Recklessness Because Hosu Changed Him",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.rescue-squad-forms",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students form Bakugo rescue group"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:midoriya-izuku",
+          "mha:kirishima-eijiro"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Izuku Midoriya",
+          "Eijiro Kirishima"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Hosu lesson",
+          "student responsibility",
+          "recklessness"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hero-killer",
+        "arc:hideout-raid",
+        "character:iida-tenya",
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Izuku Midoriya",
+            "Eijiro Kirishima"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Hosu lesson",
+            "student responsibility",
+            "recklessness"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida’s opposition to the rescue plan is shaped by his own near-fatal illegal revenge attempt in Hosu.",
+        "injection": "When Iida challenges the rescue group, write him as someone who learned the cost of acting outside hero authority, not as a coward or obstruction.",
+        "constraints": [
+          "He may still join to monitor and prevent worse recklessness."
+        ],
+        "antiLore": [
+          "Do not ignore Iida’s Stain arc growth during the rescue debate."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_yaoyorozu_tracker_makes_rescue_possible_but_ethically_fraught",
+      "title": "Yaoyorozu Tracker Makes Rescue Possible But Ethically Fraught",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.yaoyorozu-tracker",
+        "sortKeyFrom": 7050,
+        "sortKeyTo": 7050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yaoyorozu tracker enables hideout search"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [
+          "tracker"
+        ],
+        "factions": [],
+        "topics": [
+          "tracker device",
+          "student rescue plan",
+          "ethical hesitation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:yaoyorozu-momo",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:tracker",
+        "topic:tracker-device"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "tracker"
+          ],
+          "topicsAny": [
+            "tracker device",
+            "student rescue plan",
+            "ethical hesitation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Yaoyorozu’s tracker provides the students with a way to locate the villains, but using it outside adult authority is ethically and professionally fraught.",
+        "injection": "Use the tracker as a serious decision point: it enables action, but it also places students in conflict with lawful hero procedure.",
+        "constraints": [
+          "Momo must not treat the choice lightly."
+        ],
+        "antiLore": [
+          "Do not make the tracker a consequence-free adventure hook."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_todoroki_joins_rescue_from_shared_failure_and_practical_resolve",
+      "title": "Todoroki Joins Rescue From Shared Failure And Practical Resolve",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.rescue-squad-forms",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students form Bakugo rescue group"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue group",
+          "shared failure",
+          "Todoroki resolve"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue group",
+            "shared failure",
+            "Todoroki resolve"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Todoroki joins the rescue effort from guilt, friendship, and practical resolve after failing to prevent Bakugo’s capture.",
+        "injection": "In the rescue group, portray Todoroki as controlled and serious, not impulsively heroic for spectacle.",
+        "constraints": [
+          "He understands danger but still chooses to go."
+        ],
+        "antiLore": [
+          "Do not make Todoroki indifferent to Bakugo’s capture."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_u_a_faces_public_blame_for_endangering_students",
+      "title": "U.A. Faces Public Blame For Endangering Students",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.camp-aftermath",
+        "sortKeyFrom": 6850,
+        "sortKeyTo": 6850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Training camp aftermath creates institutional crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:pro-heroes",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Staff"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public blame",
+          "institutional crisis",
+          "school trust"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:public-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Staff"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High School",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public blame",
+            "institutional crisis",
+            "school trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s kidnapping from a U.A. training camp creates a public trust crisis for the school and hero society.",
+        "injection": "After the camp attack, include public and parental pressure on U.A.; the school must answer for student safety, not just prepare the next battle.",
+        "constraints": [
+          "Officials should care about optics and safety policy."
+        ],
+        "antiLore": [
+          "Do not treat U.A.’s reputation as unchanged after the kidnapping."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 83-96",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_bakugo_rescue_plan_must_avoid_direct_combat",
+      "title": "Bakugo Rescue Plan Must Avoid Direct Combat",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.rescue-squad-forms",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students form Bakugo rescue group"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:kirishima-eijiro",
+          "mha:iida-tenya",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Eijiro Kirishima",
+          "Tenya Iida",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "noncombat rescue",
+          "student legality",
+          "extraction plan"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:iida-tenya",
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Eijiro Kirishima",
+            "Tenya Iida",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "noncombat rescue",
+            "student legality",
+            "extraction plan"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The students’ plan is to locate and extract Bakugo without directly fighting villains, because combat would repeat the illegal mistake of Hosu.",
+        "injection": "For the student rescue group, keep the plan explicitly noncombat: observe, reach Bakugo if possible, and avoid engaging villains.",
+        "constraints": [
+          "If the students fight, it should be framed as a serious breach, not normal hero work."
+        ],
+        "antiLore": [
+          "Do not write the rescue squad as officially deputized combatants."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-92",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_press_conference_pressure_forces_u_a_public_accountability",
+      "title": "Press Conference Pressure Forces U.A. Public Accountability",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.camp-aftermath",
+        "sortKeyFrom": 6850,
+        "sortKeyTo": 6850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Training camp aftermath creates institutional crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:nezu",
+          "mha:aizawa-shota"
+        ],
+        "characters": [
+          "Nezu",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "press conference",
+          "public accountability",
+          "school scandal"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:aizawa-shota",
+        "character:nezu",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nezu",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "press conference",
+            "public accountability",
+            "school scandal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. must answer publicly for the camp attack and kidnapping, turning hero education into a media accountability crisis.",
+        "injection": "After the camp attack, include press and public accountability pressure on U.A.; the institution is under scrutiny.",
+        "constraints": [
+          "School authority figures should respond formally."
+        ],
+        "antiLore": [
+          "Do not keep U.A. public reputation untouched."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 83-86",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_bakugo_rescue_squad_is_small_because_secrecy_matters",
+      "title": "Bakugo Rescue Squad Is Small Because Secrecy Matters",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.rescue-squad-forms",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students form Bakugo rescue group"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:kirishima-eijiro",
+          "mha:todoroki-shoto",
+          "mha:iida-tenya",
+          "mha:yaoyorozu-momo"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Eijiro Kirishima",
+          "Shoto Todoroki",
+          "Tenya Iida",
+          "Momo Yaoyorozu"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "small rescue team",
+          "secrecy",
+          "student disagreement"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:iida-tenya",
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "character:yaoyorozu-momo",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Eijiro Kirishima",
+            "Shoto Todoroki",
+            "Tenya Iida",
+            "Momo Yaoyorozu"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "small rescue team",
+            "secrecy",
+            "student disagreement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The student rescue group stays small because broader involvement would increase risk, conflict, and exposure.",
+        "injection": "Keep the unauthorized rescue group limited and tense; not all classmates should agree or be included.",
+        "constraints": [
+          "The group’s secrecy creates interpersonal strain."
+        ],
+        "antiLore": [
+          "Do not have all of Class 1-A march to Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_momo_is_torn_between_rule_and_rescue",
+      "title": "Momo Is Torn Between Rule And Rescue",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.yaoyorozu-tracker",
+        "sortKeyFrom": 7050,
+        "sortKeyTo": 7050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yaoyorozu tracker enables hideout search"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rule conflict",
+          "tracker ethics",
+          "student hesitation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:yaoyorozu-momo",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:tracker-ethics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rule conflict",
+            "tracker ethics",
+            "student hesitation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Momo’s tracker puts her between trust in adult procedure and classmates’ need to act.",
+        "injection": "When Momo discusses the tracker, give her hesitation and responsibility; she must not be reckless or indifferent.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_classmates_disagree_over_rescue_ethics",
+      "title": "Classmates Disagree Over Rescue Ethics",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.rescue-squad-forms",
+        "sortKeyFrom": 7000,
+        "sortKeyTo": 7000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students form Bakugo rescue group"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue disagreement",
+          "class conflict",
+          "ethics under pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue disagreement",
+            "class conflict",
+            "ethics under pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A is not unified around the unauthorized rescue plan; disagreement over ethics and risk matters.",
+        "injection": "In rescue-plan scenes, allow disagreement and tension inside Class 1-A instead of unanimous adventure-party consent.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2177 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_toga-pulls-deku-off-the-planned-battlefield",
+      "title": "Toga Pulls Deku Off The Planned Battlefield",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-pulls-deku",
+        "sortKeyFrom": 19200,
+        "sortKeyTo": 19200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga pulls Deku to Okuto Island"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:izuku-midoriya",
+          "mha:okuto-island",
+          "mha:villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Okuto Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "battlefield disruption",
+          "love question"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:izuku-midoriya",
+        "location:okuto-island",
+        "faction:villains",
+        "faction:heroes",
+        "topic:battlefield-disruption",
+        "topic:love-question",
+        "event:toga-pulls-deku-to-okuto-island"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Okuto Island"
+          ],
+          "factionsAny": [
+            "Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "battlefield disruption",
+            "love question"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s sudden pull disrupts the hero separation plan by dragging Deku to the wrong battlefield.",
+        "injection": "Use Toga’s interference as a serious tactical delay; Deku being absent from Floating U.A. has consequences.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-348",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_toga-frames-violence-through-love",
+      "title": "Toga Frames Violence Through Love",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-pulls-deku",
+        "sortKeyFrom": 19200,
+        "sortKeyTo": 19200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga pulls Deku to Okuto Island"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:izuku-midoriya",
+          "mha:okuto-island",
+          "mha:villains"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Okuto Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "love and violence",
+          "emotional mismatch"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:izuku-midoriya",
+        "location:okuto-island",
+        "faction:villains",
+        "topic:love-and-violence",
+        "topic:emotional-mismatch",
+        "event:toga-pulls-deku-to-okuto-island"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Okuto Island"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "love and violence",
+            "emotional mismatch"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga asks for recognition in the language of love while still threatening and harming others.",
+        "injection": "Write Toga’s emotions as sincere but dangerous; do not sanitize her violence or deny her emotional need.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-348",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-cannot-answer-toga-the-way-ochaco-can",
+      "title": "Deku Cannot Answer Toga The Way Ochaco Can",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-pulls-deku",
+        "sortKeyFrom": 19200,
+        "sortKeyTo": 19200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga pulls Deku to Okuto Island"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:izuku-midoriya",
+          "mha:uraraka-ochaco",
+          "mha:okuto-island",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Izuku Midoriya",
+          "Uraraka Ochaco"
+        ],
+        "locations": [
+          "Okuto Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "emotional mismatch",
+          "relationship contrast"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:izuku-midoriya",
+        "character:uraraka-ochaco",
+        "location:okuto-island",
+        "faction:heroes",
+        "topic:emotional-mismatch",
+        "topic:relationship-contrast",
+        "event:toga-pulls-deku-to-okuto-island"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Izuku Midoriya",
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [
+            "Okuto Island"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "emotional mismatch",
+            "relationship contrast"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku can reject Toga’s violence but cannot fully meet the emotional question that Ochaco later addresses.",
+        "injection": "Let Deku be compassionate but mismatched here; this conflict belongs primarily to Ochaco and Toga.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-348",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_twice-blood-turns-toga-into-mass-casualty-threat",
+      "title": "Twice Blood Turns Toga Into Mass-Casualty Threat",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-sad-mans-parade",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga unleashes Sad Man’s Parade"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:twice",
+          "mha:gunga-mountain-villa",
+          "mha:villains"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Twice"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "Sad Mans Parade",
+          "Transform",
+          "Double"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:twice",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "topic:sad-mans-parade",
+        "topic:transform",
+        "topic:double",
+        "event:toga-unleashes-sad-man-s-parade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Twice"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Sad Mans Parade",
+            "Transform",
+            "Double"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s access to Twice’s blood allows her to unleash a version of Sad Man’s Parade with enormous battlefield danger.",
+        "injection": "After this anchor, treat Toga as a mass-threat through Twice duplication, not only a knife fighter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-376",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_sad-man-s-parade-strains-every-hero-line",
+      "title": "Sad Man’s Parade Strains Every Hero Line",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-sad-mans-parade",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga unleashes Sad Man’s Parade"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco",
+          "mha:tsuyu-asui",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Uraraka Ochaco",
+          "Tsuyu Asui"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "clone swarm",
+          "containment crisis"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "character:tsuyu-asui",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:clone-swarm",
+        "topic:containment-crisis",
+        "event:toga-unleashes-sad-man-s-parade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Uraraka Ochaco",
+            "Tsuyu Asui"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "clone swarm",
+            "containment crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The clone swarm threatens to overwhelm hero coordination across battlefields.",
+        "injection": "Portray the clone crisis as exponential pressure; ordinary crowd control must not solve it easily.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-376",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ochaco-chooses-to-understand-without-excusing",
+      "title": "Ochaco Chooses To Understand Without Excusing",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-reaches-toga",
+        "sortKeyFrom": 20350,
+        "sortKeyTo": 20350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco reaches Toga during clone crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:gunga-mountain-villa",
+          "mha:heroes",
+          "mha:villains"
+        ],
+        "characters": [
+          "Uraraka Ochaco",
+          "Toga Himiko"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Villains"
+        ],
+        "topics": [
+          "empathy boundary",
+          "villain understanding"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "faction:villains",
+        "topic:empathy-boundary",
+        "topic:villain-understanding",
+        "event:ochaco-reaches-toga-during-clone-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco",
+            "Toga Himiko"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "empathy boundary",
+            "villain understanding"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco tries to understand Toga’s pain and smile without excusing the harm Toga caused.",
+        "injection": "Keep Ochaco’s compassion morally bounded; she reaches for Toga without pretending the victims do not matter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 382-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_zero-gravity-awakening-expands-rescue-scope",
+      "title": "Zero Gravity Awakening Expands Rescue Scope",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-reaches-toga",
+        "sortKeyFrom": 20350,
+        "sortKeyTo": 20350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco reaches Toga during clone crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:gunga-mountain-villa",
+          "mha:heroes",
+          "mha:zero-gravity"
+        ],
+        "characters": [
+          "Uraraka Ochaco",
+          "Toga Himiko"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Zero Gravity"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Quirk awakening",
+          "rescue over combat"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "item:zero-gravity",
+        "topic:quirk-awakening",
+        "topic:rescue-over-combat",
+        "event:ochaco-reaches-toga-during-clone-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco",
+            "Toga Himiko"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Zero Gravity"
+          ],
+          "topicsAny": [
+            "Quirk awakening",
+            "rescue over combat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco’s Quirk expansion lets her affect the battlefield at a scale tied to saving people rather than defeating Toga by force.",
+        "injection": "Use Ochaco’s Quirk awakening as rescue-driven escalation; it should reflect her heroic motive, not just power creep.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 382-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Zero Gravity",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko"
+        ],
+        "requiredTags": [
+          "item:zero-gravity"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_toga-saves-ochaco-with-blood-transfusion",
+      "title": "Toga Saves Ochaco With Blood Transfusion",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-transfusion",
+        "sortKeyFrom": 20400,
+        "sortKeyTo": 20400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga gives Ochaco blood"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco",
+          "mha:gunga-mountain-villa",
+          "mha:villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Uraraka Ochaco"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "blood transfusion",
+          "final choice"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "faction:heroes",
+        "topic:blood-transfusion",
+        "topic:final-choice",
+        "event:toga-gives-ochaco-blood"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "blood transfusion",
+            "final choice"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga uses her blood to save Ochaco after their final emotional confrontation.",
+        "injection": "Gate this as a late Final War outcome; before this point, Toga should remain an active danger with unresolved feelings.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 394-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_toga-fate-should-remain-ambiguous-until-epilogue-context",
+      "title": "Toga Fate Should Remain Ambiguous Until Epilogue Context",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-transfusion",
+        "sortKeyFrom": 20400,
+        "sortKeyTo": 20400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga gives Ochaco blood"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco",
+          "mha:gunga-mountain-villa",
+          "mha:villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Uraraka Ochaco"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "fate ambiguity",
+          "postwar grief"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "faction:heroes",
+        "topic:fate-ambiguity",
+        "topic:postwar-grief",
+        "event:toga-gives-ochaco-blood"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "fate ambiguity",
+            "postwar grief"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s final condition is tied to late-war and epilogue grief rather than immediate battlefield certainty for every character.",
+        "injection": "Do not let uninvolved characters know Toga’s final condition instantly; use grief and uncertainty where appropriate.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 394-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ochaco-carries-toga-grief-into-postwar-purpose",
+      "title": "Ochaco Carries Toga Grief Into Postwar Purpose",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-grief-counseling",
+        "sortKeyFrom": 21150,
+        "sortKeyTo": 21150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco processes grief and resolves to help children"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Uraraka Ochaco",
+          "Toga Himiko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "grief",
+          "Quirk counseling",
+          "postwar purpose"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "faction:heroes",
+        "topic:grief",
+        "topic:quirk-counseling",
+        "topic:postwar-purpose",
+        "event:ochaco-processes-grief-and-resolves-to-help-children"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco",
+            "Toga Himiko"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "grief",
+            "Quirk counseling",
+            "postwar purpose"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco’s grief over Toga helps shape her later commitment to helping children with difficult Quirks and emotions.",
+        "injection": "In epilogue Context, connect Ochaco’s public work to Toga without turning grief into simple victory.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 428-429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-toga-resolution-before-final-talk",
+      "title": "No Toga Resolution Before Final Talk",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-pulls-deku",
+        "sortKeyFrom": 19200,
+        "sortKeyTo": 19200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga pulls Deku to Okuto Island"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco",
+          "mha:okuto-island"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Uraraka Ochaco"
+        ],
+        "locations": [
+          "Okuto Island"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future guard",
+          "Toga resolution gate"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "location:okuto-island",
+        "topic:future-guard",
+        "topic:toga-resolution-gate",
+        "event:toga-pulls-deku-to-okuto-island"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [
+            "Okuto Island"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Toga resolution gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Before Ochaco’s final battlefield conversation, Toga’s emotional arc remains unresolved and dangerous.",
+        "injection": "Block late-war empathy resolution during Okuto scenes; Toga must not already act like she has been understood.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-348",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_froppy-supports-ochaco-without-owning-the-resolution",
+      "title": "Froppy Supports Ochaco Without Owning The Resolution",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-sad-mans-parade",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga unleashes Sad Man’s Parade"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tsuyu-asui",
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:okuto-island",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Tsuyu Asui",
+          "Uraraka Ochaco",
+          "Toga Himiko"
+        ],
+        "locations": [
+          "Okuto Island",
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "friend support",
+          "emotional backup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:tsuyu-asui",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "location:okuto-island",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:friend-support",
+        "topic:emotional-backup",
+        "event:toga-unleashes-sad-man-s-parade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tsuyu Asui",
+            "Uraraka Ochaco",
+            "Toga Himiko"
+          ],
+          "locationsAny": [
+            "Okuto Island",
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "friend support",
+            "emotional backup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tsuyu supports Ochaco through the Toga conflict, but the emotional resolution remains Ochaco’s.",
+        "injection": "Use Tsuyu as practical backup and friend, not a replacement protagonist for this conflict.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-376",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ochaco-names-toga-smile-as-human",
+      "title": "Ochaco Names Toga Smile As Human",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-reaches-toga",
+        "sortKeyFrom": 20350,
+        "sortKeyTo": 20350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco reaches Toga during clone crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Uraraka Ochaco",
+          "Toga Himiko"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "recognition",
+          "humanization"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "location:gunga-mountain-villa",
+        "topic:recognition",
+        "topic:humanization",
+        "event:ochaco-reaches-toga-during-clone-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco",
+            "Toga Himiko"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "recognition",
+            "humanization"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco recognizes Toga’s smile and humanity while refusing to abandon the people Toga endangered.",
+        "injection": "Use recognition as the emotional key; Ochaco sees Toga without approving the harm.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 382-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_twice-copies-preserve-twice-grief",
+      "title": "Twice Copies Preserve Twice Grief",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.toga-sad-mans-parade",
+        "sortKeyFrom": 20000,
+        "sortKeyTo": 20000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga unleashes Sad Man’s Parade"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:twice",
+          "mha:gunga-mountain-villa",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Toga Himiko",
+          "Twice"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "grief weaponized",
+          "Double copies"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:toga-himiko",
+        "character:twice",
+        "location:gunga-mountain-villa",
+        "faction:league-of-villains",
+        "topic:grief-weaponized",
+        "topic:double-copies",
+        "event:toga-unleashes-sad-man-s-parade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toga Himiko",
+            "Twice"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "grief weaponized",
+            "Double copies"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s use of Twice’s blood weaponizes grief over Twice as well as his Quirk.",
+        "injection": "Make the clone swarm emotionally tied to Twice, not just a tactical power-up.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-376",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ochaco-rejects-pure-victory-framing",
+      "title": "Ochaco Rejects Pure Victory Framing",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-reaches-toga",
+        "sortKeyFrom": 20350,
+        "sortKeyTo": 20350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco reaches Toga during clone crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.okuto-gunga",
+          "label": "Okuto/Gunga Toga battlefield",
+          "required": false
+        },
+        {
+          "axis": "relationship_state",
+          "id": "mha.relationship.ochaco-toga-final",
+          "label": "Ochaco and Toga final confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Uraraka Ochaco",
+          "Toga Himiko"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "saving villain",
+          "victory tension"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:saving-villain",
+        "topic:victory-tension",
+        "event:ochaco-reaches-toga-during-clone-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco",
+            "Toga Himiko"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "saving villain",
+            "victory tension"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco’s goal shifts from simply stopping Toga to reaching the person behind the danger.",
+        "injection": "Do not write this climax as a conventional hero beats villain scene.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 382-395",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

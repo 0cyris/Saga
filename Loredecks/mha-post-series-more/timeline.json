@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.more.chapter-431-start",
+      "label": "Chapter 431 More begins",
+      "sortKey": 23000,
+      "aliases": [
+        "chapter 431",
+        "More begins",
+        "post-series More"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "chapter:431-more"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.ochaco-toga-dream",
+      "label": "Ochaco dreams of Toga",
+      "sortKey": 23025,
+      "aliases": [
+        "Ochaco dream",
+        "Toga dream",
+        "Himiko dream"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "character:uraraka-ochaco",
+        "character:toga-himiko"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.quirk-counseling-fieldwork",
+      "label": "Ochaco's Quirk Counseling fieldwork",
+      "sortKey": 23050,
+      "aliases": [
+        "Quirk Counseling",
+        "Ochaco counseling work",
+        "children quirk counseling"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "topic:quirk-counseling",
+        "character:uraraka-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.big-three-assist",
+      "label": "The Big Three assist Quirk Counseling",
+      "sortKey": 23075,
+      "aliases": [
+        "Big Three assist",
+        "Lemillion helps Ochaco",
+        "Nejire and Suneater assist"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "faction:big-three",
+        "topic:quirk-counseling"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.ochaco-tsuyu-train-talk",
+      "label": "Ochaco and Tsuyu discuss Toga dreams",
+      "sortKey": 23100,
+      "aliases": [
+        "Ochaco Tsuyu train",
+        "Toga dreams on train",
+        "Ochaco opens up to Tsuyu"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "character:uraraka-ochaco",
+        "character:asui-tsuyu",
+        "character:toga-himiko"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.bakugo-car-ride",
+      "label": "Bakugo drives Deku and Kirishima",
+      "sortKey": 23125,
+      "aliases": [
+        "Bakugo car",
+        "Deku Kirishima Bakugo car ride",
+        "Dynamight new ride"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "character:kirishima-eijiro"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.former-class-a-reunion",
+      "label": "Former Class A reunion dinner",
+      "sortKey": 23150,
+      "aliases": [
+        "Class A reunion",
+        "former classmates dinner",
+        "adult Class A gathers"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "faction:class-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.shoto-number-two-celebration",
+      "label": "Shoto's Number Two celebration",
+      "sortKey": 23175,
+      "aliases": [
+        "Shoto number two",
+        "Todoroki ranking celebration",
+        "Hero Billboard Chart Shoto"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "character:todoroki-shoto",
+        "topic:hero-rankings"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.criminal-incident-interrupts",
+      "label": "Criminal incident interrupts the reunion",
+      "sortKey": 23200,
+      "aliases": [
+        "criminal incident",
+        "adult heroes respond",
+        "villain interruption"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "faction:class-1a",
+        "topic:public-safety"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.deku-ochaco-conversation",
+      "label": "Deku and Ochaco choose to speak honestly",
+      "sortKey": 23225,
+      "aliases": [
+        "Deku Ochaco conversation",
+        "Izuku talks to Ochaco",
+        "IzuOcha More"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "character:midoriya-izuku",
+        "character:uraraka-ochaco",
+        "relationship:deku-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    },
+    {
+      "id": "mha.more.more-ending",
+      "label": "Chapter 431 More ends",
+      "sortKey": 23250,
+      "aliases": [
+        "More ending",
+        "Chapter 431 ending",
+        "post-series extra ending"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "chapter:431-more"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia: More",
+        "chapterRange": "Chapter 431"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.more.window.full",
+      "label": "Chapter 431 More",
+      "anchorFrom": "mha.more.chapter-431-start",
+      "anchorTo": "mha.more.more-ending",
+      "sortKeyFrom": 23000,
+      "sortKeyTo": 23250,
+      "aliases": [
+        "during More",
+        "chapter 431",
+        "post-series more"
+      ],
+      "tags": [
+        "arc:post-series-more",
+        "chapter:431-more"
+      ]
+    },
+    {
+      "id": "mha.more.window.quirk-counseling",
+      "label": "Ochaco's Quirk Counseling work",
+      "anchorFrom": "mha.more.quirk-counseling-fieldwork",
+      "anchorTo": "mha.more.ochaco-tsuyu-train-talk",
+      "sortKeyFrom": 23050,
+      "sortKeyTo": 23100,
+      "aliases": [
+        "Quirk Counseling sequence",
+        "Ochaco fieldwork"
+      ],
+      "tags": [
+        "topic:quirk-counseling",
+        "character:uraraka-ochaco"
+      ]
+    },
+    {
+      "id": "mha.more.window.adult-reunion",
+      "label": "Former Class A adult reunion",
+      "anchorFrom": "mha.more.former-class-a-reunion",
+      "anchorTo": "mha.more.criminal-incident-interrupts",
+      "sortKeyFrom": 23150,
+      "sortKeyTo": 23200,
+      "aliases": [
+        "adult reunion",
+        "Class A dinner"
+      ],
+      "tags": [
+        "faction:class-1a"
+      ]
+    },
+    {
+      "id": "mha.more.window.deku-ochaco-ending",
+      "label": "Deku and Ochaco ending conversation",
+      "anchorFrom": "mha.more.deku-ochaco-conversation",
+      "anchorTo": "mha.more.more-ending",
+      "sortKeyFrom": 23225,
+      "sortKeyTo": 23250,
+      "aliases": [
+        "Deku Ochaco ending",
+        "IzuOcha More ending"
+      ],
+      "tags": [
+        "relationship:deku-ochaco"
+      ]
+    }
+  ],
+  "coordinateDefinitions": [
+    {
+      "axis": "arc",
+      "values": [
+        {
+          "id": "mha.arc.post-series-more",
+          "label": "Post-Series Extra: More",
+          "sortKeyFrom": 23000,
+          "sortKeyTo": 23250
+        }
+      ]
+    },
+    {
+      "axis": "life_stage",
+      "values": [
+        {
+          "id": "mha.life-stage.adult-pro-heroes",
+          "label": "Adult pro-hero and teacher era",
+          "sortKeyFrom": 23000,
+          "sortKeyTo": 23250
+        }
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "values": [
+        {
+          "id": "mha.hero-society.postwar-reform-more",
+          "label": "Postwar reform after Chapter 430",
+          "sortKeyFrom": 23000,
+          "sortKeyTo": 23250
+        }
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "values": [
+        {
+          "id": "manga-primary",
+          "label": "Manga primary continuity"
+        }
+      ]
+    }
+  ]
+}

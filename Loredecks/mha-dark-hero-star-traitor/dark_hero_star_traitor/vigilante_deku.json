@@ -1,0 +1,2751 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_dark_hero_deku_tracks_escapees",
+      "title": "Dark Hero Deku Tracks Escapees",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-for-one-escapees",
+          "mha:destroyed-city"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Destroyed City"
+        ],
+        "objects": [],
+        "factions": [
+          "All For One Escapees"
+        ],
+        "topics": [
+          "escaped villains",
+          "mobile response",
+          "solo patrol"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:all-for-one-escapees",
+        "location:destroyed-city",
+        "topic:escaped-villains",
+        "topic:mobile-response",
+        "topic:solo-patrol"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Destroyed City"
+          ],
+          "factionsAny": [
+            "All For One Escapees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "escaped villains",
+            "mobile response",
+            "solo patrol"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku operates as a mobile responder hunting escapees and following leads toward All For One.",
+        "injection": "Use Deku as an exhausted moving target and rescuer; he is not attending classes or living a normal student routine.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_operates_on_exhaustion",
+      "title": "Deku Operates On Exhaustion",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "exhaustion",
+          "self-neglect",
+          "dark hero appearance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "topic:exhaustion",
+        "topic:self-neglect",
+        "topic:dark-hero-appearance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "exhaustion",
+            "self-neglect",
+            "dark hero appearance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku pushes himself past healthy limits during the solo campaign, degrading his judgment and appearance.",
+        "injection": "Let exhaustion show through frayed speech, poor rest, tunnel vision, and worsening costume condition; do not make solo Deku look clean and refreshed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_danger_sense_drives_constant_threat_response",
+      "title": "Danger Sense Drives Constant Threat Response",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Danger Sense",
+          "threat response",
+          "hypervigilance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:danger-sense",
+        "character:midoriya-izuku",
+        "topic:danger-sense",
+        "topic:threat-response",
+        "topic:hypervigilance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Danger Sense",
+            "threat response",
+            "hypervigilance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Danger Sense gives Deku persistent warning pressure, making it harder for him to rest or feel safe.",
+        "injection": "When Danger Sense is active, write it as stress and threat awareness, not perfect omniscience.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Danger Sense",
+        "stage": "dark_hero_active",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Ability use is limited by stamina, timing, and active Context."
+        ],
+        "antiLore": [
+          "Do not use this as an unrestricted Final War ability outside its Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_blackwhip_functions_as_capture_and_mobility_tool",
+      "title": "Blackwhip Functions As Capture And Mobility Tool",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Blackwhip",
+          "mobility",
+          "capture"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:blackwhip",
+        "character:midoriya-izuku",
+        "topic:blackwhip",
+        "topic:mobility",
+        "topic:capture"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Blackwhip",
+            "mobility",
+            "capture"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku uses Blackwhip for movement, restraint, rescue, and multi-angle control during solo operations.",
+        "injection": "Use Blackwhip as flexible support and capture equipment; it must not erase fatigue or tactical risk.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Blackwhip",
+        "stage": "dark_hero_active",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Ability use is limited by stamina, timing, and active Context."
+        ],
+        "antiLore": [
+          "Do not use this as an unrestricted Final War ability outside its Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_smokescreen_creates_cover_not_victory",
+      "title": "Smokescreen Creates Cover Not Victory",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.second-third-users-align",
+        "sortKeyFrom": 17300,
+        "sortKeyTo": 17300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second and Third OFA users align with Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Smokescreen",
+          "visibility control",
+          "drawback"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:smokescreen",
+        "character:midoriya-izuku",
+        "topic:smokescreen",
+        "topic:visibility-control",
+        "topic:drawback"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Smokescreen",
+            "visibility control",
+            "drawback"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Smokescreen can obscure sightlines but can also impair allies or Deku if overused.",
+        "injection": "Treat Smokescreen as battlefield cover with tradeoffs, not as an automatic win condition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Smokescreen",
+        "stage": "dark_hero_active",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Ability use is limited by stamina, timing, and active Context."
+        ],
+        "antiLore": [
+          "Do not use this as an unrestricted Final War ability outside its Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_fa_jin_enables_burst_timing",
+      "title": "Fa Jin Enables Burst Timing",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.fa-jin-revealed",
+        "sortKeyFrom": 17425,
+        "sortKeyTo": 17425,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Fa Jin for Faux 100 Percent"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Fa Jin",
+          "burst movement",
+          "timing"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:fa-jin",
+        "character:midoriya-izuku",
+        "topic:fa-jin",
+        "topic:burst-movement",
+        "topic:timing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Fa Jin",
+            "burst movement",
+            "timing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Fa Jin lets Deku store and release kinetic energy for explosive movement when timed correctly.",
+        "injection": "Use Fa Jin as a timing-dependent burst ability; it should require setup and motion rather than free constant speed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Fa Jin",
+        "stage": "dark_hero_active",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Ability use is limited by stamina, timing, and active Context."
+        ],
+        "antiLore": [
+          "Do not use this as an unrestricted Final War ability outside its Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_float_supports_air_mobility",
+      "title": "Float Supports Air Mobility",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Float",
+          "air mobility",
+          "rescue"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:float",
+        "character:midoriya-izuku",
+        "topic:float",
+        "topic:air-mobility",
+        "topic:rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Float",
+            "air mobility",
+            "rescue"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Float improves Deku’s vertical mobility and rescue options after its awakening in the war.",
+        "injection": "Deku can maneuver in the air, but Float does not make him immune to exhaustion, range limits, or enemy tactics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Float",
+        "stage": "dark_hero_active",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Ability use is limited by stamina, timing, and active Context."
+        ],
+        "antiLore": [
+          "Do not use this as an unrestricted Final War ability outside its Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_avoids_u_a_for_protective_reasons",
+      "title": "Deku Avoids U.A. For Protective Reasons",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-leaves-ua",
+        "sortKeyFrom": 17100,
+        "sortKeyTo": 17100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to draw danger away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "protective avoidance",
+          "self-sacrifice",
+          "classmates"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:ua-high",
+        "topic:protective-avoidance",
+        "topic:self-sacrifice",
+        "topic:classmates"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "protective avoidance",
+            "self-sacrifice",
+            "classmates"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku refuses to return because he believes proximity to him endangers classmates and civilians.",
+        "injection": "His avoidance should read as protective and self-punishing, not as indifference to Class 1-A.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_becomes_visually_intimidating",
+      "title": "Deku Becomes Visually Intimidating",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Civilians"
+        ],
+        "topics": [
+          "public image",
+          "costume damage",
+          "fear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:civilians",
+        "topic:public-image",
+        "topic:costume-damage",
+        "topic:fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public image",
+            "costume damage",
+            "fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s damaged costume, posture, and exhaustion make him appear frightening to civilians and enemies.",
+        "injection": "When civilians see Dark Hero Deku, they may misread him as monstrous despite his rescue intent.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_is_still_motivated_by_rescue",
+      "title": "Deku Is Still Motivated By Rescue",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Civilians"
+        ],
+        "topics": [
+          "rescue motive",
+          "self-destruction",
+          "heroism"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:civilians",
+        "topic:rescue-motive",
+        "topic:self-destruction",
+        "topic:heroism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue motive",
+            "self-destruction",
+            "heroism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even at his darkest, Deku remains driven by rescue and preventing harm rather than vengeance.",
+        "injection": "Keep Deku’s core motive heroic; his flaw is self-destruction, not cruelty.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_muscular_rematch_shows_growth",
+      "title": "Muscular Rematch Shows Growth",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.muscular-rematch",
+        "sortKeyFrom": 17200,
+        "sortKeyTo": 17200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku defeats Muscular in rematch"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:muscular",
+          "mha:destroyed-city"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Muscular"
+        ],
+        "locations": [
+          "Destroyed City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Muscular rematch",
+          "growth",
+          "restraint"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:muscular",
+        "location:destroyed-city",
+        "topic:muscular-rematch",
+        "topic:growth",
+        "topic:restraint"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Muscular"
+          ],
+          "locationsAny": [
+            "Destroyed City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Muscular rematch",
+            "growth",
+            "restraint"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku defeats Muscular far more efficiently than in their first battle because his control and toolkit have grown.",
+        "injection": "Use the Muscular rematch to show Deku’s growth and tactical restraint, not as a repeat of the summer camp fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_uses_overwhelming_force_with_restraint",
+      "title": "Deku Uses Overwhelming Force With Restraint",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.muscular-rematch",
+        "sortKeyFrom": 17200,
+        "sortKeyTo": 17200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku defeats Muscular in rematch"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:muscular"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Muscular"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "restraint",
+          "capture",
+          "overwhelming force"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:muscular",
+        "topic:restraint",
+        "topic:capture",
+        "topic:overwhelming-force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Muscular"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "restraint",
+            "capture",
+            "overwhelming force"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku can overpower Muscular but still prioritizes capture, information, and rescue over brutality.",
+        "injection": "Write Deku’s strength as controlled under stress; he must not execute or torture escapees.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_all_might_cannot_stop_deku_alone",
+      "title": "All Might Cannot Stop Deku Alone",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mentor guilt",
+          "inability to intervene",
+          "support limits"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "topic:mentor-guilt",
+        "topic:inability-to-intervene",
+        "topic:support-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mentor guilt",
+            "inability to intervene",
+            "support limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might sees Deku deteriorating but lacks the physical authority to force him to stop.",
+        "injection": "All Might scenes should carry helplessness and guilt alongside care; he cannot simply order Deku back to safety.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_ofa_vestiges_counsel_without_puppeting_deku",
+      "title": "OFA Vestiges Counsel Without Puppeting Deku",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.second-third-users-align",
+        "sortKeyFrom": 17300,
+        "sortKeyTo": 17300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second and Third OFA users align with Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:nana-shimura",
+          "mha:daigoro-banjo",
+          "mha:en",
+          "mha:second-ofa-user",
+          "mha:third-ofa-user",
+          "mha:one-for-all-vestiges",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Nana Shimura",
+          "Daigoro Banjo",
+          "En",
+          "Second One For All User",
+          "Third One For All User"
+        ],
+        "locations": [
+          "One For All"
+        ],
+        "objects": [],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "vestige counsel",
+          "inherited power",
+          "agency"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:nana-shimura",
+        "character:daigoro-banjo",
+        "character:en",
+        "character:second-ofa-user",
+        "character:third-ofa-user",
+        "faction:one-for-all-vestiges",
+        "quirk:one-for-all",
+        "topic:vestige-counsel",
+        "topic:inherited-power",
+        "topic:agency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Nana Shimura",
+            "Daigoro Banjo",
+            "En",
+            "Second One For All User",
+            "Third One For All User"
+          ],
+          "locationsAny": [
+            "One For All"
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "vestige counsel",
+            "inherited power",
+            "agency"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The One For All vestiges advise Deku and reveal Quirk context, but they do not puppet his choices.",
+        "injection": "Use vestiges as counsel and inherited memory; Deku remains responsible for decisions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_second_and_third_users_initially_resist_deku",
+      "title": "Second And Third Users Initially Resist Deku",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.second-third-users-align",
+        "sortKeyFrom": 17300,
+        "sortKeyTo": 17300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second and Third OFA users align with Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:second-ofa-user",
+          "mha:third-ofa-user",
+          "mha:one-for-all-vestiges",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Second One For All User",
+          "Third One For All User"
+        ],
+        "locations": [
+          "One For All"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "vestige resistance",
+          "trust shift",
+          "OFA history"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:second-ofa-user",
+        "character:third-ofa-user",
+        "faction:one-for-all-vestiges",
+        "quirk:one-for-all",
+        "topic:vestige-resistance",
+        "topic:trust-shift",
+        "topic:ofa-history"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Second One For All User",
+            "Third One For All User"
+          ],
+          "locationsAny": [
+            "One For All"
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "vestige resistance",
+            "trust shift",
+            "OFA history"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The second and third OFA users are initially guarded before aligning with Deku’s rescue-driven purpose.",
+        "injection": "Before alignment, do not make every vestige immediately warm or fully cooperative; their trust has to shift.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_is_not_a_natural_lone_wolf",
+      "title": "Deku Is Not A Natural Lone Wolf",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-1a-intervenes",
+        "sortKeyFrom": 17600,
+        "sortKeyTo": 17600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A intervenes to bring Deku back"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "shared burden",
+          "friendship",
+          "lone wolf correction"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:shared-burden",
+        "topic:friendship",
+        "topic:lone-wolf-correction"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "shared burden",
+            "friendship",
+            "lone wolf correction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s solo campaign conflicts with his actual need for allies and shared burdens.",
+        "injection": "When classmates confront him, frame their argument as correcting a destructive habit rather than rejecting heroism.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_refuses_comfort_until_forced_to_stop",
+      "title": "Deku Refuses Comfort Until Forced To Stop",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:top-pro-heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Top Pro Heroes"
+        ],
+        "topics": [
+          "refusal of comfort",
+          "self-denial",
+          "responsibility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:top-pro-heroes",
+        "topic:refusal-of-comfort",
+        "topic:self-denial",
+        "topic:responsibility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Top Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "refusal of comfort",
+            "self-denial",
+            "responsibility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku repeatedly pushes away help and comfort because stopping feels like letting others be hurt.",
+        "injection": "Show self-denial as a concrete behavior: refusing food, rest, shelter, emotional honesty, and teamwork.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_dark_hero_tone_should_stay_hopeful_under_strain",
+      "title": "Dark Hero Tone Should Stay Hopeful Under Strain",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-solo-deteriorates",
+        "sortKeyFrom": 17275,
+        "sortKeyTo": 17275,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku deteriorates through solo hero work"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "Civilians"
+        ],
+        "topics": [
+          "tone constraint",
+          "hope under strain",
+          "shared heroism"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:civilians",
+        "topic:tone-constraint",
+        "topic:hope-under-strain",
+        "topic:shared-heroism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "tone constraint",
+            "hope under strain",
+            "shared heroism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The arc is grim, but Deku’s rescue instinct and his friends’ intervention keep it from becoming nihilistic.",
+        "injection": "Do not turn Dark Hero into pure grimdark; the point is that heroism must be shared before it consumes Deku.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_gearshift_is_not_yet_in_active_use",
+      "title": "Gearshift Is Not Yet In Active Use",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.second-third-users-align",
+        "sortKeyFrom": 17300,
+        "sortKeyTo": 17300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Second and Third OFA users align with Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-active",
+          "label": "One For All multiple Quirks active",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:second-ofa-user",
+          "mha:gearshift",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Second One For All User"
+        ],
+        "locations": [
+          "Gearshift",
+          "One For All"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Gearshift future guard",
+          "OFA gating"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:gearshift",
+        "character:midoriya-izuku",
+        "character:second-ofa-user",
+        "quirk:one-for-all",
+        "topic:gearshift-future-guard",
+        "topic:ofa-gating"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Second One For All User"
+          ],
+          "locationsAny": [
+            "Gearshift",
+            "One For All"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Gearshift future guard",
+            "OFA gating"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku has not yet deployed Gearshift as a normal active combat option during Dark Hero.",
+        "injection": "Do not give Deku Final War Gearshift usage in Dark Hero scenes; keep later OFA abilities gated to their proper Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Gearshift",
+        "stage": "dark_hero_active",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Ability use is limited by stamina, timing, and active Context."
+        ],
+        "antiLore": [
+          "Do not use this as an unrestricted Final War ability outside its Context."
+        ]
+      }
+    }
+  ]
+}

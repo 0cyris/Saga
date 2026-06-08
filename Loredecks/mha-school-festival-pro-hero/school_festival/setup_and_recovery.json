@@ -1,0 +1,1704 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_is_under_ua_care_after_the_raid",
+      "title": "Eri Is Under U.A. Care After The Raid",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:aizawa-shota",
+          "mha:ua-high",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Eri",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "Eri protection",
+          "U.A. care",
+          "trauma recovery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:aizawa-shota",
+        "school:ua-high",
+        "quirk:rewind",
+        "topic:eri-protection",
+        "topic:ua-care",
+        "topic:trauma-recovery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "Eri protection",
+            "U.A. care",
+            "trauma recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the Shie Hassaikai raid, Eri is placed under U.A. supervision because she cannot safely return to ordinary family care.",
+        "injection": "Treat Eri as protected by U.A. staff and monitored by Aizawa. Her safety and Quirk control are institutional responsibilities, not casual dorm errands.",
+        "constraints": [
+          "Eri is rescued but not emotionally or medically resolved.",
+          "Aizawa’s Erasure is important because Rewind remains dangerous."
+        ],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_recovery_is_fragile_not_finished",
+      "title": "Eri Recovery Is Fragile Not Finished",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:mirio-togata",
+          "mha:aizawa-shota",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Eri",
+          "Mirio Togata",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [],
+        "topics": [
+          "trauma recovery",
+          "child protection",
+          "emotional safety"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:mirio-togata",
+        "character:aizawa-shota",
+        "quirk:rewind",
+        "topic:trauma-recovery",
+        "topic:child-protection",
+        "topic:emotional-safety"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Mirio Togata",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "trauma recovery",
+            "child protection",
+            "emotional safety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri’s rescue does not erase her trauma, fear, isolation, or limited social experience.",
+        "injection": "Write Eri as sheltered, wary, and slowly learning safety. Do not treat the festival as instant healing or a full personality reset.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_mirio_supports_eri_without_permeation",
+      "title": "Mirio Supports Eri Without Permeation",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:eri",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Eri"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [],
+        "topics": [
+          "Mirio and Eri",
+          "Quirk loss",
+          "support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:mirio-togata",
+        "character:eri",
+        "quirk:rewind",
+        "topic:mirio-and-eri",
+        "topic:quirk-loss",
+        "topic:support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Eri"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "Mirio and Eri",
+            "Quirk loss",
+            "support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio remains emotionally important to Eri after losing Permeation, even while he cannot currently operate as Lemillion.",
+        "injection": "Keep Mirio warm, present, and protective around Eri. His lost Quirk must not erase his role as someone she trusts.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_aizawa_is_eri_safety_control_not_foster_parent",
+      "title": "Aizawa Is Eri Safety Control Not Foster Parent",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:eri",
+          "mha:ua-high",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Eri"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "Erasure safety",
+          "U.A. supervision",
+          "Rewind control"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:aizawa-shota",
+        "character:eri",
+        "school:ua-high",
+        "quirk:rewind",
+        "topic:erasure-safety",
+        "topic:ua-supervision",
+        "topic:rewind-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Eri"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "Erasure safety",
+            "U.A. supervision",
+            "Rewind control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa’s role with Eri is primarily safety monitoring and school responsibility because Erasure can suppress Rewind if needed.",
+        "injection": "Use Aizawa as a practical safety authority for Eri’s Quirk. Do not recast him as emotionally expressive caretaker unless the user story diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_class_1_a_wants_to_repay_the_school_mood",
+      "title": "Class 1-A Wants To Repay The School Mood",
+      "kind": "objective",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:ashido-mina",
+          "mha:kaminari-denki",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Kyoka Jiro",
+          "Mina Ashido",
+          "Denki Kaminari"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "public doubt",
+          "student morale",
+          "class performance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:jiro-kyoka",
+        "character:ashido-mina",
+        "character:kaminari-denki",
+        "class:ua-1a",
+        "topic:public-doubt",
+        "topic:student-morale",
+        "topic:class-performance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro",
+            "Mina Ashido",
+            "Denki Kaminari"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "public doubt",
+            "student morale",
+            "class performance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A wants the School Festival performance to relieve tension among students who suffered because of the hero course’s crises.",
+        "injection": "Frame the festival performance as morale repair. Class 1-A is not just seeking applause; they are trying to answer resentment and fear with shared relief.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_non_hero_students_resent_hero_course_disruptions",
+      "title": "Non-Hero Students Resent Hero Course Disruptions",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "U.A. High",
+          "Class 1-A"
+        ],
+        "topics": [
+          "public doubt",
+          "school resentment",
+          "non-hero students"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "school:ua-high",
+        "class:ua-1a",
+        "topic:public-doubt",
+        "topic:school-resentment",
+        "topic:non-hero-students"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "public doubt",
+            "school resentment",
+            "non-hero students"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Some non-hero U.A. students resent how repeated villain incidents around Class 1-A have disrupted ordinary school life.",
+        "injection": "Let non-hero students have valid frustration. Do not make the whole school automatically admire Class 1-A just because they survive villain attacks.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_school_festival_security_is_heightened",
+      "title": "School Festival Security Is Heightened",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nezu",
+          "mha:aizawa-shota",
+          "mha:ua-high",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Nezu",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "security",
+          "school festival",
+          "public scrutiny"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:nezu",
+        "character:aizawa-shota",
+        "school:ua-high",
+        "topic:security",
+        "topic:school-festival",
+        "topic:public-scrutiny"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nezu",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "security",
+            "school festival",
+            "public scrutiny"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. holds the School Festival under tighter security because the school has already suffered villain attacks and public scrutiny.",
+        "injection": "Keep festival scenes under security pressure. Visitors, schedules, and disruptions matter because U.A. cannot afford another breach.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_class_1_a_chooses_performance_over_combat_display",
+      "title": "Class 1-A Chooses Performance Over Combat Display",
+      "kind": "objective",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.class-1a-performance-plan",
+        "sortKeyFrom": 10150,
+        "sortKeyTo": 10150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A chooses a music-and-dance performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:ashido-mina",
+          "mha:kaminari-denki",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Kyoka Jiro",
+          "Mina Ashido",
+          "Denki Kaminari"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "performance plan",
+          "noncombat support",
+          "school morale"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:jiro-kyoka",
+        "character:ashido-mina",
+        "character:kaminari-denki",
+        "class:ua-1a",
+        "topic:performance-plan",
+        "topic:noncombat-support",
+        "topic:school-morale"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro",
+            "Mina Ashido",
+            "Denki Kaminari"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "performance plan",
+            "noncombat support",
+            "school morale"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A chooses an entertainment performance rather than turning the festival into another demonstration of combat power.",
+        "injection": "The class’s plan should feel intentionally nonviolent: music, dancing, staging, and spectacle become their way to support others.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-173",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_jiro_is_reluctant_but_central_to_the_performance",
+      "title": "Jiro Is Reluctant But Central To The Performance",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.jiro-central-music-role",
+        "sortKeyFrom": 10200,
+        "sortKeyTo": 10200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jiro becomes central to the class performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:ashido-mina",
+          "mha:kaminari-denki",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Kyoka Jiro",
+          "Mina Ashido",
+          "Denki Kaminari"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "music",
+          "Jiro vulnerability",
+          "class trust"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:jiro-kyoka",
+        "character:ashido-mina",
+        "character:kaminari-denki",
+        "class:ua-1a",
+        "topic:music",
+        "topic:jiro-vulnerability",
+        "topic:class-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro",
+            "Mina Ashido",
+            "Denki Kaminari"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "music",
+            "Jiro vulnerability",
+            "class trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Jiro’s musical skill becomes central to the class performance, even though she is initially self-conscious about exposing that side of herself.",
+        "injection": "When Jiro is involved in festival prep, emphasize reluctant vulnerability and competence. Her music matters because classmates value a private passion.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-173",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_does_not_understand_ordinary_festival_joy_yet",
+      "title": "Eri Does Not Understand Ordinary Festival Joy Yet",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:mirio-togata",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Eri",
+          "Mirio Togata"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [],
+        "topics": [
+          "childhood deprivation",
+          "festival unfamiliarity",
+          "Eri recovery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:mirio-togata",
+        "topic:childhood-deprivation",
+        "topic:festival-unfamiliarity",
+        "topic:eri-recovery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Mirio Togata"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "childhood deprivation",
+            "festival unfamiliarity",
+            "Eri recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri has little experience with ordinary childhood joy, school festivals, or safe excitement.",
+        "injection": "In Eri scenes before the performance, let simple school customs be unfamiliar. Her reactions should be cautious, curious, and uncertain.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_the_festival_is_a_civilian_trust_exercise",
+      "title": "The Festival Is A Civilian Trust Exercise",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nezu",
+          "mha:aizawa-shota",
+          "mha:ua-high",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Nezu",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "civilian trust",
+          "school legitimacy",
+          "public scrutiny"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:nezu",
+        "character:aizawa-shota",
+        "school:ua-high",
+        "topic:civilian-trust",
+        "topic:school-legitimacy",
+        "topic:public-scrutiny"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Nezu",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "civilian trust",
+            "school legitimacy",
+            "public scrutiny"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The School Festival tests whether U.A. can create ordinary student life under public suspicion after repeated hero-course crises.",
+        "injection": "Treat the festival as a trust exercise for the school, not filler. A disruption would damage U.A.’s legitimacy and student morale.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_performance_prep_shows_class_1_a_as_more_than_fighters",
+      "title": "Performance Prep Shows Class 1-A As More Than Fighters",
+      "kind": "behavior_constraint",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.class-1a-performance-plan",
+        "sortKeyFrom": 10150,
+        "sortKeyTo": 10150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A chooses a music-and-dance performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "teamwork",
+          "creative labor",
+          "noncombat heroism"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "class:ua-1a",
+        "topic:teamwork",
+        "topic:creative-labor",
+        "topic:noncombat-heroism"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "teamwork",
+            "creative labor",
+            "noncombat heroism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The preparation arc shows Class 1-A using creativity, teamwork, and care rather than only combat skill.",
+        "injection": "When Class 1-A prepares, write their heroism through work ethic, talent sharing, and morale repair, not only Quirk drills.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-173",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_school_festival_should_not_leak_later_war_stakes",
+      "title": "School Festival Should Not Leak Later War Stakes",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.festival-announced",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "future guard",
+          "spoiler control",
+          "school festival context"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "class:ua-1a",
+        "topic:future-guard",
+        "topic:spoiler-control",
+        "topic:school-festival-context"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "spoiler control",
+            "school festival context"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the School Festival period, Class 1-A does not know the later PLF war, traitor reveal, Dark Hero crisis, or Final War outcomes.",
+        "injection": "Keep School Festival scenes locally bounded. Do not let students speak with later-war knowledge unless the user has loaded an AU divergence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-172",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

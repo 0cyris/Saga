@@ -1,0 +1,1003 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_s_fire_use_alters_class_perception",
+      "title": "Todoroki’s Fire Use Alters Class Perception",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "public fire use",
+          "class perception"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:todoroki-shoto",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "public fire use",
+            "class perception"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Classmates and viewers see Shoto use fire publicly, changing how they understand his Quirk and emotional limits.",
+        "injection": "After Shoto uses fire, classmates may reassess him, but they must not automatically understand his full family history.",
+        "constraints": [],
+        "antiLore": [
+          "Do not give every student detailed knowledge of the Todoroki abuse history."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_endeavor_does_not_know_izuku_s_role_in_shoto_s_breakthrough_fully",
+      "title": "Endeavor Does Not Know Izuku’s Role In Shoto’s Breakthrough Fully",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "sortKeyFrom": 3700,
+        "sortKeyTo": 3700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku faces Shoto"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:midoriya-izuku",
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Endeavor",
+          "Izuku Midoriya",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "partial knowledge",
+          "Shoto breakthrough"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:endeavor",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Izuku Midoriya",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "partial knowledge",
+            "Shoto breakthrough"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor can see Shoto use fire, but he does not fully understand the emotional exchange between Izuku and Shoto.",
+        "injection": "Endeavor should misread or appropriate Shoto’s breakthrough through his own ambition, not grasp its full personal meaning.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Endeavor emotionally insightful here."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_iida_s_sports_festival_drive_is_interrupted_by_family_crisis",
+      "title": "Iida’s Sports Festival Drive Is Interrupted By Family Crisis",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.ssf.sports-festival-ends",
+        "sortKeyFrom": 3800,
+        "sortKeyTo": 3800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sports Festival ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.sports-festival",
+          "label": "Sports Festival",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.sports-festival-public-stage",
+          "label": "Sports Festival public stage",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-post-usj-recovering",
+          "label": "League recovering after USJ",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-ofa-finger-breaking",
+          "label": "Deku uses damaging One For All bursts",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:iida-tensei"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Tensei Iida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "sports festival exit",
+          "family crisis",
+          "Stain setup"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:sports-festival",
+        "character:iida-tensei",
+        "character:iida-tenya",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:ingenium"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Tensei Iida"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "sports festival exit",
+            "family crisis",
+            "Stain setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida’s Sports Festival arc is interrupted by news about Tensei, shifting him from class competition into personal crisis.",
+        "injection": "Near the end of Sports Festival coverage, Iida should be emotionally pulled away from school rivalry toward his brother’s attack.",
+        "constraints": [],
+        "antiLore": [
+          "Do not keep Iida focused only on tournament outcomes after Tensei is injured."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_s_ideology_is_publicly_distorted_through_media",
+      "title": "Stain’s Ideology Is Publicly Distorted Through Media",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-ideology-spreads",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain ideology spreads after Hosu"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Hero Killer: Stain"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "media distortion",
+          "public ideology",
+          "villain recruitment"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "topic:stain-ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "media distortion",
+            "public ideology",
+            "villain recruitment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain’s capture creates a public narrative that spreads faster and less cleanly than his actual motives.",
+        "injection": "After Hosu, characters may respond to simplified or distorted versions of Stain’s ideology, especially online or through rumor.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make every follower understand Stain’s full philosophy accurately."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 56-58",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:stain",
+          "mha:league-of-villains"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_all_might_s_time_limit_remains_secret_from_class_1_a",
+      "title": "All Might’s Time Limit Remains Secret From Class 1-A",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.ofa-afo-origin-lesson",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might explains One For All and All For One origins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "All Might time limit",
+          "secret injury",
+          "successor knowledge"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:all-might",
+        "secret:all-might-injury"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "All Might time limit",
+            "secret injury",
+            "successor knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s injury and shrinking hero time remain secret from most of Class 1-A even as Izuku learns more about One For All history.",
+        "injection": "In this deck, Class 1-A must not casually know All Might’s true weakened form or time-limit details.",
+        "constraints": [],
+        "antiLore": [
+          "Do not reveal All Might’s injury broadly before Kamino-era fallout."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 59",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_teachers_escalate_training_because_villain_threats_are_rising",
+      "title": "Teachers Escalate Training Because Villain Threats Are Rising",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.teacher-practical-reveal",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Teachers reveal practical exam twist"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School",
+          "League of Villains"
+        ],
+        "topics": [
+          "training escalation",
+          "villain threat",
+          "teacher exams"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School",
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "training escalation",
+            "villain threat",
+            "teacher exams"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. escalates exam difficulty because recent villain threats show students need practical crisis experience.",
+        "injection": "The teacher practicals should feel like an institutional response to a more dangerous world, not cruelty for its own sake.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make U.A. oblivious to USJ and Hosu pressure."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 60-61",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_students_remain_first_years_despite_public_feats",
+      "title": "Students Remain First-Years Despite Public Feats",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "age_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.summer-camp-setup",
+        "sortKeyFrom": 5350,
+        "sortKeyTo": 5350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Summer training camp is set up"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "first-year boundary",
+          "student status",
+          "supervision"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "school:ua-high",
+        "topic:hero-licensing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "first-year boundary",
+            "student status",
+            "supervision"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even after USJ, Sports Festival, and Hosu, Class 1-A are still first-year students who require supervision and cannot act as independent pros.",
+        "injection": "Across this deck, keep the class’s public feats bounded by student status and legal supervision.",
+        "constraints": [],
+        "antiLore": [
+          "Do not promote Class 1-A to de facto pro heroes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

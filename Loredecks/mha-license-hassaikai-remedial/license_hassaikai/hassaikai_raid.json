@@ -1,0 +1,3190 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_the_hassaikai_raid_is_a_rescue_mission_under_combat_pressure",
+      "title": "The Hassaikai Raid Is A Rescue Mission Under Combat Pressure",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.raid-starts",
+        "sortKeyFrom": 9650,
+        "sortKeyTo": 9650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shie Hassaikai raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "raid objective",
+          "rescue mission",
+          "organized crime"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:organized-crime",
+        "topic:raid-objective",
+        "topic:rescue-mission"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "raid objective",
+            "rescue mission",
+            "organized crime"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The raid’s central objective is rescuing Eri and stopping the Quirk-destroying bullet operation, not simply defeating every villain present.",
+        "injection": "Keep rescue urgency central. Combat matters because it blocks access to Eri and evidence, not because heroes are seeking a tournament fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-136",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_mimic_turns_geography_into_an_enemy",
+      "title": "Mimic Turns Geography Into An Enemy",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.mimic-labyrinth",
+        "sortKeyFrom": 9700,
+        "sortKeyTo": 9700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mimic turns the underground base into a shifting battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "shifting base",
+          "underground labyrinth",
+          "raid separation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:raid-separation",
+        "topic:shifting-base",
+        "topic:underground-labyrinth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "shifting base",
+            "underground labyrinth",
+            "raid separation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mimic’s control of the underground base turns the raid environment itself into a shifting obstacle that separates teams and delays rescue.",
+        "injection": "Use shifting walls, disorientation, and forced separation as active tactical pressure from Mimic.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 136-139",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_tamaki_wins_through_anxiety_managed_by_preparation",
+      "title": "Tamaki Wins Through Anxiety Managed By Preparation",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.tamaki-fights-eight-bullets",
+        "sortKeyFrom": 9750,
+        "sortKeyTo": 9750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tamaki isolates and defeats multiple Eight Bullets members"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "anxiety and competence",
+          "Manifest strategy",
+          "Big Three pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:anxiety-and-competence",
+        "topic:big-three-pressure",
+        "topic:manifest-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "anxiety and competence",
+            "Manifest strategy",
+            "Big Three pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tamaki is anxious and self-doubting, but his preparation and Manifest skill let him isolate and defeat multiple Hassaikai fighters.",
+        "injection": "Write Tamaki as nervous but highly competent. His anxiety must not erase his tactical intelligence or Big Three-level capability.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 140-142",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Manifest",
+        "stage": "advanced-student-combat-use",
+        "ownerEntityIds": [
+          "mha:tamaki-amajiki"
+        ],
+        "constraints": [
+          "Depends on consumed material."
+        ],
+        "antiLore": [
+          "Do not give arbitrary traits without food basis."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_kirishima_unbreakable_is_courage_under_fear_not_invincibility",
+      "title": "Kirishima Unbreakable Is Courage Under Fear Not Invincibility",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.kirishima-fat-gum-vs-rappa",
+        "sortKeyFrom": 9800,
+        "sortKeyTo": 9800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kirishima and Fat Gum fight Rappa and Tengai"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Red Riot Unbreakable",
+          "fear and courage",
+          "defensive limit"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:defensive-limit",
+        "topic:fear-and-courage",
+        "topic:red-riot-unbreakable"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Red Riot Unbreakable",
+            "fear and courage",
+            "defensive limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Red Riot Unbreakable is Kirishima pushing through fear with harder defense, but it has limits and does not make him invincible.",
+        "injection": "Make Kirishima’s courage explicit: he is afraid and can be overwhelmed, but chooses to stand firm anyway.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 143-146",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Hardening",
+        "stage": "red-riot-unbreakable-early",
+        "ownerEntityIds": [
+          "mha:kirishima-eijiro"
+        ],
+        "constraints": [
+          "Strong defense costs stamina and can break."
+        ],
+        "antiLore": [
+          "Do not make him immune to all damage."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_fat_gum_converts_endurance_into_counterattack",
+      "title": "Fat Gum Converts Endurance Into Counterattack",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.kirishima-fat-gum-vs-rappa",
+        "sortKeyFrom": 9800,
+        "sortKeyTo": 9800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kirishima and Fat Gum fight Rappa and Tengai"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "damage absorption",
+          "mentor protection",
+          "stored counterattack"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:damage-absorption",
+        "topic:mentor-protection",
+        "topic:stored-counterattack"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "damage absorption",
+            "mentor protection",
+            "stored counterattack"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Fat Gum can absorb punishment and convert stored impact into a decisive counterattack, but spending that reserve changes his body and risk profile.",
+        "injection": "Emphasize protective endurance and stored-force release. He can shield students, but his big counter has cost and timing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 143-146",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Fat Absorption",
+        "stage": "professional-combat-use",
+        "ownerEntityIds": [
+          "mha:fat-gum"
+        ],
+        "constraints": [
+          "Spending stored force reduces protective mass."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_ryukyu_team_handles_surface_and_large_scale_pressure",
+      "title": "Ryukyu Team Handles Surface And Large-Scale Pressure",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.ryukyu-team-fights",
+        "sortKeyFrom": 9850,
+        "sortKeyTo": 9850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ryukyu team fights through surface support and villain pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "surface support",
+          "large-scale villain pressure",
+          "work-study teamwork"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:large-scale-villain-pressure",
+        "topic:surface-support",
+        "topic:work-study-teamwork"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "surface support",
+            "large-scale villain pressure",
+            "work-study teamwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ryukyu’s team provides surface support and handles large-scale villain pressure while the underground teams push toward Eri.",
+        "injection": "Keep Ryukyu’s team active outside the central tunnel path. Ochaco, Tsuyu, and Nejire are part of the operation, not absent spectators.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-153",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_mirio_protects_eri_after_losing_permeation",
+      "title": "Mirio Protects Eri After Losing Permeation",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.mirio-loses-permeation",
+        "sortKeyFrom": 9950,
+        "sortKeyTo": 9950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirio loses Permeation protecting Eri"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Quirk loss",
+          "heroism without power",
+          "Eri protection"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:eri-protection",
+        "topic:heroism-without-power",
+        "topic:quirk-loss"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Quirk loss",
+            "heroism without power",
+            "Eri protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio loses Permeation while protecting Eri and continues fighting to protect her despite being Quirkless.",
+        "injection": "After the bullet, write Mirio as Quirkless but still heroic: trained, brave, injured, and focused on protecting Eri.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 152-153",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Permeation",
+        "stage": "erased-by-quirk-destroying-bullet",
+        "ownerEntityIds": [
+          "mha:mirio-togata"
+        ],
+        "constraints": [
+          "Mirio cannot use Permeation after the bullet in this period."
+        ],
+        "antiLore": [
+          "Do not restore Permeation before later canon Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_overhaul_fusion_escalates_the_final_fight",
+      "title": "Overhaul Fusion Escalates The Final Fight",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.nighteye-future-overhaul",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Nighteye foresees a doomed outcome against Overhaul"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Overhaul fusion",
+          "body reconstruction",
+          "boss fight escalation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:body-reconstruction",
+        "topic:boss-fight-escalation",
+        "topic:overhaul-fusion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Overhaul fusion",
+            "body reconstruction",
+            "boss fight escalation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Overhaul can use his Quirk to fuse and reconstruct bodies, escalating the fight into monstrous composite forms.",
+        "injection": "Use fusion and reconstruction as body-control horror. Overhaul’s forms should reflect touch-based dismantling and reassembly, not generic mutation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 153-156",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Overhaul",
+        "stage": "fusion-combat-escalation",
+        "ownerEntityIds": [
+          "mha:overhaul"
+        ],
+        "constraints": [
+          "Requires touch and available bodies or material."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_eri_s_rewind_lets_izuku_survive_one_for_all_100_percent",
+      "title": "Eri’s Rewind Lets Izuku Survive One For All 100 Percent",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.deku-hundred-percent-eri",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku uses One For All at 100 percent with Eri rewinding injury"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Infinite 100 percent",
+          "Rewind offset",
+          "temporary synergy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:infinite-100-percent",
+        "topic:rewind-offset",
+        "topic:temporary-synergy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Infinite 100 percent",
+            "Rewind offset",
+            "temporary synergy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri's uncontrolled Rewind temporarily offsets Izuku's 100% OFA damage during the Overhaul fight.",
+        "injection": "Treat Infinite 100% as an unstable Eri-specific exception, not a new level Izuku can repeat alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 156-159",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All + Rewind interaction",
+        "stage": "temporary-overhaul-climax-exception",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:eri"
+        ],
+        "constraints": [
+          "Works because Rewind offsets catastrophic damage."
+        ],
+        "antiLore": [
+          "Do not treat this as permanent mastery."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_nighteye_s_death_challenges_fixed_future_fatalism",
+      "title": "Nighteye’s Death Challenges Fixed-Future Fatalism",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.nighteye-dies",
+        "sortKeyFrom": 10200,
+        "sortKeyTo": 10200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Sir Nighteye dies after the raid"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nighteye death",
+          "future changed",
+          "mentor grief"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:future-changed",
+        "topic:mentor-grief",
+        "topic:nighteye-death"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nighteye death",
+            "future changed",
+            "mentor grief"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nighteye dies after seeing signs that the future can change, leaving grief and altered fatalism for All Might, Mirio, and Izuku.",
+        "injection": "Treat Nighteye’s death as a mentor loss and a challenge to fixed-future fatalism, not only a tragic casualty.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 161-162",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_league_steals_the_strategic_prize_from_overhaul",
+      "title": "League Steals The Strategic Prize From Overhaul",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.league-ambushes-convoy",
+        "sortKeyFrom": 10150,
+        "sortKeyTo": 10150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "League ambushes police convoy and steals Quirk bullets"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "convoy ambush",
+          "bullet theft",
+          "League strategic win"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:bullet-theft",
+        "topic:convoy-ambush",
+        "topic:league-strategic-win"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "convoy ambush",
+            "bullet theft",
+            "League strategic win"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After Overhaul’s defeat, the League ambushes the convoy, takes the completed Quirk-destroying bullets, and leaves Overhaul ruined.",
+        "injection": "Preserve the League’s strategic win: Shigaraki turns Overhaul’s weapon and arrogance into League advantage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:league-of-villains",
+          "mha:overhaul"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_eri_s_rescue_does_not_immediately_heal_her_trauma",
+      "title": "Eri’s Rescue Does Not Immediately Heal Her Trauma",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.eri-hospitalized",
+        "sortKeyFrom": 10250,
+        "sortKeyTo": 10250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri remains hospitalized and traumatized after rescue"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "trauma after rescue",
+          "hospitalization",
+          "safety after abuse"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hospitalization",
+        "topic:safety-after-abuse",
+        "topic:trauma-after-rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "trauma after rescue",
+            "hospitalization",
+            "safety after abuse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri is rescued from Overhaul but remains traumatized, hospitalized, and unable to control Rewind safely.",
+        "injection": "Treat Eri as safe from Overhaul but not emotionally or medically recovered. Her healing requires time, trust, and careful supervision.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160-162",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_mirio_s_loss_is_heroic_not_a_failure_of_skill",
+      "title": "Mirio’s Loss Is Heroic Not A Failure Of Skill",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.mirio-quirkless-aftermath",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirio remains Quirkless after the raid"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "sacrifice",
+          "Quirk loss",
+          "hero identity"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hero-identity",
+        "topic:quirk-loss",
+        "topic:sacrifice"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "sacrifice",
+            "Quirk loss",
+            "hero identity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio’s loss of Permeation is a heroic sacrifice to protect Eri, not a failure of competence.",
+        "injection": "Frame Mirio’s Quirk loss as sacrifice and heroism. He remains Lemillion in identity and conduct even while Quirkless.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160-162",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_nighteye_future_of_izuku_death_creates_fatalism_pressure",
+      "title": "Nighteye Future Of Izuku Death Creates Fatalism Pressure",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.nighteye-future-overhaul",
+        "sortKeyFrom": 10000,
+        "sortKeyTo": 10000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Nighteye foresees a doomed outcome against Overhaul"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "predicted death",
+          "fatalism",
+          "future resistance"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:fatalism",
+        "topic:future-resistance",
+        "topic:predicted-death"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "predicted death",
+            "fatalism",
+            "future resistance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nighteye foresees a disastrous future against Overhaul, creating pressure around whether his predictions can be changed.",
+        "injection": "Include Nighteye’s dread that the future is fixed; the emotional turn is that action and hope challenge fatalism.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 153-156",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_nejire_is_powerful_but_not_the_emotional_center_of_the_raid",
+      "title": "Nejire Is Powerful But Not The Emotional Center Of The Raid",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.ryukyu-team-fights",
+        "sortKeyFrom": 9850,
+        "sortKeyTo": 9850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ryukyu team fights through surface support and villain pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "support battle",
+          "Big Three participation",
+          "surface fight"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:big-three-participation",
+        "topic:support-battle",
+        "topic:surface-fight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "support battle",
+            "Big Three participation",
+            "surface fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nejire contributes significant power on the Ryukyu team while the arc’s emotional center remains Eri, Mirio, Izuku, and Nighteye.",
+        "injection": "Use Nejire as competent and energetic without relocating the arc’s emotional focus away from Eri rescue.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-153",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_ochaco_and_tsuyu_operate_as_work_study_support_heroes",
+      "title": "Ochaco And Tsuyu Operate As Work-Study Support Heroes",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.ryukyu-team-fights",
+        "sortKeyFrom": 9850,
+        "sortKeyTo": 9850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ryukyu team fights through surface support and villain pressure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "work-study support",
+          "student rescue work",
+          "surface battle"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:student-rescue-work",
+        "topic:surface-battle",
+        "topic:work-study-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "work-study support",
+            "student rescue work",
+            "surface battle"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco and Tsuyu participate as supervised work-study students under Ryukyu, contributing support and rescue work.",
+        "injection": "Let Ochaco and Tsuyu act as capable supervised students, not spectators or independent pro heroes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-153",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_overhaul_s_defeat_does_not_restore_the_hassaikai_as_a_power",
+      "title": "Overhaul’s Defeat Does Not Restore The Hassaikai As A Power",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.overhaul-defeated",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Overhaul is defeated and Eri rescued"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Hassaikai collapse",
+          "organized crime defeat",
+          "villain power shift"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hassaikai-collapse",
+        "topic:organized-crime-defeat",
+        "topic:villain-power-shift"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Hassaikai collapse",
+            "organized crime defeat",
+            "villain power shift"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Overhaul’s defeat and the League convoy ambush leave the Shie Hassaikai broken as a major active power.",
+        "injection": "After the arc, do not keep Overhaul commanding Hassaikai operations unless the story diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 158-160",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_eri_s_horn_and_rewind_require_monitoring",
+      "title": "Eri’s Horn And Rewind Require Monitoring",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.eri-hospitalized",
+        "sortKeyFrom": 10250,
+        "sortKeyTo": 10250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri remains hospitalized and traumatized after rescue"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rewind instability",
+          "medical monitoring",
+          "Quirk safety"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:medical-monitoring",
+        "topic:quirk-safety",
+        "topic:rewind-instability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Rewind instability",
+            "medical monitoring",
+            "Quirk safety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri’s Rewind remains unstable after rescue and requires careful monitoring rather than immediate training or free use.",
+        "injection": "After Eri is hospitalized, keep Rewind medically and emotionally dangerous; she is not a safe reset button.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160-162",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_shigaraki_s_convoy_ambush_shows_tactical_growth",
+      "title": "Shigaraki’s Convoy Ambush Shows Tactical Growth",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.league-ambushes-convoy",
+        "sortKeyFrom": 10150,
+        "sortKeyTo": 10150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "League ambushes police convoy and steals Quirk bullets"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "tactical revenge",
+          "villain growth",
+          "strategic theft"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:strategic-theft",
+        "topic:tactical-revenge",
+        "topic:villain-growth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "tactical revenge",
+            "villain growth",
+            "strategic theft"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s ambush turns the League’s earlier humiliation into a strategic victory, showing growth as a villain leader.",
+        "injection": "When the League takes the bullets, frame Shigaraki as learning from Overhaul and weaponizing patience, resentment, and timing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_aizawa_s_erasure_is_a_key_raid_control_tool",
+      "title": "Aizawa’s Erasure Is A Key Raid Control Tool",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.raid-starts",
+        "sortKeyFrom": 9650,
+        "sortKeyTo": 9650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shie Hassaikai raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Erasure support",
+          "Quirk control",
+          "raid utility"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:erasure-support",
+        "topic:quirk-control",
+        "topic:raid-utility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Erasure support",
+            "Quirk control",
+            "raid utility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa’s Erasure provides critical control utility against dangerous Quirks during the raid.",
+        "injection": "Use Erasure as a tactical control tool that changes threat management, not just background presence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-136",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_rappa_is_battle_hungry_rather_than_loyal_in_a_simple_way",
+      "title": "Rappa Is Battle-Hungry Rather Than Loyal In A Simple Way",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.kirishima-fat-gum-vs-rappa",
+        "sortKeyFrom": 9800,
+        "sortKeyTo": 9800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kirishima and Fat Gum fight Rappa and Tengai"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "battle hunger",
+          "villain honor",
+          "Hassaikai subordinate tension"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:battle-hunger",
+        "topic:hassaikai-subordinate-tension",
+        "topic:villain-honor"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "battle hunger",
+            "villain honor",
+            "Hassaikai subordinate tension"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Rappa’s battle hunger and respect for strong opponents complicate his role as a Hassaikai subordinate.",
+        "injection": "Write Rappa as a fight-obsessed opponent whose values do not neatly match Overhaul’s sterile control ideology.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 143-146",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_tengai_forces_fat_gum_and_kirishima_to_solve_defense_plus_offense",
+      "title": "Tengai Forces Fat Gum And Kirishima To Solve Defense Plus Offense",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.kirishima-fat-gum-vs-rappa",
+        "sortKeyFrom": 9800,
+        "sortKeyTo": 9800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kirishima and Fat Gum fight Rappa and Tengai"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "barrier defense",
+          "paired enemies",
+          "tactical problem"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:barrier-defense",
+        "topic:paired-enemies",
+        "topic:tactical-problem"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "barrier defense",
+            "paired enemies",
+            "tactical problem"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tengai’s barrier makes the Rappa fight a combined offense-defense problem rather than a simple slugfest.",
+        "injection": "Keep Tengai’s barrier relevant; the heroes must solve protection and impact timing together.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 143-146",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_mimic_s_panic_escalates_the_base_s_instability",
+      "title": "Mimic’s Panic Escalates The Base’s Instability",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.mimic-labyrinth",
+        "sortKeyFrom": 9700,
+        "sortKeyTo": 9700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mimic turns the underground base into a shifting battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "panic control",
+          "base instability",
+          "villain emotion"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:base-instability",
+        "topic:panic-control",
+        "topic:villain-emotion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "panic control",
+            "base instability",
+            "villain emotion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mimic’s emotional volatility worsens the base’s shifting danger as the raid progresses.",
+        "injection": "Use Mimic’s panic and anger to make the underground geometry unstable, not mechanically perfect.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 136-139",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_eri_chooses_to_reach_for_rescue_during_the_climax",
+      "title": "Eri Chooses To Reach For Rescue During The Climax",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.deku-hundred-percent-eri",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku uses One For All at 100 percent with Eri rewinding injury"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "agency under trauma",
+          "reaching for rescue",
+          "climax choice"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:agency-under-trauma",
+        "topic:climax-choice",
+        "topic:reaching-for-rescue"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "agency under trauma",
+            "reaching for rescue",
+            "climax choice"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri’s decision to reach toward Izuku matters because it breaks from learned self-sacrifice under Overhaul.",
+        "injection": "In the climax, give Eri agency through her choice to reach for rescue, even though she is frightened and uncontrolled.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 156-159",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_izuku_s_overhaul_victory_is_a_rescue_promise_fulfilled",
+      "title": "Izuku’s Overhaul Victory Is A Rescue Promise Fulfilled",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.overhaul-defeated",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Overhaul is defeated and Eri rescued"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue promise",
+          "hero ideal",
+          "Overhaul defeat"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hero-ideal",
+        "topic:overhaul-defeat",
+        "topic:rescue-promise"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue promise",
+            "hero ideal",
+            "Overhaul defeat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku’s defeat of Overhaul pays off the earlier failure to save Eri in the street encounter.",
+        "injection": "Frame Izuku’s final victory as a rescue promise fulfilled, not merely a power showcase.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 158-160",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_police_convoy_vulnerability_shows_victory_is_incomplete",
+      "title": "Police Convoy Vulnerability Shows Victory Is Incomplete",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.league-ambushes-convoy",
+        "sortKeyFrom": 10150,
+        "sortKeyTo": 10150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "League ambushes police convoy and steals Quirk bullets"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "convoy vulnerability",
+          "incomplete victory",
+          "strategic loss"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:convoy-vulnerability",
+        "topic:incomplete-victory",
+        "topic:strategic-loss"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "convoy vulnerability",
+            "incomplete victory",
+            "strategic loss"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The police convoy ambush shows that even after the raid succeeds, strategic fallout remains dangerous.",
+        "injection": "After Overhaul’s defeat, do not treat the operation as a clean strategic victory; the League still extracts value.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1207 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.lhr.dorms-after-kamino",
+      "label": "Class 1-A lives under the new U.A. dorm system",
+      "sortKey": 8000,
+      "aliases": [
+        "after Kamino dorms",
+        "U.A. dorm life begins",
+        "post-Kamino dorms"
+      ],
+      "tags": [
+        "arc:provisional-license",
+        "school:ua-high",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-99"
+      }
+    },
+    {
+      "id": "mha.lhr.special-moves-training",
+      "label": "Special moves training begins for license preparation",
+      "sortKey": 8050,
+      "aliases": [
+        "special moves training",
+        "ultimate moves training"
+      ],
+      "tags": [
+        "arc:provisional-license",
+        "topic:special-moves",
+        "topic:quirk-training"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-100"
+      }
+    },
+    {
+      "id": "mha.lhr.costume-upgrades",
+      "label": "Students revise costumes around special moves",
+      "sortKey": 8100,
+      "aliases": [
+        "costume upgrades",
+        "support item revisions"
+      ],
+      "tags": [
+        "arc:provisional-license",
+        "topic:support-gear"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 99-100"
+      }
+    },
+    {
+      "id": "mha.lhr.provisional-exam-arrival",
+      "label": "Class 1-A arrives at the Provisional Hero License Exam",
+      "sortKey": 8150,
+      "aliases": [
+        "license exam begins",
+        "provisional license exam"
+      ],
+      "tags": [
+        "arc:provisional-license",
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 100-102"
+      }
+    },
+    {
+      "id": "mha.lhr.shiketsu-introduced",
+      "label": "Shiketsu High appears as a major rival school",
+      "sortKey": 8200,
+      "aliases": [
+        "Shiketsu introduced",
+        "Inasa appears"
+      ],
+      "tags": [
+        "school:shiketsu",
+        "arc:provisional-license"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 100-103"
+      }
+    },
+    {
+      "id": "mha.lhr.ketsubutsu-introduced",
+      "label": "Ketsubutsu Academy targets U.A. through public knowledge",
+      "sortKey": 8250,
+      "aliases": [
+        "Ketsubutsu",
+        "Yo Shindo targets U.A."
+      ],
+      "tags": [
+        "school:ketsubutsu",
+        "arc:provisional-license"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 102-104"
+      }
+    },
+    {
+      "id": "mha.lhr.exam-first-stage-starts",
+      "label": "First stage target-ball exam starts",
+      "sortKey": 8300,
+      "aliases": [
+        "target ball exam",
+        "first stage"
+      ],
+      "tags": [
+        "event:provisional-license-exam",
+        "arc:provisional-license"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 102-104"
+      }
+    },
+    {
+      "id": "mha.lhr.ua-crush-strategy",
+      "label": "Other schools target U.A. because Sports Festival footage exposed them",
+      "sortKey": 8350,
+      "aliases": [
+        "U.A. crush",
+        "target U.A."
+      ],
+      "tags": [
+        "school:ua-high",
+        "event:sports-festival",
+        "arc:provisional-license"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 102-105"
+      }
+    },
+    {
+      "id": "mha.lhr.deku-isolated-camie",
+      "label": "Izuku is isolated by Camie impersonation",
+      "sortKey": 8400,
+      "aliases": [
+        "Deku and Camie",
+        "Toga as Camie"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:toga-himiko",
+        "character:camie-utsushimi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 104-106"
+      }
+    },
+    {
+      "id": "mha.lhr.toga-blood-theft",
+      "label": "Toga steals Izuku blood while disguised as Camie",
+      "sortKey": 8450,
+      "aliases": [
+        "Toga steals Deku blood",
+        "Camie impersonation"
+      ],
+      "tags": [
+        "character:toga-himiko",
+        "character:midoriya-izuku",
+        "secret:toga-camie"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 104-106"
+      }
+    },
+    {
+      "id": "mha.lhr.first-stage-passes",
+      "label": "First stage narrows applicants dramatically",
+      "sortKey": 8500,
+      "aliases": [
+        "first stage passes"
+      ],
+      "tags": [
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 106-108"
+      }
+    },
+    {
+      "id": "mha.lhr.rescue-stage-starts",
+      "label": "Second stage tests rescue conduct under disaster simulation",
+      "sortKey": 8550,
+      "aliases": [
+        "rescue stage",
+        "HUC rescue test"
+      ],
+      "tags": [
+        "event:provisional-license-exam",
+        "faction:huc"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 109-111"
+      }
+    },
+    {
+      "id": "mha.lhr.gang-orca-villain-test",
+      "label": "Gang Orca enters as villain-pressure test",
+      "sortKey": 8600,
+      "aliases": [
+        "Gang Orca test"
+      ],
+      "tags": [
+        "character:gang-orca",
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 111-114"
+      }
+    },
+    {
+      "id": "mha.lhr.inasa-shoto-conflict",
+      "label": "Inasa and Shoto conflict disrupts rescue-stage combat",
+      "sortKey": 8650,
+      "aliases": [
+        "Inasa Shoto conflict"
+      ],
+      "tags": [
+        "character:todoroki-shoto",
+        "character:inasa-yoarashi",
+        "school:shiketsu"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 112-114"
+      }
+    },
+    {
+      "id": "mha.lhr.bakugo-rescue-bedside-manner-fails",
+      "label": "Bakugo fails rescue bedside-manner expectations",
+      "sortKey": 8700,
+      "aliases": [
+        "Bakugo rescue fail"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 111-114"
+      }
+    },
+    {
+      "id": "mha.lhr.deku-passes-license",
+      "label": "Izuku earns his provisional license",
+      "sortKey": 8750,
+      "aliases": [
+        "Deku passes license"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 114-115"
+      }
+    },
+    {
+      "id": "mha.lhr.bakugo-shoto-fail",
+      "label": "Bakugo and Shoto fail the provisional license exam",
+      "sortKey": 8800,
+      "aliases": [
+        "Bakugo Shoto fail"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 114-115"
+      }
+    },
+    {
+      "id": "mha.lhr.license-results-aftermath",
+      "label": "License results change who may act in public emergencies",
+      "sortKey": 8850,
+      "aliases": [
+        "license results"
+      ],
+      "tags": [
+        "event:provisional-license-exam",
+        "topic:hero-law"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 114-116"
+      }
+    },
+    {
+      "id": "mha.lhr.deku-vs-bakugo-second-fight",
+      "label": "Bakugo challenges Izuku to fight after the license exam",
+      "sortKey": 8900,
+      "aliases": [
+        "Deku vs Bakugo 2",
+        "Ground Beta"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "secret:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 117-119"
+      }
+    },
+    {
+      "id": "mha.lhr.bakugo-learns-ofa-secret",
+      "label": "Bakugo learns the truth about One For All",
+      "sortKey": 8950,
+      "aliases": [
+        "Bakugo learns OFA"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "secret:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 119-121"
+      }
+    },
+    {
+      "id": "mha.lhr.rivalry-resets-after-ground-beta",
+      "label": "Izuku and Bakugo rivalry resets around shared secrecy",
+      "sortKey": 9000,
+      "aliases": [
+        "after Ground Beta"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 119-121"
+      }
+    },
+    {
+      "id": "mha.lhr.big-three-introduced",
+      "label": "The Big Three are introduced to Class 1-A",
+      "sortKey": 9050,
+      "aliases": [
+        "Big Three introduced"
+      ],
+      "tags": [
+        "faction:big-three",
+        "character:mirio-togata",
+        "character:tamaki-amajiki",
+        "character:nejire-hado"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 122-123"
+      }
+    },
+    {
+      "id": "mha.lhr.mirio-dominates-class",
+      "label": "Mirio demonstrates overwhelming practical skill against Class 1-A",
+      "sortKey": 9100,
+      "aliases": [
+        "Mirio demonstration"
+      ],
+      "tags": [
+        "character:mirio-togata",
+        "quirk:permeation",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 123"
+      }
+    },
+    {
+      "id": "mha.lhr.work-study-proposed",
+      "label": "Work studies reopen under stricter post-Kamino conditions",
+      "sortKey": 9150,
+      "aliases": [
+        "work studies"
+      ],
+      "tags": [
+        "topic:work-study",
+        "arc:shie-hassaikai"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 123-125"
+      }
+    },
+    {
+      "id": "mha.lhr.nighteye-agency-introduction",
+      "label": "Izuku seeks placement at Sir Nighteye Agency",
+      "sortKey": 9200,
+      "aliases": [
+        "Nighteye agency"
+      ],
+      "tags": [
+        "character:sir-nighteye",
+        "character:midoriya-izuku",
+        "character:mirio-togata"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 124-126"
+      }
+    },
+    {
+      "id": "mha.lhr.nighteye-tests-izuku",
+      "label": "Nighteye tests Izuku through humor and All Might judgment",
+      "sortKey": 9250,
+      "aliases": [
+        "Nighteye tests Deku"
+      ],
+      "tags": [
+        "character:sir-nighteye",
+        "character:midoriya-izuku",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 124-126"
+      }
+    },
+    {
+      "id": "mha.lhr.overhaul-introduced-league-contact",
+      "label": "Overhaul contacts the League of Villains",
+      "sortKey": 9300,
+      "aliases": [
+        "Overhaul meets League"
+      ],
+      "tags": [
+        "character:overhaul",
+        "faction:shie-hassaikai",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 125-126"
+      }
+    },
+    {
+      "id": "mha.lhr.magne-killed-compress-injured",
+      "label": "Overhaul kills Magne and injures Mr. Compress",
+      "sortKey": 9350,
+      "aliases": [
+        "Magne killed"
+      ],
+      "tags": [
+        "character:overhaul",
+        "character:magne",
+        "character:mr-compress",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 125"
+      }
+    },
+    {
+      "id": "mha.lhr.eri-street-encounter",
+      "label": "Izuku and Mirio encounter Eri in the street",
+      "sortKey": 9400,
+      "aliases": [
+        "Eri street encounter"
+      ],
+      "tags": [
+        "character:eri",
+        "character:midoriya-izuku",
+        "character:mirio-togata",
+        "character:overhaul"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 128-129"
+      }
+    },
+    {
+      "id": "mha.lhr.eri-returned-to-overhaul",
+      "label": "Eri returns to Overhaul under fear and coercion",
+      "sortKey": 9450,
+      "aliases": [
+        "Eri returns"
+      ],
+      "tags": [
+        "character:eri",
+        "character:overhaul"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 128-129"
+      }
+    },
+    {
+      "id": "mha.lhr.hassaikai-investigation-starts",
+      "label": "Heroes begin investigating Shie Hassaikai and Eri",
+      "sortKey": 9500,
+      "aliases": [
+        "Hassaikai investigation"
+      ],
+      "tags": [
+        "faction:shie-hassaikai",
+        "character:eri",
+        "character:sir-nighteye"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 129-133"
+      }
+    },
+    {
+      "id": "mha.lhr.eri-blood-bullets-revealed",
+      "label": "Eri is tied to Quirk-destroying bullets",
+      "sortKey": 9550,
+      "aliases": [
+        "Eri bullets"
+      ],
+      "tags": [
+        "character:eri",
+        "quirk:rewind",
+        "item:quirk-destroying-bullets"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 129-134"
+      }
+    },
+    {
+      "id": "mha.lhr.raid-meeting",
+      "label": "Nighteye coordinates multi-agency raid plan",
+      "sortKey": 9600,
+      "aliases": [
+        "raid meeting"
+      ],
+      "tags": [
+        "character:sir-nighteye",
+        "faction:pro-heroes",
+        "faction:police",
+        "faction:shie-hassaikai"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 133-134"
+      }
+    },
+    {
+      "id": "mha.lhr.raid-starts",
+      "label": "Shie Hassaikai raid begins",
+      "sortKey": 9650,
+      "aliases": [
+        "raid starts"
+      ],
+      "tags": [
+        "faction:shie-hassaikai",
+        "faction:pro-heroes",
+        "faction:police"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-136"
+      }
+    },
+    {
+      "id": "mha.lhr.mimic-labyrinth",
+      "label": "Mimic turns the underground base into a shifting battlefield",
+      "sortKey": 9700,
+      "aliases": [
+        "Mimic labyrinth"
+      ],
+      "tags": [
+        "character:mimic",
+        "faction:shie-hassaikai",
+        "location:hassaikai-underground"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 136-139"
+      }
+    },
+    {
+      "id": "mha.lhr.tamaki-fights-eight-bullets",
+      "label": "Tamaki isolates and defeats multiple Eight Bullets members",
+      "sortKey": 9750,
+      "aliases": [
+        "Suneater fight"
+      ],
+      "tags": [
+        "character:tamaki-amajiki",
+        "faction:eight-bullets"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 140-142"
+      }
+    },
+    {
+      "id": "mha.lhr.kirishima-fat-gum-vs-rappa",
+      "label": "Kirishima and Fat Gum fight Rappa and Tengai",
+      "sortKey": 9800,
+      "aliases": [
+        "Kirishima Fat Gum Rappa"
+      ],
+      "tags": [
+        "character:kirishima-eijiro",
+        "character:fat-gum",
+        "character:rappa",
+        "character:tengai"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 143-146"
+      }
+    },
+    {
+      "id": "mha.lhr.ryukyu-team-fights",
+      "label": "Ryukyu team fights through surface support and villain pressure",
+      "sortKey": 9850,
+      "aliases": [
+        "Ryukyu team"
+      ],
+      "tags": [
+        "character:ryukyu",
+        "character:uraraka-ochaco",
+        "character:asui-tsuyu",
+        "character:nejire-hado"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 135-153"
+      }
+    },
+    {
+      "id": "mha.lhr.mirio-reaches-eri",
+      "label": "Mirio reaches Eri before Izuku and Nighteye",
+      "sortKey": 9900,
+      "aliases": [
+        "Mirio reaches Eri"
+      ],
+      "tags": [
+        "character:mirio-togata",
+        "character:eri",
+        "character:overhaul"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 150-152"
+      }
+    },
+    {
+      "id": "mha.lhr.mirio-loses-permeation",
+      "label": "Mirio loses Permeation protecting Eri",
+      "sortKey": 9950,
+      "aliases": [
+        "Mirio loses Quirk"
+      ],
+      "tags": [
+        "character:mirio-togata",
+        "character:eri",
+        "item:quirk-destroying-bullets",
+        "quirk:permeation"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 152-153"
+      }
+    },
+    {
+      "id": "mha.lhr.nighteye-future-overhaul",
+      "label": "Nighteye foresees a doomed outcome against Overhaul",
+      "sortKey": 10000,
+      "aliases": [
+        "Nighteye future"
+      ],
+      "tags": [
+        "character:sir-nighteye",
+        "character:overhaul",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 153-156"
+      }
+    },
+    {
+      "id": "mha.lhr.deku-hundred-percent-eri",
+      "label": "Izuku uses One For All at 100 percent with Eri rewinding injury",
+      "sortKey": 10050,
+      "aliases": [
+        "Infinite 100 percent"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:eri",
+        "quirk:one-for-all",
+        "quirk:rewind"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 156-159"
+      }
+    },
+    {
+      "id": "mha.lhr.overhaul-defeated",
+      "label": "Overhaul is defeated and Eri rescued",
+      "sortKey": 10100,
+      "aliases": [
+        "Overhaul defeated"
+      ],
+      "tags": [
+        "character:overhaul",
+        "character:eri",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 158-160"
+      }
+    },
+    {
+      "id": "mha.lhr.league-ambushes-convoy",
+      "label": "League ambushes police convoy and steals Quirk bullets",
+      "sortKey": 10150,
+      "aliases": [
+        "League steals bullets"
+      ],
+      "tags": [
+        "faction:league-of-villains",
+        "character:shigaraki-tomura",
+        "character:overhaul",
+        "item:quirk-destroying-bullets"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160"
+      }
+    },
+    {
+      "id": "mha.lhr.nighteye-dies",
+      "label": "Sir Nighteye dies after the raid",
+      "sortKey": 10200,
+      "aliases": [
+        "Nighteye dies"
+      ],
+      "tags": [
+        "character:sir-nighteye",
+        "character:mirio-togata",
+        "character:midoriya-izuku",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 161-162"
+      }
+    },
+    {
+      "id": "mha.lhr.eri-hospitalized",
+      "label": "Eri remains hospitalized and traumatized after rescue",
+      "sortKey": 10250,
+      "aliases": [
+        "Eri hospitalized"
+      ],
+      "tags": [
+        "character:eri",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160-162"
+      }
+    },
+    {
+      "id": "mha.lhr.mirio-quirkless-aftermath",
+      "label": "Mirio remains Quirkless after the raid",
+      "sortKey": 10300,
+      "aliases": [
+        "Mirio quirkless"
+      ],
+      "tags": [
+        "character:mirio-togata",
+        "quirk:permeation"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 160-162"
+      }
+    },
+    {
+      "id": "mha.lhr.remedial-course-starts",
+      "label": "Remedial course begins for failed license students",
+      "sortKey": 10350,
+      "aliases": [
+        "remedial course"
+      ],
+      "tags": [
+        "arc:remedial-course",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 163-164"
+      }
+    },
+    {
+      "id": "mha.lhr.remedial-kids-challenge",
+      "label": "Remedial students must handle disruptive children",
+      "sortKey": 10400,
+      "aliases": [
+        "remedial kids"
+      ],
+      "tags": [
+        "arc:remedial-course",
+        "topic:child-rescue-training"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166"
+      }
+    },
+    {
+      "id": "mha.lhr.bakugo-todoroki-inasa-camie-cooperate",
+      "label": "Bakugo, Shoto, Inasa, and Camie learn cooperative child handling",
+      "sortKey": 10450,
+      "aliases": [
+        "remedial team cooperate"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:inasa-yoarashi",
+        "character:camie-utsushimi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166"
+      }
+    },
+    {
+      "id": "mha.lhr.endeavor-seeks-symbol-advice",
+      "label": "Endeavor asks All Might what it means to be Symbol of Peace",
+      "sortKey": 10500,
+      "aliases": [
+        "Endeavor asks All Might"
+      ],
+      "tags": [
+        "character:endeavor",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-167"
+      }
+    },
+    {
+      "id": "mha.lhr.remedial-course-completed",
+      "label": "Remedial students move toward license eligibility",
+      "sortKey": 10550,
+      "aliases": [
+        "remedial course completed"
+      ],
+      "tags": [
+        "arc:remedial-course",
+        "event:provisional-license-exam"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 167-168"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.window.provisional-license-full",
+      "label": "Provisional Hero License Exam arc",
+      "anchorFrom": "mha.lhr.dorms-after-kamino",
+      "anchorTo": "mha.lhr.rivalry-resets-after-ground-beta",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 9000,
+      "aliases": [
+        "provisional hero license exam arc"
+      ],
+      "tags": [
+        "arc:provisional-license"
+      ]
+    },
+    {
+      "id": "mha.window.license-first-stage",
+      "label": "License exam first stage",
+      "anchorFrom": "mha.lhr.provisional-exam-arrival",
+      "anchorTo": "mha.lhr.first-stage-passes",
+      "sortKeyFrom": 8150,
+      "sortKeyTo": 8500,
+      "aliases": [
+        "license exam first stage"
+      ],
+      "tags": [
+        "arc:provisional-license"
+      ]
+    },
+    {
+      "id": "mha.window.license-rescue-stage",
+      "label": "License exam rescue stage",
+      "anchorFrom": "mha.lhr.rescue-stage-starts",
+      "anchorTo": "mha.lhr.license-results-aftermath",
+      "sortKeyFrom": 8550,
+      "sortKeyTo": 8850,
+      "aliases": [
+        "license exam rescue stage"
+      ],
+      "tags": [
+        "arc:provisional-license"
+      ]
+    },
+    {
+      "id": "mha.window.deku-bakugo-ground-beta",
+      "label": "Izuku vs Bakugo after license exam",
+      "anchorFrom": "mha.lhr.deku-vs-bakugo-second-fight",
+      "anchorTo": "mha.lhr.rivalry-resets-after-ground-beta",
+      "sortKeyFrom": 8900,
+      "sortKeyTo": 9000,
+      "aliases": [
+        "izuku vs bakugo after license exam"
+      ],
+      "tags": [
+        "arc:provisional-license"
+      ]
+    },
+    {
+      "id": "mha.window.shie-hassaikai-full",
+      "label": "Shie Hassaikai arc",
+      "anchorFrom": "mha.lhr.big-three-introduced",
+      "anchorTo": "mha.lhr.mirio-quirkless-aftermath",
+      "sortKeyFrom": 9050,
+      "sortKeyTo": 10300,
+      "aliases": [
+        "shie hassaikai arc"
+      ],
+      "tags": [
+        "arc:shie-hassaikai"
+      ]
+    },
+    {
+      "id": "mha.window.hassaikai-investigation",
+      "label": "Hassaikai investigation and Eri knowledge",
+      "anchorFrom": "mha.lhr.nighteye-agency-introduction",
+      "anchorTo": "mha.lhr.raid-meeting",
+      "sortKeyFrom": 9200,
+      "sortKeyTo": 9600,
+      "aliases": [
+        "hassaikai investigation and eri knowledge"
+      ],
+      "tags": [
+        "arc:shie-hassaikai"
+      ]
+    },
+    {
+      "id": "mha.window.hassaikai-raid",
+      "label": "Shie Hassaikai raid",
+      "anchorFrom": "mha.lhr.raid-starts",
+      "anchorTo": "mha.lhr.overhaul-defeated",
+      "sortKeyFrom": 9650,
+      "sortKeyTo": 10100,
+      "aliases": [
+        "shie hassaikai raid"
+      ],
+      "tags": [
+        "arc:shie-hassaikai"
+      ]
+    },
+    {
+      "id": "mha.window.eri-overhaul-crisis",
+      "label": "Eri and Overhaul crisis",
+      "anchorFrom": "mha.lhr.eri-street-encounter",
+      "anchorTo": "mha.lhr.overhaul-defeated",
+      "sortKeyFrom": 9400,
+      "sortKeyTo": 10100,
+      "aliases": [
+        "eri and overhaul crisis"
+      ],
+      "tags": [
+        "arc:shie-hassaikai"
+      ]
+    },
+    {
+      "id": "mha.window.raid-aftermath",
+      "label": "Hassaikai raid aftermath",
+      "anchorFrom": "mha.lhr.overhaul-defeated",
+      "anchorTo": "mha.lhr.mirio-quirkless-aftermath",
+      "sortKeyFrom": 10100,
+      "sortKeyTo": 10300,
+      "aliases": [
+        "hassaikai raid aftermath"
+      ],
+      "tags": [
+        "arc:shie-hassaikai"
+      ]
+    },
+    {
+      "id": "mha.window.remedial-course-full",
+      "label": "Remedial Course arc",
+      "anchorFrom": "mha.lhr.remedial-course-starts",
+      "anchorTo": "mha.lhr.remedial-course-completed",
+      "sortKeyFrom": 10350,
+      "sortKeyTo": 10550,
+      "aliases": [
+        "remedial course arc"
+      ],
+      "tags": [
+        "arc:remedial-course"
+      ]
+    },
+    {
+      "id": "mha.window.license-hassaikai-remedial-full",
+      "label": "License Exam through Remedial Course",
+      "anchorFrom": "mha.lhr.dorms-after-kamino",
+      "anchorTo": "mha.lhr.remedial-course-completed",
+      "sortKeyFrom": 8000,
+      "sortKeyTo": 10550,
+      "aliases": [
+        "license exam through remedial course"
+      ],
+      "tags": [
+        "arc:provisional-license",
+        "arc:shie-hassaikai",
+        "arc:remedial-course"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "provisional-license",
+        "shie-hassaikai",
+        "remedial-course"
+      ]
+    },
+    {
+      "axis": "license_state",
+      "label": "License State",
+      "values": [
+        "provisional-exam-active",
+        "remedial-course"
+      ]
+    },
+    {
+      "axis": "work_study_state",
+      "label": "Work Study State",
+      "values": [
+        "nighteye-hassaikai-raid"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "label": "Villain Organization State",
+      "values": [
+        "hassaikai-league-contact"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "label": "Hero Society State",
+      "values": [
+        "post-all-might-retirement",
+        "post-symbol-vacuum",
+        "endeavor-symbol-transition"
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "label": "Adaptation",
+      "values": [
+        "manga-primary"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1709 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_post_all_might_rankings_create_a_symbol_vacuum",
+      "title": "Post-All Might Rankings Create A Symbol Vacuum",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.billboard-chart",
+        "sortKeyFrom": 10900,
+        "sortKeyTo": 10900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:all-might",
+          "mha:pro-heroes",
+          "mha:hero-billboard-chart"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hawks",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "JP Hero Billboard Chart"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "hero rankings",
+          "symbol vacuum",
+          "public trust"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:hawks",
+        "character:all-might",
+        "faction:pro-heroes",
+        "topic:hero-rankings",
+        "topic:symbol-vacuum",
+        "topic:public-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hawks",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "JP Hero Billboard Chart"
+          ],
+          "topicsAny": [
+            "hero rankings",
+            "symbol vacuum",
+            "public trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The JP Hero Billboard Chart formalizes a post-All Might hero order, but it cannot instantly replace the Symbol of Peace.",
+        "injection": "When the chart appears, show institutional ranking without emotional replacement. Society still lacks All Might’s stabilizing symbol.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_is_number_one_but_not_loved_like_all_might",
+      "title": "Endeavor Is Number One But Not Loved Like All Might",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "sortKeyFrom": 10950,
+        "sortKeyTo": 10950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:all-might",
+          "mha:pro-heroes",
+          "mha:hero-billboard-chart"
+        ],
+        "characters": [
+          "Endeavor",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "JP Hero Billboard Chart"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Number One Hero",
+          "public trust",
+          "Symbol of Peace"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:all-might",
+        "faction:pro-heroes",
+        "topic:number-one-hero",
+        "topic:public-trust",
+        "topic:symbol-of-peace"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "JP Hero Billboard Chart"
+          ],
+          "topicsAny": [
+            "Number One Hero",
+            "public trust",
+            "Symbol of Peace"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor becomes the Number One Hero by rank, but he does not inherit All Might’s public warmth, moral symbolism, or trust automatically.",
+        "injection": "Write Endeavor’s No. 1 role as burdensome and contested. He has status, but not All Might’s emotional legitimacy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-185",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hawks_is_number_two_and_too_fast_for_normal_expectations",
+      "title": "Hawks Is Number Two And Too Fast For Normal Expectations",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.hawks-number-two",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks appears as the young Number Two Hero"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Number Two Hero",
+          "speed",
+          "public persona"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "faction:pro-heroes",
+        "quirk:fierce-wings",
+        "topic:number-two-hero",
+        "topic:speed",
+        "topic:public-persona"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "Number Two Hero",
+            "speed",
+            "public persona"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks is introduced as the young Number Two Hero, famous for speed, efficiency, and a relaxed public persona.",
+        "injection": "Use Hawks as fast, sharp, and socially disarming. His casual tone must not mean he is careless.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-186",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Fierce Wings",
+        "stage": "top_pro_mastery",
+        "ownerEntityIds": [
+          "mha:hawks"
+        ],
+        "constraints": [
+          "Feathers can move independently and sense vibration, but they are finite and can be damaged."
+        ],
+        "antiLore": [
+          "Do not treat Hawks as a brute-force brawler; his strength is speed, rescue, precision, and information."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hero_rankings_are_public_performance_as_well_as_merit",
+      "title": "Hero Rankings Are Public Performance As Well As Merit",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.billboard-chart",
+        "sortKeyFrom": 10900,
+        "sortKeyTo": 10900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:hero-billboard-chart"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "JP Hero Billboard Chart"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "rankings politics",
+          "public approval",
+          "hero image"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "topic:rankings-politics",
+        "topic:public-approval",
+        "topic:hero-image"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "JP Hero Billboard Chart"
+          ],
+          "topicsAny": [
+            "rankings politics",
+            "public approval",
+            "hero image"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hero rankings reflect public approval, incident resolution, and visibility as well as combat ability.",
+        "injection": "Use rankings as social machinery. A ranked hero is managing reputation, trust, and media meaning, not only raw battle power.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hawks_public_persona_masks_hidden_calculation",
+      "title": "Hawks Public Persona Masks Hidden Calculation",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.hawks-number-two",
+        "sortKeyFrom": 11000,
+        "sortKeyTo": 11000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks appears as the young Number Two Hero"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:hero-public-safety-commission",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "hidden agenda",
+          "public persona",
+          "HPSC"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "faction:pro-heroes",
+        "faction:hero-public-safety-commission",
+        "quirk:fierce-wings",
+        "topic:hidden-agenda",
+        "topic:public-persona",
+        "topic:hpsc"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "hidden agenda",
+            "public persona",
+            "HPSC"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks’s relaxed public persona hides political intelligence, calculation, and obligations that are not visible to most characters.",
+        "injection": "Write Hawks with a split surface: casual and irreverent outside, observant and mission-conscious underneath.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-186",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_wants_to_define_his_own_symbol",
+      "title": "Endeavor Wants To Define His Own Symbol",
+      "kind": "objective",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "sortKeyFrom": 10950,
+        "sortKeyTo": 10950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:all-might",
+          "mha:pro-heroes",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "symbol identity",
+          "No. 1 burden",
+          "Endeavor development"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:all-might",
+        "faction:pro-heroes",
+        "quirk:hellflame",
+        "topic:symbol-identity",
+        "topic:no-1-burden",
+        "topic:endeavor-development"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "symbol identity",
+            "No. 1 burden",
+            "Endeavor development"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor is forced to confront what kind of Number One Hero he can be without copying All Might.",
+        "injection": "In Endeavor scenes, frame his burden as definition: he must become a symbol on different terms, under public and family scrutiny.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-185",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_todoroki_family_pressure_shadows_endeavor_ranking",
+      "title": "Todoroki Family Pressure Shadows Endeavor Ranking",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.todoroki-family-watches",
+        "sortKeyFrom": 11300,
+        "sortKeyTo": 11300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family processes Endeavor’s public stand"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:fuyumi-todoroki",
+          "mha:natsuo-todoroki",
+          "mha:rei-todoroki",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki",
+          "Fuyumi Todoroki",
+          "Natsuo Todoroki",
+          "Rei Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "family harm",
+          "public heroism",
+          "redemption not complete"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "character:fuyumi-todoroki",
+        "character:natsuo-todoroki",
+        "character:rei-todoroki",
+        "family:todoroki",
+        "topic:family-harm",
+        "topic:public-heroism",
+        "topic:redemption-not-complete"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki",
+            "Fuyumi Todoroki",
+            "Natsuo Todoroki",
+            "Rei Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "family harm",
+            "public heroism",
+            "redemption not complete"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s public rise is shadowed by his abusive family history and the unresolved harm within the Todoroki household.",
+        "injection": "Do not write Endeavor’s rank as redemption by itself. His family harm remains active context even when he performs heroically.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 188-192",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hawks_pushes_endeavor_into_visible_partnership",
+      "title": "Hawks Pushes Endeavor Into Visible Partnership",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "sortKeyFrom": 11050,
+        "sortKeyTo": 11050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:fierce-wings",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings",
+          "Hellflame"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "partnership",
+          "Nomu investigation",
+          "public optics"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "quirk:fierce-wings",
+        "quirk:hellflame",
+        "topic:partnership",
+        "topic:nomu-investigation",
+        "topic:public-optics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings",
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "partnership",
+            "Nomu investigation",
+            "public optics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks deliberately engages Endeavor in public and strategic partnership around the Nomu threat.",
+        "injection": "Let Hawks prod Endeavor while also guiding optics and intelligence flow. The partnership is useful but not simple friendship.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 185-186",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_nomu_rumors_signal_organized_villain_evolution",
+      "title": "Nomu Rumors Signal Organized Villain Evolution",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "sortKeyFrom": 11050,
+        "sortKeyTo": 11050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "League of Villains"
+        ],
+        "topics": [
+          "Nomu rumors",
+          "organized villains",
+          "threat evolution"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "faction:league-of-villains",
+        "topic:nomu-rumors",
+        "topic:organized-villains",
+        "topic:threat-evolution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nomu rumors",
+            "organized villains",
+            "threat evolution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nomu rumors indicate that villain bioengineering and organization remain active after Kamino and Hassaikai.",
+        "injection": "In Pro Hero arc scenes, treat Nomu as a continuing organized threat, not a solved USJ/Kamino relic.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 185-186",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_best_jeanist_absence_should_not_be_resolved_early",
+      "title": "Best Jeanist Absence Should Not Be Resolved Early",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.billboard-chart",
+        "sortKeyFrom": 10900,
+        "sortKeyTo": 10900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "future guard",
+          "Best Jeanist secrecy",
+          "Hawks later plot"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "faction:pro-heroes",
+        "faction:hero-public-safety-commission",
+        "topic:future-guard",
+        "topic:best-jeanist-secrecy",
+        "topic:hawks-later-plot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "Best Jeanist secrecy",
+            "Hawks later plot"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During this period, later details around Best Jeanist and Hawks must not be imported early.",
+        "injection": "Do not reveal or simulate later Best Jeanist/Hawks plot twists while the active Context is only Pro Hero.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_tokoyami_connection_to_hawks_is_background_setup",
+      "title": "Tokoyami Connection To Hawks Is Background Setup",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.billboard-chart",
+        "sortKeyFrom": 10900,
+        "sortKeyTo": 10900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tokoyami-fumikage",
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:class-1a",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Fumikage Tokoyami",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "Class 1-A"
+        ],
+        "topics": [
+          "Tokoyami internship",
+          "Hawks setup",
+          "future guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:tokoyami-fumikage",
+        "character:hawks",
+        "faction:pro-heroes",
+        "class:ua-1a",
+        "quirk:fierce-wings",
+        "topic:tokoyami-internship",
+        "topic:hawks-setup",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Fumikage Tokoyami",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "Tokoyami internship",
+            "Hawks setup",
+            "future guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tokoyami’s prior internship connection to Hawks is background setup during this arc, not yet the full later mentorship focus.",
+        "injection": "Use Tokoyami’s Hawks connection lightly here. Do not advance it into later war/internship material before its Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hero_billboard_chart_creates_pressure_on_top_ten",
+      "title": "Hero Billboard Chart Creates Pressure On Top Ten",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.billboard-chart",
+        "sortKeyFrom": 10900,
+        "sortKeyTo": 10900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:hero-billboard-chart"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [
+          "JP Hero Billboard Chart"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "top ten pressure",
+          "public reassurance",
+          "hero institution"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:hawks",
+        "faction:pro-heroes",
+        "topic:top-ten-pressure",
+        "topic:public-reassurance",
+        "topic:hero-institution"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "JP Hero Billboard Chart"
+          ],
+          "topicsAny": [
+            "top ten pressure",
+            "public reassurance",
+            "hero institution"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Billboard Chart places symbolic pressure on top-ranked heroes to reassure society in All Might’s absence.",
+        "injection": "Use the chart as pressure distribution: the top heroes are not merely celebrated, they are expected to stabilize the public.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 184",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_public_awkwardness_matters",
+      "title": "Endeavor Public Awkwardness Matters",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "sortKeyFrom": 10950,
+        "sortKeyTo": 10950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public awkwardness",
+          "symbol pressure",
+          "Endeavor behavior"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "quirk:hellflame",
+        "topic:public-awkwardness",
+        "topic:symbol-pressure",
+        "topic:endeavor-behavior"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "public awkwardness",
+            "symbol pressure",
+            "Endeavor behavior"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor struggles with public warmth and symbolic gestures because his hero identity was built around surpassing All Might, not comforting society.",
+        "injection": "Write Endeavor as forceful and awkward with public reassurance. His effort matters because it does not come naturally.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 184-185",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

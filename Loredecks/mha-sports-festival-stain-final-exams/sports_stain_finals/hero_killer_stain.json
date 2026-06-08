@@ -1,0 +1,3673 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_deku_chooses_a_former_insult_as_his_hero_name",
+      "title": "Deku Chooses A Former Insult As His Hero Name",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.hero-names-class",
+        "sortKeyFrom": 4000,
+        "sortKeyTo": 4000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero-name selection class"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Deku name",
+          "reclaimed insult",
+          "hero identity"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "character:uraraka-ochaco",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "topic:hero-names"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Deku name",
+            "reclaimed insult",
+            "hero identity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku chooses “Deku” as his hero name, reclaiming a former insult through Ochaco’s positive interpretation.",
+        "injection": "After hero-name selection, “Deku” should carry chosen identity and aspiration, not only childhood humiliation.",
+        "constraints": [],
+        "antiLore": [
+          "Do not treat Deku as a random codename with no emotional history."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 45",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_iida_temporarily_withholds_the_ingenium_name",
+      "title": "Iida Temporarily Withholds The Ingenium Name",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.hero-names-class",
+        "sortKeyFrom": 4000,
+        "sortKeyTo": 4000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hero-name selection class"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:iida-tensei",
+          "mha:ingenium-name"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Tensei Iida"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Ingenium legacy",
+          "family name",
+          "revenge state"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tensei",
+        "character:iida-tenya",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:ingenium",
+        "topic:hero-names"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Tensei Iida"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "Ingenium legacy",
+            "family name",
+            "revenge state"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tenya hesitates around taking the Ingenium name because Tensei’s attack has left the family legacy emotionally raw.",
+        "injection": "In this window, Iida’s relationship to the Ingenium name should feel unresolved and charged by his brother’s injury.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Iida as emotionally settled about the Ingenium legacy yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 45",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_gran_torino_trains_movement_not_hero_posing",
+      "title": "Gran Torino Trains Movement Not Hero Posing",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.gran-torino-enters",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gran Torino takes Izuku as intern"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gran-torino",
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Gran Torino",
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Gran Torino training",
+          "movement control",
+          "practical mentorship"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-might",
+        "character:gran-torino",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "relationship:gran-torino-deku"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gran Torino",
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "Gran Torino training",
+            "movement control",
+            "practical mentorship"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gran Torino trains Izuku through harsh, practical movement lessons rather than inspirational hero posing.",
+        "injection": "Gran Torino should be blunt, eccentric, and physically demanding, forcing Izuku to rethink One For All as whole-body movement.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Gran Torino a gentle motivational coach."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 46-47",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_full_cowling_changes_izuku_from_burst_use_to_whole_body_control",
+      "title": "Full Cowling Changes Izuku From Burst Use To Whole-Body Control",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.full-cowling-breakthrough",
+        "sortKeyFrom": 4150,
+        "sortKeyTo": 4150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku develops Full Cowling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:full-cowling",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Full Cowling",
+          "whole-body control",
+          "OFA control stage"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:full-cowling",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "Full Cowling",
+            "whole-body control",
+            "OFA control stage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku develops early Full Cowling by distributing One For All through his body at a lower percentage instead of relying on self-destructive bursts.",
+        "injection": "After Gran Torino’s lesson, Izuku can use early Full Cowling for movement and close combat, but it is low-output and still developing.",
+        "constraints": [
+          "This is a major Quirk-stage shift from the Sports Festival."
+        ],
+        "antiLore": [
+          "Do not give Izuku high-percentage mastery or later Shoot Style yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 47-48",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_full_cowling_is_still_low_percentage_here",
+      "title": "Full Cowling Is Still Low Percentage Here",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.full-cowling-breakthrough",
+        "sortKeyFrom": 4150,
+        "sortKeyTo": 4150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku develops Full Cowling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:full-cowling"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Full Cowling limit",
+          "low percentage",
+          "early control"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hero-killer",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:full-cowling",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "Full Cowling limit",
+            "low percentage",
+            "early control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early Full Cowling gives Izuku mobility and continuity but remains low-percentage and tactically limited.",
+        "injection": "In the Stain arc, Full Cowling should make Izuku faster and more functional, not overwhelmingly powerful.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Stain-arc Izuku as operating at later 20%, 45%, or multiple-Quirk levels."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 47-48",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_manual_cannot_sanction_iida_s_revenge",
+      "title": "Manual Cannot Sanction Iida’s Revenge",
+      "kind": "knowledge_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.tenya-seeks-hero-killer",
+        "sortKeyFrom": 4250,
+        "sortKeyTo": 4250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tenya seeks Stain in Hosu"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:manual"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Manual"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "supervision",
+          "revenge motive",
+          "internship boundary"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tenya",
+        "character:manual",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Manual"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "supervision",
+            "revenge motive",
+            "internship boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida’s pursuit of Stain is personal revenge hidden under internship activity, not a sanctioned pro-hero objective.",
+        "injection": "During Hosu, Iida should be outside proper student boundaries when he seeks Stain; Manual is not authorizing revenge.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Iida’s Stain hunt an approved agency mission."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 50-52",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_s_ideology_targets_false_heroes",
+      "title": "Stain’s Ideology Targets False Heroes",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.league-meets-stain",
+        "sortKeyFrom": 4200,
+        "sortKeyTo": 4200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "League of Villains meets Stain"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Hero Killer: Stain"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Stain ideology",
+          "false heroes",
+          "hero purity"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hero-killer",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "topic:stain-ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "Stain ideology",
+            "false heroes",
+            "hero purity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain believes many pro heroes are false heroes motivated by fame or reward, and he kills to enforce his violent ideal of heroic purity.",
+        "injection": "When Stain speaks or acts, frame him as fanatically committed to a distorted hero ideal, not as a random murderer.",
+        "constraints": [
+          "His ideology is dangerous and violent even when it exposes real social hypocrisy."
+        ],
+        "antiLore": [
+          "Do not make Stain morally correct or harmlessly edgy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 49-50",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_rejects_the_league_s_petty_villainy",
+      "title": "Stain Rejects The League’s Petty Villainy",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.league-meets-stain",
+        "sortKeyFrom": 4200,
+        "sortKeyTo": 4200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "League of Villains meets Stain"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:league-of-villains",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Hero Killer: Stain",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Stain and League tension",
+          "villain ideology"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:shigaraki-tomura",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "Stain and League tension",
+            "villain ideology"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain disdains the League’s early chaotic villainy and does not automatically align with Shigaraki’s motives.",
+        "injection": "League/Stain scenes should be ideologically tense; Stain can be useful to the League’s reputation without being a loyal member.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Stain as Shigaraki’s obedient subordinate."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 49-50",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_hosu_attack_splits_public_crisis_and_personal_revenge",
+      "title": "Hosu Attack Splits Public Crisis And Personal Revenge",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.hosu-nomu-attack",
+        "sortKeyFrom": 4300,
+        "sortKeyTo": 4300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Nomu attack erupts in Hosu"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hosu-city",
+          "mha:league-of-villains",
+          "mha:iida-tenya",
+          "mha:stain"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Hero Killer: Stain"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Hosu crisis",
+          "Nomu attack",
+          "private revenge"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tenya",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "location:hosu-city"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "League of Villains",
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "Hosu crisis",
+            "Nomu attack",
+            "private revenge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Hosu incident combines a public Nomu crisis with Iida’s private attempt to confront Stain.",
+        "injection": "During Hosu, keep the city-wide villain attack and Iida’s personal revenge thread active at the same time.",
+        "constraints": [],
+        "antiLore": [
+          "Do not collapse Hosu into only the alley fight or only the Nomu attack."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 50-52",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_iida_s_revenge_violates_his_own_hero_ideal",
+      "title": "Iida’s Revenge Violates His Own Hero Ideal",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-attacks-iida",
+        "sortKeyFrom": 4350,
+        "sortKeyTo": 4350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain disables Tenya Iida"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:stain",
+          "mha:iida-tensei"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Hero Killer: Stain",
+          "Tensei Iida"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "revenge",
+          "hero ideal",
+          "Ingenium legacy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tensei",
+        "character:iida-tenya",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:ingenium"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Hero Killer: Stain",
+            "Tensei Iida"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "revenge",
+            "hero ideal",
+            "Ingenium legacy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida’s attack on Stain is driven by revenge and violates the disciplined hero ideal he normally tries to embody.",
+        "injection": "When Iida confronts Stain, his anger should distort his judgment; he is not operating as a clean model hero in that moment.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Iida’s revenge as wholly righteous or professionally controlled."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 51-52",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_s_bloodcurdle_depends_on_blood_type_duration",
+      "title": "Stain’s Bloodcurdle Depends On Blood Type Duration",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-attacks-iida",
+        "sortKeyFrom": 4350,
+        "sortKeyTo": 4350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain disables Tenya Iida"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain"
+        ],
+        "characters": [
+          "Hero Killer: Stain"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Bloodcurdle Quirk",
+          "blood ingestion",
+          "paralysis duration"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hero-killer",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:bloodcurdle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "Bloodcurdle Quirk",
+            "blood ingestion",
+            "paralysis duration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain’s Bloodcurdle paralyzes a target after he ingests their blood, with paralysis duration varying by blood type.",
+        "injection": "When Stain fights, make blood access tactically central. A cut, blade, and blood ingestion are required before paralysis applies.",
+        "constraints": [
+          "The Quirk is dangerous because Stain is skilled enough to draw blood."
+        ],
+        "antiLore": [
+          "Do not make Bloodcurdle paralyze at range without blood ingestion."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 51-52",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_izuku_arrives_because_he_reads_iida_s_warning_signs",
+      "title": "Izuku Arrives Because He Reads Iida’s Warning Signs",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.midoriya-arrives",
+        "sortKeyFrom": 4400,
+        "sortKeyTo": 4400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku arrives to help Iida"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:iida-tenya"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tenya Iida"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "friendship intervention",
+          "warning signs",
+          "Hosu alley"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tenya",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tenya Iida"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "friendship intervention",
+            "warning signs",
+            "Hosu alley"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku reaches Iida because he recognizes that Iida’s behavior signals hidden danger and follows up instead of dismissing it.",
+        "injection": "Izuku’s rescue of Iida should arise from concern and pattern-reading, not random coincidence.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Izuku oblivious to Iida’s emotional state."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 52",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_responds_to_izuku_s_location_message",
+      "title": "Todoroki Responds To Izuku’s Location Message",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.todoroki-arrives",
+        "sortKeyFrom": 4450,
+        "sortKeyTo": 4450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shoto arrives to support Izuku and Iida"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:midoriya-izuku",
+          "mha:iida-tenya"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Izuku Midoriya",
+          "Tenya Iida"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "location message",
+          "rescue support",
+          "team response"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tenya",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city",
+        "relationship:midoriya-todoroki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Izuku Midoriya",
+            "Tenya Iida"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "location message",
+            "rescue support",
+            "team response"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Todoroki joins the fight because Izuku sends a location message, showing his growing trust and practical responsiveness.",
+        "injection": "In Hosu, Todoroki should arrive as a deliberate ally responding to Izuku’s signal, not as an unrelated passerby.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Todoroki omniscient about Iida’s location."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 53",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_the_students_defeat_stain_but_cannot_publicly_claim_credit",
+      "title": "The Students Defeat Stain But Cannot Publicly Claim Credit",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-defeated",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain is defeated by the students"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:iida-tenya",
+          "mha:todoroki-shoto",
+          "mha:stain"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tenya Iida",
+          "Shoto Todoroki",
+          "Hero Killer: Stain"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "credit cover-up",
+          "student illegality",
+          "Hosu aftermath"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tenya",
+        "character:midoriya-izuku",
+        "character:stain",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city",
+        "topic:hero-licensing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tenya Iida",
+            "Shoto Todoroki",
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "credit cover-up",
+            "student illegality",
+            "Hosu aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku, Iida, and Todoroki defeat Stain, but because they acted without proper authorization, the official credit cannot simply go to them publicly.",
+        "injection": "After Hosu, keep the cover-up and legal risk clear: the students did something heroic but outside proper student authority.",
+        "constraints": [
+          "Adults may privately acknowledge what happened."
+        ],
+        "antiLore": [
+          "Do not give the students public official credit without consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 54-56",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:iida-tenya",
+          "mha:todoroki-shoto"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_s_final_stand_inspires_future_villains",
+      "title": "Stain’s Final Stand Inspires Future Villains",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-ideology-spreads",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain ideology spreads after Hosu"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:league-of-villains",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Hero Killer: Stain",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Stain broadcast impact",
+          "villain recruitment",
+          "ideology spread"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:shigaraki-tomura",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "topic:stain-ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "Stain broadcast impact",
+            "villain recruitment",
+            "ideology spread"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain's defeat spreads his ideology and attracts villains even though he loses the fight.",
+        "injection": "After Hosu, Stain should influence public villain discourse; do not treat his capture as ideological closure.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Stain deliberately recruit for Shigaraki."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 56-58",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_shigaraki_resents_stain_s_public_influence",
+      "title": "Shigaraki Resents Stain’s Public Influence",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-ideology-spreads",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain ideology spreads after Hosu"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:stain",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Hero Killer: Stain"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "resentment",
+          "villain branding",
+          "ideology envy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:shigaraki-tomura",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "resentment",
+            "villain branding",
+            "ideology envy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki resents that Stain’s ideology gains public traction while his own destructive motive remains unfocused.",
+        "injection": "Post-Hosu Shigaraki should feel irritated and challenged by Stain’s influence rather than maturely grateful.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Shigaraki as fully ideologically developed yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 56-58",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_all_for_one_remains_a_hidden_backer",
+      "title": "All For One Remains A Hidden Backer",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.ofa-afo-origin-lesson",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might explains One For All and All For One origins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:all-might"
+        ],
+        "characters": [
+          "All For One",
+          "Tomura Shigaraki",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "hidden master",
+          "League backing",
+          "future threat"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-for-one",
+        "character:all-might",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "secret:all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Tomura Shigaraki",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "hidden master",
+            "League backing",
+            "future threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One remains a hidden backer behind Shigaraki and the League, but most characters do not know his current role.",
+        "injection": "In this period, All For One should operate as a concealed background force, not as a public battlefield presence.",
+        "constraints": [
+          "All Might knows the old threat but not every current move."
+        ],
+        "antiLore": [
+          "Do not reveal All For One’s direct role to ordinary students or the public yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 59",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_all_might_explains_one_for_all_and_all_for_one_history_privately",
+      "title": "All Might Explains One For All And All For One History Privately",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.ofa-afo-origin-lesson",
+        "sortKeyFrom": 4600,
+        "sortKeyTo": 4600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might explains One For All and All For One origins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:one-for-all",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "OFA origin",
+          "AFO origin",
+          "private lesson"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-for-one",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:all-for-one",
+        "quirk:one-for-all",
+        "relationship:all-might-deku"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "OFA origin",
+            "AFO origin",
+            "private lesson"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might privately explains the history of One For All and All For One to Izuku after the Stain incident.",
+        "injection": "After the Stain arc, Izuku can know the broad One For All versus All For One origin, but this remains private successor knowledge.",
+        "constraints": [
+          "This is still not public knowledge."
+        ],
+        "antiLore": [
+          "Do not let Class 1-A casually know the OFA/AFO lineage."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 59",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:general-studies"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_gran_torino_knows_all_might_s_past_more_than_izuku_does",
+      "title": "Gran Torino Knows All Might’s Past More Than Izuku Does",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.gran-torino-enters",
+        "sortKeyFrom": 4100,
+        "sortKeyTo": 4100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gran Torino takes Izuku as intern"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gran-torino",
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Gran Torino",
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "All Might past",
+          "mentor history",
+          "OFA secrecy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-might",
+        "character:gran-torino",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:all-might",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gran Torino",
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "topicsAny": [
+            "All Might past",
+            "mentor history",
+            "OFA secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gran Torino understands far more about All Might’s past and One For All training history than Izuku initially does.",
+        "injection": "Gran Torino can hint at All Might’s failings and history without exposing every later OFA secret.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Izuku already know All Might’s full training history."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 46-47",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:general-studies"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_full_cowling_lets_izuku_participate_in_real_combat",
+      "title": "Full Cowling Lets Izuku Participate In Real Combat",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.full-cowling-breakthrough",
+        "sortKeyFrom": 4150,
+        "sortKeyTo": 4150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku develops Full Cowling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:full-cowling"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "real combat mobility",
+          "Hosu alley",
+          "early OFA control"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city",
+        "quirk:full-cowling"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "real combat mobility",
+            "Hosu alley",
+            "early OFA control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early Full Cowling lets Izuku meaningfully participate in the Stain fight without destroying himself with every movement.",
+        "injection": "In Hosu combat, Izuku should fight more fluidly than in the Sports Festival while still lacking later power and polish.",
+        "constraints": [],
+        "antiLore": [
+          "Do not remove Stain’s danger just because Izuku has Full Cowling."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 47-48",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_uses_both_sides_more_freely_after_the_festival",
+      "title": "Todoroki Uses Both Sides More Freely After The Festival",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.todoroki-arrives",
+        "sortKeyFrom": 4450,
+        "sortKeyTo": 4450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shoto arrives to support Izuku and Iida"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "ice and fire use",
+          "post-festival Shoto"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:half-cold-half-hot"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "ice and fire use",
+            "post-festival Shoto"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the Sports Festival, Todoroki is more willing to use both ice and fire, but his emotional recovery remains incomplete.",
+        "injection": "In Hosu, Shoto can use fire more practically than before while still carrying unresolved family tension.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray him as emotionally finished with the Endeavor issue."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 53",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_iida_must_choose_rescue_over_revenge",
+      "title": "Iida Must Choose Rescue Over Revenge",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-defeated",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain is defeated by the students"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:iida-tensei",
+          "mha:stain"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Tensei Iida",
+          "Hero Killer: Stain"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "revenge rejection",
+          "hero recovery",
+          "Ingenium legacy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:iida-tensei",
+        "character:iida-tenya",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:ingenium"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Tensei Iida",
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "revenge rejection",
+            "hero recovery",
+            "Ingenium legacy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida’s Hosu arc forces him to confront that revenge is not the same as rescue or heroism.",
+        "injection": "After the Stain fight, Iida should carry shame and resolve about having failed his own hero ideal, not simple victory pride.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Iida immediately dismiss the moral problem of his revenge."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 54-56",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_endeavor_receives_public_credit_in_hosu",
+      "title": "Endeavor Receives Public Credit In Hosu",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-defeated",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain is defeated by the students"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:stain",
+          "mha:hosu-city"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hero Killer: Stain"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public credit",
+          "Hosu cover story"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:endeavor",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hero Killer: Stain"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "public credit",
+            "Hosu cover story"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Public-facing credit around the Hosu incident does not fully reflect the students’ unauthorized role against Stain.",
+        "injection": "Hosu aftermath should preserve the gap between official reporting and what actually happened in the alley.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make the official record straightforwardly credit the students."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 54-56",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:endeavor",
+          "mha:stain",
+          "mha:hosu-city"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_freezes_even_pros_through_force_of_presence",
+      "title": "Stain Freezes Even Pros Through Force Of Presence",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-ideology-spreads",
+        "sortKeyFrom": 4550,
+        "sortKeyTo": 4550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain ideology spreads after Hosu"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:endeavor"
+        ],
+        "characters": [
+          "Hero Killer: Stain",
+          "Endeavor"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Stain final stand",
+          "fear aura",
+          "ideological charisma"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:endeavor",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:hosu-city",
+        "topic:stain-ideology"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "Stain final stand",
+            "fear aura",
+            "ideological charisma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain’s final stand after capture projects such intensity that even experienced heroes momentarily hesitate.",
+        "injection": "When referencing Stain’s aftermath, emphasize that his ideology gains power because his conviction appears terrifyingly absolute.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Stain’s influence depend only on combat skill."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 56-58",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_stain_does_not_know_one_for_all",
+      "title": "Stain Does Not Know One For All",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.stain.stain-defeated",
+        "sortKeyFrom": 4500,
+        "sortKeyTo": 4500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain is defeated by the students"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hero-killer",
+          "label": "Hero Killer",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "internship_state",
+          "id": "mha.internship.workplace-training",
+          "label": "Workplace training",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.stain-ideology-spreads",
+          "label": "Stain ideology begins spreading",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-contacts-stain",
+          "label": "League contacts Stain",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku develops early Full Cowling",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Hero Killer: Stain",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Hosu City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "Stain fight"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quirk:one-for-all",
+        "secret:ofa-transfer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hero Killer: Stain",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Hosu City"
+          ],
+          "factionsAny": [],
+          "topicsAny": [
+            "OFA secrecy",
+            "Stain fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain can recognize Izuku’s heroic impulse without knowing the One For All secret.",
+        "injection": "During and after the Stain fight, do not let Stain identify Izuku as All Might’s successor through OFA knowledge.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Stain omniscient about Izuku’s Quirk lineage."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 54-56",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:general-studies"
+        ]
+      }
+    }
+  ]
+}

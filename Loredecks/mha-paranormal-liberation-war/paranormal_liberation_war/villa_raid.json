@@ -1,0 +1,1939 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_villa_raid_begins_as_suppression_of_a_hidden_army",
+      "title": "Villa Raid Begins As Suppression Of A Hidden Army",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.villa-raid-start",
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gunga Mountain Villa raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:villa-raid-team",
+          "mha:paranormal-liberation-front",
+          "mha:gunga-mountain-villa",
+          "mha:gunga-villa-raid"
+        ],
+        "characters": [],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Gunga Villa Raid"
+        ],
+        "factions": [
+          "Villa Raid Team",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "hidden army",
+          "mass villain force",
+          "suppression raid"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:villa-raid-team",
+        "faction:paranormal-liberation-front",
+        "location:gunga-mountain-villa",
+        "event:gunga-villa-raid",
+        "topic:hidden-army",
+        "topic:mass-villain-force",
+        "topic:suppression-raid"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villa Raid Team",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [
+            "Gunga Villa Raid"
+          ],
+          "topicsAny": [
+            "hidden army",
+            "mass villain force",
+            "suppression raid"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Gunga Mountain Villa raid targets a hidden PLF mass organization before it can mobilize openly.",
+        "injection": "Use the villa front as an army-suppression operation. Heroes are trying to prevent thousands of villains from scattering or joining Shigaraki.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-263",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_kaminari_frontline_moment_shows_student_courage_under_terror",
+      "title": "Kaminari Frontline Moment Shows Student Courage Under Terror",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.kaminari-frontline",
+        "sortKeyFrom": 16025,
+        "sortKeyTo": 16025,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kaminari absorbs PLF opening lightning"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kaminari-denki",
+          "mha:midnight",
+          "mha:u-a-students",
+          "mha:villa-raid-team",
+          "mha:gunga-mountain-villa",
+          "mha:electrification"
+        ],
+        "characters": [
+          "Denki Kaminari",
+          "Midnight"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Electrification"
+        ],
+        "factions": [
+          "U.A. Students",
+          "Villa Raid Team"
+        ],
+        "topics": [
+          "frontline fear",
+          "student courage",
+          "electric absorption"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:kaminari-denki",
+        "character:midnight",
+        "faction:u-a-students",
+        "faction:villa-raid-team",
+        "location:gunga-mountain-villa",
+        "quirk:electrification",
+        "topic:frontline-fear",
+        "topic:student-courage",
+        "topic:electric-absorption"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Denki Kaminari",
+            "Midnight"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "Villa Raid Team"
+          ],
+          "objectsAny": [
+            "Electrification"
+          ],
+          "topicsAny": [
+            "frontline fear",
+            "student courage",
+            "electric absorption"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kaminari is terrified on the front line but still absorbs a major electric attack, showing courage through fear rather than lack of fear.",
+        "injection": "Write Kaminari here as scared but brave. His contribution is meaningful because he acts despite panic.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 263",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hawks_targets_twice_because_double_could_win_the_war",
+      "title": "Hawks Targets Twice Because Double Could Win The War",
+      "kind": "objective",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 95,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hawks-confronts-twice",
+        "sortKeyFrom": 16050,
+        "sortKeyTo": 16050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks confronts Twice in the villa"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:twice",
+          "mha:hero-public-safety-commission",
+          "mha:league-of-villains",
+          "mha:paranormal-liberation-front",
+          "mha:gunga-mountain-villa",
+          "mha:double"
+        ],
+        "characters": [
+          "Hawks",
+          "Twice"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Double"
+        ],
+        "factions": [
+          "Hero Public Safety Commission",
+          "League of Villains",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "Sad Man Parade risk",
+          "strategic assassination",
+          "undercover tragedy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:hawks",
+        "character:twice",
+        "faction:hero-public-safety-commission",
+        "faction:league-of-villains",
+        "faction:paranormal-liberation-front",
+        "location:gunga-mountain-villa",
+        "quirk:double",
+        "topic:sad-man-parade-risk",
+        "topic:strategic-assassination",
+        "topic:undercover-tragedy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Twice"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Hero Public Safety Commission",
+            "League of Villains",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [
+            "Double"
+          ],
+          "topicsAny": [
+            "Sad Man Parade risk",
+            "strategic assassination",
+            "undercover tragedy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks prioritizes Twice because Sad Man’s Parade would let the PLF overwhelm the hero operation through exponential numbers.",
+        "injection": "When Hawks corners Twice, make the choice strategic and tragic: Twice is emotionally vulnerable but tactically catastrophic if free.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 264-266",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_twice_death_should_stay_morally_uncomfortable",
+      "title": "Twice Death Should Stay Morally Uncomfortable",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.twice-death",
+        "sortKeyFrom": 16100,
+        "sortKeyTo": 16100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Twice dies during Hawks confrontation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:twice",
+          "mha:hawks",
+          "mha:toga-himiko",
+          "mha:dabi",
+          "mha:league-of-villains",
+          "mha:hero-public-safety-commission",
+          "mha:gunga-mountain-villa",
+          "mha:double"
+        ],
+        "characters": [
+          "Twice",
+          "Hawks",
+          "Himiko Toga",
+          "Dabi"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Double"
+        ],
+        "factions": [
+          "League of Villains",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "Twice death",
+          "moral injury",
+          "hero violence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:twice",
+        "character:hawks",
+        "character:toga-himiko",
+        "character:dabi",
+        "faction:league-of-villains",
+        "faction:hero-public-safety-commission",
+        "location:gunga-mountain-villa",
+        "quirk:double",
+        "topic:twice-death",
+        "topic:moral-injury",
+        "topic:hero-violence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Twice",
+            "Hawks",
+            "Himiko Toga",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "League of Villains",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [
+            "Double"
+          ],
+          "topicsAny": [
+            "Twice death",
+            "moral injury",
+            "hero violence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Twice dies after Hawks decides he is too dangerous to let escape, creating a morally ugly collision between hero duty and compassion.",
+        "injection": "Do not sanitize Twice’s death. It should leave grief, anger, and moral discomfort for Hawks, Toga, Dabi, and the reader-facing scene.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 266",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_twice_last_clone_protects_toga_and_compress",
+      "title": "Twice Last Clone Protects Toga And Compress",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.twice-death",
+        "sortKeyFrom": 16100,
+        "sortKeyTo": 16100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Twice dies during Hawks confrontation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:twice",
+          "mha:toga-himiko",
+          "mha:mr-compress",
+          "mha:league-of-villains",
+          "mha:gunga-mountain-villa",
+          "mha:double"
+        ],
+        "characters": [
+          "Twice",
+          "Himiko Toga",
+          "Mr. Compress"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Double"
+        ],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "last clone",
+          "League friendship",
+          "Toga grief"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:twice",
+        "character:toga-himiko",
+        "character:mr-compress",
+        "faction:league-of-villains",
+        "location:gunga-mountain-villa",
+        "quirk:double",
+        "topic:last-clone",
+        "topic:league-friendship",
+        "topic:toga-grief"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Twice",
+            "Himiko Toga",
+            "Mr. Compress"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [
+            "Double"
+          ],
+          "topicsAny": [
+            "last clone",
+            "League friendship",
+            "Toga grief"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Before fully disappearing, Twice’s final duplicate protects Toga and Mr. Compress, turning his last act toward the friends who accepted him.",
+        "injection": "If Twice’s death aftermath appears, preserve the emotional point: his last effort is loyalty to the League members he loves.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 266",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_dabi_uses_twice_death_to_attack_hawks_and_hero_legitimacy",
+      "title": "Dabi Uses Twice Death To Attack Hawks And Hero Legitimacy",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-attacks-hawks",
+        "sortKeyFrom": 16125,
+        "sortKeyTo": 16125,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi burns Hawks after Twice death"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:hawks",
+          "mha:twice",
+          "mha:league-of-villains",
+          "mha:hero-society",
+          "mha:gunga-mountain-villa",
+          "mha:blueflame",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Dabi",
+          "Hawks",
+          "Twice"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Blueflame",
+          "Fierce Wings"
+        ],
+        "factions": [
+          "League of Villains",
+          "Hero Society"
+        ],
+        "topics": [
+          "Hawks hypocrisy",
+          "Dabi opportunism",
+          "hero legitimacy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:dabi-toya",
+        "character:dabi",
+        "character:hawks",
+        "character:twice",
+        "faction:league-of-villains",
+        "faction:hero-society",
+        "location:gunga-mountain-villa",
+        "quirk:blueflame",
+        "quirk:fierce-wings",
+        "topic:hawks-hypocrisy",
+        "topic:dabi-opportunism",
+        "topic:hero-legitimacy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Hawks",
+            "Twice"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "League of Villains",
+            "Hero Society"
+          ],
+          "objectsAny": [
+            "Blueflame",
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "Hawks hypocrisy",
+            "Dabi opportunism",
+            "hero legitimacy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi exploits Twice’s death to attack Hawks physically and morally, using the killing as evidence against hero society.",
+        "injection": "Write Dabi’s reaction as opportunistic as well as angry. He uses the moment to burn Hawks and weaponize hypocrisy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 267-271",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_tokoyami_rescue_preserves_hawks_but_not_his_wings",
+      "title": "Tokoyami Rescue Preserves Hawks But Not His Wings",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.tokoyami-rescues-hawks",
+        "sortKeyFrom": 16150,
+        "sortKeyTo": 16150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tokoyami rescues Hawks from Dabi"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tokoyami-fumikage",
+          "mha:hawks",
+          "mha:dabi",
+          "mha:u-a-students",
+          "mha:pro-heroes",
+          "mha:gunga-mountain-villa",
+          "mha:fierce-wings",
+          "mha:dark-shadow"
+        ],
+        "characters": [
+          "Fumikage Tokoyami",
+          "Hawks",
+          "Dabi"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [
+          "Fierce Wings",
+          "Dark Shadow"
+        ],
+        "factions": [
+          "U.A. Students",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Hawks injury",
+          "student rescue",
+          "wing damage"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:tokoyami-fumikage",
+        "character:hawks",
+        "character:dabi",
+        "faction:u-a-students",
+        "faction:pro-heroes",
+        "location:gunga-mountain-villa",
+        "quirk:fierce-wings",
+        "quirk:dark-shadow",
+        "topic:hawks-injury",
+        "topic:student-rescue",
+        "topic:wing-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Fumikage Tokoyami",
+            "Hawks",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings",
+            "Dark Shadow"
+          ],
+          "topicsAny": [
+            "Hawks injury",
+            "student rescue",
+            "wing damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tokoyami saves Hawks from Dabi, but Hawks is badly burned and his wings are functionally devastated.",
+        "injection": "After Tokoyami’s rescue, Hawks survives but must not operate as an uninjured top-speed aerial hero.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 271",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_villa_command_structure_breaks_as_machia_moves",
+      "title": "Villa Command Structure Breaks As Machia Moves",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.gigantomachia-awakens",
+        "sortKeyFrom": 16200,
+        "sortKeyTo": 16200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gigantomachia wakes and moves for Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gigantomachia-march",
+          "label": "Gigantomachia march",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gigantomachia",
+          "mha:villa-raid-team",
+          "mha:paranormal-liberation-front",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Gigantomachia"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villa Raid Team",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "operation breakdown",
+          "Machia movement",
+          "damage control"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:gigantomachia",
+        "faction:villa-raid-team",
+        "faction:paranormal-liberation-front",
+        "location:gunga-mountain-villa",
+        "topic:operation-breakdown",
+        "topic:machia-movement",
+        "topic:damage-control"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gigantomachia"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villa Raid Team",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "operation breakdown",
+            "Machia movement",
+            "damage control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Once Gigantomachia moves, the villa raid stops being a contained suppression operation and becomes a pursuit and damage-control crisis.",
+        "injection": "After Machia wakes, shift villa scenes from arrest-and-contain to desperate obstruction, evacuation, and pursuit.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-276",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_plf_lieutenants_are_not_ordinary_street_villains",
+      "title": "PLF Lieutenants Are Not Ordinary Street Villains",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.villa-raid-start",
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gunga Mountain Villa raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:re-destro",
+          "mha:skeptic",
+          "mha:geten",
+          "mha:paranormal-liberation-front",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Re-Destro",
+          "Skeptic",
+          "Geten"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "paramilitary structure",
+          "PLF command",
+          "organized villains"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:re-destro",
+        "character:skeptic",
+        "character:geten",
+        "faction:paranormal-liberation-front",
+        "location:gunga-mountain-villa",
+        "topic:paramilitary-structure",
+        "topic:plf-command",
+        "topic:organized-villains"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Re-Destro",
+            "Skeptic",
+            "Geten"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "paramilitary structure",
+            "PLF command",
+            "organized villains"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The PLF includes organized lieutenants, ideology, infrastructure, and mass membership; its commanders are not just scattered League followers.",
+        "injection": "In villa scenes, treat the PLF as an organized paramilitary movement with command layers, not a handful of random villains.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-263",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_geten_makes_the_villa_front_a_large_scale_terrain_fight",
+      "title": "Geten Makes The Villa Front A Large-Scale Terrain Fight",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 79,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.villa-raid-start",
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gunga Mountain Villa raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:geten",
+          "mha:paranormal-liberation-front",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Geten"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "ice terrain",
+          "battlefield control",
+          "PLF lieutenant"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:geten",
+        "faction:paranormal-liberation-front",
+        "location:gunga-mountain-villa",
+        "topic:ice-terrain",
+        "topic:battlefield-control",
+        "topic:plf-lieutenant"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Geten"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "ice terrain",
+            "battlefield control",
+            "PLF lieutenant"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Geten’s ice manipulation can shape terrain and battlefield conditions across the villa front.",
+        "injection": "When Geten is active, use large-scale terrain control and environmental pressure, not only direct attacks.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-263",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_skeptic_turns_the_war_into_information_warfare",
+      "title": "Skeptic Turns The War Into Information Warfare",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.villa-raid-start",
+        "sortKeyFrom": 16000,
+        "sortKeyTo": 16000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gunga Mountain Villa raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:skeptic",
+          "mha:paranormal-liberation-front",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Skeptic"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "information warfare",
+          "media control",
+          "propaganda"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:skeptic",
+        "faction:paranormal-liberation-front",
+        "location:gunga-mountain-villa",
+        "topic:information-warfare",
+        "topic:media-control",
+        "topic:propaganda"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Skeptic"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "information warfare",
+            "media control",
+            "propaganda"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Skeptic’s role connects PLF operations to media manipulation, data systems, and public narrative warfare.",
+        "injection": "Use Skeptic for communications, propaganda, and control systems. His threat is not primarily physical combat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-263",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hawks_friendship_with_twice_makes_the_kill_worse_not_easier",
+      "title": "Hawks Friendship With Twice Makes The Kill Worse Not Easier",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.twice-death",
+        "sortKeyFrom": 16100,
+        "sortKeyTo": 16100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Twice dies during Hawks confrontation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:twice",
+          "mha:hero-public-safety-commission",
+          "mha:league-of-villains",
+          "mha:gunga-mountain-villa"
+        ],
+        "characters": [
+          "Hawks",
+          "Twice"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission",
+          "League of Villains"
+        ],
+        "topics": [
+          "undercover bond",
+          "tragic rapport",
+          "mission cruelty"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:hawks",
+        "character:twice",
+        "faction:hero-public-safety-commission",
+        "faction:league-of-villains",
+        "location:gunga-mountain-villa",
+        "topic:undercover-bond",
+        "topic:tragic-rapport",
+        "topic:mission-cruelty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Twice"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Hero Public Safety Commission",
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "undercover bond",
+            "tragic rapport",
+            "mission cruelty"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks has built real rapport with Twice while undercover, which makes the killing emotionally and morally heavier.",
+        "injection": "Do not write Hawks as detached from Twice. The mission choice is colder because genuine rapport existed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 266",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_toga_grief_after_twice_should_change_her_later_behavior",
+      "title": "Toga Grief After Twice Should Change Her Later Behavior",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.twice-death",
+        "sortKeyFrom": 16100,
+        "sortKeyTo": 16100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Twice dies during Hawks confrontation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:twice",
+          "mha:uraraka-ochaco",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Himiko Toga",
+          "Twice",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Toga grief",
+          "Twice aftermath",
+          "hero hypocrisy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:toga-himiko",
+        "character:twice",
+        "character:uraraka-ochaco",
+        "faction:league-of-villains",
+        "topic:toga-grief",
+        "topic:twice-aftermath",
+        "topic:hero-hypocrisy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga",
+            "Twice",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Toga grief",
+            "Twice aftermath",
+            "hero hypocrisy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Twice’s death hardens and destabilizes Toga, intensifying her later confrontations with heroes.",
+        "injection": "After Twice dies, Toga should carry grief and anger into scenes, especially around Ochaco and hero hypocrisy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 266",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

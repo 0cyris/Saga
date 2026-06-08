@@ -1,0 +1,3571 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_final_exams_test_written_skill_and_practical_judgment",
+      "title": "Final Exams Test Written Skill And Practical Judgment",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.exam-week-begins",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final exam week begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:final-exams",
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "written exams",
+          "practical exams",
+          "end of term"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "written exams",
+            "practical exams",
+            "end of term"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The end-of-term exam combines academic written tests with a practical exercise that tests judgment under pressure.",
+        "injection": "During Final Exams, treat U.A. as testing more than combat strength: students must show judgment, cooperation, and preparation.",
+        "constraints": [],
+        "antiLore": [
+          "Do not reduce the exam arc to only one fight against All Might."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 60",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_momo_becomes_a_study_leader",
+      "title": "Momo Becomes A Study Leader",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.exam-week-begins",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final exam week begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "study group",
+          "class support",
+          "Momo confidence"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "character:yaoyorozu-momo",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "study group",
+            "class support",
+            "Momo confidence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Momo helps classmates study, showing academic competence and a desire to be useful before her confidence is tested in combat.",
+        "injection": "Before the practical exam, Momo can act as a serious study leader, while still carrying insecurity about live decision-making.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Momo as lacking intelligence or preparation."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 60",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_teacher_practical_exams_are_tailored_to_student_weaknesses",
+      "title": "Teacher Practical Exams Are Tailored To Student Weaknesses",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.teacher-practical-reveal",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Teachers reveal practical exam twist"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:final-exams",
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "teacher matchups",
+          "weakness testing",
+          "practical exam design"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "teacher matchups",
+            "weakness testing",
+            "practical exam design"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The practical exam pairs students against teachers in matchups designed to pressure their specific weaknesses.",
+        "injection": "Teacher exam matchups should feel deliberately instructional; U.A. is testing known flaws, not randomly arranging fights.",
+        "constraints": [
+          "Teachers may use severe methods within exam constraints."
+        ],
+        "antiLore": [
+          "Do not portray pairings as arbitrary tournament brackets."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 60-61",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_escape_is_a_valid_exam_win_condition",
+      "title": "Escape Is A Valid Exam Win Condition",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.teacher-practical-reveal",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Teachers reveal practical exam twist"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:final-exams",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "exam win condition",
+          "escape route",
+          "capture cuffs"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha",
+        "topic:exam-rules"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "exam win condition",
+            "escape route",
+            "capture cuffs"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The practical exams can be passed by escaping or cuffing the teacher, so victory is not always direct defeat.",
+        "injection": "In final exam scenes, students should weigh escape, teamwork, and teacher capture rather than assuming they must overpower a pro.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make every exam require defeating the teacher in raw combat."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 60-61",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_izuku_and_bakugo_are_forced_to_cooperate_against_all_might",
+      "title": "Izuku And Bakugo Are Forced To Cooperate Against All Might",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.deku-bakugo-vs-all-might",
+        "sortKeyFrom": 5150,
+        "sortKeyTo": 5150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo face All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Deku Bakugo teamwork",
+          "All Might exam",
+          "rivalry pressure"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "character:all-might",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Deku Bakugo teamwork",
+            "All Might exam",
+            "rivalry pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku and Bakugo are paired against All Might specifically to force their broken rivalry into practical cooperation.",
+        "injection": "Their exam should be tense and dysfunctional: Izuku seeks strategy and escape, while Bakugo resists cooperation and wants to fight.",
+        "constraints": [
+          "Their teamwork improves only under pressure."
+        ],
+        "antiLore": [
+          "Do not portray them as comfortable partners yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-62, 66-67",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_all_might_plays_the_exam_as_an_overwhelming_wall",
+      "title": "All Might Plays The Exam As An Overwhelming Wall",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.deku-bakugo-vs-all-might",
+        "sortKeyFrom": 5150,
+        "sortKeyTo": 5150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo face All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "All Might pressure",
+          "teacher exam",
+          "symbolic wall"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-might",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha",
+        "hero:all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "All Might pressure",
+            "teacher exam",
+            "symbolic wall"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might functions as a near-overwhelming wall in the exam, forcing Izuku and Bakugo to confront the gap between student ambition and pro-level force.",
+        "injection": "In the All Might practical exam, portray All Might as restrained but terrifyingly dominant compared to first-year students.",
+        "constraints": [
+          "He is teaching, not trying to seriously injure them."
+        ],
+        "antiLore": [
+          "Do not make All Might easy to overpower."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-62, 66-67",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_bakugo_would_rather_fight_than_run",
+      "title": "Bakugo Would Rather Fight Than Run",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.deku-bakugo-vs-all-might",
+        "sortKeyFrom": 5150,
+        "sortKeyTo": 5150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo face All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "refusal to run",
+          "pride",
+          "All Might exam"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "character:all-might",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "hero:all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "refusal to run",
+            "pride",
+            "All Might exam"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s pride makes him resist an escape-based strategy against All Might even when fighting directly is irrational.",
+        "injection": "During the All Might exam, Bakugo should struggle to accept running as a valid tactical win.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Bakugo immediately agree to cautious strategy."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-62, 66-67",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_izuku_carries_bakugo_toward_the_exit",
+      "title": "Izuku Carries Bakugo Toward The Exit",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.deku-bakugo-vs-all-might",
+        "sortKeyFrom": 5150,
+        "sortKeyTo": 5150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo face All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "exam escape",
+          "forced teamwork",
+          "Deku and Bakugo"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:all-might",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "exam escape",
+            "forced teamwork",
+            "Deku and Bakugo"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku helps force the winning condition by carrying Bakugo toward escape despite their conflict.",
+        "injection": "The exam resolution should preserve reluctant cooperation: Izuku acts decisively even while their relationship remains hostile.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make this a full friendship reconciliation."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-62, 66-67",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_yaoyorozu_must_regain_command_confidence",
+      "title": "Yaoyorozu Must Regain Command Confidence",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.yaoyorozu-todoroki-vs-aizawa",
+        "sortKeyFrom": 5100,
+        "sortKeyTo": 5100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yaoyorozu and Todoroki face Aizawa"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yaoyorozu-momo",
+          "mha:todoroki-shoto",
+          "mha:aizawa-shota"
+        ],
+        "characters": [
+          "Momo Yaoyorozu",
+          "Shoto Todoroki",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Momo confidence",
+          "command decision",
+          "Aizawa exam"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:aizawa-shota",
+        "character:todoroki-shoto",
+        "character:yaoyorozu-momo",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Momo Yaoyorozu",
+            "Shoto Todoroki",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Momo confidence",
+            "command decision",
+            "Aizawa exam"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Momo’s exam with Todoroki tests her ability to trust her own planning under pressure after losing confidence from the Sports Festival.",
+        "injection": "In Momo/Todoroki vs. Aizawa, center Momo’s recovery of decision-making authority rather than making Shoto solve the problem for her.",
+        "constraints": [],
+        "antiLore": [
+          "Do not portray Momo as merely support equipment for Shoto."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-63",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_todoroki_defers_to_momo_s_plan",
+      "title": "Todoroki Defers To Momo’s Plan",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.yaoyorozu-todoroki-vs-aizawa",
+        "sortKeyFrom": 5100,
+        "sortKeyTo": 5100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yaoyorozu and Todoroki face Aizawa"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:yaoyorozu-momo"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Momo Yaoyorozu"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "trusting Momo",
+          "team respect",
+          "exam growth"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "character:todoroki-shoto",
+        "character:yaoyorozu-momo",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Momo Yaoyorozu"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "trusting Momo",
+            "team respect",
+            "exam growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Todoroki deliberately supports Momo’s leadership during their practical exam, helping her rebuild confidence.",
+        "injection": "Use Todoroki’s restraint in this exam as respect for Momo’s judgment, not as inability to act.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Todoroki dominate the exam plan."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-63",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_aizawa_tests_planning_under_quirk_suppression",
+      "title": "Aizawa Tests Planning Under Quirk Suppression",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.yaoyorozu-todoroki-vs-aizawa",
+        "sortKeyFrom": 5100,
+        "sortKeyTo": 5100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Yaoyorozu and Todoroki face Aizawa"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:yaoyorozu-momo",
+          "mha:todoroki-shoto"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Momo Yaoyorozu",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "Erasure",
+          "planning under pressure",
+          "teacher exam"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:aizawa-shota",
+        "character:todoroki-shoto",
+        "character:yaoyorozu-momo",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha",
+        "quirk:erasure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Momo Yaoyorozu",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "Erasure",
+            "planning under pressure",
+            "teacher exam"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa’s Erasure pressures students who depend on Quirk output to use planning, timing, and environment.",
+        "injection": "Against Aizawa, Quirk strength alone must not solve the exam; timing and deception matter because Erasure can shut abilities down.",
+        "constraints": [],
+        "antiLore": [
+          "Do not let students ignore Erasure as a tactical constraint."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-63",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_mineta_passes_by_exploiting_midnight_s_weakness",
+      "title": "Mineta Passes By Exploiting Midnight’s Weakness",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.other-pairs-resolve",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Other final exam pairs resolve their weaknesses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mineta-minoru",
+          "mha:sero-hanta",
+          "mha:midnight"
+        ],
+        "characters": [
+          "Minoru Mineta",
+          "Hanta Sero",
+          "Midnight"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Mineta exam",
+          "Midnight weakness",
+          "practical test"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midnight",
+        "character:mineta-minoru",
+        "character:sero-hanta",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Minoru Mineta",
+            "Hanta Sero",
+            "Midnight"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Mineta exam",
+            "Midnight weakness",
+            "practical test"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mineta passes the practical by exploiting Midnight’s weakness and using the exam rules despite his fear and poor motives.",
+        "injection": "If referencing Mineta’s exam, focus on rule exploitation and fear management rather than making him generally heroic.",
+        "constraints": [],
+        "antiLore": [
+          "Do not turn Mineta into a noble combat leader."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 64-66",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_tokoyami_and_tsuyu_face_ectoplasm_s_numbers",
+      "title": "Tokoyami And Tsuyu Face Ectoplasm’s Numbers",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.other-pairs-resolve",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Other final exam pairs resolve their weaknesses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:tokoyami-fumikage",
+          "mha:asui-tsuyu",
+          "mha:ectoplasm"
+        ],
+        "characters": [
+          "Fumikage Tokoyami",
+          "Tsuyu Asui",
+          "Ectoplasm"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Ectoplasm clones",
+          "exam pairing",
+          "capture challenge"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:asui-tsuyu",
+        "character:ectoplasm",
+        "character:tokoyami-fumikage",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Fumikage Tokoyami",
+            "Tsuyu Asui",
+            "Ectoplasm"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Ectoplasm clones",
+            "exam pairing",
+            "capture challenge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tokoyami and Tsuyu’s exam against Ectoplasm pressures them with clone numbers and a capture problem rather than a simple duel.",
+        "injection": "Use Ectoplasm’s exam as a tactical numbers problem that rewards coordination and escape thinking.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Ectoplasm a normal one-body opponent."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 64-66",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_aoyama_and_uraraka_face_thirteen_s_rescue_hazard_power",
+      "title": "Aoyama And Uraraka Face Thirteen’s Rescue-Hazard Power",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.other-pairs-resolve",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Other final exam pairs resolve their weaknesses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:uraraka-ochaco",
+          "mha:thirteen"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "Ochaco Uraraka",
+          "Thirteen"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Thirteen exam",
+          "Black Hole hazard",
+          "rescue training"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:aoyama-yuga",
+        "character:thirteen",
+        "character:uraraka-ochaco",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "Ochaco Uraraka",
+            "Thirteen"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Thirteen exam",
+            "Black Hole hazard",
+            "rescue training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama and Uraraka’s exam against Thirteen turns rescue-oriented power into a dangerous battlefield constraint.",
+        "injection": "Against Thirteen, treat positioning and safety as central; Black Hole-like power makes reckless approach dangerous.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Thirteen’s power harmless because this is an exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 64-66",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_koda_must_overcome_communication_fear",
+      "title": "Koda Must Overcome Communication Fear",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.other-pairs-resolve",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Other final exam pairs resolve their weaknesses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:koda-koji",
+          "mha:present-mic",
+          "mha:jiro-kyoka"
+        ],
+        "characters": [
+          "Koji Koda",
+          "Present Mic",
+          "Kyoka Jiro"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Koda animals",
+          "communication fear",
+          "Present Mic exam"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:jiro-kyoka",
+        "character:koda-koji",
+        "character:present-mic",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Koji Koda",
+            "Present Mic",
+            "Kyoka Jiro"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Koda animals",
+            "communication fear",
+            "Present Mic exam"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Koda’s exam pressures his fear of insects and communication, forcing him to use Anivoice under stress.",
+        "injection": "In Koda’s exam, his breakthrough should be quiet courage through communication rather than flashy combat aggression.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Koda suddenly loud and brash as a personality change."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 64-66",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_shigaraki_confronts_izuku_in_public_without_a_battle",
+      "title": "Shigaraki Confronts Izuku In Public Without A Battle",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.shigaraki-mall-confrontation",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki confronts Izuku at the mall"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Shopping mall"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "mall confrontation",
+          "public hostage pressure",
+          "villain creed"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Shopping mall"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "mall confrontation",
+            "public hostage pressure",
+            "villain creed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki confronts Izuku at the mall by threatening him in public, creating psychological pressure rather than an open fight.",
+        "injection": "During the mall encounter, keep the danger quiet and social: Shigaraki’s hand on Izuku and the crowd around them prevent a normal battle.",
+        "constraints": [],
+        "antiLore": [
+          "Do not turn the mall encounter into a public brawl."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 68-69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_shigaraki_begins_clarifying_his_hatred_through_stain",
+      "title": "Shigaraki Begins Clarifying His Hatred Through Stain",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.shigaraki-mall-confrontation",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki confronts Izuku at the mall"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:stain",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Hero Killer: Stain",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Shopping mall"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "villain creed",
+          "Stain comparison",
+          "All Might hatred"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "character:stain",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Hero Killer: Stain",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Shopping mall"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "villain creed",
+            "Stain comparison",
+            "All Might hatred"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The mall conversation helps Shigaraki clarify that he hates All Might and the society built around him, not merely isolated targets.",
+        "injection": "Post-mall Shigaraki should be more focused than post-USJ, but still immature compared with later arcs.",
+        "constraints": [],
+        "antiLore": [
+          "Do not give Shigaraki his later fully evolved ideology yet."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 68-69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_summer_camp_setup_should_foreshadow_increased_training",
+      "title": "Summer Camp Setup Should Foreshadow Increased Training",
+      "kind": "event_anchor",
+      "category": "timeline",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.summer-camp-setup",
+        "sortKeyFrom": 5350,
+        "sortKeyTo": 5350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Summer training camp is set up"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "summer training camp",
+          "next arc setup"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "summer training camp",
+            "next arc setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After final exams, the story moves toward summer training camp as U.A. escalates student development after recent villain pressure.",
+        "injection": "At the end of this deck, summer camp should be framed as the next supervised training step, not yet the Vanguard Squad attack.",
+        "constraints": [],
+        "antiLore": [
+          "Do not leak the training camp attack before that deck’s Context."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_nezu_designs_exams_like_a_strategist",
+      "title": "Nezu Designs Exams Like A Strategist",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.teacher-practical-reveal",
+        "sortKeyFrom": 5050,
+        "sortKeyTo": 5050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Teachers reveal practical exam twist"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nezu",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Nezu"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "exam design",
+          "strategic testing",
+          "principal Nezu"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:nezu",
+        "continuity:mha-manga-main",
+        "event:final-exams",
+        "fandom:mha",
+        "school:ua-high"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nezu"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "exam design",
+            "strategic testing",
+            "principal Nezu"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nezu’s exam design reflects strategic intelligence and a willingness to stress-test students with uncomfortable matchups.",
+        "injection": "Use Nezu as institution-level intelligence behind the exam structure, not as a passive mascot principal.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make exam matchups feel accidental."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 60-61",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_cementoss_turns_terrain_into_an_endurance_wall",
+      "title": "Cementoss Turns Terrain Into An Endurance Wall",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.other-pairs-resolve",
+        "sortKeyFrom": 5200,
+        "sortKeyTo": 5200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Other final exam pairs resolve their weaknesses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:cementoss",
+          "mha:kirishima-eijiro",
+          "mha:sato-rikido"
+        ],
+        "characters": [
+          "Cementoss",
+          "Eijiro Kirishima",
+          "Rikido Sato"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "terrain control",
+          "cement walls",
+          "endurance test"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:cementoss",
+        "character:kirishima-eijiro",
+        "character:sato-rikido",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Cementoss",
+            "Eijiro Kirishima",
+            "Rikido Sato"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "terrain control",
+            "cement walls",
+            "endurance test"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Cementoss can turn the exam into a terrain and endurance problem by rapidly generating cement barriers.",
+        "injection": "Against Cementoss, raw durability and strength should still struggle against terrain control and attrition.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Cementoss a weak background teacher."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 64-66",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_final_exams_do_not_erase_stain_aftermath",
+      "title": "Final Exams Do Not Erase Stain Aftermath",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "temporal_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.exam-week-begins",
+        "sortKeyFrom": 5000,
+        "sortKeyTo": 5000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final exam week begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:stain",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Stain aftermath",
+          "school return",
+          "public rumors"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "character:iida-tenya",
+        "character:stain",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Stain aftermath",
+            "school return",
+            "public rumors"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The final exam period happens after Hosu, so Stain’s effects on reputation, rumors, and Iida’s emotional state remain relevant.",
+        "injection": "During Final Exams, Hosu must not vanish from continuity; Iida and public perception still carry its aftermath.",
+        "constraints": [],
+        "antiLore": [
+          "Do not reset the cast emotionally to pre-Stain status."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 60",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:iida-tenya",
+          "mha:stain",
+          "mha:class-1a"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_bakugo_and_izuku_still_lack_mutual_trust",
+      "title": "Bakugo And Izuku Still Lack Mutual Trust",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.deku-bakugo-vs-all-might",
+        "sortKeyFrom": 5150,
+        "sortKeyTo": 5150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku and Bakugo face All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "rivalry distrust",
+          "forced teamwork"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "relationship:bakugo-deku"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "rivalry distrust",
+            "forced teamwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even after the Sports Festival and Stain, Bakugo and Izuku do not yet have mutual trust; the exam exposes that dysfunction.",
+        "injection": "Their forced partnership should remain raw and hostile, with cooperation achieved under pressure rather than emotional resolution.",
+        "constraints": [],
+        "antiLore": [
+          "Do not jump to their later understanding."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-62, 66-67",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_mall_civilians_make_shigaraki_s_threat_effective",
+      "title": "Mall Civilians Make Shigaraki’s Threat Effective",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.shigaraki-mall-confrontation",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki confronts Izuku at the mall"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Shopping mall"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "civilian crowd",
+          "hostage pressure",
+          "quiet threat"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "topic:civilians"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Shopping mall"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "civilian crowd",
+            "hostage pressure",
+            "quiet threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The mall crowd makes Shigaraki’s threat effective because Izuku cannot safely escalate without risking civilians.",
+        "injection": "In the mall encounter, civilian density should restrain hero action and make the threat psychologically tight.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make Izuku freely fight Shigaraki in the mall."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 68-69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_police_and_adults_do_not_fully_understand_the_mall_talk",
+      "title": "Police And Adults Do Not Fully Understand The Mall Talk",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.shigaraki-mall-confrontation",
+        "sortKeyFrom": 5300,
+        "sortKeyTo": 5300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki confronts Izuku at the mall"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Shopping mall"
+        ],
+        "objects": [],
+        "factions": [
+          "Police",
+          "U.A. High School"
+        ],
+        "topics": [
+          "private villain encounter",
+          "incomplete adult knowledge"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:final-exams",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "fandom:mha"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Shopping mall"
+          ],
+          "factionsAny": [
+            "Police",
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "private villain encounter",
+            "incomplete adult knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The mall confrontation is an intimate threat that adults can respond to afterward but cannot fully control in the moment.",
+        "injection": "After the mall encounter, adults may know Shigaraki approached Izuku, but the psychological content of the conversation remains mostly Izuku’s burden.",
+        "constraints": [],
+        "antiLore": [
+          "Do not make the encounter an open official interrogation scene while it is happening."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 68-69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_sports_stain_finals_forest_camp_attack_must_stay_future_gated",
+      "title": "Forest Camp Attack Must Stay Future-Gated",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.finals.summer-camp-setup",
+        "sortKeyFrom": 5350,
+        "sortKeyTo": 5350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Summer training camp is set up"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-exams",
+          "label": "Final Exams",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "exam_stage",
+          "id": "mha.exam.teacher-practical",
+          "label": "Teacher practical exams",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-practical-exam-escalation",
+          "label": "U.A. escalates combat training",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-recruitment-signal",
+          "label": "League recruitment signal after Stain",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:league-of-villains",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "future guard",
+          "training camp attack",
+          "Vanguard Action Squad"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:forest-training-camp",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "meta:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "future guard",
+            "training camp attack",
+            "Vanguard Action Squad"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At the end of Final Exams, the summer training camp is planned, but the villain attack and Vanguard Action Squad details are still future canon.",
+        "injection": "Before the training camp deck Context, do not leak that villains will attack the camp or that Bakugo will be captured.",
+        "constraints": [
+          "This card is a future guard for the next deck."
+        ],
+        "antiLore": [
+          "Do not foreshadow the attack with specific names, routes, or capture outcomes in ordinary pre-camp scenes."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 69",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

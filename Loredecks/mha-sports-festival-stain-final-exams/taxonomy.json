@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 2,
+  "categories": {
+    "character": {
+      "label": "Character",
+      "description": "character lore cards."
+    },
+    "event": {
+      "label": "Event",
+      "description": "event lore cards."
+    },
+    "location": {
+      "label": "Location",
+      "description": "location lore cards."
+    },
+    "item": {
+      "label": "Item",
+      "description": "item lore cards."
+    },
+    "spell": {
+      "label": "Spell",
+      "description": "spell lore cards."
+    },
+    "faction": {
+      "label": "Faction",
+      "description": "faction lore cards."
+    },
+    "relationship": {
+      "label": "Relationship",
+      "description": "relationship lore cards."
+    },
+    "rule": {
+      "label": "Rule",
+      "description": "rule lore cards."
+    },
+    "timeline": {
+      "label": "Timeline",
+      "description": "timeline lore cards."
+    },
+    "knowledge": {
+      "label": "Knowledge",
+      "description": "knowledge lore cards."
+    },
+    "secret": {
+      "label": "Secret",
+      "description": "secret lore cards."
+    },
+    "other": {
+      "label": "Other",
+      "description": "other lore cards."
+    }
+  },
+  "canonStatuses": {
+    "canon": {
+      "label": "Canon"
+    },
+    "au": {
+      "label": "AU"
+    }
+  },
+  "truthStatuses": {
+    "true": {
+      "label": "True"
+    },
+    "hidden": {
+      "label": "Hidden"
+    },
+    "secret": {
+      "label": "Secret"
+    },
+    "rumor": {
+      "label": "Rumor"
+    }
+  },
+  "revealPolicies": {
+    "public": {
+      "label": "Public"
+    },
+    "private": {
+      "label": "Private"
+    },
+    "contextual": {
+      "label": "Contextual"
+    }
+  }
+}

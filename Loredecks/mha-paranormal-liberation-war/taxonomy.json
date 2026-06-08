@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "categories": {
+    "character": {
+      "label": "Character"
+    },
+    "event": {
+      "label": "Event"
+    },
+    "location": {
+      "label": "Location"
+    },
+    "item": {
+      "label": "Item"
+    },
+    "faction": {
+      "label": "Faction"
+    },
+    "relationship": {
+      "label": "Relationship"
+    },
+    "rule": {
+      "label": "Rule"
+    },
+    "timeline": {
+      "label": "Timeline"
+    },
+    "knowledge": {
+      "label": "Knowledge"
+    },
+    "secret": {
+      "label": "Secret"
+    },
+    "other": {
+      "label": "Other"
+    }
+  },
+  "canonStatuses": {
+    "canon": {
+      "label": "Canon"
+    },
+    "au": {
+      "label": "AU"
+    }
+  },
+  "truthStatuses": {
+    "true": {
+      "label": "True"
+    },
+    "hidden": {
+      "label": "Hidden"
+    },
+    "secret": {
+      "label": "Secret"
+    },
+    "rumor": {
+      "label": "Rumor"
+    }
+  },
+  "revealPolicies": {
+    "public": {
+      "label": "Public"
+    },
+    "private": {
+      "label": "Private"
+    },
+    "contextual": {
+      "label": "Contextual"
+    }
+  }
+}

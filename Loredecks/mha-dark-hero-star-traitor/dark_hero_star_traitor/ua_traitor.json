@@ -1,0 +1,2436 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_traitor_suspicion_becomes_immediate",
+      "title": "Traitor Suspicion Becomes Immediate",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-reveal",
+        "sortKeyFrom": 18500,
+        "sortKeyTo": 18500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama is revealed as the U.A. traitor"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:ua-class-1a"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "traitor suspicion",
+          "operational crisis",
+          "school security"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "faction:ua-high",
+        "faction:ua-class-1a",
+        "topic:traitor-suspicion",
+        "topic:operational-crisis",
+        "topic:school-security"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "traitor suspicion",
+            "operational crisis",
+            "school security"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The long-running U.A. traitor question becomes an immediate operational crisis after the Star incident.",
+        "injection": "Use the traitor reveal as both emotional betrayal and tactical emergency, not as background trivia.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 335-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_hagakure_initially_appears_to_expose_traitor",
+      "title": "Hagakure Initially Appears To Expose Traitor",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-reveal",
+        "sortKeyFrom": 18500,
+        "sortKeyTo": 18500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama is revealed as the U.A. traitor"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hagakure-toru",
+          "mha:aoyama-yuga",
+          "mha:ua-class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Toru Hagakure",
+          "Yuga Aoyama"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "reveal sequence",
+          "misdirection",
+          "traitor exposure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:hagakure-toru",
+        "character:aoyama-yuga",
+        "faction:ua-class-1a",
+        "faction:ua-high",
+        "topic:reveal-sequence",
+        "topic:misdirection",
+        "topic:traitor-exposure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Toru Hagakure",
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "reveal sequence",
+            "misdirection",
+            "traitor exposure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toru Hagakure’s observation helps expose the traitor situation before the focus shifts to Aoyama.",
+        "injection": "Use Hagakure as part of the reveal context; do not make her the traitor in manga-primary continuity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 335-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:hagakure-toru",
+          "mha:aoyama-yuga"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_is_the_u_a_traitor",
+      "title": "Aoyama Is The U.A. Traitor",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-reveal",
+        "sortKeyFrom": 18500,
+        "sortKeyTo": 18500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama is revealed as the U.A. traitor"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one",
+          "mha:ua-high",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "All For One"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "traitor identity",
+          "coerced informant",
+          "AFO information"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "character:all-for-one",
+        "faction:ua-high",
+        "faction:ua-class-1a",
+        "topic:traitor-identity",
+        "topic:coerced-informant",
+        "topic:afo-information"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "All For One"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "traitor identity",
+            "coerced informant",
+            "AFO information"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama is the U.A. traitor, coerced through his family and his AFO-granted Navel Laser.",
+        "injection": "After the reveal, write Aoyama as guilty and coerced, not casually malicious or immediately trusted.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 335-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_parents_were_coerced",
+      "title": "Aoyama Parents Were Coerced",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-family-coercion",
+        "sortKeyFrom": 18525,
+        "sortKeyTo": 18525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama family coercion by All For One is exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:aoyama-parents",
+          "mha:all-for-one",
+          "mha:aoyama-family"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "Aoyama Parents",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Aoyama Family"
+        ],
+        "topics": [
+          "family coercion",
+          "desperation",
+          "culpability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "character:aoyama-parents",
+        "character:all-for-one",
+        "faction:aoyama-family",
+        "topic:family-coercion",
+        "topic:desperation",
+        "topic:culpability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "Aoyama Parents",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Aoyama Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "family coercion",
+            "desperation",
+            "culpability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama’s parents made desperate choices under All For One’s coercive influence to help their son.",
+        "injection": "Do not reduce the Aoyama family to simple villainy; their choices are fearful, culpable, and coerced.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 336-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:aoyama-parents",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_received_navel_laser_from_afo",
+      "title": "Aoyama Received Navel Laser From AFO",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-family-coercion",
+        "sortKeyFrom": 18525,
+        "sortKeyTo": 18525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama family coercion by All For One is exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one",
+          "mha:navel-laser"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "All For One"
+        ],
+        "locations": [
+          "Navel Laser"
+        ],
+        "objects": [
+          "Navel Laser"
+        ],
+        "factions": [],
+        "topics": [
+          "Quirk origin",
+          "Quirkless child",
+          "AFO bargain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "quirk:navel-laser",
+        "character:aoyama-yuga",
+        "character:all-for-one",
+        "topic:quirk-origin",
+        "topic:quirkless-child",
+        "topic:afo-bargain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Navel Laser"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Navel Laser"
+          ],
+          "topicsAny": [
+            "Quirk origin",
+            "Quirkless child",
+            "AFO bargain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama was born Quirkless and received Navel Laser through All For One’s intervention.",
+        "injection": "Keep Aoyama’s Quirk origin secret before the reveal and emotionally heavy afterward.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 336-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Navel Laser",
+        "stage": "traitor_reveal_origin",
+        "ownerEntityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "constraints": [
+          "Aoyama requires support equipment and suffers body mismatch."
+        ],
+        "antiLore": [
+          "Do not treat Navel Laser as a naturally compatible Quirk in manga-primary continuity."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_body_does_not_suit_navel_laser",
+      "title": "Aoyama Body Does Not Suit Navel Laser",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-family-coercion",
+        "sortKeyFrom": 18525,
+        "sortKeyTo": 18525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama family coercion by All For One is exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:navel-laser"
+        ],
+        "characters": [
+          "Yuga Aoyama"
+        ],
+        "locations": [
+          "Navel Laser"
+        ],
+        "objects": [
+          "Navel Laser"
+        ],
+        "factions": [],
+        "topics": [
+          "Quirk mismatch",
+          "support belt",
+          "body strain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "quirk:navel-laser",
+        "character:aoyama-yuga",
+        "topic:quirk-mismatch",
+        "topic:support-belt",
+        "topic:body-strain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [
+            "Navel Laser"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Navel Laser"
+          ],
+          "topicsAny": [
+            "Quirk mismatch",
+            "support belt",
+            "body strain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama’s body is not naturally suited to Navel Laser, explaining his stomach pain and support belt need.",
+        "injection": "Use the support belt and pain as evidence of mismatch, not comic-only flavor.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 336-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Navel Laser",
+        "stage": "traitor_reveal_origin",
+        "ownerEntityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "constraints": [
+          "Aoyama requires support equipment and suffers body mismatch."
+        ],
+        "antiLore": [
+          "Do not treat Navel Laser as a naturally compatible Quirk in manga-primary continuity."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_feels_deep_shame",
+      "title": "Aoyama Feels Deep Shame",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-reveal",
+        "sortKeyFrom": 18500,
+        "sortKeyTo": 18500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama is revealed as the U.A. traitor"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Yuga Aoyama"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "guilt",
+          "shame",
+          "betrayal trauma"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "faction:ua-class-1a",
+        "topic:guilt",
+        "topic:shame",
+        "topic:betrayal-trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "guilt",
+            "shame",
+            "betrayal trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama carries guilt, shame, and fear over his betrayal and his family’s situation.",
+        "injection": "Post-reveal Aoyama should be emotionally shattered, not smug or casual about what he did.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 335-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_class_1_a_reaches_for_aoyama",
+      "title": "Class 1-A Reaches For Aoyama",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-a-response-aoyama",
+        "sortKeyFrom": 18550,
+        "sortKeyTo": 18550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A responds to Aoyama as a person"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "classmate response",
+          "mercy",
+          "accountability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:ua-high",
+        "topic:classmate-response",
+        "topic:mercy",
+        "topic:accountability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "classmate response",
+            "mercy",
+            "accountability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A responds to Aoyama as a classmate who can still choose to help, even while the betrayal remains serious.",
+        "injection": "Class response should hold two truths: betrayal matters, and Aoyama is still reachable.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 337-338",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_says_aoyama_can_still_be_a_hero",
+      "title": "Deku Says Aoyama Can Still Be A Hero",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-a-response-aoyama",
+        "sortKeyFrom": 18550,
+        "sortKeyTo": 18550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A responds to Aoyama as a person"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:aoyama-yuga"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Yuga Aoyama"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "redemption opening",
+          "hero potential",
+          "accountability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:midoriya-izuku",
+        "character:aoyama-yuga",
+        "topic:redemption-opening",
+        "topic:hero-potential",
+        "topic:accountability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "redemption opening",
+            "hero potential",
+            "accountability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku directly frames Aoyama as someone who can still act heroically despite his betrayal.",
+        "injection": "Deku should reach for Aoyama through responsibility and future action, not through ignoring the harm.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 337-338",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:aoyama-yuga"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aizawa_uses_aoyama_strategically",
+      "title": "Aizawa Uses Aoyama Strategically",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aizawa-aoyama-plan",
+        "sortKeyFrom": 18600,
+        "sortKeyTo": 18600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa proposes using Aoyama to draw out All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:aoyama-yuga",
+          "mha:ua-high",
+          "mha:police"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Yuga Aoyama"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Police"
+        ],
+        "topics": [
+          "strategic use",
+          "controlled bait",
+          "teacher judgment"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aizawa-shota",
+        "character:aoyama-yuga",
+        "faction:ua-high",
+        "faction:police",
+        "topic:strategic-use",
+        "topic:controlled-bait",
+        "topic:teacher-judgment"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "strategic use",
+            "controlled bait",
+            "teacher judgment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa proposes using Aoyama’s connection to All For One as part of a strategy rather than discarding him.",
+        "injection": "Aizawa should be pragmatic and protective: Aoyama may help, but the plan requires control and secrecy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 338-340",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aizawa-shota",
+          "mha:aoyama-yuga"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_is_not_casually_trusted_after_reveal",
+      "title": "Aoyama Is Not Casually Trusted After Reveal",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aizawa-aoyama-plan",
+        "sortKeyFrom": 18600,
+        "sortKeyTo": 18600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa proposes using Aoyama to draw out All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:ua-class-1a",
+          "mha:police",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Yuga Aoyama"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "Police"
+        ],
+        "topics": [
+          "trust tension",
+          "supervision",
+          "consequences"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "faction:ua-class-1a",
+        "faction:police",
+        "faction:ua-high",
+        "topic:trust-tension",
+        "topic:supervision",
+        "topic:consequences"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "trust tension",
+            "supervision",
+            "consequences"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama can be offered a path forward without being treated as instantly trustworthy.",
+        "injection": "After the reveal, scenes should keep supervision, tension, and consequences around Aoyama.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 338-340",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_afo_exploits_desperate_families",
+      "title": "AFO Exploits Desperate Families",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-family-coercion",
+        "sortKeyFrom": 18525,
+        "sortKeyTo": 18525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama family coercion by All For One is exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:aoyama-yuga",
+          "mha:aoyama-parents",
+          "mha:aoyama-family"
+        ],
+        "characters": [
+          "All For One",
+          "Yuga Aoyama",
+          "Aoyama Parents"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Aoyama Family"
+        ],
+        "topics": [
+          "predatory leverage",
+          "family desperation",
+          "dependency"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:all-for-one",
+        "character:aoyama-yuga",
+        "character:aoyama-parents",
+        "faction:aoyama-family",
+        "topic:predatory-leverage",
+        "topic:family-desperation",
+        "topic:dependency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Yuga Aoyama",
+            "Aoyama Parents"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Aoyama Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "predatory leverage",
+            "family desperation",
+            "dependency"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s method with the Aoyamas shows how he weaponizes desperation and dependency.",
+        "injection": "Write AFO’s coercion as predatory long-term leverage, not a one-off bargain with no fear behind it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 336-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one",
+          "mha:aoyama-yuga",
+          "mha:aoyama-parents"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_traitor_reveal_recontextualizes_earlier_breaches",
+      "title": "Traitor Reveal Recontextualizes Earlier Breaches",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aoyama-reveal",
+        "sortKeyFrom": 18500,
+        "sortKeyTo": 18500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama is revealed as the U.A. traitor"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Yuga Aoyama"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "retrospective tension",
+          "security breaches",
+          "past incidents"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "faction:ua-high",
+        "topic:retrospective-tension",
+        "topic:security-breaches",
+        "topic:past-incidents"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "retrospective tension",
+            "security breaches",
+            "past incidents"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The reveal casts earlier U.A. security breaches in a new light without requiring every breach to be explained in detail in-scene.",
+        "injection": "Use the reveal to sharpen suspicion and retrospective tension; avoid dumping every past incident unless the scene calls for it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 335-337",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_bait_plan_requires_secrecy",
+      "title": "Aoyama Bait Plan Requires Secrecy",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.aizawa-aoyama-plan",
+        "sortKeyFrom": 18600,
+        "sortKeyTo": 18600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa proposes using Aoyama to draw out All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:aizawa-shota",
+          "mha:all-for-one",
+          "mha:ua-high",
+          "mha:police"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "Shota Aizawa",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Police"
+        ],
+        "topics": [
+          "bait plan",
+          "operational secrecy",
+          "deception"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "character:aizawa-shota",
+        "character:all-for-one",
+        "faction:ua-high",
+        "faction:police",
+        "topic:bait-plan",
+        "topic:operational-secrecy",
+        "topic:deception"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "Shota Aizawa",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "bait plan",
+            "operational secrecy",
+            "deception"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Using Aoyama to mislead All For One only works if the plan remains tightly controlled.",
+        "injection": "Do not let random students, civilians, or villains know the Aoyama bait plan before it is sprung.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 338-340",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:aizawa-shota",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_monoma_and_shinso_become_tactical_factors",
+      "title": "Monoma And Shinso Become Tactical Factors",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.final-war-prep",
+        "sortKeyFrom": 18650,
+        "sortKeyTo": 18650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes prepare final operation after traitor reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:u-a-students",
+          "mha:ua-high"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students",
+          "U.A. High"
+        ],
+        "topics": [
+          "tactical assets",
+          "student support",
+          "prewar plan"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "faction:u-a-students",
+        "faction:ua-high",
+        "topic:tactical-assets",
+        "topic:student-support",
+        "topic:prewar-plan"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "tactical assets",
+            "student support",
+            "prewar plan"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Monoma and Shinso are relevant tactical assets in the lead-up to the final operation.",
+        "injection": "Before the Final War, treat Monoma and Shinso as part of the developing plan without spoiling exact battlefield execution.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 339-342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_aoyama_trap_not_yet_sprung",
+      "title": "Aoyama Trap Not Yet Sprung",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.final-war-prep",
+        "sortKeyFrom": 18650,
+        "sortKeyTo": 18650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes prepare final operation after traitor reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.final-war-staging",
+          "label": "Final War staging",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one",
+          "mha:ua-high",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Yuga Aoyama",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Final War guard",
+          "trap setup",
+          "timeline boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "character:all-for-one",
+        "faction:ua-high",
+        "faction:pro-heroes",
+        "topic:final-war-guard",
+        "topic:trap-setup",
+        "topic:timeline-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Yuga Aoyama",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Final War guard",
+            "trap setup",
+            "timeline boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During preparation, Aoyama’s role in drawing out All For One has not yet reached the battlefield payoff.",
+        "injection": "Keep the Aoyama trap as preparation until the Context advances into Final War.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 339-342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_u_a_traitor_arc_ends_at_war_threshold",
+      "title": "U.A. Traitor Arc Ends At War Threshold",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.before-final-war",
+        "sortKeyFrom": 18700,
+        "sortKeyTo": 18700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Before the Final War begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-traitor",
+          "label": "U.A. Traitor Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-class-1a",
+          "mha:pro-heroes",
+          "mha:ua-high"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "war threshold",
+          "Final War guard",
+          "spoiler protection"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:ua-traitor",
+        "faction:ua-class-1a",
+        "faction:pro-heroes",
+        "faction:ua-high",
+        "topic:war-threshold",
+        "topic:final-war-guard",
+        "topic:spoiler-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "war threshold",
+            "Final War guard",
+            "spoiler protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The U.A. Traitor arc ends with the cast on the threshold of the Final War, not with the war resolved.",
+        "injection": "Do not import final battle outcomes, deaths, Quirk losses, or epilogue states into this deck’s active Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    }
+  ]
+}

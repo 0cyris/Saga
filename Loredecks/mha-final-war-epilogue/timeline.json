@@ -1,0 +1,1220 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.fwe.aoyama-trap-begins",
+      "label": "Aoyama trap begins",
+      "sortKey": 19000,
+      "aliases": [
+        "Aoyama trap",
+        "AFO bait",
+        "Aoyama lures All For One"
+      ],
+      "tags": [
+        "arc:final-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 343-344"
+      }
+    },
+    {
+      "id": "mha.fwe.afo-appears-at-trap",
+      "label": "All For One appears at the trap",
+      "sortKey": 19050,
+      "aliases": [
+        "AFO arrives",
+        "All For One takes the bait"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 343-344"
+      }
+    },
+    {
+      "id": "mha.fwe.warp-gate-separation",
+      "label": "Heroes split the villains with Warp Gate",
+      "sortKey": 19100,
+      "aliases": [
+        "villains split",
+        "Monoma warp gate",
+        "battlefields divided"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:monoma-neito"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 344-345"
+      }
+    },
+    {
+      "id": "mha.fwe.battlefields-established",
+      "label": "Final War battlefields are established",
+      "sortKey": 19150,
+      "aliases": [
+        "battlefields established",
+        "Final War deployment"
+      ],
+      "tags": [
+        "arc:final-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347"
+      }
+    },
+    {
+      "id": "mha.fwe.toga-pulls-deku",
+      "label": "Toga pulls Deku to Okuto Island",
+      "sortKey": 19200,
+      "aliases": [
+        "Toga pulls Deku",
+        "Deku at Okuto Island"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:toga-himiko",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-348"
+      }
+    },
+    {
+      "id": "mha.fwe.floating-ua-battle-starts",
+      "label": "Floating U.A. battle begins against Shigaraki",
+      "sortKey": 19250,
+      "aliases": [
+        "Coffin in the Sky",
+        "floating UA battle"
+      ],
+      "tags": [
+        "arc:final-war",
+        "location:floating-ua"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347"
+      }
+    },
+    {
+      "id": "mha.fwe.kamino-dabi-battle-starts",
+      "label": "Kamino battle against Dabi begins",
+      "sortKey": 19300,
+      "aliases": [
+        "Kamino Dabi fight",
+        "Shoto vs Dabi"
+      ],
+      "tags": [
+        "arc:final-war",
+        "location:kamino-ward",
+        "character:dabi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-350"
+      }
+    },
+    {
+      "id": "mha.fwe.gunga-afo-battle-starts",
+      "label": "Gunga battle against All For One begins",
+      "sortKey": 19350,
+      "aliases": [
+        "Gunga fight",
+        "AFO at Gunga"
+      ],
+      "tags": [
+        "arc:final-war",
+        "location:gunga-mountain-villa",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-354"
+      }
+    },
+    {
+      "id": "mha.fwe.shoto-defeats-dabi-first",
+      "label": "Shoto defeats Dabi at Kamino first time",
+      "sortKey": 19400,
+      "aliases": [
+        "Shoto defeats Dabi",
+        "Phosphor stops Dabi"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:todoroki-shoto",
+        "character:dabi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 351-353"
+      }
+    },
+    {
+      "id": "mha.fwe.hawks-tokoyami-jirou-face-afo",
+      "label": "Hawks, Tokoyami, and Jiro face All For One",
+      "sortKey": 19450,
+      "aliases": [
+        "Jiro and Tokoyami vs AFO",
+        "Hawks fights AFO"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:hawks",
+        "character:tokoyami-fumikage"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 354-356"
+      }
+    },
+    {
+      "id": "mha.fwe.endeavor-wounds-afo",
+      "label": "Endeavor wounds All For One at Gunga",
+      "sortKey": 19500,
+      "aliases": [
+        "Endeavor damages AFO",
+        "Prominence Burn AFO"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:endeavor",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 356-357"
+      }
+    },
+    {
+      "id": "mha.fwe.afo-rewind-regression",
+      "label": "All For One begins Rewind regression",
+      "sortKey": 19550,
+      "aliases": [
+        "AFO rewinds",
+        "All For One regresses younger"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:all-for-one",
+        "quirk:rewind"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 357-363"
+      }
+    },
+    {
+      "id": "mha.fwe.shigaraki-mutation-escalates",
+      "label": "Shigaraki mutation escalates under Erasure",
+      "sortKey": 19600,
+      "aliases": [
+        "Shigaraki hands",
+        "Quirkless Shigaraki mutation"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 347-360"
+      }
+    },
+    {
+      "id": "mha.fwe.big-three-hold-line",
+      "label": "The Big Three hold the line at Floating U.A.",
+      "sortKey": 19650,
+      "aliases": [
+        "Big Three fight Shigaraki",
+        "Suneater plasma cannon"
+      ],
+      "tags": [
+        "arc:final-war",
+        "faction:big-three"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 360-362"
+      }
+    },
+    {
+      "id": "mha.fwe.bakugo-heart-stops",
+      "label": "Bakugo is mortally wounded at Floating U.A.",
+      "sortKey": 19700,
+      "aliases": [
+        "Bakugo heart stops",
+        "Bakugo near death"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 362-364"
+      }
+    },
+    {
+      "id": "mha.fwe.edgeshot-begins-repair",
+      "label": "Edgeshot begins repairing Bakugo",
+      "sortKey": 19750,
+      "aliases": [
+        "Edgeshot saves Bakugo",
+        "Bakugo repair"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:edgeshot",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 364-365"
+      }
+    },
+    {
+      "id": "mha.fwe.deku-arrives-floating-ua",
+      "label": "Deku reaches Floating U.A.",
+      "sortKey": 19800,
+      "aliases": [
+        "Deku arrives",
+        "Deku reaches Shigaraki"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:midoriya-izuku",
+        "location:floating-ua"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 366-367"
+      }
+    },
+    {
+      "id": "mha.fwe.gearshift-used",
+      "label": "Deku uses Gearshift against Shigaraki",
+      "sortKey": 19850,
+      "aliases": [
+        "Gearshift used",
+        "Second user Quirk"
+      ],
+      "tags": [
+        "arc:final-war",
+        "quirk:gearshift",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 368-369"
+      }
+    },
+    {
+      "id": "mha.fwe.spinner-kurogiri-hospital",
+      "label": "Spinner reaches Kurogiri at Central Hospital",
+      "sortKey": 19900,
+      "aliases": [
+        "Spinner reaches Kurogiri",
+        "Central Hospital riot"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:spinner",
+        "character:kurogiri"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 370-374"
+      }
+    },
+    {
+      "id": "mha.fwe.kurogiri-warp-chaos",
+      "label": "Kurogiri creates battlefield chaos",
+      "sortKey": 19950,
+      "aliases": [
+        "Kurogiri returns",
+        "Warp Gate chaos"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:kurogiri"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-377"
+      }
+    },
+    {
+      "id": "mha.fwe.toga-sad-mans-parade",
+      "label": "Toga unleashes Sad Man’s Parade",
+      "sortKey": 20000,
+      "aliases": [
+        "Sad Man Parade",
+        "Toga Twice clones"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:toga-himiko",
+        "character:twice"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 374-376"
+      }
+    },
+    {
+      "id": "mha.fwe.ua-system-fails",
+      "label": "Floating U.A. systems fail under pressure",
+      "sortKey": 20050,
+      "aliases": [
+        "UA systems fail",
+        "Gentle supports UA"
+      ],
+      "tags": [
+        "arc:final-war",
+        "location:floating-ua"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 377-379"
+      }
+    },
+    {
+      "id": "mha.fwe.gentle-la-brava-support",
+      "label": "Gentle and La Brava support the heroes",
+      "sortKey": 20100,
+      "aliases": [
+        "Gentle returns",
+        "La Brava hacks UA"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:gentle-criminal",
+        "character:la-brava"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 378-379"
+      }
+    },
+    {
+      "id": "mha.fwe.nagant-support-shot",
+      "label": "Lady Nagant fires support shot from hospital",
+      "sortKey": 20150,
+      "aliases": [
+        "Nagant support shot",
+        "Lady Nagant helps Deku"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:lady-nagant"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 378-379"
+      }
+    },
+    {
+      "id": "mha.fwe.shigaraki-self-reemerges",
+      "label": "Shigaraki’s self reemerges against AFO control",
+      "sortKey": 20200,
+      "aliases": [
+        "Shigaraki reemerges",
+        "Tomura pushes back AFO"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:shigaraki-tomura",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 379-380"
+      }
+    },
+    {
+      "id": "mha.fwe.gunga-dabi-crisis",
+      "label": "Dabi turns Gunga into a thermal crisis",
+      "sortKey": 20250,
+      "aliases": [
+        "Dabi Gunga crisis",
+        "Toya explosion threat"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:dabi",
+        "location:gunga-mountain-villa"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 375-389"
+      }
+    },
+    {
+      "id": "mha.fwe.todoroki-family-converges",
+      "label": "Todoroki family converges on Dabi",
+      "sortKey": 20300,
+      "aliases": [
+        "Todoroki family stops Dabi",
+        "family reaches Toya"
+      ],
+      "tags": [
+        "arc:final-war",
+        "family:todoroki",
+        "character:dabi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-390"
+      }
+    },
+    {
+      "id": "mha.fwe.ochaco-reaches-toga",
+      "label": "Ochaco reaches Toga during clone crisis",
+      "sortKey": 20350,
+      "aliases": [
+        "Ochaco reaches Toga",
+        "Toga and Ochaco final talk"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:uraraka-ochaco",
+        "character:toga-himiko"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 382-395"
+      }
+    },
+    {
+      "id": "mha.fwe.toga-transfusion",
+      "label": "Toga gives Ochaco blood",
+      "sortKey": 20400,
+      "aliases": [
+        "Toga blood transfusion",
+        "Toga saves Ochaco"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:toga-himiko",
+        "character:uraraka-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 394-395"
+      }
+    },
+    {
+      "id": "mha.fwe.all-might-armored-fight",
+      "label": "Armored All Might fights All For One",
+      "sortKey": 20450,
+      "aliases": [
+        "Armored All Might",
+        "All Might vs AFO suit"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:all-might",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-402"
+      }
+    },
+    {
+      "id": "mha.fwe.stain-aids-all-might",
+      "label": "Stain briefly aids All Might",
+      "sortKey": 20500,
+      "aliases": [
+        "Stain aids All Might",
+        "Stain vs AFO"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:stain",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 400-401"
+      }
+    },
+    {
+      "id": "mha.fwe.bakugo-returns",
+      "label": "Bakugo returns to save All Might",
+      "sortKey": 20550,
+      "aliases": [
+        "Bakugo returns",
+        "Bakugo saves All Might"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:bakugo-katsuki",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 403-404"
+      }
+    },
+    {
+      "id": "mha.fwe.bakugo-defeats-afo-body",
+      "label": "Bakugo helps end All For One’s rewinding body",
+      "sortKey": 20600,
+      "aliases": [
+        "Bakugo vs AFO",
+        "AFO body ends"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:bakugo-katsuki",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410"
+      }
+    },
+    {
+      "id": "mha.fwe.danger-sense-stolen",
+      "label": "Danger Sense is stolen from Deku",
+      "sortKey": 20650,
+      "aliases": [
+        "Danger Sense stolen",
+        "Shigaraki steals Danger Sense"
+      ],
+      "tags": [
+        "arc:final-war",
+        "quirk:danger-sense",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 410-411"
+      }
+    },
+    {
+      "id": "mha.fwe.deku-vestige-transfer-plan",
+      "label": "Deku and the vestiges use transfer strategy",
+      "sortKey": 20700,
+      "aliases": [
+        "vestige transfer plan",
+        "OFA transfer attack"
+      ],
+      "tags": [
+        "arc:final-war",
+        "quirk:one-for-all",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 412-418"
+      }
+    },
+    {
+      "id": "mha.fwe.tenko-origin-reached",
+      "label": "Deku reaches Tenko’s origin inside Shigaraki",
+      "sortKey": 20750,
+      "aliases": [
+        "Deku reaches Tenko",
+        "Shigaraki origin"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:shigaraki-tomura",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 415-418"
+      }
+    },
+    {
+      "id": "mha.fwe.afo-origin-manipulation-revealed",
+      "label": "All For One’s manipulation of Shigaraki is revealed",
+      "sortKey": 20800,
+      "aliases": [
+        "AFO manipulated Shigaraki",
+        "All For One returns inside Shigaraki"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:all-for-one",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 419-421"
+      }
+    },
+    {
+      "id": "mha.fwe.heroes-support-final-push",
+      "label": "Heroes support Deku’s final push",
+      "sortKey": 20850,
+      "aliases": [
+        "heroes support Deku",
+        "everyone reaches the battlefield"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 421-423"
+      }
+    },
+    {
+      "id": "mha.fwe.afo-shigaraki-conflict-ends",
+      "label": "All For One and Shigaraki conflict ends",
+      "sortKey": 20900,
+      "aliases": [
+        "AFO ends",
+        "Shigaraki final moment"
+      ],
+      "tags": [
+        "arc:final-war",
+        "character:all-for-one",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 423-424"
+      }
+    },
+    {
+      "id": "mha.fwe.war-ends",
+      "label": "Final War ends",
+      "sortKey": 20950,
+      "aliases": [
+        "war ends",
+        "Final War aftermath begins"
+      ],
+      "tags": [
+        "arc:final-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 424"
+      }
+    },
+    {
+      "id": "mha.fwe.epilogue-hospital-aftermath",
+      "label": "Hospital aftermath begins",
+      "sortKey": 21000,
+      "aliases": [
+        "hospital aftermath",
+        "postwar hospital"
+      ],
+      "tags": [
+        "arc:epilogue"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 424-425"
+      }
+    },
+    {
+      "id": "mha.fwe.todoroki-family-aftermath",
+      "label": "Todoroki family aftermath after the war",
+      "sortKey": 21050,
+      "aliases": [
+        "Todoroki family aftermath",
+        "Toya aftermath"
+      ],
+      "tags": [
+        "arc:epilogue",
+        "family:todoroki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 426-427"
+      }
+    },
+    {
+      "id": "mha.fwe.spinner-and-league-memory",
+      "label": "Spinner carries memory of the League",
+      "sortKey": 21100,
+      "aliases": [
+        "Spinner writes",
+        "League memory"
+      ],
+      "tags": [
+        "arc:epilogue",
+        "character:spinner"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 427-428"
+      }
+    },
+    {
+      "id": "mha.fwe.ochaco-grief-counseling",
+      "label": "Ochaco processes grief and resolves to help children",
+      "sortKey": 21150,
+      "aliases": [
+        "Ochaco grief",
+        "Quirk counseling"
+      ],
+      "tags": [
+        "arc:epilogue",
+        "character:uraraka-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 428-429"
+      }
+    },
+    {
+      "id": "mha.fwe.postwar-society-reform",
+      "label": "Postwar society begins changing",
+      "sortKey": 21200,
+      "aliases": [
+        "society changes",
+        "old woman helps child"
+      ],
+      "tags": [
+        "arc:epilogue"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 429"
+      }
+    },
+    {
+      "id": "mha.fwe.time-skip-adult-future",
+      "label": "Time skip shows adult future",
+      "sortKey": 21250,
+      "aliases": [
+        "time skip",
+        "adult heroes",
+        "Deku teacher"
+      ],
+      "tags": [
+        "arc:epilogue"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430"
+      }
+    },
+    {
+      "id": "mha.fwe.deku-support-suit",
+      "label": "Deku receives support suit chance",
+      "sortKey": 21300,
+      "aliases": [
+        "Deku support suit",
+        "All Might gives suit"
+      ],
+      "tags": [
+        "arc:epilogue",
+        "character:midoriya-izuku",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.fwe.window.final-war-full",
+      "label": "Final War Arc",
+      "anchorFrom": "mha.fwe.aoyama-trap-begins",
+      "anchorTo": "mha.fwe.war-ends",
+      "sortKeyFrom": 19000,
+      "sortKeyTo": 20950,
+      "aliases": [
+        "Final War",
+        "final battle"
+      ],
+      "tags": [
+        "arc:final-war"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.operation-setup",
+      "label": "Final War operation setup",
+      "anchorFrom": "mha.fwe.aoyama-trap-begins",
+      "anchorTo": "mha.fwe.battlefields-established",
+      "sortKeyFrom": 19000,
+      "sortKeyTo": 19150,
+      "aliases": [
+        "operation setup",
+        "Aoyama trap setup"
+      ],
+      "tags": [
+        "arc:final-war"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.floating-ua",
+      "label": "Floating U.A. battlefield",
+      "anchorFrom": "mha.fwe.floating-ua-battle-starts",
+      "anchorTo": "mha.fwe.afo-shigaraki-conflict-ends",
+      "sortKeyFrom": 19250,
+      "sortKeyTo": 20900,
+      "aliases": [
+        "Coffin in the Sky",
+        "Floating UA battlefield"
+      ],
+      "tags": [
+        "location:floating-ua"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.kamino-todoroki",
+      "label": "Kamino and Todoroki family battlefield",
+      "anchorFrom": "mha.fwe.kamino-dabi-battle-starts",
+      "anchorTo": "mha.fwe.todoroki-family-converges",
+      "sortKeyFrom": 19300,
+      "sortKeyTo": 20300,
+      "aliases": [
+        "Kamino Dabi battle",
+        "Todoroki family fight"
+      ],
+      "tags": [
+        "family:todoroki",
+        "character:dabi"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.okuto-toga-ochaco",
+      "label": "Okuto Island and Toga/Ochaco battlefield",
+      "anchorFrom": "mha.fwe.toga-pulls-deku",
+      "anchorTo": "mha.fwe.toga-transfusion",
+      "sortKeyFrom": 19200,
+      "sortKeyTo": 20400,
+      "aliases": [
+        "Okuto Island",
+        "Toga and Ochaco"
+      ],
+      "tags": [
+        "character:toga-himiko",
+        "character:uraraka-ochaco"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.gunga-afo",
+      "label": "Gunga against All For One",
+      "anchorFrom": "mha.fwe.gunga-afo-battle-starts",
+      "anchorTo": "mha.fwe.bakugo-defeats-afo-body",
+      "sortKeyFrom": 19350,
+      "sortKeyTo": 20600,
+      "aliases": [
+        "Gunga AFO battle",
+        "All For One rewind battle"
+      ],
+      "tags": [
+        "location:gunga-mountain-villa",
+        "character:all-for-one"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.armored-all-might",
+      "label": "Armored All Might and Bakugo return",
+      "anchorFrom": "mha.fwe.all-might-armored-fight",
+      "anchorTo": "mha.fwe.bakugo-defeats-afo-body",
+      "sortKeyFrom": 20450,
+      "sortKeyTo": 20600,
+      "aliases": [
+        "Armored All Might",
+        "Bakugo return"
+      ],
+      "tags": [
+        "character:all-might",
+        "character:bakugo-katsuki"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.deku-shigaraki-final",
+      "label": "Deku and Shigaraki final confrontation",
+      "anchorFrom": "mha.fwe.danger-sense-stolen",
+      "anchorTo": "mha.fwe.afo-shigaraki-conflict-ends",
+      "sortKeyFrom": 20650,
+      "sortKeyTo": 20900,
+      "aliases": [
+        "Deku vs Shigaraki final",
+        "Tenko vestige conflict"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura"
+      ]
+    },
+    {
+      "id": "mha.fwe.window.epilogue",
+      "label": "Epilogue through Chapter 430",
+      "anchorFrom": "mha.fwe.war-ends",
+      "anchorTo": "mha.fwe.deku-support-suit",
+      "sortKeyFrom": 20950,
+      "sortKeyTo": 21300,
+      "aliases": [
+        "epilogue",
+        "postwar future",
+        "Chapter 430"
+      ],
+      "tags": [
+        "arc:epilogue"
+      ]
+    }
+  ],
+  "coordinateDefinitions": [
+    {
+      "axis": "arc",
+      "id": "mha.arc.final-war",
+      "label": "Final War Arc",
+      "required": false
+    },
+    {
+      "axis": "war_phase",
+      "id": "mha.war-phase.operation-setup",
+      "label": "Final War operation setup",
+      "required": false
+    },
+    {
+      "axis": "adaptation",
+      "id": "manga-primary",
+      "label": "Manga primary continuity",
+      "required": false
+    },
+    {
+      "axis": "battlefield",
+      "id": "mha.battlefield.floating-ua",
+      "label": "Floating U.A. battlefield",
+      "required": false
+    },
+    {
+      "axis": "route",
+      "id": "mha.route.deku-shigaraki",
+      "label": "Deku and Shigaraki route",
+      "required": false
+    },
+    {
+      "axis": "battlefield",
+      "id": "mha.battlefield.kamino-gunga",
+      "label": "Kamino and Gunga Todoroki battlefield",
+      "required": false
+    },
+    {
+      "axis": "family_state",
+      "id": "mha.family.todoroki-final-confrontation",
+      "label": "Todoroki final family confrontation",
+      "required": false
+    },
+    {
+      "axis": "battlefield",
+      "id": "mha.battlefield.okuto-gunga",
+      "label": "Okuto/Gunga Toga battlefield",
+      "required": false
+    },
+    {
+      "axis": "relationship_state",
+      "id": "mha.relationship.ochaco-toga-final",
+      "label": "Ochaco and Toga final confrontation",
+      "required": false
+    },
+    {
+      "axis": "battlefield",
+      "id": "mha.battlefield.gunga",
+      "label": "Gunga battlefield",
+      "required": false
+    },
+    {
+      "axis": "villain_org_state",
+      "id": "mha.villain.afo-rewinding",
+      "label": "All For One rewinding body",
+      "required": false
+    },
+    {
+      "axis": "battlefield",
+      "id": "mha.battlefield.afo-pursuit",
+      "label": "All For One pursuit route",
+      "required": false
+    },
+    {
+      "axis": "legacy_state",
+      "id": "mha.legacy.all-might-bakugo",
+      "label": "All Might and Bakugo legacy route",
+      "required": false
+    },
+    {
+      "axis": "battlefield",
+      "id": "mha.battlefield.deku-shigaraki-final",
+      "label": "Deku and Shigaraki final battlefield",
+      "required": false
+    },
+    {
+      "axis": "quirk_stage",
+      "id": "mha.quirk.ofa-final-transfer",
+      "label": "One For All final transfer stage",
+      "required": false
+    },
+    {
+      "axis": "arc",
+      "id": "mha.arc.epilogue",
+      "label": "Epilogue Arc",
+      "required": false
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.postwar-reform",
+      "label": "Postwar hero society reform",
+      "required": false
+    },
+    {
+      "axis": "future_guard",
+      "id": "mha.future.chapter-431-more",
+      "label": "Chapter 431 More gated separately",
+      "required": false
+    }
+  ],
+  "arcs": [
+    {
+      "id": "mha.arc.final-war",
+      "label": "Final War",
+      "sortKeyFrom": 19000,
+      "sortKeyTo": 20950,
+      "aliases": [
+        "Final War arc"
+      ],
+      "tags": [
+        "arc:final-war"
+      ]
+    },
+    {
+      "id": "mha.arc.epilogue",
+      "label": "Epilogue",
+      "sortKeyFrom": 20950,
+      "sortKeyTo": 21300,
+      "aliases": [
+        "Epilogue arc",
+        "Chapter 430"
+      ],
+      "tags": [
+        "arc:epilogue"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "mha.phase.final-act",
+      "label": "Final Act",
+      "sortKeyFrom": 17000,
+      "sortKeyTo": 21300,
+      "aliases": [
+        "Final Act Saga"
+      ],
+      "tags": [
+        "arc:final-war",
+        "arc:epilogue"
+      ]
+    }
+  ]
+}

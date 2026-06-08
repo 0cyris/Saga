@@ -1,0 +1,1647 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_all_might_defines_the_symbol_era",
+      "title": "All Might Defines The Symbol Era",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Symbol of Peace",
+          "public safety",
+          "All Might"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "status:symbol-of-peace-era",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "Symbol of Peace",
+            "public safety",
+            "All Might"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's public image stabilizes hero society by making victory and rescue feel reliable to civilians.",
+        "injection": "Before Kamino, All Might should function as the public benchmark for heroic certainty, even when his private limits are hidden.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_all_might_has_a_hidden_time_limit",
+      "title": "All Might Has A Hidden Time Limit",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "time limit",
+          "All Might injury",
+          "hidden weakness"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "secret:all-might-injury",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "time limit",
+            "All Might injury",
+            "hidden weakness"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's public power hides a severe injury and shrinking transformation limit.",
+        "injection": "Before public exposure, protect All Might's weak form and time limit as private, operationally dangerous knowledge.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_all_mights_smile_is_deliberate",
+      "title": "All Might's Smile Is Deliberate",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "smile",
+          "reassurance",
+          "hero persona"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "theme:symbol",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "topicsAny": [
+            "smile",
+            "reassurance",
+            "hero persona"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's smile is a public promise meant to reassure victims and frighten villains even when he is strained.",
+        "injection": "Use All Might's smile as an intentional heroic signal, not as proof that he is carefree or unafraid.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_licensed_heroes_coordinate_with_police",
+      "title": "Licensed Heroes Coordinate With Police",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "police",
+          "arrests",
+          "hero coordination"
+        ]
+      },
+      "tags": [
+        "faction:police",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "police",
+            "arrests",
+            "hero coordination"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Pro heroes and police cooperate, but heroes handle Quirk-driven rescue and combat while police retain legal procedure.",
+        "injection": "Crime scenes must not treat heroes as fully replacing police; arrests, investigation, and custody still matter.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_agencies_are_training_sites",
+      "title": "Hero Agencies Are Training Sites",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "internships",
+          "work studies",
+          "agencies"
+        ]
+      },
+      "tags": [
+        "topic:hero-agencies",
+        "topic:internships",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "internships",
+            "work studies",
+            "agencies"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hero agencies provide internships, work studies, mentorship, field exposure, and professional networks.",
+        "injection": "Agency scenes should involve supervision, casework, public expectations, and skill growth rather than free solo adventuring.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_teachers_are_active_heroes",
+      "title": "Teachers Are Active Heroes",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:yagi-toshinori",
+          "mha:thirteen",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "All Might",
+          "Thirteen"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "U.A. teachers",
+          "pro heroes",
+          "field experience"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "All Might",
+            "Thirteen"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "U.A. teachers",
+            "pro heroes",
+            "field experience"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. teachers are licensed heroes whose classroom authority is tied to field experience and combat/rescue competence.",
+        "injection": "U.A. faculty should be written as pro heroes with teaching duties, not ordinary school staff with no field credibility.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_emergency_response_rewards_judgment",
+      "title": "Emergency Response Rewards Judgment",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "triage",
+          "emergency response",
+          "judgment"
+        ]
+      },
+      "tags": [
+        "topic:rescue",
+        "topic:triage",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "triage",
+            "emergency response",
+            "judgment"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hero work requires fast triage: saving civilians, limiting damage, containing villains, and knowing when not to escalate.",
+        "injection": "In rescue or attack scenes, prioritize judgment and triage alongside dramatic combat.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_licenses_mark_legal_thresholds",
+      "title": "Hero Licenses Mark Legal Thresholds",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "license",
+          "legal threshold",
+          "student restrictions"
+        ]
+      },
+      "tags": [
+        "topic:hero-licensing",
+        "topic:provisional-license",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "license",
+            "legal threshold",
+            "student restrictions"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A provisional or full hero license changes what a student can legally do in public emergencies.",
+        "injection": "Before students are licensed, their public Quirk use and combat choices should carry risk even when morally understandable.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_villain_capture_requires_control",
+      "title": "Villain Capture Requires Control",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "capture",
+          "restraint",
+          "professional limits"
+        ]
+      },
+      "tags": [
+        "topic:villain-capture",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "capture",
+            "restraint",
+            "professional limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Heroes are expected to subdue and capture villains while protecting civilians and avoiding unnecessary harm.",
+        "injection": "Avoid writing licensed heroes as executioners; capture, restraint, and rescue obligations shape their choices.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_public_failure_has_institutional_cost",
+      "title": "Public Failure Has Institutional Cost",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public failure",
+          "institutional cost",
+          "trust"
+        ]
+      },
+      "tags": [
+        "topic:public-trust",
+        "topic:institutional-failure",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "public failure",
+            "institutional cost",
+            "trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A visible hero failure can damage more than one hero's reputation; it can weaken faith in the whole system.",
+        "injection": "Major failures should create public, political, school, or agency consequences rather than resetting immediately.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_the_hero_commission_is_institutional_power",
+      "title": "The Hero Commission Is Institutional Power",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "commission",
+          "bureaucracy",
+          "state power"
+        ]
+      },
+      "tags": [
+        "faction:hero-public-safety-commission",
+        "topic:state-power",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "Hero Public Safety Commission"
+          ],
+          "topicsAny": [
+            "commission",
+            "bureaucracy",
+            "state power"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Hero Public Safety Commission represents official hero-system authority, recruitment pressure, and state-level management.",
+        "injection": "Commission-linked scenes should carry bureaucratic and political weight rather than only school or agency drama.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_rescue_points_reveal_hero_values",
+      "title": "Rescue Points Reveal Hero Values",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "rescue points",
+          "entrance exam",
+          "hero values"
+        ]
+      },
+      "tags": [
+        "event:entrance-exam",
+        "topic:rescue",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "rescue points",
+            "entrance exam",
+            "hero values"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A.'s entrance exam includes rescue-point evaluation, showing that hero potential is not only villain-point combat scoring.",
+        "injection": "Use rescue points as early evidence that selfless rescue matters institutionally, even when students focus on combat scores.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_students_are_minors_in_a_violent_system",
+      "title": "Hero Students Are Minors In A Violent System",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:uraraka-ochaco",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Ochaco Uraraka"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "students",
+          "minors",
+          "supervision"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "class:ua-1a",
+        "topic:students-as-minors",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Ochaco Uraraka"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "students",
+            "minors",
+            "supervision"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. students train for real danger while still being children under adult authority and school protection.",
+        "injection": "Do not write first-year students as fully autonomous adult pros; their age, supervision, and trauma exposure matter.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_no_1_status_is_a_burden",
+      "title": "No. 1 Status Is A Burden",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "No. 1 hero",
+          "public expectations",
+          "burden"
+        ]
+      },
+      "tags": [
+        "topic:hero-rankings",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "topicsAny": [
+            "No. 1 hero",
+            "public expectations",
+            "burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The No. 1 hero position carries symbolic responsibility, public expectations, and scrutiny beyond strength alone.",
+        "injection": "When the top hero rank matters, frame it as social burden and public trust, not a simple leaderboard prize.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_hero_schools_filter_talent_through_trials",
+      "title": "Hero Schools Filter Talent Through Trials",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 74,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High School"
+        ],
+        "topics": [
+          "school trials",
+          "evaluation",
+          "training"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "topic:training",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "factionsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "school trials",
+            "evaluation",
+            "training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. uses high-pressure tests to identify decision-making, Quirk control, combat sense, rescue instinct, and resolve.",
+        "injection": "School trials should reveal values and weaknesses, not exist as arbitrary game levels.",
+        "constraints": [
+          "Use hero institutions as active story pressure when hero work, school training, public scenes, or villain incidents appear."
+        ],
+        "antiLore": [
+          "Do not ignore licensing, public image, rescue obligations, or institutional consequences."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core hero system",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

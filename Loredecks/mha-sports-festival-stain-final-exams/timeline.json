@@ -1,0 +1,942 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.ssf.post-usj-security",
+      "label": "Post-USJ security pressure",
+      "sortKey": 3000,
+      "aliases": [
+        "after USJ",
+        "post-USJ"
+      ],
+      "tags": [
+        "arc:sports-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-44"
+      }
+    },
+    {
+      "id": "mha.ssf.sports-festival-announced",
+      "label": "U.A. Sports Festival announced",
+      "sortKey": 3050,
+      "aliases": [
+        "sports festival announced"
+      ],
+      "tags": [
+        "arc:sports-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-23"
+      }
+    },
+    {
+      "id": "mha.ssf.class-1a-public-target",
+      "label": "Class 1-A becomes a public target",
+      "sortKey": 3100,
+      "aliases": [
+        "1-A target",
+        "other classes confront 1-A"
+      ],
+      "tags": [
+        "class:ua-1a",
+        "arc:sports-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 22-24"
+      }
+    },
+    {
+      "id": "mha.ssf.todoroki-challenges-izuku",
+      "label": "Todoroki challenges Izuku before the festival",
+      "sortKey": 3150,
+      "aliases": [
+        "Todoroki challenges Deku"
+      ],
+      "tags": [
+        "character:todoroki-shoto",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 23-24"
+      }
+    },
+    {
+      "id": "mha.ssf.opening-declaration",
+      "label": "Bakugo declares he will win",
+      "sortKey": 3200,
+      "aliases": [
+        "Bakugo declaration"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "arc:sports-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 23-24"
+      }
+    },
+    {
+      "id": "mha.ssf.obstacle-race-start",
+      "label": "Obstacle race begins",
+      "sortKey": 3250,
+      "aliases": [
+        "obstacle race"
+      ],
+      "tags": [
+        "event:obstacle-race",
+        "arc:sports-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 24-26"
+      }
+    },
+    {
+      "id": "mha.ssf.izuku-obstacle-race-win",
+      "label": "Izuku wins the obstacle race",
+      "sortKey": 3300,
+      "aliases": [
+        "Deku wins obstacle race"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "event:obstacle-race"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 26-27"
+      }
+    },
+    {
+      "id": "mha.ssf.cavalry-battle-announced",
+      "label": "Cavalry battle announced",
+      "sortKey": 3350,
+      "aliases": [
+        "cavalry battle"
+      ],
+      "tags": [
+        "event:cavalry-battle"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 27-28"
+      }
+    },
+    {
+      "id": "mha.ssf.team-midoriya-forms",
+      "label": "Team Midoriya forms for cavalry battle",
+      "sortKey": 3400,
+      "aliases": [
+        "Team Midoriya"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "event:cavalry-battle"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 27-29"
+      }
+    },
+    {
+      "id": "mha.ssf.cavalry-battle-ends",
+      "label": "Cavalry battle ends and tournament bracket forms",
+      "sortKey": 3450,
+      "aliases": [
+        "cavalry battle ends",
+        "tournament bracket"
+      ],
+      "tags": [
+        "event:cavalry-battle",
+        "event:tournament-bracket"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 29-30"
+      }
+    },
+    {
+      "id": "mha.ssf.shinso-vs-izuku",
+      "label": "Shinso faces Izuku",
+      "sortKey": 3500,
+      "aliases": [
+        "Shinso vs Deku"
+      ],
+      "tags": [
+        "character:shinso-hitoshi",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 31-34"
+      }
+    },
+    {
+      "id": "mha.ssf.ochaco-vs-bakugo",
+      "label": "Ochaco faces Bakugo",
+      "sortKey": 3550,
+      "aliases": [
+        "Uraraka vs Bakugo"
+      ],
+      "tags": [
+        "character:uraraka-ochaco",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 35-36"
+      }
+    },
+    {
+      "id": "mha.ssf.endeavor-approaches-izuku",
+      "label": "Endeavor approaches Izuku about Shoto",
+      "sortKey": 3600,
+      "aliases": [
+        "Endeavor talks to Deku"
+      ],
+      "tags": [
+        "character:endeavor",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 37"
+      }
+    },
+    {
+      "id": "mha.ssf.todoroki-origin-revealed",
+      "label": "Shoto Todoroki origin revealed",
+      "sortKey": 3650,
+      "aliases": [
+        "Shoto origin"
+      ],
+      "tags": [
+        "character:todoroki-shoto",
+        "family:todoroki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 37-39"
+      }
+    },
+    {
+      "id": "mha.ssf.midoriya-vs-todoroki",
+      "label": "Izuku faces Shoto",
+      "sortKey": 3700,
+      "aliases": [
+        "Deku vs Todoroki"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:todoroki-shoto"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 38-40"
+      }
+    },
+    {
+      "id": "mha.ssf.bakugo-vs-todoroki-final",
+      "label": "Bakugo faces Todoroki in the final",
+      "sortKey": 3750,
+      "aliases": [
+        "Bakugo vs Todoroki"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 42-43"
+      }
+    },
+    {
+      "id": "mha.ssf.sports-festival-ends",
+      "label": "Sports Festival ends",
+      "sortKey": 3800,
+      "aliases": [
+        "sports festival ends"
+      ],
+      "tags": [
+        "arc:sports-festival"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 44"
+      }
+    },
+    {
+      "id": "mha.stain.hero-names-class",
+      "label": "Hero-name selection class",
+      "sortKey": 4000,
+      "aliases": [
+        "hero names"
+      ],
+      "tags": [
+        "topic:hero-names"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 45"
+      }
+    },
+    {
+      "id": "mha.stain.workplace-offers",
+      "label": "Workplace training offers arrive",
+      "sortKey": 4050,
+      "aliases": [
+        "internship offers",
+        "workplace training"
+      ],
+      "tags": [
+        "topic:internships"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 45-46"
+      }
+    },
+    {
+      "id": "mha.stain.gran-torino-enters",
+      "label": "Gran Torino takes Izuku as intern",
+      "sortKey": 4100,
+      "aliases": [
+        "Gran Torino"
+      ],
+      "tags": [
+        "character:gran-torino",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 46-47"
+      }
+    },
+    {
+      "id": "mha.stain.full-cowling-breakthrough",
+      "label": "Izuku develops Full Cowling",
+      "sortKey": 4150,
+      "aliases": [
+        "Full Cowling"
+      ],
+      "tags": [
+        "quirk:one-for-all",
+        "quirk:full-cowling"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 47-48"
+      }
+    },
+    {
+      "id": "mha.stain.league-meets-stain",
+      "label": "League of Villains meets Stain",
+      "sortKey": 4200,
+      "aliases": [
+        "League meets Stain"
+      ],
+      "tags": [
+        "faction:league-of-villains",
+        "character:stain"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 49-50"
+      }
+    },
+    {
+      "id": "mha.stain.tenya-seeks-hero-killer",
+      "label": "Tenya seeks Stain in Hosu",
+      "sortKey": 4250,
+      "aliases": [
+        "Iida hunts Stain"
+      ],
+      "tags": [
+        "character:iida-tenya",
+        "character:stain"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 50-52"
+      }
+    },
+    {
+      "id": "mha.stain.hosu-nomu-attack",
+      "label": "Nomu attack erupts in Hosu",
+      "sortKey": 4300,
+      "aliases": [
+        "Hosu Nomu attack"
+      ],
+      "tags": [
+        "location:hosu-city",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 50-52"
+      }
+    },
+    {
+      "id": "mha.stain.stain-attacks-iida",
+      "label": "Stain disables Tenya Iida",
+      "sortKey": 4350,
+      "aliases": [
+        "Stain attacks Iida"
+      ],
+      "tags": [
+        "character:iida-tenya",
+        "character:stain"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 51-52"
+      }
+    },
+    {
+      "id": "mha.stain.midoriya-arrives",
+      "label": "Izuku arrives to help Iida",
+      "sortKey": 4400,
+      "aliases": [
+        "Deku arrives in Hosu"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:iida-tenya"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 52"
+      }
+    },
+    {
+      "id": "mha.stain.todoroki-arrives",
+      "label": "Shoto arrives to support Izuku and Iida",
+      "sortKey": 4450,
+      "aliases": [
+        "Todoroki arrives in Hosu"
+      ],
+      "tags": [
+        "character:todoroki-shoto",
+        "character:iida-tenya"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 53"
+      }
+    },
+    {
+      "id": "mha.stain.stain-defeated",
+      "label": "Stain is defeated by the students",
+      "sortKey": 4500,
+      "aliases": [
+        "Stain defeated"
+      ],
+      "tags": [
+        "character:stain",
+        "character:iida-tenya"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 54-56"
+      }
+    },
+    {
+      "id": "mha.stain.stain-ideology-spreads",
+      "label": "Stain ideology spreads after Hosu",
+      "sortKey": 4550,
+      "aliases": [
+        "Stain ideology spreads"
+      ],
+      "tags": [
+        "character:stain",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 56-58"
+      }
+    },
+    {
+      "id": "mha.stain.ofa-afo-origin-lesson",
+      "label": "All Might explains One For All and All For One origins",
+      "sortKey": 4600,
+      "aliases": [
+        "OFA AFO origin lesson"
+      ],
+      "tags": [
+        "quirk:one-for-all",
+        "quirk:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 59"
+      }
+    },
+    {
+      "id": "mha.finals.exam-week-begins",
+      "label": "Final exam week begins",
+      "sortKey": 5000,
+      "aliases": [
+        "final exams begin"
+      ],
+      "tags": [
+        "arc:final-exams"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 60"
+      }
+    },
+    {
+      "id": "mha.finals.teacher-practical-reveal",
+      "label": "Teachers reveal practical exam twist",
+      "sortKey": 5050,
+      "aliases": [
+        "teacher practical exam"
+      ],
+      "tags": [
+        "arc:final-exams",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 60-61"
+      }
+    },
+    {
+      "id": "mha.finals.yaoyorozu-todoroki-vs-aizawa",
+      "label": "Yaoyorozu and Todoroki face Aizawa",
+      "sortKey": 5100,
+      "aliases": [
+        "Momo Todoroki vs Aizawa"
+      ],
+      "tags": [
+        "character:yaoyorozu-momo",
+        "character:todoroki-shoto",
+        "character:aizawa-shota"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-63"
+      }
+    },
+    {
+      "id": "mha.finals.deku-bakugo-vs-all-might",
+      "label": "Izuku and Bakugo face All Might",
+      "sortKey": 5150,
+      "aliases": [
+        "Deku Bakugo vs All Might"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "hero:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 61-62, 66-67"
+      }
+    },
+    {
+      "id": "mha.finals.other-pairs-resolve",
+      "label": "Other final exam pairs resolve their weaknesses",
+      "sortKey": 5200,
+      "aliases": [
+        "other final exams"
+      ],
+      "tags": [
+        "arc:final-exams",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 64-66"
+      }
+    },
+    {
+      "id": "mha.finals.shopping-trip",
+      "label": "Class 1-A shopping trip before summer camp",
+      "sortKey": 5250,
+      "aliases": [
+        "shopping mall trip"
+      ],
+      "tags": [
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 68"
+      }
+    },
+    {
+      "id": "mha.finals.shigaraki-mall-confrontation",
+      "label": "Shigaraki confronts Izuku at the mall",
+      "sortKey": 5300,
+      "aliases": [
+        "Shigaraki mall encounter"
+      ],
+      "tags": [
+        "character:shigaraki-tomura",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 68-69"
+      }
+    },
+    {
+      "id": "mha.finals.summer-camp-setup",
+      "label": "Summer training camp is set up",
+      "sortKey": 5350,
+      "aliases": [
+        "summer camp setup"
+      ],
+      "tags": [
+        "arc:forest-training-camp"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 69"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.window.sports-festival-full",
+      "label": "U.A. Sports Festival",
+      "anchorFrom": "mha.ssf.sports-festival-announced",
+      "anchorTo": "mha.ssf.sports-festival-ends",
+      "sortKeyFrom": 3050,
+      "sortKeyTo": 3800,
+      "aliases": [
+        "u.a. sports festival"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.sports-festival-tournament",
+      "label": "Sports Festival tournament bracket",
+      "anchorFrom": "mha.ssf.cavalry-battle-ends",
+      "anchorTo": "mha.ssf.bakugo-vs-todoroki-final",
+      "sortKeyFrom": 3450,
+      "sortKeyTo": 3750,
+      "aliases": [
+        "sports festival tournament bracket"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.todoroki-origin-reveal",
+      "label": "Todoroki origin and fire breakthrough",
+      "anchorFrom": "mha.ssf.endeavor-approaches-izuku",
+      "anchorTo": "mha.ssf.midoriya-vs-todoroki",
+      "sortKeyFrom": 3600,
+      "sortKeyTo": 3700,
+      "aliases": [
+        "todoroki origin and fire breakthrough"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.workplace-training",
+      "label": "Workplace Training and Stain aftermath",
+      "anchorFrom": "mha.stain.hero-names-class",
+      "anchorTo": "mha.stain.ofa-afo-origin-lesson",
+      "sortKeyFrom": 4000,
+      "sortKeyTo": 4600,
+      "aliases": [
+        "workplace training and stain aftermath"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.hosu-night",
+      "label": "Hosu City incident",
+      "anchorFrom": "mha.stain.hosu-nomu-attack",
+      "anchorTo": "mha.stain.stain-defeated",
+      "sortKeyFrom": 4300,
+      "sortKeyTo": 4500,
+      "aliases": [
+        "hosu city incident"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.final-exams-full",
+      "label": "Final Exams arc",
+      "anchorFrom": "mha.finals.exam-week-begins",
+      "anchorTo": "mha.finals.summer-camp-setup",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5350,
+      "aliases": [
+        "final exams arc"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.teacher-practicals",
+      "label": "Teacher practical exams",
+      "anchorFrom": "mha.finals.teacher-practical-reveal",
+      "anchorTo": "mha.finals.other-pairs-resolve",
+      "sortKeyFrom": 5050,
+      "sortKeyTo": 5200,
+      "aliases": [
+        "teacher practical exams"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.mall-confrontation",
+      "label": "Mall confrontation and League creed shift",
+      "anchorFrom": "mha.finals.shopping-trip",
+      "anchorTo": "mha.finals.shigaraki-mall-confrontation",
+      "sortKeyFrom": 5250,
+      "sortKeyTo": 5300,
+      "aliases": [
+        "mall confrontation and league creed shift"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    },
+    {
+      "id": "mha.window.sports-stain-finals-full",
+      "label": "Sports Festival through Final Exams",
+      "anchorFrom": "mha.ssf.post-usj-security",
+      "anchorTo": "mha.finals.summer-camp-setup",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 5350,
+      "aliases": [
+        "sports festival through final exams"
+      ],
+      "tags": [
+        "continuity:mha-manga-main"
+      ]
+    }
+  ],
+  "arcs": [
+    {
+      "id": "mha.arc.sports-festival",
+      "label": "U.A. Sports Festival",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 3800,
+      "aliases": [
+        "sports festival"
+      ],
+      "tags": [
+        "arc:sports-festival"
+      ]
+    },
+    {
+      "id": "mha.arc.hero-killer",
+      "label": "Vs. Hero Killer",
+      "sortKeyFrom": 4000,
+      "sortKeyTo": 4600,
+      "aliases": [
+        "Stain arc",
+        "Hero Killer arc",
+        "Hosu"
+      ],
+      "tags": [
+        "arc:hero-killer"
+      ]
+    },
+    {
+      "id": "mha.arc.final-exams",
+      "label": "Final Exams",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 5350,
+      "aliases": [
+        "final exams",
+        "end of term test"
+      ],
+      "tags": [
+        "arc:final-exams"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "mha.phase.ua-first-term-middle",
+      "label": "U.A. first term middle period",
+      "sortKeyFrom": 3000,
+      "sortKeyTo": 5350,
+      "aliases": [
+        "first term after USJ"
+      ],
+      "tags": [
+        "school:ua-high"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "sports-festival",
+        "hero-killer",
+        "final-exams"
+      ]
+    },
+    {
+      "axis": "school_stage",
+      "label": "School Stage",
+      "values": [
+        "ua-first-term",
+        "post-usj-first-term",
+        "end-of-first-term"
+      ]
+    },
+    {
+      "axis": "quirk_stage",
+      "label": "Izuku One For All Stage",
+      "values": [
+        "ofa-finger-breaking",
+        "full-cowling-early"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "label": "Hero Society State",
+      "values": [
+        "sports-festival-public-stage",
+        "stain-ideology-spreads",
+        "ua-practical-exam-escalation"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "label": "Villain Organization State",
+      "values": [
+        "league-post-usj-recovering",
+        "league-contacts-stain",
+        "league-recruitment-signal"
+      ]
+    },
+    {
+      "axis": "internship_state",
+      "label": "Internship State",
+      "values": [
+        "pre-internship",
+        "workplace-training",
+        "hosu-incident"
+      ]
+    },
+    {
+      "axis": "exam_stage",
+      "label": "Exam Stage",
+      "values": [
+        "written-exams",
+        "teacher-practical",
+        "post-exams"
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "label": "Adaptation",
+      "values": [
+        "manga-primary"
+      ]
+    }
+  ]
+}

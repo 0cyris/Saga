@@ -8,11 +8,14 @@ export const DEFAULT_HP_LOREDECK_ID = 'hp-core';
 export const DEFAULT_HP_LOREDECK_FOLDER_ID = 'folder_harry-potter__golden-trio';
 export const DEFAULT_HP_LOREDECK_UPDATED_AT = 1780617600000;
 export const DEFAULT_LOTR_LOREDECK_UPDATED_AT = 1780876800000;
+export const DEFAULT_MHA_LOREDECK_UPDATED_AT = 1780876800000;
 
 const HP_LIBRARY_PATH = Object.freeze(['Harry Potter', 'Golden Trio']);
 const LOTR_LIBRARY_PATH = Object.freeze(['Lord of The Rings', 'War of the Ring']);
+const MHA_LIBRARY_PATH = Object.freeze(['My Hero Academia', 'Manga Main']);
 const HP_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 const LOTR_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
+const MHA_SOURCE = Object.freeze({ kind: 'bundled', url: '' });
 
 const HP_SPLIT_LOREDECKS = Object.freeze([
     {
@@ -250,6 +253,295 @@ const LOTR_SPLIT_LOREDECKS = Object.freeze([
     },
 ]);
 
+const MHA_SPLIT_LOREDECKS = Object.freeze([
+    {
+        packId: 'mha-core',
+        title: 'My Hero Academia: Core',
+        description: 'Core Quirk society, hero system, U.A., factions, identity aliases, Quirk rules, and spoiler-safe knowledge gates for manga-primary My Hero Academia roleplay.',
+        era: 'Main continuity core',
+        familyOrder: 10,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'adaptation:manga', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck Cover for My Hero Academia: Core',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for My Hero Academia: Core',
+            },
+        },
+        stats: {
+            entryCount: 121,
+            categoryCounts: { character: 10, faction: 29, knowledge: 20, rule: 59, secret: 3 },
+            timelineAnchorCount: 14,
+            timelineWindowCount: 9,
+        },
+    },
+    {
+        packId: 'mha-ua-beginnings-usj',
+        title: 'My Hero Academia: U.A. Beginnings and USJ',
+        description: "Context-aware Lorecards for Izuku's origin, One For All transfer, U.A. entrance, early Class 1-A, Battle Trial, and the USJ attack.",
+        era: 'U.A. Beginnings through USJ',
+        familyOrder: 20,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'adaptation:manga', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck Cover for My Hero Academia: U.A. Beginnings and USJ',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for My Hero Academia: U.A. Beginnings and USJ',
+            },
+        },
+        stats: {
+            entryCount: 75,
+            categoryCounts: { character: 15, event: 35, knowledge: 8, relationship: 9, rule: 8 },
+            timelineAnchorCount: 21,
+            timelineWindowCount: 10,
+        },
+    },
+    {
+        packId: 'mha-sports-festival-stain-final-exams',
+        title: 'My Hero Academia: Sports Festival, Stain, and Final Exams',
+        description: 'Sports Festival, Hero Killer Stain/Hosu, workplace training, and Final Exams Context-aware Lorecards for manga-primary My Hero Academia.',
+        era: 'Sports Festival through Final Exams',
+        familyOrder: 30,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'adaptation:manga', 'arc:sports-festival', 'arc:hero-killer', 'arc:final-exams', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck Cover for My Hero Academia: Sports Festival, Stain, and Final Exams',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for My Hero Academia: Sports Festival, Stain, and Final Exams',
+            },
+        },
+        stats: {
+            entryCount: 88,
+            categoryCounts: { character: 27, event: 12, faction: 5, knowledge: 11, location: 1, relationship: 9, rule: 18, secret: 4, timeline: 1 },
+            timelineAnchorCount: 38,
+            timelineWindowCount: 13,
+        },
+    },
+    {
+        packId: 'mha-training-camp-kamino',
+        title: 'My Hero Academia: Training Camp and Kamino',
+        description: 'Forest Training Camp, Vanguard Action Squad, Bakugo capture, Hideout Raid, Kamino Ward, All Might vs All For One, and dorm transition Lorecards for manga-primary My Hero Academia.',
+        era: 'Forest Training Camp through Kamino aftermath',
+        familyOrder: 40,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'adaptation:manga', 'arc:forest-training-camp', 'arc:hideout-raid', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck Cover for My Hero Academia: Training Camp and Kamino',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner for My Hero Academia: Training Camp and Kamino',
+            },
+        },
+        stats: {
+            entryCount: 84,
+            categoryCounts: { character: 17, event: 13, faction: 9, item: 1, knowledge: 16, location: 5, relationship: 5, rule: 10, secret: 7, timeline: 1 },
+            timelineAnchorCount: 36,
+            timelineWindowCount: 12,
+        },
+    },
+    {
+        packId: 'mha-license-hassaikai-remedial',
+        title: 'My Hero Academia: License Exam and Shie Hassaikai',
+        description: 'Provisional Hero License Exam, Shie Hassaikai raid, Eri/Overhaul, Mirio/Nighteye, and Remedial Course Context for manga-primary My Hero Academia roleplay and fanfiction.',
+        era: 'Provisional Hero License Exam, Shie Hassaikai, and Remedial Course',
+        familyOrder: 50,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:provisional-license', 'arc:shie-hassaikai', 'arc:remedial-course', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder',
+            },
+        },
+        stats: {
+            entryCount: 92,
+            categoryCounts: { character: 18, event: 6, faction: 6, knowledge: 30, location: 2, relationship: 7, rule: 15, secret: 8 },
+            timelineAnchorCount: 52,
+            timelineWindowCount: 11,
+        },
+    },
+    {
+        packId: 'mha-school-festival-pro-hero',
+        title: 'My Hero Academia: School Festival and Pro Hero',
+        description: 'U.A. School Festival, Eri recovery, Gentle/La Brava, Pro Hero rankings, Endeavor/Hawks, High-End, Todoroki family pressure, and One For All vestige Context for manga-primary MHA roleplay and fanfiction.',
+        era: 'U.A. School Festival and Pro Hero',
+        familyOrder: 60,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:school-festival', 'arc:pro-hero', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder',
+            },
+        },
+        stats: {
+            entryCount: 108,
+            categoryCounts: { character: 25, event: 8, faction: 8, item: 1, knowledge: 11, location: 2, relationship: 13, rule: 15, secret: 24, timeline: 1 },
+            timelineAnchorCount: 29,
+            timelineWindowCount: 7,
+        },
+    },
+    {
+        packId: 'mha-joint-training-villain-academia-endeavor-agency',
+        title: 'My Hero Academia: Joint Training, Villain Academia, and Endeavor Agency',
+        description: 'Joint Training, Blackwhip awakening, My Villain Academia, Meta Liberation Army, PLF formation, Endeavor Agency work studies, Hawks coded warning, Todoroki family pressure, and pre-war setup for manga-primary MHA roleplay and fanfiction.',
+        era: 'Joint Training through Endeavor Agency',
+        familyOrder: 70,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:joint-training', 'arc:meta-liberation-army', 'arc:endeavor-agency', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder',
+            },
+        },
+        stats: {
+            entryCount: 122,
+            categoryCounts: { character: 23, event: 40, faction: 1, knowledge: 9, relationship: 7, rule: 26, secret: 15, timeline: 1 },
+            timelineAnchorCount: 37,
+            timelineWindowCount: 9,
+        },
+    },
+    {
+        packId: 'mha-paranormal-liberation-war',
+        title: 'My Hero Academia: Paranormal Liberation War',
+        description: 'Context-gated story-state, knowledge, ability, faction, and aftermath lore for the Paranormal Liberation War arc of manga-primary My Hero Academia.',
+        era: 'Paranormal Liberation War and immediate aftermath',
+        familyOrder: 80,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:paranormal-liberation-war', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder for My Hero Academia: Paranormal Liberation War',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder for My Hero Academia: Paranormal Liberation War',
+            },
+        },
+        stats: {
+            entryCount: 102,
+            categoryCounts: { character: 42, event: 23, faction: 7, knowledge: 2, location: 1, relationship: 3, rule: 7, secret: 17 },
+            timelineAnchorCount: 44,
+            timelineWindowCount: 11,
+        },
+    },
+    {
+        packId: 'mha-dark-hero-star-traitor',
+        title: 'My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor',
+        description: 'Context-gated story-state, knowledge, ability, relationship, and spoiler-guard lore for Dark Hero, Star and Stripe, and U.A. Traitor material in manga-primary My Hero Academia.',
+        era: 'Dark Hero through U.A. Traitor',
+        familyOrder: 90,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:dark-hero', 'arc:star-and-stripe', 'arc:ua-traitor', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder for My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder for My Hero Academia: Dark Hero, Star and Stripe, and U.A. Traitor',
+            },
+        },
+        stats: {
+            entryCount: 109,
+            categoryCounts: { character: 32, event: 11, faction: 4, knowledge: 15, location: 3, relationship: 20, rule: 13, secret: 11 },
+            timelineAnchorCount: 35,
+            timelineWindowCount: 6,
+        },
+    },
+    {
+        packId: 'mha-final-war-epilogue',
+        title: 'My Hero Academia: Final War and Epilogue',
+        description: 'Context-gated story-state, battle-route, knowledge, ability, relationship, aftermath, and spoiler-guard lore for the Final War and Chapter 430 epilogue in manga-primary My Hero Academia.',
+        era: 'Final War through Chapter 430 Epilogue',
+        familyOrder: 100,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:final-war', 'arc:epilogue', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder for My Hero Academia: Final War and Epilogue',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder for My Hero Academia: Final War and Epilogue',
+            },
+        },
+        stats: {
+            entryCount: 140,
+            categoryCounts: { character: 47, event: 23, faction: 11, knowledge: 4, location: 3, relationship: 24, rule: 7, secret: 21 },
+            timelineAnchorCount: 47,
+            timelineWindowCount: 12,
+        },
+    },
+    {
+        packId: 'mha-post-series-more',
+        title: 'My Hero Academia: Post-Series Extra - More',
+        description: "Optional Chapter 431 'More' post-series extra overlay for manga-primary My Hero Academia. Adds adult-life, Quirk Counseling, relationship, ranking, and future-guard lore that should not leak into the default Chapter 430 epilogue deck.",
+        era: "Post-series extra: Chapter 431 More",
+        familyOrder: 110,
+        tags: ['fandom:mha', 'continuity:mha-manga-main', 'arc:post-series-more', 'chapter:431-more', 'quality:draft-reference'],
+        assets: {
+            cover: {
+                path: 'assets/cover.png',
+                alt: 'Deck cover placeholder for My Hero Academia: Post-Series Extra - More',
+                aspect: '3:4',
+                focalPoint: { x: 0.5, y: 0.42 },
+            },
+            banner: {
+                path: 'assets/banner.png',
+                alt: 'Wide banner placeholder for My Hero Academia: Post-Series Extra - More',
+            },
+        },
+        stats: {
+            entryCount: 47,
+            categoryCounts: { character: 12, event: 2, faction: 5, knowledge: 1, relationship: 15, rule: 4, secret: 2, timeline: 6 },
+            timelineAnchorCount: 11,
+            timelineWindowCount: 4,
+        },
+    },
+]);
+
 function buildBundledLoredeckRecord(deck, options = {}) {
     const libraryPath = options.libraryPath || [];
     const updatedAt = Number.isFinite(Number(options.updatedAt)) ? Number(options.updatedAt) : 0;
@@ -302,6 +594,16 @@ function buildLotrLoredeckRecord(deck) {
     });
 }
 
+function buildMhaLoredeckRecord(deck) {
+    return buildBundledLoredeckRecord(deck, {
+        fandom: 'My Hero Academia',
+        version: '0.11.0',
+        source: MHA_SOURCE,
+        libraryPath: MHA_LIBRARY_PATH,
+        updatedAt: DEFAULT_MHA_LOREDECK_UPDATED_AT,
+    });
+}
+
 function buildLoredeckContext(deck, contextType = 'custom') {
     return Object.freeze({
         schemaVersion: 1,
@@ -342,6 +644,10 @@ function buildLotrLoredeckContext(deck) {
     return buildLoredeckContext(deck, 'anchor_window');
 }
 
+function buildMhaLoredeckContext(deck) {
+    return buildLoredeckContext(deck, 'anchor_window');
+}
+
 export const DEFAULT_HP_LOREDECK_LIBRARY_RECORDS = Object.freeze(HP_SPLIT_LOREDECKS.map(buildHpLoredeckRecord));
 export const DEFAULT_HP_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
     DEFAULT_HP_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
@@ -359,26 +665,39 @@ export const DEFAULT_LOTR_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
     LOTR_SPLIT_LOREDECKS.map(deck => [deck.packId, buildLotrLoredeckContext(deck)])
 ));
 export const DEFAULT_LOTR_LOREDECK_IDS = Object.freeze(LOTR_SPLIT_LOREDECKS.map(deck => deck.packId));
+export const DEFAULT_MHA_LOREDECK_LIBRARY_RECORDS = Object.freeze(MHA_SPLIT_LOREDECKS.map(buildMhaLoredeckRecord));
+export const DEFAULT_MHA_LOREDECK_LIBRARY_PACKS = Object.freeze(Object.fromEntries(
+    DEFAULT_MHA_LOREDECK_LIBRARY_RECORDS.map(record => [record.packId, record])
+));
+export const DEFAULT_MHA_LOREDECK_CONTEXTS = Object.freeze(Object.fromEntries(
+    MHA_SPLIT_LOREDECKS.map(deck => [deck.packId, buildMhaLoredeckContext(deck)])
+));
+export const DEFAULT_MHA_LOREDECK_IDS = Object.freeze(MHA_SPLIT_LOREDECKS.map(deck => deck.packId));
 export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_RECORDS = Object.freeze([
     ...DEFAULT_HP_LOREDECK_LIBRARY_RECORDS,
     ...DEFAULT_LOTR_LOREDECK_LIBRARY_RECORDS,
+    ...DEFAULT_MHA_LOREDECK_LIBRARY_RECORDS,
 ]);
 export const DEFAULT_BUNDLED_LOREDECK_LIBRARY_PACKS = Object.freeze({
     ...DEFAULT_HP_LOREDECK_LIBRARY_PACKS,
     ...DEFAULT_LOTR_LOREDECK_LIBRARY_PACKS,
+    ...DEFAULT_MHA_LOREDECK_LIBRARY_PACKS,
 });
 export const DEFAULT_BUNDLED_LOREDECK_CONTEXTS = Object.freeze({
     ...DEFAULT_HP_LOREDECK_CONTEXTS,
     ...DEFAULT_LOTR_LOREDECK_CONTEXTS,
+    ...DEFAULT_MHA_LOREDECK_CONTEXTS,
 });
 export const DEFAULT_BUNDLED_LOREDECK_IDS = Object.freeze([
     ...DEFAULT_HP_LOREDECK_IDS,
     ...DEFAULT_LOTR_LOREDECK_IDS,
+    ...DEFAULT_MHA_LOREDECK_IDS,
 ]);
 
 const DEFAULT_LOREDECK_CONTEXT_TYPES = Object.freeze({
     ...Object.fromEntries(DEFAULT_HP_LOREDECK_IDS.map(id => [id, 'calendar'])),
     ...Object.fromEntries(DEFAULT_LOTR_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
+    ...Object.fromEntries(DEFAULT_MHA_LOREDECK_IDS.map(id => [id, 'anchor_window'])),
 });
 
 export function isDefaultHarryPotterLoredeckId(packId = '') {
@@ -387,6 +706,10 @@ export function isDefaultHarryPotterLoredeckId(packId = '') {
 
 export function isDefaultLordOfTheRingsLoredeckId(packId = '') {
     return DEFAULT_LOTR_LOREDECK_IDS.includes(String(packId || '').trim());
+}
+
+export function isDefaultMyHeroAcademiaLoredeckId(packId = '') {
+    return DEFAULT_MHA_LOREDECK_IDS.includes(String(packId || '').trim());
 }
 
 export function isDefaultBundledLoredeckId(packId = '') {

@@ -1,0 +1,1029 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_entrance_exam_rewards_rescue_points",
+      "title": "Entrance Exam Rewards Rescue Points",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue points",
+          "zero pointer",
+          "exam scoring"
+        ]
+      },
+      "tags": [
+        "event:entrance-exam",
+        "topic:rescue",
+        "character:midoriya-izuku",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "rescue points",
+            "zero pointer",
+            "exam scoring"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku passes U.A.'s entrance exam because rescue points recognize his self-sacrificial rescue of Ochaco.",
+        "injection": "The entrance exam must not be scored as combat alone; Deku's rescue of Ochaco is the decisive institutional signal.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_zero_pointer_forces_izukus_first_big_smash",
+      "title": "Zero Pointer Forces Izuku's First Big Smash",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "zero pointer",
+          "full smash",
+          "injury"
+        ]
+      },
+      "tags": [
+        "event:entrance-exam",
+        "quirk:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "zero pointer",
+            "full smash",
+            "injury"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The zero-pointer robot creates the situation where Izuku uses One For All at full force to save Ochaco.",
+        "injection": "Izuku's first huge public OFA use should be desperate rescue, followed by injury and loss of control.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_recovery_girl_enables_but_does_not_erase_injury",
+      "title": "Recovery Girl Enables But Does Not Erase Injury",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:recovery-girl",
+          "mha:midoriya-izuku",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Recovery Girl",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "healing",
+          "injury consequence",
+          "Recovery Girl"
+        ]
+      },
+      "tags": [
+        "hero:recovery-girl",
+        "quirk:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Recovery Girl",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "healing",
+            "injury consequence",
+            "Recovery Girl"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Recovery Girl heals Izuku after the entrance exam, but the injury still proves his power is dangerous to himself.",
+        "injection": "Healing must not make Izuku's injury irrelevant; it should confirm that his current method is unsustainable.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_izuku_believes_he_failed_before_reveal",
+      "title": "Izuku Believes He Failed Before Reveal",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "post-exam anxiety",
+          "hidden scoring",
+          "failure fear"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "event:entrance-exam",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "post-exam anxiety",
+            "hidden scoring",
+            "failure fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the exam, Izuku reasonably believes he failed because he gained no villain points and wrecked his body.",
+        "injection": "Keep Izuku's post-exam anxiety grounded in his limited understanding of U.A.'s hidden scoring.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_iida_starts_as_rule_bound_and_severe",
+      "title": "Iida Starts As Rule-Bound And Severe",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:midoriya-izuku",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Iida first impression",
+          "rules",
+          "discipline"
+        ]
+      },
+      "tags": [
+        "character:iida-tenya",
+        "arc:ua-beginnings",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "Iida first impression",
+            "rules",
+            "discipline"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Tenya Iida initially comes across as rigid and judgmental, though his discipline is sincere.",
+        "injection": "Early Iida should be formal, rule-conscious, and capable of misjudging others before learning more.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_ochacos_rescue_starts_a_friendship",
+      "title": "Ochaco's Rescue Starts A Friendship",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "friendship start",
+          "mutual help",
+          "Ochaco"
+        ]
+      },
+      "tags": [
+        "relationship:deku-uraraka",
+        "event:entrance-exam",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "friendship start",
+            "mutual help",
+            "Ochaco"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku and Ochaco's early bond begins through mutual help around the entrance exam rather than established romance.",
+        "injection": "Write their early connection as kindness, gratitude, nervousness, and friendship before later emotional complexity.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_entrance_exam_does_not_reveal_ofa",
+      "title": "Entrance Exam Does Not Reveal OFA",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.entrance-exam",
+        "validToAnchor": "mha.usj.rescue-points-revealed",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 1600,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "U.A. Entrance Exam"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "exam observers",
+          "power mystery"
+        ]
+      },
+      "tags": [
+        "secret:one-for-all",
+        "event:entrance-exam",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "exam observers",
+            "power mystery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Observers see Izuku's extreme power and injury, but not the secret transfer mechanics of One For All.",
+        "injection": "After the entrance exam, others may see Deku as reckless or strange; they must not know OFA's origin.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_bakugo_also_enters_u_a",
+      "title": "Bakugo Also Enters U.A.",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.accepted-to-ua",
+        "validToAnchor": "mha.usj.deku-vs-bakugo-battle",
+        "sortKeyFrom": 1700,
+        "sortKeyTo": 2100,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Early U.A. rivalry"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.ua-beginnings",
+          "label": "U.A. Beginnings",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.forming",
+          "label": "Class 1-A forming",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High School"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Bakugo at UA",
+          "rivalry",
+          "combat talent"
+        ]
+      },
+      "tags": [
+        "character:bakugo-katsuki",
+        "school:ua-high",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High School"
+          ],
+          "topicsAny": [
+            "Bakugo at UA",
+            "rivalry",
+            "combat talent"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo arrives at U.A. as a top-scoring combat talent, intensifying his shock at Izuku's presence and power.",
+        "injection": "Early U.A. scenes should keep Bakugo's pride and confusion active when Deku is in the same class.",
+        "constraints": [
+          "Keep the exam's hidden rescue scoring and Izuku's lack of control central."
+        ],
+        "antiLore": [
+          "Do not treat Izuku as a smooth combatant or public OFA successor during the entrance exam."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 3-4",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

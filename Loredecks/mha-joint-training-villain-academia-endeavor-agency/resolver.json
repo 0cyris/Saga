@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to My Hero Academia Joint Training, Meta Liberation Army, and Endeavor Agency Context.",
+  "preferredFields": [
+    "arc",
+    "chapterRange",
+    "majorEvent",
+    "quirkStage",
+    "villainOrganizationState",
+    "internshipState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known manga arc anchors and before/after event windows. Do not invent anime-order changes unless an anime overlay is active.",
+  "localPatterns": [
+    {
+      "pattern": "during joint training",
+      "result": {
+        "anchorFrom": "mha.jt.class-a-vs-b-announced",
+        "anchorTo": "mha.jt.ofa-multiple-quirks-revealed",
+        "label": "Joint Training Arc"
+      }
+    },
+    {
+      "pattern": "after blackwhip awakens",
+      "result": {
+        "anchorFrom": "mha.jt.blackwhip-awakens",
+        "label": "After Blackwhip awakens"
+      }
+    },
+    {
+      "pattern": "during my villain academia",
+      "result": {
+        "anchorFrom": "mha.mla.giran-kidnapped",
+        "anchorTo": "mha.mla.plf-formed",
+        "label": "My Villain Academia / Meta Liberation Army"
+      }
+    },
+    {
+      "pattern": "during deika city",
+      "result": {
+        "anchorFrom": "mha.mla.deika-city-trap",
+        "anchorTo": "mha.mla.shigaraki-defeats-redestro",
+        "label": "Deika City battle"
+      }
+    },
+    {
+      "pattern": "after the plf forms",
+      "result": {
+        "anchorFrom": "mha.mla.plf-formed",
+        "label": "After PLF formation"
+      }
+    },
+    {
+      "pattern": "during endeavor agency",
+      "result": {
+        "anchorFrom": "mha.ea.class-interviews",
+        "anchorTo": "mha.ea.pre-war-countdown",
+        "label": "Endeavor Agency Arc"
+      }
+    },
+    {
+      "pattern": "after hawks warning",
+      "result": {
+        "anchorFrom": "mha.ea.hawks-coded-warning",
+        "label": "After Hawks coded warning"
+      }
+    },
+    {
+      "pattern": "during todoroki family dinner",
+      "result": {
+        "anchorId": "mha.ea.todoroki-family-dinner",
+        "label": "Todoroki family dinner"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

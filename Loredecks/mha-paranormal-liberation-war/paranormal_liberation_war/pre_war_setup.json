@@ -1,0 +1,1663 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_kurogiri_is_shirakumo_remains_restricted_knowledge",
+      "title": "Kurogiri Is Shirakumo Remains Restricted Knowledge",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.kurogiri-shirakumo",
+        "sortKeyFrom": 15050,
+        "sortKeyTo": 15050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kurogiri and Shirakumo truth is confronted"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kurogiri",
+          "mha:shirakumo-oboro",
+          "mha:aizawa-shota",
+          "mha:present-mic",
+          "mha:police",
+          "mha:pro-heroes",
+          "mha:tartarus"
+        ],
+        "characters": [
+          "Kurogiri",
+          "Oboro Shirakumo",
+          "Shota Aizawa",
+          "Present Mic"
+        ],
+        "locations": [
+          "Tartarus"
+        ],
+        "objects": [],
+        "factions": [
+          "Police",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Nomu origin",
+          "restricted knowledge",
+          "teacher trauma"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:kurogiri-shirakumo",
+        "character:kurogiri",
+        "character:shirakumo-oboro",
+        "character:aizawa-shota",
+        "character:present-mic",
+        "faction:police",
+        "faction:pro-heroes",
+        "location:tartarus",
+        "topic:nomu-origin",
+        "topic:restricted-knowledge",
+        "topic:teacher-trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kurogiri",
+            "Oboro Shirakumo",
+            "Shota Aizawa",
+            "Present Mic"
+          ],
+          "locationsAny": [
+            "Tartarus"
+          ],
+          "factionsAny": [
+            "Police",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nomu origin",
+            "restricted knowledge",
+            "teacher trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa and Present Mic confront evidence that Kurogiri was made from Oboro Shirakumo, making the Nomu truth personal and restricted.",
+        "injection": "Treat Kurogiri/Shirakumo knowledge as sensitive. Only involved heroes, police, and investigation personnel should know it unless the story reveals it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 254-255",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_aizawa_and_present_mic_carry_shirakumo_trauma_into_war",
+      "title": "Aizawa And Present Mic Carry Shirakumo Trauma Into War",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.kurogiri-shirakumo",
+        "sortKeyFrom": 15050,
+        "sortKeyTo": 15050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kurogiri and Shirakumo truth is confronted"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:present-mic",
+          "mha:kurogiri",
+          "mha:shirakumo-oboro",
+          "mha:tartarus"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Present Mic",
+          "Kurogiri",
+          "Oboro Shirakumo"
+        ],
+        "locations": [
+          "Tartarus"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "grief",
+          "teacher backstory",
+          "Kurogiri trauma"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:kurogiri-shirakumo",
+        "character:aizawa-shota",
+        "character:present-mic",
+        "character:kurogiri",
+        "character:shirakumo-oboro",
+        "location:tartarus",
+        "topic:grief",
+        "topic:teacher-backstory",
+        "topic:kurogiri-trauma"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Present Mic",
+            "Kurogiri",
+            "Oboro Shirakumo"
+          ],
+          "locationsAny": [
+            "Tartarus"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "grief",
+            "teacher backstory",
+            "Kurogiri trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Shirakumo reveal wounds Aizawa and Present Mic personally because Kurogiri is tied to a dead classmate rather than just another Nomu asset.",
+        "injection": "If Aizawa or Present Mic references Kurogiri here, give the moment grief, anger, and professional restraint rather than casual exposition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 254-255",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hawks_intel_makes_the_raid_possible",
+      "title": "Hawks Intel Makes The Raid Possible",
+      "kind": "event_anchor",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hawks-plf-intel",
+        "sortKeyFrom": 15100,
+        "sortKeyTo": 15100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks intelligence points heroes toward PLF war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:hero-public-safety-commission",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Hero Public Safety Commission",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "Hawks infiltration",
+          "coded intel",
+          "raid planning"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "faction:hero-public-safety-commission",
+        "faction:paranormal-liberation-front",
+        "topic:hawks-infiltration",
+        "topic:coded-intel",
+        "topic:raid-planning"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hero Public Safety Commission",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Hawks infiltration",
+            "coded intel",
+            "raid planning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks’ infiltration and coded intelligence are what let heroes identify the Paranormal Liberation Front structure, hospital link, and timing for coordinated action.",
+        "injection": "Before the raids, keep Hawks as the critical intelligence source. The heroes are acting on risky covert information, not omniscient certainty.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 256-258",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hawks_is_still_undercover_until_the_raid_breaks",
+      "title": "Hawks Is Still Undercover Until The Raid Breaks",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hawks-plf-intel",
+        "sortKeyFrom": 15100,
+        "sortKeyTo": 15100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks intelligence points heroes toward PLF war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:twice",
+          "mha:dabi",
+          "mha:paranormal-liberation-front",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Hawks",
+          "Twice",
+          "Dabi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "undercover hero",
+          "spy risk",
+          "PLF suspicion"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:hawks",
+        "faction:hero-public-safety-commission",
+        "character:twice",
+        "character:dabi",
+        "faction:paranormal-liberation-front",
+        "topic:undercover-hero",
+        "topic:spy-risk",
+        "topic:plf-suspicion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Twice",
+            "Dabi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "undercover hero",
+            "spy risk",
+            "PLF suspicion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks remains embedded near the PLF while secretly feeding heroes information, so his loyalty and movements must remain ambiguous to villains.",
+        "injection": "Before open combat at the villa, do not have PLF members casually know Hawks is a spy unless the scene is about suspicion or exposure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 256-258",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_coordinated_raids_split_the_war_across_fronts",
+      "title": "Coordinated Raids Split The War Across Fronts",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.heroes-mobilize",
+        "sortKeyFrom": 15150,
+        "sortKeyTo": 15150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes mobilize for coordinated raids"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes",
+          "mha:police",
+          "mha:evacuation-team",
+          "mha:jaku-hospital",
+          "mha:gunga-mountain-villa",
+          "mha:evacuation-zone",
+          "mha:paranormal-liberation-war"
+        ],
+        "characters": [],
+        "locations": [
+          "Jaku Hospital",
+          "Gunga Mountain Villa",
+          "Evacuation Zone"
+        ],
+        "objects": [
+          "Paranormal Liberation War"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "Police",
+          "Evacuation Team"
+        ],
+        "topics": [
+          "split-front operation",
+          "raid coordination",
+          "war geography"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:pro-heroes",
+        "faction:police",
+        "faction:evacuation-team",
+        "location:jaku-hospital",
+        "location:gunga-mountain-villa",
+        "location:evacuation-zone",
+        "event:paranormal-liberation-war",
+        "topic:split-front-operation",
+        "topic:raid-coordination",
+        "topic:war-geography"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Jaku Hospital",
+            "Gunga Mountain Villa",
+            "Evacuation Zone"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "Police",
+            "Evacuation Team"
+          ],
+          "objectsAny": [
+            "Paranormal Liberation War"
+          ],
+          "topicsAny": [
+            "split-front operation",
+            "raid coordination",
+            "war geography"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The heroes launch simultaneous operations against Jaku Hospital and Gunga Mountain Villa while evacuation teams protect civilians.",
+        "injection": "Use the war as a split-front operation. Hospital, villa, and evacuation scenes must not collapse into one battlefield until later escalation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 258-259",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_students_are_assigned_support_roles_at_first",
+      "title": "Students Are Assigned Support Roles At First",
+      "kind": "status_change",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.evacuations-begin",
+        "sortKeyFrom": 15175,
+        "sortKeyTo": 15175,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Students assist evacuation before combat escalates"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:yaoyorozu-momo",
+          "mha:u-a-students",
+          "mha:evacuation-team",
+          "mha:evacuation-zone"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Shoto Todoroki",
+          "Momo Yaoyorozu"
+        ],
+        "locations": [
+          "Evacuation Zone"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Students",
+          "Evacuation Team"
+        ],
+        "topics": [
+          "student deployment",
+          "evacuation duty",
+          "rear support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:yaoyorozu-momo",
+        "faction:u-a-students",
+        "faction:evacuation-team",
+        "location:evacuation-zone",
+        "topic:student-deployment",
+        "topic:evacuation-duty",
+        "topic:rear-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Shoto Todoroki",
+            "Momo Yaoyorozu"
+          ],
+          "locationsAny": [
+            "Evacuation Zone"
+          ],
+          "factionsAny": [
+            "U.A. Students",
+            "Evacuation Team"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "student deployment",
+            "evacuation duty",
+            "rear support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Many students begin the war in evacuation or rear support roles rather than direct frontline hero combat.",
+        "injection": "At raid start, keep most students in support and evacuation positions. Their direct combat involvement should escalate only as the war breaks containment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 258-259",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_the_plf_is_hidden_from_the_public_before_the_raid",
+      "title": "The PLF Is Hidden From The Public Before The Raid",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hawks-plf-intel",
+        "sortKeyFrom": 15100,
+        "sortKeyTo": 15100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks intelligence points heroes toward PLF war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:shigaraki-tomura",
+          "mha:re-destro",
+          "mha:paranormal-liberation-front",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Hawks",
+          "Tomura Shigaraki",
+          "Re-Destro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Civilians"
+        ],
+        "topics": [
+          "PLF secrecy",
+          "public ignorance",
+          "villain army"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:paranormal-liberation-front",
+        "character:hawks",
+        "character:shigaraki-tomura",
+        "character:re-destro",
+        "faction:civilians",
+        "topic:plf-secrecy",
+        "topic:public-ignorance",
+        "topic:villain-army"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Tomura Shigaraki",
+            "Re-Destro"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "PLF secrecy",
+            "public ignorance",
+            "villain army"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Paranormal Liberation Front is a massive organized threat, but its full scale and leadership are not public knowledge before the raid.",
+        "injection": "Before the raids, civilians and ordinary students must not understand the PLF as a nationwide army unless briefed by authorities.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 256-258",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_garaki_link_makes_the_hospital_a_strategic_target",
+      "title": "Garaki Link Makes The Hospital A Strategic Target",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.garaki-exposed",
+        "sortKeyFrom": 15225,
+        "sortKeyTo": 15225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Doctor Garaki is exposed as PLF collaborator"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kyudai-garaki",
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:hospital-raid-team",
+          "mha:nomu",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Kyudai Garaki",
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Hospital Raid Team",
+          "Nomu"
+        ],
+        "topics": [
+          "Garaki lab",
+          "Nomu infrastructure",
+          "Shigaraki enhancement"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:kyudai-garaki",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "faction:hospital-raid-team",
+        "faction:nomu",
+        "location:jaku-hospital",
+        "topic:garaki-lab",
+        "topic:nomu-infrastructure",
+        "topic:shigaraki-enhancement"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kyudai Garaki",
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Hospital Raid Team",
+            "Nomu"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Garaki lab",
+            "Nomu infrastructure",
+            "Shigaraki enhancement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Doctor Garaki’s hospital and laboratory matter because they connect Nomu production, Shigaraki enhancement, and All For One’s hidden infrastructure.",
+        "injection": "Use Jaku Hospital as a strategic target, not a random villain base. Garaki ties medicine, Nomu science, and Shigaraki’s transformation together.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-260",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_pre_war_calm_should_feel_fragile",
+      "title": "Pre-War Calm Should Feel Fragile",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 76,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.winter-reports",
+        "sortKeyFrom": 15000,
+        "sortKeyTo": 15000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A returns from winter work studies"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:u-a-high",
+          "mha:hero-society"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Hero Society"
+        ],
+        "topics": [
+          "pre-war calm",
+          "countdown tone",
+          "fragile normalcy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:u-a-high",
+        "faction:hero-society",
+        "topic:pre-war-calm",
+        "topic:countdown-tone",
+        "topic:fragile-normalcy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "pre-war calm",
+            "countdown tone",
+            "fragile normalcy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The school and work-study calm before the raids is temporary; the story is already moving toward institutional collapse.",
+        "injection": "In pre-war scenes, ordinary school rhythms can continue, but keep an undertone of countdown, secrecy, and coming rupture.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 253",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_reveal_dabi_as_toya_before_broadcast",
+      "title": "Do Not Reveal Dabi As Toya Before Broadcast",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hawks-plf-intel",
+        "sortKeyFrom": 15100,
+        "sortKeyTo": 15100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks intelligence points heroes toward PLF war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:toya-todoroki",
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Dabi",
+          "Toya Todoroki",
+          "Endeavor",
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "Toya identity",
+          "future guard",
+          "Dabi secret"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:dabi-toya",
+        "character:dabi",
+        "character:toya-todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "faction:todoroki-family",
+        "topic:toya-identity",
+        "topic:future-guard",
+        "topic:dabi-secret"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Toya Todoroki",
+            "Endeavor",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Toya identity",
+            "future guard",
+            "Dabi secret"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s identity as Toya Todoroki must remain hidden until his public broadcast during the war.",
+        "injection": "Before the Dabi broadcast anchor, keep Toya identity hidden. Dabi may behave with private intent, but the narrative must not expose the truth early.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 256-258",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_jump_to_dark_hero_before_war_collapse",
+      "title": "Do Not Jump To Dark Hero Before War Collapse",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hawks-plf-intel",
+        "sortKeyFrom": 15100,
+        "sortKeyTo": 15100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks intelligence points heroes toward PLF war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.prewar-intel",
+          "label": "Pre-war intelligence and mobilization",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:pro-heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "U.A. Class 1-A",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Dark Hero guard",
+          "solo Deku future",
+          "post-war transition"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:pro-heroes",
+        "quirk:one-for-all",
+        "topic:dark-hero-guard",
+        "topic:solo-deku-future",
+        "topic:post-war-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Dark Hero guard",
+            "solo Deku future",
+            "post-war transition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s solo Dark Hero period is a post-war response and must not be treated as active before the war breaks hero society.",
+        "injection": "Before the war aftermath, keep Deku within the student/hero-operation framework. Do not make him a lone vigilante early.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 256-258",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    }
+  ]
+}

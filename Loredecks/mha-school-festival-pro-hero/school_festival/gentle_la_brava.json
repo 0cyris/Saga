@@ -1,0 +1,2053 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_criminal_seeks_notoriety_more_than_mass_harm",
+      "title": "Gentle Criminal Seeks Notoriety More Than Mass Harm",
+      "kind": "objective",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "sortKeyFrom": 10350,
+        "sortKeyTo": 10350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "notoriety",
+          "online villainy",
+          "legacy obsession"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "topic:notoriety",
+        "topic:online-villainy",
+        "topic:legacy-obsession"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "notoriety",
+            "online villainy",
+            "legacy obsession"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle Criminal wants a memorable legacy and online recognition rather than mass casualties or ideological revolution.",
+        "injection": "Write Gentle as theatrical, self-mythologizing, and attention-seeking. He is dangerous because of the breach, not because he wants massacre.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_la_brava_is_partner_not_disposable_sidekick",
+      "title": "La Brava Is Partner Not Disposable Sidekick",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "sortKeyFrom": 10350,
+        "sortKeyTo": 10350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:la-brava",
+          "mha:gentle-criminal",
+          "mha:love"
+        ],
+        "characters": [
+          "La Brava",
+          "Gentle Criminal"
+        ],
+        "locations": [],
+        "objects": [
+          "Love"
+        ],
+        "factions": [],
+        "topics": [
+          "partnership",
+          "devotion",
+          "technical support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:la-brava",
+        "character:gentle-criminal",
+        "quirk:love",
+        "topic:partnership",
+        "topic:devotion",
+        "topic:technical-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "La Brava",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Love"
+          ],
+          "topicsAny": [
+            "partnership",
+            "devotion",
+            "technical support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "La Brava is Gentle’s loyal partner, technical support, editor, and emotional anchor, not a disposable henchwoman.",
+        "injection": "When La Brava is present, make her devotion active: hacking, recording, boosting, planning, and defending Gentle’s dream.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_videos_shape_his_villain_persona",
+      "title": "Gentle Videos Shape His Villain Persona",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "sortKeyFrom": 10350,
+        "sortKeyTo": 10350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "video persona",
+          "performative villainy",
+          "internet notoriety"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "topic:video-persona",
+        "topic:performative-villainy",
+        "topic:internet-notoriety"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "video persona",
+            "performative villainy",
+            "internet notoriety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle’s villain identity is built through staged videos, manners, rhetoric, and a desire to be remembered.",
+        "injection": "Use performance language around Gentle. He frames crimes as productions and history-making acts, not ordinary street crime.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_la_brava_hacking_enables_the_ua_breach_plan",
+      "title": "La Brava Hacking Enables The U.A. Breach Plan",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:la-brava",
+          "mha:gentle-criminal"
+        ],
+        "characters": [
+          "La Brava",
+          "Gentle Criminal"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hacking",
+          "security breach",
+          "U.A. infiltration"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:la-brava",
+        "character:gentle-criminal",
+        "topic:hacking",
+        "topic:security-breach",
+        "topic:ua-infiltration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "La Brava",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "hacking",
+            "security breach",
+            "U.A. infiltration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "La Brava’s hacking skill supports Gentle’s U.A. breach attempt by targeting digital and security vulnerabilities.",
+        "injection": "Let La Brava contribute through technical access and planning. Do not reduce the breach to Gentle’s Quirk alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-175",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_targeting_ua_would_cancel_the_festival",
+      "title": "Gentle Targeting U.A. Would Cancel The Festival",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:eri",
+          "mha:ua-high",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava",
+          "Eri"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "festival cancellation",
+          "security breach",
+          "Eri stakes"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "character:eri",
+        "school:ua-high",
+        "topic:festival-cancellation",
+        "topic:security-breach",
+        "topic:eri-stakes"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava",
+            "Eri"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "festival cancellation",
+            "security breach",
+            "Eri stakes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A detected breach by Gentle during festival security would likely cancel or ruin the School Festival.",
+        "injection": "The stakes of Gentle’s plan are institutional and emotional: U.A. panic, festival cancellation, and Eri losing her safe day.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-175",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_elasticity_makes_terrain_unreliable",
+      "title": "Gentle Elasticity Makes Terrain Unreliable",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-elasticity-fight",
+        "sortKeyFrom": 10550,
+        "sortKeyTo": 10550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle uses Elasticity to control terrain and momentum"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:midoriya-izuku",
+          "mha:elasticity"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Elasticity"
+        ],
+        "factions": [],
+        "topics": [
+          "Elasticity terrain",
+          "movement control",
+          "construction site fight"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:midoriya-izuku",
+        "quirk:elasticity",
+        "topic:elasticity-terrain",
+        "topic:movement-control",
+        "topic:construction-site-fight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Elasticity"
+          ],
+          "topicsAny": [
+            "Elasticity terrain",
+            "movement control",
+            "construction site fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle’s Elasticity lets touched surfaces bend, bounce, and redirect movement, making terrain and air pressure unreliable.",
+        "injection": "In combat with Gentle, make surfaces and trajectories deceptive. The environment should become springy, angled, and difficult to read.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 176-177",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Elasticity",
+        "stage": "experienced_user",
+        "ownerEntityIds": [
+          "mha:gentle-criminal"
+        ],
+        "constraints": [
+          "Gentle must apply Elasticity through contact.",
+          "The Quirk alters surfaces and air-like barriers but does not create unlimited force."
+        ],
+        "antiLore": [
+          "Do not portray Elasticity as telekinesis or raw super strength."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_is_outmatched_by_deku_but_not_trivial",
+      "title": "Gentle Is Outmatched By Deku But Not Trivial",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.deku-encounters-gentle",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku encounters Gentle and La Brava before the festival"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:midoriya-izuku",
+          "mha:elasticity",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Elasticity",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "threat scaling",
+          "tactical fight",
+          "festival pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:midoriya-izuku",
+        "quirk:elasticity",
+        "quirk:one-for-all",
+        "topic:threat-scaling",
+        "topic:tactical-fight",
+        "topic:festival-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Elasticity",
+            "One For All"
+          ],
+          "topicsAny": [
+            "threat scaling",
+            "tactical fight",
+            "festival pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle is below top-tier villain threat level but still dangerous enough to force Izuku into a serious tactical fight.",
+        "injection": "Do not treat Gentle as a joke encounter. Deku must solve timing, terrain, and secrecy under pressure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 175-176",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_la_brava_love_is_a_once_daily_emotional_boost",
+      "title": "La Brava Love Is A Once-Daily Emotional Boost",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.la-brava-love-boost",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "La Brava boosts Gentle through Love"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:la-brava",
+          "mha:gentle-criminal",
+          "mha:love"
+        ],
+        "characters": [
+          "La Brava",
+          "Gentle Criminal"
+        ],
+        "locations": [],
+        "objects": [
+          "Love"
+        ],
+        "factions": [],
+        "topics": [
+          "Love quirk",
+          "temporary boost",
+          "devotion"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:la-brava",
+        "character:gentle-criminal",
+        "quirk:love",
+        "topic:love-quirk",
+        "topic:temporary-boost",
+        "topic:devotion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "La Brava",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Love"
+          ],
+          "topicsAny": [
+            "Love quirk",
+            "temporary boost",
+            "devotion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "La Brava’s Love Quirk temporarily boosts the person she loves most, and its impact is tied to emotional intensity and limited use.",
+        "injection": "When Love activates, Gentle should surge in power because of La Brava’s devotion. Do not make it a permanent or repeatable combat buff.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 178",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Love",
+        "stage": "devotion_boost",
+        "ownerEntityIds": [
+          "mha:la-brava"
+        ],
+        "constraints": [
+          "The boost is temporary.",
+          "It applies to the person La Brava loves most.",
+          "It is not a general team buff."
+        ],
+        "antiLore": [
+          "Do not let La Brava boost multiple allies or spam Love repeatedly."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_and_la_brava_are_sympathetic_but_still_criminal",
+      "title": "Gentle And La Brava Are Sympathetic But Still Criminal",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "sortKeyFrom": 10850,
+        "sortKeyTo": 10850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:eri",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava",
+          "Eri"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Police"
+        ],
+        "topics": [
+          "sympathetic villain",
+          "criminal responsibility",
+          "consequences"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "character:eri",
+        "school:ua-high",
+        "topic:sympathetic-villain",
+        "topic:criminal-responsibility",
+        "topic:consequences"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava",
+            "Eri"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "sympathetic villain",
+            "criminal responsibility",
+            "consequences"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle and La Brava are sympathetic figures with painful histories, but their U.A. breach attempt remains criminal and dangerous.",
+        "injection": "Keep both truths together: they can be pitiable and devoted, while still endangering U.A. and Eri’s festival day.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 179-183",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_protects_la_brava_during_defeat",
+      "title": "Gentle Protects La Brava During Defeat",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "sortKeyFrom": 10850,
+        "sortKeyTo": 10850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Police"
+        ],
+        "topics": [
+          "protective surrender",
+          "partner loyalty",
+          "arrest"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "topic:protective-surrender",
+        "topic:partner-loyalty",
+        "topic:arrest"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "protective surrender",
+            "partner loyalty",
+            "arrest"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle tries to protect La Brava emotionally and legally when their plan fails.",
+        "injection": "During surrender or capture, Gentle should prioritize La Brava’s well-being and try to shoulder blame where he can.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 179-183",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_la_brava_fear_is_losing_gentle_not_losing_fame",
+      "title": "La Brava Fear Is Losing Gentle Not Losing Fame",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.la-brava-love-boost",
+        "sortKeyFrom": 10600,
+        "sortKeyTo": 10600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "La Brava boosts Gentle through Love"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:la-brava",
+          "mha:gentle-criminal",
+          "mha:love"
+        ],
+        "characters": [
+          "La Brava",
+          "Gentle Criminal"
+        ],
+        "locations": [],
+        "objects": [
+          "Love"
+        ],
+        "factions": [],
+        "topics": [
+          "attachment fear",
+          "emotional desperation",
+          "partner bond"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:la-brava",
+        "character:gentle-criminal",
+        "quirk:love",
+        "topic:attachment-fear",
+        "topic:emotional-desperation",
+        "topic:partner-bond"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "La Brava",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "Love"
+          ],
+          "topicsAny": [
+            "attachment fear",
+            "emotional desperation",
+            "partner bond"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "La Brava’s deepest fear in the fight is losing Gentle and the life-purpose she built around him, not merely losing internet fame.",
+        "injection": "Write La Brava’s desperation through attachment and fear of abandonment. Her villain support is emotionally driven.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 178",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_deku_recognizes_gentle_has_human_motives",
+      "title": "Deku Recognizes Gentle Has Human Motives",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-defeated",
+        "sortKeyFrom": 10650,
+        "sortKeyTo": 10650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:gentle-criminal",
+          "mha:la-brava"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "compassion",
+          "villain humanity",
+          "duty"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:midoriya-izuku",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "topic:compassion",
+        "topic:villain-humanity",
+        "topic:duty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "compassion",
+            "villain humanity",
+            "duty"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku can recognize that Gentle and La Brava have human motives without allowing them to endanger others.",
+        "injection": "Deku must not dehumanize Gentle, but he still must stop him. Compassion does not override the immediate duty to protect U.A.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 178-179",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_fight_should_stay_hidden_from_the_festival_crowd",
+      "title": "Gentle Fight Should Stay Hidden From The Festival Crowd",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-defeated",
+        "sortKeyFrom": 10650,
+        "sortKeyTo": 10650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "hidden fight",
+          "near miss",
+          "festival security"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:midoriya-izuku",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "school:ua-high",
+        "topic:hidden-fight",
+        "topic:near-miss",
+        "topic:festival-security"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hidden fight",
+            "near miss",
+            "festival security"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku’s fight with Gentle happens outside the main festival crowd and must not become public school spectacle in the moment.",
+        "injection": "Keep the Gentle fight as a near-miss. Most festivalgoers must not know how close the event came to cancellation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 178-179",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_is_not_league_of_villains_aligned",
+      "title": "Gentle Is Not League Of Villains Aligned",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "sortKeyFrom": 10350,
+        "sortKeyTo": 10350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "independent villain",
+          "League separation",
+          "continuity guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "character:shigaraki-tomura",
+        "faction:league-of-villains",
+        "topic:independent-villain",
+        "topic:league-separation",
+        "topic:continuity-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "independent villain",
+            "League separation",
+            "continuity guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle Criminal and La Brava operate independently and are not part of the League of Villains during the School Festival arc.",
+        "injection": "Do not connect Gentle’s U.A. breach to Shigaraki, All For One, or later League plans unless the user story deliberately changes continuity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_gentle_plan_is_small_scale_compared_to_later_arcs",
+      "title": "Gentle Plan Is Small Scale Compared To Later Arcs",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "scale guard",
+          "future guard",
+          "local threat"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "school:ua-high",
+        "topic:scale-guard",
+        "topic:future-guard",
+        "topic:local-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "scale guard",
+            "future guard",
+            "local threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gentle’s plan is a small-scale infiltration compared to later PLF war threats, and characters in this arc do not know those future threats.",
+        "injection": "Keep stakes local to U.A. security, student morale, and Eri’s day. Do not import war-scale villain organization into Gentle’s plot.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 171-175",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_police_can_see_rehabilitation_potential",
+      "title": "Police Can See Rehabilitation Potential",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "sortKeyFrom": 10850,
+        "sortKeyTo": 10850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gentle-criminal",
+          "mha:la-brava"
+        ],
+        "characters": [
+          "Gentle Criminal",
+          "La Brava"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Police"
+        ],
+        "topics": [
+          "rehabilitation",
+          "arrest aftermath",
+          "villain consequence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:gentle-criminal",
+        "character:la-brava",
+        "topic:rehabilitation",
+        "topic:arrest-aftermath",
+        "topic:villain-consequence"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gentle Criminal",
+            "La Brava"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rehabilitation",
+            "arrest aftermath",
+            "villain consequence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After their defeat, Gentle and La Brava are treated as criminals, but the story leaves room for rehabilitation rather than pure condemnation.",
+        "injection": "In post-capture scenes, allow official suspicion and consequence alongside the possibility that Gentle and La Brava can be redirected.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 179-183",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

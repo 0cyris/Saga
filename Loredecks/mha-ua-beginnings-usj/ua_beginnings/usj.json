@@ -1,0 +1,2349 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_starts_as_rescue_training",
+      "title": "USJ Starts As Rescue Training",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.usj-departure",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 2300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class departs for USJ"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:thirteen",
+          "mha:usj"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "Thirteen"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "rescue training",
+          "USJ facility",
+          "disaster zones"
+        ]
+      },
+      "tags": [
+        "location:usj",
+        "topic:rescue",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "Thirteen"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "rescue training",
+            "USJ facility",
+            "disaster zones"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A goes to the Unforeseen Simulation Joint for rescue training under Thirteen before the attack begins.",
+        "injection": "Before the portal opens, USJ should be framed as disaster-rescue education, not a planned combat mission.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_thirteen_emphasizes_quirk_responsibility",
+      "title": "Thirteen Emphasizes Quirk Responsibility",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.usj-departure",
+        "sortKeyFrom": 2300,
+        "sortKeyTo": 2300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Thirteen's lesson"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:thirteen",
+          "mha:class-1a",
+          "mha:usj"
+        ],
+        "characters": [
+          "Thirteen",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Quirk responsibility",
+          "rescue ethics",
+          "danger"
+        ]
+      },
+      "tags": [
+        "hero:thirteen",
+        "quirk:black-hole",
+        "topic:responsibility",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Thirteen",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Quirk responsibility",
+            "rescue ethics",
+            "danger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Thirteen teaches that powerful Quirks can kill if used carelessly, making rescue ethics central before the villain attack.",
+        "injection": "Use Thirteen's lesson to frame Quirk power as responsibility, especially before students confront real villains.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_league_ambushes_u_a_at_usj",
+      "title": "League Ambushes U.A. At USJ",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kurogiri",
+          "mha:class-1a",
+          "mha:usj",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kurogiri",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "League ambush",
+          "All Might target",
+          "school vulnerability"
+        ]
+      },
+      "tags": [
+        "arc:usj",
+        "faction:league-of-villains",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kurogiri",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "League ambush",
+            "All Might target",
+            "school vulnerability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The League of Villains invades USJ intending to target All Might and expose U.A.'s vulnerability.",
+        "injection": "The USJ attack should be an ambush against a school symbol and All Might, not a random street crime.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_kurogiri_splits_the_class",
+      "title": "Kurogiri Splits The Class",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.kurogiri-splits-students",
+        "sortKeyFrom": 2500,
+        "sortKeyTo": 2500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kurogiri scatters Class 1-A"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kurogiri",
+          "mha:class-1a",
+          "mha:usj",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Kurogiri",
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "student separation",
+          "USJ zones",
+          "portal ambush"
+        ]
+      },
+      "tags": [
+        "villain:kurogiri",
+        "quirk:warp-gate",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kurogiri",
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "student separation",
+            "USJ zones",
+            "portal ambush"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kurogiri scatters students across USJ zones, turning the attack into isolated survival problems.",
+        "injection": "USJ scenes should preserve separation, disorientation, and improvised student pairings after Kurogiri acts.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_aizawa_protects_students_while_outnumbered",
+      "title": "Aizawa Protects Students While Outnumbered",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.aizawa-vs-villains",
+        "sortKeyFrom": 2600,
+        "sortKeyTo": 2600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa fights USJ villains"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Aizawa fight",
+          "outnumbered",
+          "student protection"
+        ]
+      },
+      "tags": [
+        "hero:eraser-head",
+        "arc:usj",
+        "quirk:erasure",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Aizawa fight",
+            "outnumbered",
+            "student protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa fights numerous villains to buy time and protect students despite being heavily outnumbered.",
+        "injection": "At USJ, Aizawa should be competent and sacrificial, using Erasure tactically while physically vulnerable.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_erasure_makes_aizawa_a_priority_target",
+      "title": "Erasure Makes Aizawa A Priority Target",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:shigaraki-tomura",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "priority target",
+          "Quirk suppression",
+          "villain tactics"
+        ]
+      },
+      "tags": [
+        "hero:eraser-head",
+        "quirk:erasure",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "priority target",
+            "Quirk suppression",
+            "villain tactics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Because Aizawa can suppress many Quirks, villains have tactical reason to overwhelm or disable him.",
+        "injection": "Villains should recognize Eraser Head as a tactical obstacle, especially when multiple Quirks are involved.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_nomu_is_built_for_all_might",
+      "title": "USJ Nomu Is Built For All Might",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.nomus-threat",
+        "sortKeyFrom": 2700,
+        "sortKeyTo": 2700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "USJ Nomu threat"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nomu-usj",
+          "mha:yagi-toshinori",
+          "mha:usj",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "USJ Nomu",
+          "All Might"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Nomu",
+          "All Might counter",
+          "shock absorption"
+        ]
+      },
+      "tags": [
+        "villain:nomu",
+        "hero:all-might",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "USJ Nomu",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "Nomu",
+            "All Might counter",
+            "shock absorption"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The USJ Nomu is a specialized weapon prepared to counter All Might through shock absorption and brute force.",
+        "injection": "The Nomu should feel engineered for a specific objective, not like a normal villain recruit.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_shigaraki_threatens_through_touch",
+      "title": "Shigaraki Threatens Through Touch",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:usj",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Decay touch",
+          "threat",
+          "proximity"
+        ]
+      },
+      "tags": [
+        "villain:shigaraki",
+        "quirk:decay",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "Decay touch",
+            "threat",
+            "proximity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At USJ, Shigaraki's Decay creates immediate terror through the possibility of lethal contact.",
+        "injection": "Early Shigaraki should be frightening through proximity, unpredictability, and touch danger.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_students_improvise_in_usj_zones",
+      "title": "Students Improvise In USJ Zones",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:usj"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "USJ zones",
+          "student improvisation",
+          "survival"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "arc:usj",
+        "topic:improvisation",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "USJ zones",
+            "student improvisation",
+            "survival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Separated Class 1-A students survive by adapting their Quirks to unfamiliar rescue zones and villain pressure.",
+        "injection": "USJ student scenes should be improvisational, uneven, and frightened rather than polished professional combat.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_iidas_role_is_to_escape_and_warn",
+      "title": "Iida's Role Is To Escape And Warn",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Tenya Iida"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Iida escape",
+          "warning UA",
+          "speed"
+        ]
+      },
+      "tags": [
+        "character:iida-tenya",
+        "arc:usj",
+        "topic:rescue",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Iida escape",
+            "warning UA",
+            "speed"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida's speed and discipline make him the student best positioned to escape USJ and alert the school.",
+        "injection": "Iida must not stay only for combat if the tactical need is warning adults; his escape is heroic responsibility.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_all_might_arrives_late_under_time_pressure",
+      "title": "All Might Arrives Late Under Time Pressure",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.all-might-arrives-usj",
+        "sortKeyFrom": 2800,
+        "sortKeyTo": 2800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might arrives at USJ"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "late arrival",
+          "time limit",
+          "USJ fight"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "secret:all-might-injury",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "late arrival",
+            "time limit",
+            "USJ fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might arrives at USJ after delay and must fight while managing his hidden time limit.",
+        "injection": "At USJ, All Might's public dominance should coexist with private exhaustion and fear of running out of time.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_all_might_exceeds_his_limit_at_usj",
+      "title": "All Might Exceeds His Limit At USJ",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:nomu-usj",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "All Might",
+          "USJ Nomu"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Plus Ultra",
+          "time limit",
+          "Nomu fight"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "villain:nomu",
+        "secret:all-might-injury",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "USJ Nomu"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Plus Ultra",
+            "time limit",
+            "Nomu fight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might pushes beyond his safe operating time to defeat the Nomu and protect the students.",
+        "injection": "All Might's victory should feel heroic and costly, not effortless proof that his injury is irrelevant.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_deku_observes_all_mights_weakness",
+      "title": "Deku Observes All Might's Weakness",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Deku knows secret",
+          "All Might time limit",
+          "fear"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "hero:all-might",
+        "secret:all-might-injury",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Deku knows secret",
+            "All Might time limit",
+            "fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku understands more than most about the danger All Might faces at USJ because he knows the time-limit secret.",
+        "injection": "Deku's fear for All Might should be informed by private knowledge classmates lack.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_shigaraki_retreats_before_full_victory",
+      "title": "Shigaraki Retreats Before Full Victory",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 2900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "USJ attack ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kurogiri",
+          "mha:usj",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kurogiri"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "League retreat",
+          "failed objective",
+          "consequence"
+        ]
+      },
+      "tags": [
+        "faction:league-of-villains",
+        "arc:usj",
+        "status:usj-aftermath",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kurogiri"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "topicsAny": [
+            "League retreat",
+            "failed objective",
+            "consequence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The League retreats from USJ after All Might and reinforcements prevent their objective.",
+        "injection": "USJ should end as a failed but consequential villain attack, not as total student victory or clean villain capture.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_leaves_the_class_shaken",
+      "title": "USJ Leaves The Class Shaken",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-ends",
+        "validToAnchor": "mha.usj.after-usj-school-continues",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:usj"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "USJ aftermath",
+          "student trauma",
+          "school threat"
+        ]
+      },
+      "tags": [
+        "arc:usj",
+        "status:usj-aftermath",
+        "class:ua-1a",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "USJ aftermath",
+            "student trauma",
+            "school threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After USJ, students have experienced real villains and the school cannot treat the incident as ordinary training.",
+        "injection": "USJ aftermath should leave fear, adrenaline, institutional concern, and new seriousness around hero training.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_villains_learn_u_a_is_reachable",
+      "title": "Villains Learn U.A. Is Reachable",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-ends",
+        "validToAnchor": "mha.usj.after-usj-school-continues",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:usj",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. High School"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "U.A. breached",
+          "security pressure",
+          "public symbol"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "arc:usj",
+        "topic:school-security",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. High School"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "U.A. breached",
+            "security pressure",
+            "public symbol"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The USJ attack proves that U.A. can be infiltrated, creating lasting security and reputation pressure.",
+        "injection": "After USJ, U.A. must not feel invulnerable; the school has been publicly and practically breached.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_sets_up_sports_festival_pressure",
+      "title": "USJ Sets Up Sports Festival Pressure",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-ends",
+        "validToAnchor": "mha.usj.after-usj-school-continues",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:usj"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [
+          "Unforeseen Simulation Joint"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "Sports Festival setup",
+          "public reassurance",
+          "aftermath"
+        ]
+      },
+      "tags": [
+        "arc:usj",
+        "arc:sports-festival",
+        "topic:public-trust",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "locationsAny": [
+            "Unforeseen Simulation Joint"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Sports Festival setup",
+            "public reassurance",
+            "aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After USJ, U.A. has reason to prove publicly that its students and systems are not broken.",
+        "injection": "USJ aftermath can feed into public-event pressure, but do not skip directly to later arcs unless Context changes.",
+        "constraints": [
+          "Keep USJ as the students' first direct villain crisis and a school-security rupture."
+        ],
+        "antiLore": [
+          "Do not import later war-scale League resources or later student maturity into USJ."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    }
+  ]
+}

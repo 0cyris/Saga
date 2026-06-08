@@ -1,0 +1,1293 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_deku_air_force_extends_one_for_all_at_range",
+      "title": "Deku Air Force Extends One For All At Range",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "sortKeyFrom": 10250,
+        "sortKeyTo": 10250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku trains Air Force finger-flick technique"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:hatsume-mei",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Mei Hatsume"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Air Force",
+          "ranged technique",
+          "support gear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "character:hatsume-mei",
+        "quirk:one-for-all",
+        "topic:air-force",
+        "topic:ranged-technique",
+        "topic:support-gear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Mei Hatsume"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Air Force",
+            "ranged technique",
+            "support gear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku develops Air Force finger-flicks to project controlled pressure at range using One For All and support gloves.",
+        "injection": "During this period, Deku can use Air Force as a tactical range option, but it is still new and tied to support gear and training.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "air_force_early_training",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Air Force is new and requires control.",
+          "It does not replace full-body combat or later OFA Quirks."
+        ],
+        "antiLore": [
+          "Do not give Deku Blackwhip, Float, Danger Sense, Gearshift, or Fa Jin in this Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_support_gloves_matter_to_air_force_control",
+      "title": "Support Gloves Matter To Air Force Control",
+      "kind": "item_state",
+      "category": "item",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "item_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.mei-support-gloves",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mei Hatsume provides support gear for Air Force"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:hatsume-mei",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Mei Hatsume"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "support gloves",
+          "Air Force control",
+          "Mei support gear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "character:hatsume-mei",
+        "quirk:one-for-all",
+        "topic:support-gloves",
+        "topic:air-force-control",
+        "topic:mei-support-gear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Mei Hatsume"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "support gloves",
+            "Air Force control",
+            "Mei support gear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mei Hatsume’s support gloves help Izuku shape Air Force finger-flicks more safely and consistently.",
+        "injection": "When Air Force appears, include the support-gear dependency unless the user story has replaced his equipment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 173-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_deku_still_lacks_multiple_one_for_all_quirks",
+      "title": "Deku Still Lacks Multiple One For All Quirks",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "sortKeyFrom": 10250,
+        "sortKeyTo": 10250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku trains Air Force finger-flick technique"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "future guard",
+          "Blackwhip locked",
+          "OFA progression"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:future-guard",
+        "topic:blackwhip-locked",
+        "topic:ofa-progression"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "future guard",
+            "Blackwhip locked",
+            "OFA progression"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the School Festival and Pro Hero period, Izuku has not yet awakened Blackwhip or other stored One For All Quirks.",
+        "injection": "Before Joint Training, Deku’s One For All toolkit is strength, mobility, Shoot Style, and early Air Force. Do not import later vestige powers yet.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_deku_keeps_training_despite_festival_duties",
+      "title": "Deku Keeps Training Despite Festival Duties",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "sortKeyFrom": 10250,
+        "sortKeyTo": 10250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku trains Air Force finger-flick technique"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:class-1a",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "training obsession",
+          "festival duties",
+          "self-improvement"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "class:ua-1a",
+        "quirk:one-for-all",
+        "topic:training-obsession",
+        "topic:festival-duties",
+        "topic:self-improvement"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "training obsession",
+            "festival duties",
+            "self-improvement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku balances festival logistics with continued combat improvement and support-item iteration.",
+        "injection": "Write Deku as unable to stop training even during school events; his preparation and hero anxiety remain active.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_mei_treats_gear_as_babies_not_polished_customer_service",
+      "title": "Mei Treats Gear As Babies Not Polished Customer Service",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.mei-support-gloves",
+        "sortKeyFrom": 10300,
+        "sortKeyTo": 10300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mei Hatsume provides support gear for Air Force"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hatsume-mei",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Mei Hatsume",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "support lab",
+          "prototype behavior",
+          "Mei inventions"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hatsume-mei",
+        "character:midoriya-izuku",
+        "topic:support-lab",
+        "topic:prototype-behavior",
+        "topic:mei-inventions"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mei Hatsume",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "support lab",
+            "prototype behavior",
+            "Mei inventions"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mei approaches support gear with obsessive inventor enthusiasm and self-promotion, not polished customer-service professionalism.",
+        "injection": "In support-lab scenes, let Mei be intrusive, excited, and prototype-minded. Her gear can be useful without making her socially conventional.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 173-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_air_force_should_not_outscale_major_villains_yet",
+      "title": "Air Force Should Not Outscale Major Villains Yet",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "sortKeyFrom": 10250,
+        "sortKeyTo": 10250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku trains Air Force finger-flick technique"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Air Force limits",
+          "power scaling",
+          "combat balance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:air-force-limits",
+        "topic:power-scaling",
+        "topic:combat-balance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Air Force limits",
+            "power scaling",
+            "combat balance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Air Force is a useful incremental technique, not a power jump that lets Izuku dominate major villains in this period.",
+        "injection": "Use Air Force for positioning, pressure, and small openings. Do not make it an instant solution to high-tier threats.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 172-174",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_deku_versus_gentle_tests_control_not_raw_power",
+      "title": "Deku Versus Gentle Tests Control Not Raw Power",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.deku-encounters-gentle",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku encounters Gentle and La Brava before the festival"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:gentle-criminal",
+          "mha:one-for-all",
+          "mha:elasticity"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Gentle Criminal"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All",
+          "Elasticity"
+        ],
+        "factions": [],
+        "topics": [
+          "control fight",
+          "quiet interception",
+          "Air Force"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "character:gentle-criminal",
+        "quirk:one-for-all",
+        "quirk:elasticity",
+        "topic:control-fight",
+        "topic:quiet-interception",
+        "topic:air-force"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "Elasticity"
+          ],
+          "topicsAny": [
+            "control fight",
+            "quiet interception",
+            "Air Force"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku’s fight with Gentle tests judgment, timing, and controlled technique more than maximum One For All output.",
+        "injection": "Stage Deku vs. Gentle as a tactical control fight. Deku must stop a breach quietly and quickly, not win a loud arena brawl.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 175-176",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_deku_prioritizes_festival_safety_over_public_credit",
+      "title": "Deku Prioritizes Festival Safety Over Public Credit",
+      "kind": "objective",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.gentle-defeated",
+        "sortKeyFrom": 10650,
+        "sortKeyTo": 10650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:eri",
+          "mha:gentle-criminal",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Eri",
+          "Gentle Criminal"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [],
+        "topics": [
+          "festival safety",
+          "private heroism",
+          "Deku motive"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "character:eri",
+        "character:gentle-criminal",
+        "topic:festival-safety",
+        "topic:private-heroism",
+        "topic:deku-motive"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Eri",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "festival safety",
+            "private heroism",
+            "Deku motive"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku stops Gentle primarily to protect the festival and Eri’s day, not to gain public recognition.",
+        "injection": "Keep Deku’s motive focused on preventing harm and preserving the festival. He must not turn the encounter into self-promotion.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 178-179",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_vestige_dream_opens_questions_but_not_answers",
+      "title": "Vestige Dream Opens Questions But Not Answers",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "vestiges",
+          "OFA mystery",
+          "future guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "quirk:one-for-all",
+        "topic:vestiges",
+        "topic:ofa-mystery",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "vestiges",
+            "OFA mystery",
+            "future guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku’s vestige dream deepens the mystery of One For All but does not yet give him full understanding of past users or stored Quirks.",
+        "injection": "After the Pro Hero arc, allow unsettling OFA mystery. Do not reveal the full multiple-Quirk system before Joint Training Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_one_for_all_history_is_still_narrowly_known",
+      "title": "One For All History Is Still Narrowly Known",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "sortKeyFrom": 11400,
+        "sortKeyTo": 11400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:all-might",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "vestige ignorance",
+          "knowledge boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:midoriya-izuku",
+        "character:all-might",
+        "quirk:one-for-all",
+        "topic:ofa-secrecy",
+        "topic:vestige-ignorance",
+        "topic:knowledge-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "vestige ignorance",
+            "knowledge boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Only a small circle understands One For All as a transferable Quirk, and even that circle lacks later vestige details.",
+        "injection": "Keep OFA secrecy tight. Classmates, pros, and the public must not casually know the transfer history or vestige mechanics.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 193",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

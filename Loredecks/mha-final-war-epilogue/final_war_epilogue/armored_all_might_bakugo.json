@@ -1,0 +1,2138 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_armored-all-might-fights-as-a-symbolic-stalling-action",
+      "title": "Armored All Might Fights As A Symbolic Stalling Action",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.all-might-armored-fight",
+        "sortKeyFrom": 20450,
+        "sortKeyTo": 20450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Armored All Might fights All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:heroes",
+          "mha:armored-suit"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [
+          "Armored suit"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "symbolic combat",
+          "stalling action"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-might",
+        "character:all-for-one",
+        "faction:heroes",
+        "item:armored-suit",
+        "topic:symbolic-combat",
+        "topic:stalling-action",
+        "event:armored-all-might-fights-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Armored suit"
+          ],
+          "topicsAny": [
+            "symbolic combat",
+            "stalling action"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might uses support armor to stall All For One despite lacking One For All.",
+        "injection": "Write armored All Might as courageous and tactical, but mortal; the suit does not restore true OFA power.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-402",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Armored suit",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:all-might",
+          "mha:all-for-one"
+        ],
+        "requiredTags": [
+          "item:armored-suit"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_armored-suit-echoes-class-1-a-without-copying-quirks",
+      "title": "Armored Suit Echoes Class 1-A Without Copying Quirks",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.all-might-armored-fight",
+        "sortKeyFrom": 20450,
+        "sortKeyTo": 20450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Armored All Might fights All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:class-1-a",
+          "mha:heroes",
+          "mha:support-course",
+          "mha:armored-suit"
+        ],
+        "characters": [
+          "All Might",
+          "Class 1-A"
+        ],
+        "locations": [],
+        "objects": [
+          "Armored suit"
+        ],
+        "factions": [
+          "Heroes",
+          "Support Course"
+        ],
+        "topics": [
+          "support item",
+          "class motifs"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-might",
+        "character:class-1-a",
+        "faction:heroes",
+        "faction:support-course",
+        "item:armored-suit",
+        "topic:support-item",
+        "topic:class-motifs",
+        "event:armored-all-might-fights-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Support Course"
+          ],
+          "objectsAny": [
+            "Armored suit"
+          ],
+          "topicsAny": [
+            "support item",
+            "class motifs"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s armor uses support-tech motifs inspired by students rather than actual Quirk inheritance.",
+        "injection": "Do not treat the suit as literal copied Quirks; it is technology and symbolism.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-402",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Armored suit",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:all-might",
+          "mha:class-1-a"
+        ],
+        "requiredTags": [
+          "item:armored-suit"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_all-might-intends-to-spend-himself-to-buy-time",
+      "title": "All Might Intends To Spend Himself To Buy Time",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.all-might-armored-fight",
+        "sortKeyFrom": 20450,
+        "sortKeyTo": 20450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Armored All Might fights All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:heroes"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "self sacrifice",
+          "time buying"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-might",
+        "character:all-for-one",
+        "faction:heroes",
+        "topic:self-sacrifice",
+        "topic:time-buying",
+        "event:armored-all-might-fights-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "self sacrifice",
+            "time buying"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s armored fight is built around buying time even at severe personal risk.",
+        "injection": "Keep All Might’s strategy sacrificial and time-focused; he is protecting the future, not chasing glory.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-402",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_stain-helps-because-of-his-all-might-ideal",
+      "title": "Stain Helps Because Of His All Might Ideal",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.stain-aids-all-might",
+        "sortKeyFrom": 20500,
+        "sortKeyTo": 20500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain briefly aids All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Stain",
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "ideology",
+          "unexpected aid"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:stain",
+        "character:all-might",
+        "character:all-for-one",
+        "faction:villains",
+        "faction:heroes",
+        "topic:ideology",
+        "topic:unexpected-aid",
+        "event:stain-briefly-aids-all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Stain",
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "ideology",
+            "unexpected aid"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain briefly helps All Might because his warped ideology still recognizes All Might as a true hero.",
+        "injection": "Use Stain’s aid as ideological consistency, not friendship or full redemption.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 400-401",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-return-is-a-post-death-door-state",
+      "title": "Bakugo Return Is A Post-Death-Door State",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-returns",
+        "sortKeyFrom": 20550,
+        "sortKeyTo": 20550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo returns to save All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:edgeshot",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "Edgeshot"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "revival",
+          "physical limit"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:edgeshot",
+        "faction:heroes",
+        "topic:revival",
+        "topic:physical-limit",
+        "event:bakugo-returns-to-save-all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "Edgeshot"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "revival",
+            "physical limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s return follows a near-fatal injury and emergency repair, leaving him battered rather than fresh.",
+        "injection": "After his return, write Bakugo as explosively determined but physically compromised.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 403-404",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-saves-all-might-as-his-hero-origin-echo",
+      "title": "Bakugo Saves All Might As His Hero Origin Echo",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-returns",
+        "sortKeyFrom": 20550,
+        "sortKeyTo": 20550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo returns to save All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "rescue",
+          "hero origin"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:all-might",
+        "faction:heroes",
+        "topic:rescue",
+        "topic:hero-origin",
+        "event:bakugo-returns-to-save-all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue",
+            "hero origin"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo saving All Might completes an emotional reversal from earlier guilt around Kamino.",
+        "injection": "Use the rescue to connect Bakugo’s growth to All Might without making it a simple apology scene.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 403-404",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-fights-afo-through-prediction-and-speed",
+      "title": "Bakugo Fights AFO Through Prediction And Speed",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-defeats-afo-body",
+        "sortKeyFrom": 20600,
+        "sortKeyTo": 20600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo helps end All For One’s rewinding body"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-for-one",
+          "mha:heroes",
+          "mha:explosion"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [
+          "Explosion"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Cluster explosions",
+          "combat reading"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:all-for-one",
+        "faction:heroes",
+        "item:explosion",
+        "topic:cluster-explosions",
+        "topic:combat-reading",
+        "event:bakugo-helps-end-all-for-one-s-rewinding-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Explosion"
+          ],
+          "topicsAny": [
+            "Cluster explosions",
+            "combat reading"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s late-war combat uses evolved explosions, prediction, and relentless pressure against rewinding AFO.",
+        "injection": "Make Bakugo’s victory tactical and physical, not just louder explosions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-misreads-bakugo-as-a-side-character",
+      "title": "AFO Misreads Bakugo As A Side Character",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-defeats-afo-body",
+        "sortKeyFrom": 20600,
+        "sortKeyTo": 20600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo helps end All For One’s rewinding body"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-for-one",
+          "mha:villains"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "villain arrogance",
+          "student underestimated"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:all-for-one",
+        "faction:villains",
+        "topic:villain-arrogance",
+        "topic:student-underestimated",
+        "event:bakugo-helps-end-all-for-one-s-rewinding-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "villain arrogance",
+            "student underestimated"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One underestimates Bakugo because he views people through utility and possession rather than relationships.",
+        "injection": "Let AFO’s arrogance blind him to Bakugo’s role in the heroic network.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-rewinds-out-before-reaching-shigaraki",
+      "title": "AFO Rewinds Out Before Reaching Shigaraki",
+      "kind": "status_change",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-defeats-afo-body",
+        "sortKeyFrom": 20600,
+        "sortKeyTo": 20600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo helps end All For One’s rewinding body"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:bakugo-katsuki",
+          "mha:shigaraki-tomura",
+          "mha:villains",
+          "mha:rewind-derived-drug"
+        ],
+        "characters": [
+          "All For One",
+          "Bakugo Katsuki",
+          "Shigaraki Tomura"
+        ],
+        "locations": [],
+        "objects": [
+          "Rewind-derived drug"
+        ],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "body erasure",
+          "failed vessel plan"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:bakugo-katsuki",
+        "character:shigaraki-tomura",
+        "faction:villains",
+        "item:rewind-derived-drug",
+        "topic:body-erasure",
+        "topic:failed-vessel-plan",
+        "event:bakugo-helps-end-all-for-one-s-rewinding-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Bakugo Katsuki",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [
+            "Rewind-derived drug"
+          ],
+          "topicsAny": [
+            "body erasure",
+            "failed vessel plan"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "AFO’s rewinding body is stopped before he can physically merge with or reach Shigaraki as intended.",
+        "injection": "After this anchor, original-body AFO should no longer act as a normal battlefield participant.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Rewind-derived drug",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:all-for-one",
+          "mha:bakugo-katsuki"
+        ],
+        "requiredTags": [
+          "item:rewind-derived-drug"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one",
+          "mha:bakugo-katsuki",
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-victory-does-not-instantly-fix-his-body",
+      "title": "Bakugo Victory Does Not Instantly Fix His Body",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-defeats-afo-body",
+        "sortKeyFrom": 20600,
+        "sortKeyTo": 20600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo helps end All For One’s rewinding body"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "injury persistence",
+          "post battle cost"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "faction:heroes",
+        "topic:injury-persistence",
+        "topic:post-battle-cost",
+        "event:bakugo-helps-end-all-for-one-s-rewinding-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "injury persistence",
+            "post battle cost"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s late-war success does not erase the severe injury and exhaustion from Floating U.A.",
+        "injection": "Keep Bakugo physically damaged after the fight; no clean reset before epilogue recovery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-adult-bakugo-status-during-final-war",
+      "title": "No Adult Bakugo Status During Final War",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-defeats-afo-body",
+        "sortKeyFrom": 20600,
+        "sortKeyTo": 20600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo helps end All For One’s rewinding body"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "future guard",
+          "adult hero status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "faction:heroes",
+        "topic:future-guard",
+        "topic:adult-hero-status",
+        "event:bakugo-helps-end-all-for-one-s-rewinding-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "adult hero status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During Final War, Bakugo’s adult hero career and later funding role are future material.",
+        "injection": "Block Chapter 430 adult-professional knowledge from active war scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_all-might-laughs-at-death-to-preserve-hope",
+      "title": "All Might Laughs At Death To Preserve Hope",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.all-might-armored-fight",
+        "sortKeyFrom": 20450,
+        "sortKeyTo": 20450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Armored All Might fights All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:heroes"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "defiant symbol",
+          "fear control"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-might",
+        "character:all-for-one",
+        "faction:heroes",
+        "topic:defiant-symbol",
+        "topic:fear-control",
+        "event:armored-all-might-fights-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "defiant symbol",
+            "fear control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might uses defiance and presentation to keep fear from controlling the moment.",
+        "injection": "Let All Might’s smile and banter function as symbolic resistance, not ignorance of danger.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-402",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-first-action-is-rescue-not-self-glory",
+      "title": "Bakugo First Action Is Rescue Not Self-Glory",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-returns",
+        "sortKeyFrom": 20550,
+        "sortKeyTo": 20550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo returns to save All Might"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "rescue priority",
+          "growth marker"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:all-might",
+        "faction:heroes",
+        "topic:rescue-priority",
+        "topic:growth-marker",
+        "event:bakugo-returns-to-save-all-might"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue priority",
+            "growth marker"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s return is marked by rescuing All Might before chasing victory.",
+        "injection": "Use rescue priority as a growth marker in Bakugo’s final-war behavior.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 403-404",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_all-might-is-quirkless-during-armored-fight",
+      "title": "All Might Is Quirkless During Armored Fight",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.all-might-armored-fight",
+        "sortKeyFrom": 20450,
+        "sortKeyTo": 20450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Armored All Might fights All For One"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:heroes"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Quirkless combat",
+          "support gear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-might",
+        "faction:heroes",
+        "topic:quirkless-combat",
+        "topic:support-gear",
+        "event:armored-all-might-fights-all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Quirkless combat",
+            "support gear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might fights in armor while Quirkless; his threat comes from tech, planning, and symbolism.",
+        "injection": "Do not imply All Might secretly retains OFA during the armored fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-402",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-reads-afo-through-all-might-obsession",
+      "title": "Bakugo Reads AFO Through All Might Obsession",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.bakugo-defeats-afo-body",
+        "sortKeyFrom": 20600,
+        "sortKeyTo": 20600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo helps end All For One’s rewinding body"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.afo-pursuit",
+          "label": "All For One pursuit route",
+          "required": false
+        },
+        {
+          "axis": "legacy_state",
+          "id": "mha.legacy.all-might-bakugo",
+          "label": "All Might and Bakugo legacy route",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:all-for-one",
+          "mha:all-might",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "All For One",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "AFO fixation",
+          "combat psychology"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:all-for-one",
+        "character:all-might",
+        "faction:heroes",
+        "topic:afo-fixation",
+        "topic:combat-psychology",
+        "event:bakugo-helps-end-all-for-one-s-rewinding-body"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "All For One",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "AFO fixation",
+            "combat psychology"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo exploits AFO’s fixation on All Might and inability to value other heroes properly.",
+        "injection": "Use AFO’s obsession as a weakness Bakugo can punish.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 405-410",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

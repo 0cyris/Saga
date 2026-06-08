@@ -1,0 +1,1249 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_remedial_course_tests_child_handling_not_combat_dominance",
+      "title": "Remedial Course Tests Child Handling Not Combat Dominance",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.remedial-kids-challenge",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Remedial students must handle disruptive children"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "child handling",
+          "remedial license training",
+          "soft skills"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:child-handling",
+        "topic:remedial-license-training",
+        "topic:soft-skills"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "child handling",
+            "remedial license training",
+            "soft skills"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The remedial course tests failed students on communication, child handling, and public-facing hero conduct rather than combat dominance.",
+        "injection": "Focus on patience, communication, and winning over difficult children. Strong Quirks alone do not solve the assignment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_bakugo_s_directness_must_be_reframed_for_children",
+      "title": "Bakugo’s Directness Must Be Reframed For Children",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-todoroki-inasa-camie-cooperate",
+        "sortKeyFrom": 10450,
+        "sortKeyTo": 10450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo, Shoto, Inasa, and Camie learn cooperative child handling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "child communication",
+          "Bakugo growth",
+          "public conduct"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:bakugo-growth",
+        "topic:child-communication",
+        "topic:public-conduct"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "child communication",
+            "Bakugo growth",
+            "public conduct"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s bluntness remains abrasive, but the remedial course forces him to redirect it into leadership and child-facing problem solving.",
+        "injection": "Keep Bakugo harsh but learning to channel directness productively; he must not magically become gentle or remain totally incapable of adaptation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_shoto_practices_social_repair_after_the_license_failure",
+      "title": "Shoto Practices Social Repair After The License Failure",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-todoroki-inasa-camie-cooperate",
+        "sortKeyFrom": 10450,
+        "sortKeyTo": 10450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo, Shoto, Inasa, and Camie learn cooperative child handling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "social repair",
+          "Endeavor shadow",
+          "license failure recovery"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:endeavor-shadow",
+        "topic:license-failure-recovery",
+        "topic:social-repair"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "social repair",
+            "Endeavor shadow",
+            "license failure recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto’s remedial work includes repairing the interpersonal failure with Inasa that emerged from Endeavor’s shadow.",
+        "injection": "Keep the license failure’s interpersonal cause active. The work is about hero conduct and social repair, not just passing paperwork.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_camie_s_real_personality_returns_after_toga_impersonation",
+      "title": "Camie’s Real Personality Returns After Toga Impersonation",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-todoroki-inasa-camie-cooperate",
+        "sortKeyFrom": 10450,
+        "sortKeyTo": 10450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo, Shoto, Inasa, and Camie learn cooperative child handling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "real Camie",
+          "impersonation aftermath",
+          "Shiketsu continuity"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:impersonation-aftermath",
+        "topic:real-camie",
+        "topic:shiketsu-continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "real Camie",
+            "impersonation aftermath",
+            "Shiketsu continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Camie in the remedial course is the real Camie Utsushimi, distinct from Toga’s earlier impersonation during the license exam.",
+        "injection": "Write Camie as herself. Do not carry Toga’s license-exam impersonation behavior into real Camie’s identity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_endeavor_seeks_symbol_advice_but_is_not_yet_a_better_father",
+      "title": "Endeavor Seeks Symbol Advice But Is Not Yet A Better Father",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.endeavor-seeks-symbol-advice",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor asks All Might what it means to be Symbol of Peace"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Symbol of Peace burden",
+          "Endeavor transition",
+          "family harm"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:endeavor-transition",
+        "topic:family-harm",
+        "topic:symbol-of-peace-burden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Symbol of Peace burden",
+            "Endeavor transition",
+            "family harm"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor begins asking what it means to be the Symbol after All Might, but this does not erase his family abuse or automatically repair his relationship with Shoto.",
+        "injection": "Treat Endeavor’s question as the start of a difficult public-role transition, not instant redemption or family repair.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-167",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_remedial_completion_moves_license_status_forward",
+      "title": "Remedial Completion Moves License Status Forward",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.remedial-course-completed",
+        "sortKeyFrom": 10550,
+        "sortKeyTo": 10550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Remedial students move toward license eligibility"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "license recovery",
+          "remedial completion",
+          "hero conduct improvement"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:hero-conduct-improvement",
+        "topic:license-recovery",
+        "topic:remedial-completion"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "license recovery",
+            "remedial completion",
+            "hero conduct improvement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Completing the remedial course moves the failed students toward provisional license eligibility by addressing conduct gaps from the exam.",
+        "injection": "After remedial completion, the failed students have plausibly corrected the exam’s conduct problem. Before this point, keep their license status delayed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 167-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_the_children_reflect_a_post_all_might_generation_s_skepticism",
+      "title": "The Children Reflect A Post-All-Might Generation’s Skepticism",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.remedial-kids-challenge",
+        "sortKeyFrom": 10400,
+        "sortKeyTo": 10400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Remedial students must handle disruptive children"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "child cynicism",
+          "next generation",
+          "public trust"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:child-cynicism",
+        "topic:next-generation",
+        "topic:public-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "child cynicism",
+            "next generation",
+            "public trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The disruptive children reflect a younger generation testing authority in a society that no longer has All Might’s simple certainty.",
+        "injection": "Use the remedial children as a public-trust challenge: they are not villains, but they do not automatically respect aspiring heroes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_inasa_must_temper_enthusiasm_with_coordination",
+      "title": "Inasa Must Temper Enthusiasm With Coordination",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.bakugo-todoroki-inasa-camie-cooperate",
+        "sortKeyFrom": 10450,
+        "sortKeyTo": 10450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo, Shoto, Inasa, and Camie learn cooperative child handling"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "enthusiasm control",
+          "coordination",
+          "remedial growth"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:coordination",
+        "topic:enthusiasm-control",
+        "topic:remedial-growth"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "enthusiasm control",
+            "coordination",
+            "remedial growth"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Inasa’s intense enthusiasm needs coordination and social awareness to become reliable hero conduct.",
+        "injection": "Write Inasa as passionate and powerful, but learning to match energy to the people he is helping.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-166",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_todoroki_and_bakugo_are_behind_classmates_in_license_status",
+      "title": "Todoroki And Bakugo Are Behind Classmates In License Status",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.remedial-course-starts",
+        "sortKeyFrom": 10350,
+        "sortKeyTo": 10350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Remedial course begins for failed license students"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "license gap",
+          "classmate status",
+          "remedial consequences"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:classmate-status",
+        "topic:license-gap",
+        "topic:remedial-consequences"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "license gap",
+            "classmate status",
+            "remedial consequences"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During remedial coursework, Bakugo and Shoto remain behind classmates who already passed the provisional license exam.",
+        "injection": "Keep their status gap visible; classmates with licenses can take opportunities they cannot yet take.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 163-164",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_all_might_cannot_simply_tell_endeavor_how_to_replace_him",
+      "title": "All Might Cannot Simply Tell Endeavor How To Replace Him",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.endeavor-seeks-symbol-advice",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor asks All Might what it means to be Symbol of Peace"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "symbol transition",
+          "No. 1 burden",
+          "public trust"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:no-1-burden",
+        "topic:public-trust",
+        "topic:symbol-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "symbol transition",
+            "No. 1 burden",
+            "public trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might cannot give Endeavor a simple formula for replacing the Symbol of Peace because Endeavor must define a different kind of No. 1 role.",
+        "injection": "Keep All Might’s answer limited and reflective; he cannot hand over a ready-made identity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-167",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_remedial_course_bridges_into_endeavor_s_public_no_1_pressure",
+      "title": "Remedial Course Bridges Into Endeavor’s Public No. 1 Pressure",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.lhr.endeavor-seeks-symbol-advice",
+        "sortKeyFrom": 10500,
+        "sortKeyTo": 10500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor asks All Might what it means to be Symbol of Peace"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "No. 1 pressure",
+          "future Pro Hero arc setup",
+          "public hero transition"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:future-pro-hero-arc-setup",
+        "topic:no-1-pressure",
+        "topic:public-hero-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "No. 1 pressure",
+            "future Pro Hero arc setup",
+            "public hero transition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The remedial course overlaps with Endeavor’s early pressure as the new No. 1 hero, setting up his later public test.",
+        "injection": "Use these scenes as transition toward Endeavor’s No. 1 burden, without importing later High-End outcomes early.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 164-167",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

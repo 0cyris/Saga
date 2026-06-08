@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "mha-joint-training-villain-academia-endeavor-agency",
+  "type": "bundled",
+  "title": "My Hero Academia: Joint Training, Villain Academia, and Endeavor Agency",
+  "description": "Joint Training, Blackwhip awakening, My Villain Academia, Meta Liberation Army, PLF formation, Endeavor Agency work studies, Hawks coded warning, Todoroki family pressure, and pre-war setup for manga-primary MHA roleplay and fanfiction.",
+  "fandom": "My Hero Academia",
+  "era": "Joint Training through Endeavor Agency",
+  "contentKind": "fandom",
+  "author": "Saga",
+  "version": "0.11.0",
+  "defaultLocale": "en",
+  "tags": [
+    "fandom:mha",
+    "continuity:mha-manga-main",
+    "arc:joint-training",
+    "arc:meta-liberation-army",
+    "arc:endeavor-agency",
+    "quality:draft-reference"
+  ],
+  "source": {
+    "kind": "bundled",
+    "url": ""
+  },
+  "update": {
+    "checkForUpdates": false,
+    "url": "",
+    "lastCheckedAt": 0
+  },
+  "registries": {
+    "taxonomy": "taxonomy.json",
+    "tags": "tags.json",
+    "entities": "entities.json",
+    "timeline": "timeline.json",
+    "gateTypes": "gate-types.json",
+    "scoring": "scoring.json"
+  },
+  "resolver": "resolver.json",
+  "assets": {
+    "cover": {
+      "path": "assets/cover.png",
+      "alt": "Deck cover placeholder",
+      "aspect": "3:4",
+      "focalPoint": {
+        "x": 0.5,
+        "y": 0.42
+      }
+    },
+    "banner": {
+      "path": "assets/banner.png",
+      "alt": "Wide banner placeholder"
+    }
+  },
+  "continuity": {
+    "continuityId": "mha-manga-main",
+    "canonTier": "primary",
+    "adaptation": "manga",
+    "medium": "manga",
+    "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+    "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+  },
+  "runtimeDefaults": {
+    "scanDepth": null,
+    "recursiveTriggers": false,
+    "tokenBudget": null
+  },
+  "files": [
+    "joint_training_villain_academia_endeavor_agency/class_1a_1b_matches.json",
+    "joint_training_villain_academia_endeavor_agency/cross_arc_guards.json",
+    "joint_training_villain_academia_endeavor_agency/endeavor_agency.json",
+    "joint_training_villain_academia_endeavor_agency/league_backstories.json",
+    "joint_training_villain_academia_endeavor_agency/meta_liberation_army.json",
+    "joint_training_villain_academia_endeavor_agency/one_for_all_blackwhip.json",
+    "joint_training_villain_academia_endeavor_agency/shinso_and_class_1b.json"
+  ],
+  "compatibility": {
+    "sagaSchemaMin": 3,
+    "sagaSchemaMax": 3
+  },
+  "dependencies": [
+    {
+      "packId": "mha-core",
+      "versionMin": "0.1.0",
+      "versionMax": "",
+      "required": false,
+      "reason": "Uses core MHA entity, Quirk, hero-system, and continuity metadata."
+    }
+  ],
+  "stats": {
+    "entryCount": 122,
+    "categoryCounts": {
+      "character": 23,
+      "event": 40,
+      "faction": 1,
+      "knowledge": 9,
+      "relationship": 7,
+      "rule": 26,
+      "secret": 15,
+      "timeline": 1
+    },
+    "timelineAnchorCount": 37,
+    "timelineWindowCount": 9
+  },
+  "health": {
+    "status": "good",
+    "notes": "Local smoke validation only; not a substitute for in-app Saga Deck Health or human canon review."
+  },
+  "library": {
+    "suggestedPath": [
+      "My Hero Academia",
+      "Manga Main"
+    ],
+    "familyOrder": 70
+  },
+  "entrySchemaVersion": 3,
+  "updatedAt": 1780876800000
+}

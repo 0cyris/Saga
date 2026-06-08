@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.core.quirk-society-established",
+      "label": "Quirk society is established",
+      "sortKey": 500,
+      "aliases": [
+        "quirk society",
+        "superhuman society"
+      ],
+      "tags": [
+        "fandom:mha",
+        "topic:quirk-society"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.hero-licensing-system",
+      "label": "Licensed hero system",
+      "sortKey": 700,
+      "aliases": [
+        "pro hero system",
+        "hero licensing"
+      ],
+      "tags": [
+        "faction:pro-heroes",
+        "topic:hero-licensing"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.all-might-symbol-era",
+      "label": "All Might Symbol of Peace era",
+      "sortKey": 1000,
+      "aliases": [
+        "symbol of peace era",
+        "All Might prime"
+      ],
+      "tags": [
+        "hero:all-might",
+        "status:symbol-of-peace-era"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.ua-high-active",
+      "label": "U.A. High active",
+      "sortKey": 1500,
+      "aliases": [
+        "U.A. era",
+        "Class 1-A school year"
+      ],
+      "tags": [
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.league-emerges",
+      "label": "League of Villains emerges",
+      "sortKey": 2500,
+      "aliases": [
+        "League appears",
+        "USJ attack era"
+      ],
+      "tags": [
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.symbol-of-peace-falls",
+      "label": "Symbol of Peace falls",
+      "sortKey": 5000,
+      "aliases": [
+        "after Kamino",
+        "All Might retirement"
+      ],
+      "tags": [
+        "event:kamino",
+        "status:all-might-retired"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.eri-rescued",
+      "label": "Eri rescued from Overhaul",
+      "sortKey": 6500,
+      "aliases": [
+        "after Overhaul",
+        "Eri rescued"
+      ],
+      "tags": [
+        "character:eri",
+        "arc:shie-hassaikai"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.blackwhip-awakens",
+      "label": "Blackwhip awakens",
+      "sortKey": 7500,
+      "aliases": [
+        "after Blackwhip",
+        "multiple quirks begin"
+      ],
+      "tags": [
+        "quirk:blackwhip",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.paranormal-war",
+      "label": "Paranormal Liberation War",
+      "sortKey": 9000,
+      "aliases": [
+        "war arc",
+        "Jaku war"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.dabi-reveals-identity",
+      "label": "Dabi reveals Toya identity",
+      "sortKey": 9400,
+      "aliases": [
+        "Dabi's dance",
+        "Toya reveal"
+      ],
+      "tags": [
+        "character:dabi",
+        "family:todoroki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.dark-hero",
+      "label": "Dark Hero period",
+      "sortKey": 10000,
+      "aliases": [
+        "vigilante Deku",
+        "solo Deku"
+      ],
+      "tags": [
+        "arc:dark-hero"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.ua-traitor-revealed",
+      "label": "U.A. traitor revealed",
+      "sortKey": 11000,
+      "aliases": [
+        "traitor reveal"
+      ],
+      "tags": [
+        "arc:ua-traitor"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.final-war",
+      "label": "Final War",
+      "sortKey": 12000,
+      "aliases": [
+        "final battle",
+        "second war"
+      ],
+      "tags": [
+        "arc:final-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    },
+    {
+      "id": "mha.core.epilogue",
+      "label": "Postwar epilogue",
+      "sortKey": 13000,
+      "aliases": [
+        "after final war",
+        "epilogue"
+      ],
+      "tags": [
+        "arc:epilogue",
+        "status:postwar-reconstruction"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.core.window.main-series",
+      "label": "Main Series",
+      "anchorFrom": "mha.core.all-might-symbol-era",
+      "anchorTo": "mha.core.epilogue",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "main series",
+        "MHA manga"
+      ]
+    },
+    {
+      "id": "mha.core.window.school-year",
+      "label": "Class 1-A First-Year Story",
+      "anchorFrom": "mha.core.ua-high-active",
+      "anchorTo": "mha.core.final-war",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 12000,
+      "aliases": [
+        "Class 1-A year",
+        "UA school story"
+      ]
+    },
+    {
+      "id": "mha.core.window.pre-kamino",
+      "label": "Before Kamino",
+      "anchorFrom": "mha.core.all-might-symbol-era",
+      "anchorTo": "mha.core.symbol-of-peace-falls",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "before All Might retires",
+        "pre-Kamino"
+      ]
+    },
+    {
+      "id": "mha.core.window.post-kamino",
+      "label": "After Kamino",
+      "anchorFrom": "mha.core.symbol-of-peace-falls",
+      "anchorTo": "mha.core.epilogue",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "after All Might retires",
+        "post-Kamino"
+      ]
+    }
+  ],
+  "arcs": [
+    {
+      "id": "mha.arc.core-main",
+      "label": "MHA Main Series",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "main series"
+      ],
+      "tags": [
+        "fandom:mha"
+      ]
+    },
+    {
+      "id": "mha.arc.pre-kamino-school",
+      "label": "Pre-Kamino School Era",
+      "sortKeyFrom": 1500,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "early UA",
+        "pre Kamino"
+      ],
+      "tags": [
+        "school:ua-high"
+      ]
+    },
+    {
+      "id": "mha.arc.post-kamino-collapse",
+      "label": "Post-Kamino Hero Society Stress",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "post Kamino"
+      ],
+      "tags": [
+        "status:all-might-retired"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "mha.phase.symbol-of-peace",
+      "label": "Symbol of Peace Era",
+      "sortKeyFrom": 1000,
+      "sortKeyTo": 5000,
+      "aliases": [
+        "All Might era"
+      ],
+      "tags": [
+        "hero:all-might"
+      ]
+    },
+    {
+      "id": "mha.phase.post-symbol",
+      "label": "Post-Symbol Hero Society",
+      "sortKeyFrom": 5000,
+      "sortKeyTo": 13000,
+      "aliases": [
+        "after All Might retirement"
+      ],
+      "tags": [
+        "status:all-might-retired"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "series_state",
+      "label": "Series State",
+      "values": [
+        "symbol-of-peace-era",
+        "post-kamino",
+        "hero-society-fracture",
+        "final-war",
+        "postwar"
+      ]
+    },
+    {
+      "axis": "school_stage",
+      "label": "School Stage",
+      "values": [
+        "pre-ua",
+        "ua-first-term",
+        "ua-training",
+        "war-era",
+        "postwar"
+      ]
+    }
+  ]
+}

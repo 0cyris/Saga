@@ -1,0 +1,2817 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_hospital-aftermath-tracks-bodies-and-truths",
+      "title": "Hospital Aftermath Tracks Bodies And Truths",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.epilogue-hospital-aftermath",
+        "sortKeyFrom": 21000,
+        "sortKeyTo": 21000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hospital aftermath begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:bakugo-katsuki",
+          "mha:uraraka-ochaco",
+          "mha:todoroki-shoto",
+          "mha:hospital",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Bakugo Katsuki",
+          "Uraraka Ochaco",
+          "Todoroki Shoto"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "medical aftermath",
+          "truth processing"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:bakugo-katsuki",
+        "character:uraraka-ochaco",
+        "character:todoroki-shoto",
+        "location:hospital",
+        "faction:heroes",
+        "topic:medical-aftermath",
+        "topic:truth-processing",
+        "event:hospital-aftermath-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Bakugo Katsuki",
+            "Uraraka Ochaco",
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "medical aftermath",
+            "truth processing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The immediate aftermath centers injury, grief, and processing rather than instant return to school life.",
+        "injection": "Use hospital aftermath scenes to slow down; characters should be hurt, exhausted, and absorbing truth.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 424-425",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-retains-ofa-embers-temporarily",
+      "title": "Deku Retains OFA Embers Temporarily",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.epilogue-hospital-aftermath",
+        "sortKeyFrom": 21000,
+        "sortKeyTo": 21000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hospital aftermath begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:all-might",
+          "mha:hospital",
+          "mha:heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "embers",
+          "temporary power"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:all-might",
+        "location:hospital",
+        "faction:heroes",
+        "item:one-for-all",
+        "topic:embers",
+        "topic:temporary-power",
+        "event:hospital-aftermath-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "embers",
+            "temporary power"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the final battle, Deku retains fading embers of One For All for a time.",
+        "injection": "In early epilogue scenes, Deku is not immediately normal, but OFA is no longer a stable future inheritance.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 424-425",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "epilogue",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:all-might"
+        ],
+        "requiredTags": [
+          "item:one-for-all"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_endeavor-leaves-hero-center-stage-after-war",
+      "title": "Endeavor Leaves Hero Center Stage After War",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-aftermath",
+        "sortKeyFrom": 21050,
+        "sortKeyTo": 21050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family aftermath after the war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hospital",
+          "mha:heroes",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Endeavor"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Todoroki Family"
+        ],
+        "topics": [
+          "retirement pressure",
+          "atonement"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:endeavor",
+        "location:hospital",
+        "faction:heroes",
+        "faction:todoroki-family",
+        "topic:retirement-pressure",
+        "topic:atonement",
+        "event:todoroki-family-aftermath-after-the-war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "retirement pressure",
+            "atonement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s postwar role is shaped by injury, family accountability, and the collapse of his old hero image.",
+        "injection": "Do not restore Endeavor as a clean No. 1 symbol after the war; his aftermath is diminished and accountable.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 426-427",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_spinner-carries-the-league-s-memory",
+      "title": "Spinner Carries The League’s Memory",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.spinner-and-league-memory",
+        "sortKeyFrom": 21100,
+        "sortKeyTo": 21100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Spinner carries memory of the League"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:spinner",
+          "mha:shigaraki-tomura",
+          "mha:hospital",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Spinner",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "memory keeping",
+          "villain grief"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:spinner",
+        "character:shigaraki-tomura",
+        "location:hospital",
+        "faction:league-of-villains",
+        "topic:memory-keeping",
+        "topic:villain-grief",
+        "event:spinner-carries-memory-of-the-league"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Spinner",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "memory keeping",
+            "villain grief"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Spinner survives with grief and memory of Shigaraki and the League rather than becoming a simple defeated henchman.",
+        "injection": "Use Spinner’s postwar scenes as memory and disillusionment, not generic prison-villain banter.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 427-428",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_league-members-remain-people-in-memory",
+      "title": "League Members Remain People In Memory",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.spinner-and-league-memory",
+        "sortKeyFrom": 21100,
+        "sortKeyTo": 21100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Spinner carries memory of the League"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:spinner",
+          "mha:toga-himiko",
+          "mha:twice",
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Spinner",
+          "Toga Himiko",
+          "Twice",
+          "Shigaraki Tomura"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "villain memory",
+          "found family"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:spinner",
+        "character:toga-himiko",
+        "character:twice",
+        "character:shigaraki-tomura",
+        "faction:league-of-villains",
+        "topic:villain-memory",
+        "topic:found-family",
+        "event:spinner-carries-memory-of-the-league"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Spinner",
+            "Toga Himiko",
+            "Twice",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "villain memory",
+            "found family"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The epilogue treats the League’s bonds as emotionally real even when their crimes remain real.",
+        "injection": "Do not erase League harm, but do not flatten them into faceless enemies after the war.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 427-428",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ochaco-s-smile-masks-pain-until-confronted",
+      "title": "Ochaco’s Smile Masks Pain Until Confronted",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-grief-counseling",
+        "sortKeyFrom": 21150,
+        "sortKeyTo": 21150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco processes grief and resolves to help children"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:izuku-midoriya",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Uraraka Ochaco",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "grief suppression",
+          "emotional rescue"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "character:izuku-midoriya",
+        "faction:heroes",
+        "topic:grief-suppression",
+        "topic:emotional-rescue",
+        "event:ochaco-processes-grief-and-resolves-to-help-children"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "grief suppression",
+            "emotional rescue"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco hides her pain after Toga until others notice and reach her.",
+        "injection": "In epilogue scenes, Ochaco can be functional and smiling while still privately grieving.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 428-429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_quirk-counseling-becomes-ochaco-s-postwar-priority",
+      "title": "Quirk Counseling Becomes Ochaco’s Postwar Priority",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.ochaco-grief-counseling",
+        "sortKeyFrom": 21150,
+        "sortKeyTo": 21150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco processes grief and resolves to help children"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Uraraka Ochaco"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Quirk counseling",
+          "children support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:uraraka-ochaco",
+        "faction:heroes",
+        "topic:quirk-counseling",
+        "topic:children-support",
+        "event:ochaco-processes-grief-and-resolves-to-help-children"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Quirk counseling",
+            "children support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco’s postwar work focuses on helping children avoid isolation around difficult Quirks and feelings.",
+        "injection": "Tie Ochaco’s later social mission to empathy and prevention rather than combat fame.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 428-429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bystander-culture-begins-to-change",
+      "title": "Bystander Culture Begins To Change",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.postwar-society-reform",
+        "sortKeyFrom": 21200,
+        "sortKeyTo": 21200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Postwar society begins changing"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:old-woman",
+          "mha:scared-child",
+          "mha:street",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Old Woman",
+          "Scared Child"
+        ],
+        "locations": [
+          "Street"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians"
+        ],
+        "topics": [
+          "bystander intervention",
+          "social reform"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:old-woman",
+        "character:scared-child",
+        "location:street",
+        "faction:civilians",
+        "topic:bystander-intervention",
+        "topic:social-reform",
+        "event:postwar-society-begins-changing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Old Woman",
+            "Scared Child"
+          ],
+          "locationsAny": [
+            "Street"
+          ],
+          "factionsAny": [
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "bystander intervention",
+            "social reform"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A small civilian intervention in the epilogue signals that society may change by helping isolated children earlier.",
+        "injection": "Use this as thematic social reform: hero society improves when ordinary people act before a child becomes a villain.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_hero-society-reform-is-incremental-not-perfect",
+      "title": "Hero Society Reform Is Incremental Not Perfect",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.postwar-society-reform",
+        "sortKeyFrom": 21200,
+        "sortKeyTo": 21200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Postwar society begins changing"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:civilians",
+          "mha:pro-heroes",
+          "mha:hero-public-safety-commission",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Hawks",
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "system reform",
+          "imperfect recovery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:hawks",
+        "character:civilians",
+        "character:pro-heroes",
+        "faction:hero-public-safety-commission",
+        "faction:pro-heroes",
+        "topic:system-reform",
+        "topic:imperfect-recovery",
+        "event:postwar-society-begins-changing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Public Safety Commission",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "system reform",
+            "imperfect recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Postwar hero society begins reforming, but the story does not imply every structural problem is solved instantly.",
+        "injection": "Write postwar society as rebuilding with lessons learned, not as a utopia.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-becomes-a-u-a-teacher",
+      "title": "Deku Becomes A U.A. Teacher",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.time-skip-adult-future",
+        "sortKeyFrom": 21250,
+        "sortKeyTo": 21250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Time skip shows adult future"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:u-a-high",
+          "mha:u-a-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "teacher role",
+          "adult future"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "location:u-a-high",
+        "faction:u-a-high",
+        "topic:teacher-role",
+        "topic:adult-future",
+        "event:time-skip-shows-adult-future"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "teacher role",
+            "adult future"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "By Chapter 430, Izuku teaches at U.A. after losing active One For All power.",
+        "injection": "In Chapter 430 epilogue scenes, write adult Izuku as a teacher shaped by hero experience, not as a failed ex-hero.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_class-a-becomes-adult-pro-heroes",
+      "title": "Class A Becomes Adult Pro Heroes",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.time-skip-adult-future",
+        "sortKeyFrom": 21250,
+        "sortKeyTo": 21250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Time skip shows adult future"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1-a",
+          "mha:bakugo-katsuki",
+          "mha:todoroki-shoto",
+          "mha:uraraka-ochaco",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Class 1-A",
+          "Bakugo Katsuki",
+          "Todoroki Shoto",
+          "Uraraka Ochaco"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "adult hero careers",
+          "time skip"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:class-1-a",
+        "character:bakugo-katsuki",
+        "character:todoroki-shoto",
+        "character:uraraka-ochaco",
+        "faction:pro-heroes",
+        "topic:adult-hero-careers",
+        "topic:time-skip",
+        "event:time-skip-shows-adult-future"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Class 1-A",
+            "Bakugo Katsuki",
+            "Todoroki Shoto",
+            "Uraraka Ochaco"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "adult hero careers",
+            "time skip"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Many Class 1-A students become active professional heroes after the time skip.",
+        "injection": "In adult epilogue scenes, treat classmates as working pros with separate schedules, not dorm classmates.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_all-might-gives-deku-a-support-suit-chance",
+      "title": "All Might Gives Deku A Support Suit Chance",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-support-suit",
+        "sortKeyFrom": 21300,
+        "sortKeyTo": 21300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku receives support suit chance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:izuku-midoriya",
+          "mha:bakugo-katsuki",
+          "mha:class-1-a",
+          "mha:heroes",
+          "mha:support-industry",
+          "mha:support-suit"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya",
+          "Bakugo Katsuki",
+          "Class 1-A"
+        ],
+        "locations": [],
+        "objects": [
+          "Support suit"
+        ],
+        "factions": [
+          "Heroes",
+          "Support Industry"
+        ],
+        "topics": [
+          "support technology",
+          "return to fieldwork"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-might",
+        "character:izuku-midoriya",
+        "character:bakugo-katsuki",
+        "character:class-1-a",
+        "faction:heroes",
+        "faction:support-industry",
+        "item:support-suit",
+        "topic:support-technology",
+        "topic:return-to-fieldwork",
+        "event:deku-receives-support-suit-chance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya",
+            "Bakugo Katsuki",
+            "Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Support Industry"
+          ],
+          "objectsAny": [
+            "Support suit"
+          ],
+          "topicsAny": [
+            "support technology",
+            "return to fieldwork"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might presents Deku with a support suit opportunity backed by his friends and hero network.",
+        "injection": "Use the suit as a earned second chance supported by community, not a secret Quirk restoration.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Support suit",
+        "stage": "epilogue",
+        "ownerEntityIds": [
+          "mha:all-might",
+          "mha:izuku-midoriya"
+        ],
+        "requiredTags": [
+          "item:support-suit"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_support-suit-does-not-restore-one-for-all",
+      "title": "Support Suit Does Not Restore One For All",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-support-suit",
+        "sortKeyFrom": 21300,
+        "sortKeyTo": 21300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku receives support suit chance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:heroes",
+          "mha:support-suit",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Support suit",
+          "One For All"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "technology limit",
+          "Quirkless heroism"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "faction:heroes",
+        "item:support-suit",
+        "item:one-for-all",
+        "topic:technology-limit",
+        "topic:quirkless-heroism",
+        "event:deku-receives-support-suit-chance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Support suit",
+            "One For All"
+          ],
+          "topicsAny": [
+            "technology limit",
+            "Quirkless heroism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The support suit gives Deku a way to act as a hero without restoring OFA as a Quirk inheritance.",
+        "injection": "Do not treat the suit as OFA returning; it is technology enabling a different form of hero work.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Support suit",
+        "stage": "epilogue",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya"
+        ],
+        "requiredTags": [
+          "item:support-suit",
+          "item:one-for-all"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-helps-fund-deku-s-future-chance",
+      "title": "Bakugo Helps Fund Deku’s Future Chance",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.time-skip-adult-future",
+        "sortKeyFrom": 21250,
+        "sortKeyTo": 21250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Time skip shows adult future"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:izuku-midoriya",
+          "mha:heroes",
+          "mha:support-suit"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "Support suit"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "friendship repair",
+          "support funding"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:izuku-midoriya",
+        "faction:heroes",
+        "item:support-suit",
+        "topic:friendship-repair",
+        "topic:support-funding",
+        "event:time-skip-shows-adult-future"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Support suit"
+          ],
+          "topicsAny": [
+            "friendship repair",
+            "support funding"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo is part of the network that helps make Deku’s adult support-suit opportunity possible.",
+        "injection": "Let Bakugo’s support show long-term growth; it must not erase his abrasive personality entirely.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "support_technology",
+        "name": "Support suit",
+        "stage": "epilogue",
+        "ownerEntityIds": [
+          "mha:bakugo-katsuki",
+          "mha:izuku-midoriya"
+        ],
+        "requiredTags": [
+          "item:support-suit"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shoji-and-heteromorph-issues-continue-into-reform",
+      "title": "Shoji And Heteromorph Issues Continue Into Reform",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.postwar-society-reform",
+        "sortKeyFrom": 21200,
+        "sortKeyTo": 21200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Postwar society begins changing"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shoji-mezo",
+          "mha:koda-koji",
+          "mha:heroes",
+          "mha:heteromorph-communities"
+        ],
+        "characters": [
+          "Shoji Mezo",
+          "Koda Koji"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Heteromorph Communities"
+        ],
+        "topics": [
+          "heteromorph discrimination",
+          "postwar advocacy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shoji-mezo",
+        "character:koda-koji",
+        "faction:heroes",
+        "faction:heteromorph-communities",
+        "topic:heteromorph-discrimination",
+        "topic:postwar-advocacy",
+        "event:postwar-society-begins-changing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoji Mezo",
+            "Koda Koji"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Heteromorph Communities"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "heteromorph discrimination",
+            "postwar advocacy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Postwar recognition of heteromorph discrimination continues through advocacy and public attention.",
+        "injection": "Do not let the war erase heteromorph issues; reform should remain active social work.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-and-bakugo-share-ofa-loss-context",
+      "title": "Deku And Bakugo Share OFA Loss Context",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.epilogue-hospital-aftermath",
+        "sortKeyFrom": 21000,
+        "sortKeyTo": 21000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hospital aftermath begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:bakugo-katsuki",
+          "mha:all-might",
+          "mha:hospital",
+          "mha:heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Bakugo Katsuki",
+          "All Might"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "private knowledge",
+          "shared burden"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:bakugo-katsuki",
+        "character:all-might",
+        "location:hospital",
+        "faction:heroes",
+        "item:one-for-all",
+        "topic:private-knowledge",
+        "topic:shared-burden",
+        "event:hospital-aftermath-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Bakugo Katsuki",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "private knowledge",
+            "shared burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo is one of the few people who can understand Deku’s OFA loss with full context.",
+        "injection": "Keep OFA loss knowledge restricted; scenes with Bakugo and All Might can carry more explicit weight than public scenes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 424-425",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "epilogue",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:bakugo-katsuki"
+        ],
+        "requiredTags": [
+          "item:one-for-all"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_chapter-430-time-skip-is-not-chapter-431-more",
+      "title": "Chapter 430 Time Skip Is Not Chapter 431 More",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.time-skip-adult-future",
+        "sortKeyFrom": 21250,
+        "sortKeyTo": 21250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Time skip shows adult future"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:class-1-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "chapter boundary",
+          "optional overlay"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:class-1-a",
+        "faction:heroes",
+        "topic:chapter-boundary",
+        "topic:optional-overlay",
+        "event:time-skip-shows-adult-future"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Class 1-A"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "chapter boundary",
+            "optional overlay"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Chapter 430 shows the main series time skip and adult status, while Chapter 431 extra material remains outside the default deck.",
+        "injection": "Do not mix Chapter 431-specific relationship beats into the Chapter 430 epilogue unless the optional overlay is loaded.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:class-1-a"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_bakugo-apology-continues-through-action",
+      "title": "Bakugo Apology Continues Through Action",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.epilogue-hospital-aftermath",
+        "sortKeyFrom": 21000,
+        "sortKeyTo": 21000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hospital aftermath begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:izuku-midoriya",
+          "mha:hospital",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Bakugo Katsuki",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "long term repair",
+          "apology aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:bakugo-katsuki",
+        "character:izuku-midoriya",
+        "location:hospital",
+        "faction:heroes",
+        "topic:long-term-repair",
+        "topic:apology-aftermath",
+        "event:hospital-aftermath-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Bakugo Katsuki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "long term repair",
+            "apology aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s earlier apology continues through postwar actions and concern rather than one speech finishing the relationship.",
+        "injection": "Use postwar Bakugo/Deku scenes as ongoing repair, not instant emotional perfection.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 424-425",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_villain-prevention-becomes-a-social-question",
+      "title": "Villain Prevention Becomes A Social Question",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.postwar-society-reform",
+        "sortKeyFrom": 21200,
+        "sortKeyTo": 21200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Postwar society begins changing"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:civilians",
+          "mha:pro-heroes",
+          "mha:civilians",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "prevention",
+          "social responsibility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:civilians",
+        "character:pro-heroes",
+        "faction:civilians",
+        "faction:pro-heroes",
+        "topic:prevention",
+        "topic:social-responsibility",
+        "event:postwar-society-begins-changing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Civilians",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "prevention",
+            "social responsibility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The epilogue shifts attention from defeating villains to preventing isolation before villainy forms.",
+        "injection": "In postwar Context, make hero society ask who reaches out before disaster.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 429",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_adult-deku-teaches-from-experience-not-power",
+      "title": "Adult Deku Teaches From Experience Not Power",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.time-skip-adult-future",
+        "sortKeyFrom": 21250,
+        "sortKeyTo": 21250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Time skip shows adult future"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.epilogue",
+          "label": "Epilogue Arc",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-reform",
+          "label": "Postwar hero society reform",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:u-a-high",
+          "mha:u-a-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "mentor role",
+          "Quirkless perspective"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "location:u-a-high",
+        "faction:u-a-high",
+        "topic:mentor-role",
+        "topic:quirkless-perspective",
+        "event:time-skip-shows-adult-future"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "mentor role",
+            "Quirkless perspective"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Adult Deku’s teaching draws on experience, analysis, and empathy rather than active OFA power.",
+        "injection": "Write teacher Deku as observant and encouraging; his value is not only combat power.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

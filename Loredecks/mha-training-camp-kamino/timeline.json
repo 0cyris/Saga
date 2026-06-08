@@ -1,0 +1,924 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.tck.camp-announced",
+      "label": "Summer training camp begins",
+      "sortKey": 6000,
+      "aliases": [
+        "summer training camp begins",
+        "forest training camp begins",
+        "beast forest arrival"
+      ],
+      "tags": [
+        "arc:forest-training-camp"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-71"
+      }
+    },
+    {
+      "id": "mha.tck.pussycats-introduced",
+      "label": "Wild Wild Pussycats host training camp",
+      "sortKey": 6050,
+      "aliases": [
+        "Wild Wild Pussycats",
+        "Pussycats training camp"
+      ],
+      "tags": [
+        "faction:wild-wild-pussycats",
+        "arc:forest-training-camp"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-71"
+      }
+    },
+    {
+      "id": "mha.tck.kota-introduced",
+      "label": "Kota introduced as anti-hero child",
+      "sortKey": 6100,
+      "aliases": [
+        "Kota introduced",
+        "Kota hates heroes"
+      ],
+      "tags": [
+        "character:kota-izumi",
+        "arc:forest-training-camp"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-72"
+      }
+    },
+    {
+      "id": "mha.tck.training-intensifies",
+      "label": "Quirk training intensifies under camp conditions",
+      "sortKey": 6150,
+      "aliases": [
+        "quirk training camp",
+        "summer camp training"
+      ],
+      "tags": [
+        "topic:quirk-training",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-73"
+      }
+    },
+    {
+      "id": "mha.tck.class-1b-at-camp",
+      "label": "Class 1-B trains alongside Class 1-A",
+      "sortKey": 6200,
+      "aliases": [
+        "Class 1-B at camp",
+        "1-B training camp"
+      ],
+      "tags": [
+        "class:ua-1b",
+        "arc:forest-training-camp"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-73"
+      }
+    },
+    {
+      "id": "mha.tck.vanguard-attack-starts",
+      "label": "Vanguard Action Squad attacks the camp",
+      "sortKey": 6300,
+      "aliases": [
+        "Vanguard attacks",
+        "camp attack begins"
+      ],
+      "tags": [
+        "faction:vanguard-action-squad",
+        "arc:forest-training-camp"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 74"
+      }
+    },
+    {
+      "id": "mha.tck.mandalay-warning",
+      "label": "Mandalay broadcasts villain warning",
+      "sortKey": 6350,
+      "aliases": [
+        "Mandalay warning",
+        "telepathic warning"
+      ],
+      "tags": [
+        "character:mandalay",
+        "faction:wild-wild-pussycats"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 74"
+      }
+    },
+    {
+      "id": "mha.tck.muscular-vs-deku",
+      "label": "Izuku fights Muscular to protect Kota",
+      "sortKey": 6400,
+      "aliases": [
+        "Deku vs Muscular",
+        "Muscular fight"
+      ],
+      "tags": [
+        "character:midoriya-izuku",
+        "character:muscular",
+        "character:kota-izumi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 74-76"
+      }
+    },
+    {
+      "id": "mha.tck.kota-saved",
+      "label": "Izuku saves Kota from Muscular",
+      "sortKey": 6450,
+      "aliases": [
+        "Kota saved",
+        "Deku saves Kota"
+      ],
+      "tags": [
+        "character:kota-izumi",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 76"
+      }
+    },
+    {
+      "id": "mha.tck.bakugo-target-revealed",
+      "label": "Villains reveal Bakugo is the capture target",
+      "sortKey": 6500,
+      "aliases": [
+        "Bakugo capture target",
+        "League wants Bakugo"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 75-80"
+      }
+    },
+    {
+      "id": "mha.tck.moonfish-dark-shadow",
+      "label": "Moonfish threat triggers Dark Shadow crisis",
+      "sortKey": 6550,
+      "aliases": [
+        "Dark Shadow rampage",
+        "Moonfish Dark Shadow"
+      ],
+      "tags": [
+        "character:tokoyami-fumikage",
+        "character:moonfish"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 78-80"
+      }
+    },
+    {
+      "id": "mha.tck.mustard-gas-battle",
+      "label": "Mustard gas battle endangers students",
+      "sortKey": 6600,
+      "aliases": [
+        "Mustard gas",
+        "Tetsutetsu and Kendo vs Mustard"
+      ],
+      "tags": [
+        "character:mustard",
+        "character:tetsutetsu-tetsutetsu",
+        "character:kendo-itsuka"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 78-80"
+      }
+    },
+    {
+      "id": "mha.tck.toga-blood-sample",
+      "label": "Toga steals blood during the camp attack",
+      "sortKey": 6650,
+      "aliases": [
+        "Toga steals blood",
+        "Ochaco Tsuyu Toga"
+      ],
+      "tags": [
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "character:asui-tsuyu"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 80-82"
+      }
+    },
+    {
+      "id": "mha.tck.compress-captures-targets",
+      "label": "Mr. Compress captures Bakugo and Tokoyami",
+      "sortKey": 6700,
+      "aliases": [
+        "Mr Compress captures Bakugo",
+        "marbles capture"
+      ],
+      "tags": [
+        "character:mr-compress",
+        "character:bakugo-katsuki",
+        "character:tokoyami-fumikage"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 81-82"
+      }
+    },
+    {
+      "id": "mha.tck.tokoyami-rescued",
+      "label": "Tokoyami recovered while Bakugo remains taken",
+      "sortKey": 6750,
+      "aliases": [
+        "Tokoyami rescued",
+        "Bakugo remains captured"
+      ],
+      "tags": [
+        "character:tokoyami-fumikage",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 82"
+      }
+    },
+    {
+      "id": "mha.tck.bakugo-captured",
+      "label": "Bakugo is taken by the League of Villains",
+      "sortKey": 6800,
+      "aliases": [
+        "Bakugo captured",
+        "Bakugo kidnapped"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 83"
+      }
+    },
+    {
+      "id": "mha.tck.camp-aftermath",
+      "label": "Training camp aftermath creates institutional crisis",
+      "sortKey": 6850,
+      "aliases": [
+        "camp aftermath",
+        "after Bakugo captured"
+      ],
+      "tags": [
+        "school:ua-high",
+        "faction:pro-heroes"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 83-84"
+      }
+    },
+    {
+      "id": "mha.tck.hospital-aftermath",
+      "label": "Students recover under guilt and restriction",
+      "sortKey": 6900,
+      "aliases": [
+        "hospital aftermath",
+        "after training camp attack"
+      ],
+      "tags": [
+        "class:ua-1a",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 84"
+      }
+    },
+    {
+      "id": "mha.tck.rescue-squad-forms",
+      "label": "Students form Bakugo rescue group",
+      "sortKey": 7000,
+      "aliases": [
+        "rescue squad forms",
+        "Deku Kirishima rescue Bakugo"
+      ],
+      "tags": [
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku",
+        "character:iida-tenya"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86"
+      }
+    },
+    {
+      "id": "mha.tck.yaoyorozu-tracker",
+      "label": "Yaoyorozu tracker enables hideout search",
+      "sortKey": 7050,
+      "aliases": [
+        "Momo tracker",
+        "Nomu tracker"
+      ],
+      "tags": [
+        "character:yaoyorozu-momo"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 84-86"
+      }
+    },
+    {
+      "id": "mha.tck.pro-raid-planned",
+      "label": "Police and pro heroes plan coordinated raids",
+      "sortKey": 7100,
+      "aliases": [
+        "pro hero raid planned",
+        "Kamino raid plan"
+      ],
+      "tags": [
+        "faction:pro-heroes",
+        "faction:police"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 86-88"
+      }
+    },
+    {
+      "id": "mha.tck.league-hideout",
+      "label": "Bakugo held at League hideout",
+      "sortKey": 7150,
+      "aliases": [
+        "League hideout",
+        "Bakugo at bar"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-88"
+      }
+    },
+    {
+      "id": "mha.tck.bakugo-rejects-league",
+      "label": "Bakugo rejects League recruitment",
+      "sortKey": 7200,
+      "aliases": [
+        "Bakugo rejects villains",
+        "Bakugo recruitment fails"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-89"
+      }
+    },
+    {
+      "id": "mha.tck.hideout-raid-begins",
+      "label": "Hideout raid begins",
+      "sortKey": 7250,
+      "aliases": [
+        "hideout raid begins",
+        "pro heroes raid League"
+      ],
+      "tags": [
+        "faction:pro-heroes",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 88"
+      }
+    },
+    {
+      "id": "mha.tck.nomu-factory-revealed",
+      "label": "Nomu factory revealed as second raid site",
+      "sortKey": 7300,
+      "aliases": [
+        "Nomu factory",
+        "Nomu storage"
+      ],
+      "tags": [
+        "topic:nomu",
+        "faction:league-of-villains"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 88-89"
+      }
+    },
+    {
+      "id": "mha.tck.all-for-one-arrives",
+      "label": "All For One enters the battlefield",
+      "sortKey": 7350,
+      "aliases": [
+        "All For One arrives",
+        "AFO appears"
+      ],
+      "tags": [
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-90"
+      }
+    },
+    {
+      "id": "mha.tck.kamino-destruction",
+      "label": "Kamino becomes a public disaster zone",
+      "sortKey": 7400,
+      "aliases": [
+        "Kamino destruction",
+        "Kamino Ward disaster"
+      ],
+      "tags": [
+        "location:kamino-ward",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-92"
+      }
+    },
+    {
+      "id": "mha.tck.bakugo-extracted",
+      "label": "Bakugo extracted by classmates without direct combat",
+      "sortKey": 7450,
+      "aliases": [
+        "Bakugo rescue jump",
+        "Kirishima reaches Bakugo"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 90-92"
+      }
+    },
+    {
+      "id": "mha.tck.all-might-weakened-form-public",
+      "label": "All Might weakened form becomes publicly exposed",
+      "sortKey": 7500,
+      "aliases": [
+        "All Might weak form revealed",
+        "All Might true form public"
+      ],
+      "tags": [
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 92-93"
+      }
+    },
+    {
+      "id": "mha.tck.united-states-of-smash",
+      "label": "All Might defeats All For One with final embers",
+      "sortKey": 7550,
+      "aliases": [
+        "United States of Smash",
+        "All Might defeats All For One"
+      ],
+      "tags": [
+        "character:all-might",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 93-94"
+      }
+    },
+    {
+      "id": "mha.tck.youre-next",
+      "label": "All Might points to the next generation",
+      "sortKey": 7600,
+      "aliases": [
+        "You're next",
+        "All Might points"
+      ],
+      "tags": [
+        "character:all-might",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 94"
+      }
+    },
+    {
+      "id": "mha.tck.symbol-of-peace-falls",
+      "label": "Symbol of Peace era ends",
+      "sortKey": 7650,
+      "aliases": [
+        "All Might retires",
+        "Symbol of Peace falls"
+      ],
+      "tags": [
+        "character:all-might",
+        "topic:hero-society"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 94-95"
+      }
+    },
+    {
+      "id": "mha.tck.aftermath-home-visits",
+      "label": "U.A. home visits seek parental consent",
+      "sortKey": 7700,
+      "aliases": [
+        "home visits",
+        "U.A. dorm consent"
+      ],
+      "tags": [
+        "school:ua-high",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 95-96"
+      }
+    },
+    {
+      "id": "mha.tck.inko-rejects-risk",
+      "label": "Inko challenges U.A. and All Might",
+      "sortKey": 7750,
+      "aliases": [
+        "Inko refuses U.A.",
+        "Inko confronts All Might"
+      ],
+      "tags": [
+        "character:midoriya-inko",
+        "character:all-might",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 95-96"
+      }
+    },
+    {
+      "id": "mha.tck.dorm-system-begins",
+      "label": "U.A. dorm system begins",
+      "sortKey": 7800,
+      "aliases": [
+        "U.A. dorms begin",
+        "Class 1-A dorms"
+      ],
+      "tags": [
+        "school:ua-high",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 96-97"
+      }
+    },
+    {
+      "id": "mha.tck.bakugo-guilt-hidden",
+      "label": "Bakugo carries private guilt after Kamino",
+      "sortKey": 7850,
+      "aliases": [
+        "Bakugo guilt",
+        "after Kamino Bakugo"
+      ],
+      "tags": [
+        "character:bakugo-katsuki",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 95-97"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.window.forest-training-camp-full",
+      "label": "Forest Training Camp arc",
+      "anchorFrom": "mha.tck.camp-announced",
+      "anchorTo": "mha.tck.bakugo-captured",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6800,
+      "aliases": [
+        "forest training camp arc"
+      ],
+      "tags": [
+        "arc:forest-training-camp"
+      ]
+    },
+    {
+      "id": "mha.window.camp-training-before-attack",
+      "label": "Training camp before attack",
+      "anchorFrom": "mha.tck.camp-announced",
+      "anchorTo": "mha.tck.training-intensifies",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 6150,
+      "aliases": [
+        "training camp before attack"
+      ],
+      "tags": [
+        "arc:forest-training-camp"
+      ]
+    },
+    {
+      "id": "mha.window.vanguard-attack",
+      "label": "Vanguard Action Squad camp attack",
+      "anchorFrom": "mha.tck.vanguard-attack-starts",
+      "anchorTo": "mha.tck.bakugo-captured",
+      "sortKeyFrom": 6300,
+      "sortKeyTo": 6800,
+      "aliases": [
+        "vanguard action squad camp attack"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.muscular-kota",
+      "label": "Izuku, Kota, and Muscular crisis",
+      "anchorFrom": "mha.tck.kota-introduced",
+      "anchorTo": "mha.tck.kota-saved",
+      "sortKeyFrom": 6100,
+      "sortKeyTo": 6450,
+      "aliases": [
+        "izuku, kota, and muscular crisis"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.bakugo-capture-crisis",
+      "label": "Bakugo capture crisis",
+      "anchorFrom": "mha.tck.bakugo-target-revealed",
+      "anchorTo": "mha.tck.bakugo-captured",
+      "sortKeyFrom": 6500,
+      "sortKeyTo": 6800,
+      "aliases": [
+        "bakugo capture crisis"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.hideout-raid-full",
+      "label": "Hideout Raid and Kamino aftermath",
+      "anchorFrom": "mha.tck.camp-aftermath",
+      "anchorTo": "mha.tck.dorm-system-begins",
+      "sortKeyFrom": 6850,
+      "sortKeyTo": 7800,
+      "aliases": [
+        "hideout raid and kamino aftermath"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.student-rescue-plan",
+      "label": "Student rescue plan",
+      "anchorFrom": "mha.tck.hospital-aftermath",
+      "anchorTo": "mha.tck.bakugo-extracted",
+      "sortKeyFrom": 6900,
+      "sortKeyTo": 7450,
+      "aliases": [
+        "student rescue plan"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.pro-raid-and-kamino",
+      "label": "Pro raid and Kamino battle",
+      "anchorFrom": "mha.tck.pro-raid-planned",
+      "anchorTo": "mha.tck.united-states-of-smash",
+      "sortKeyFrom": 7100,
+      "sortKeyTo": 7550,
+      "aliases": [
+        "pro raid and kamino battle"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.all-might-vs-all-for-one",
+      "label": "All Might vs All For One at Kamino",
+      "anchorFrom": "mha.tck.all-for-one-arrives",
+      "anchorTo": "mha.tck.united-states-of-smash",
+      "sortKeyFrom": 7350,
+      "sortKeyTo": 7550,
+      "aliases": [
+        "all might vs all for one at kamino"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.symbol-transition",
+      "label": "Symbol of Peace transition",
+      "anchorFrom": "mha.tck.all-might-weakened-form-public",
+      "anchorTo": "mha.tck.dorm-system-begins",
+      "sortKeyFrom": 7500,
+      "sortKeyTo": 7800,
+      "aliases": [
+        "symbol of peace transition"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.ua-dorm-transition",
+      "label": "U.A. dorm transition",
+      "anchorFrom": "mha.tck.aftermath-home-visits",
+      "anchorTo": "mha.tck.dorm-system-begins",
+      "sortKeyFrom": 7700,
+      "sortKeyTo": 7800,
+      "aliases": [
+        "u.a. dorm transition"
+      ],
+      "tags": [
+        "arc:hideout-raid"
+      ]
+    },
+    {
+      "id": "mha.window.training-camp-kamino-full",
+      "label": "Training Camp through Kamino aftermath",
+      "anchorFrom": "mha.tck.camp-announced",
+      "anchorTo": "mha.tck.dorm-system-begins",
+      "sortKeyFrom": 6000,
+      "sortKeyTo": 7800,
+      "aliases": [
+        "training camp through kamino aftermath"
+      ],
+      "tags": [
+        "arc:forest-training-camp"
+      ]
+    }
+  ],
+  "coordinateAxes": [
+    {
+      "axis": "arc",
+      "label": "Arc",
+      "values": [
+        "forest-training-camp",
+        "hideout-raid",
+        "kamino-aftermath"
+      ]
+    },
+    {
+      "axis": "school_stage",
+      "label": "School Stage",
+      "values": [
+        "pre-dorm-first-year",
+        "pre-dorm-crisis",
+        "dorm-system-start"
+      ]
+    },
+    {
+      "axis": "training_state",
+      "label": "Training State",
+      "values": [
+        "summer-camp"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "label": "Hero Society State",
+      "values": [
+        "kamino-crisis",
+        "symbol-of-peace-fallen"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "label": "Villain State",
+      "values": [
+        "vanguard-camp-attack",
+        "afo-revealed-kamino",
+        "afo-imprisoned-league-survives"
+      ]
+    },
+    {
+      "axis": "quirk_stage",
+      "label": "Quirk Stage",
+      "values": [
+        "deku-full-cowling-early-high-risk",
+        "deku-full-cowling-early"
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "label": "Adaptation",
+      "values": [
+        "manga-primary"
+      ]
+    }
+  ]
+}

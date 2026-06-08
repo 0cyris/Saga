@@ -1,0 +1,1048 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_reveal_dabi_is_toya_during_hassaikai",
+      "title": "Do Not Reveal Dabi Is Toya During Hassaikai",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.big-three-introduced",
+        "validToAnchor": "mha.lhr.mirio-quirkless-aftermath",
+        "sortKeyFrom": 9050,
+        "sortKeyTo": 10300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Shie Hassaikai arc"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor"
+        ],
+        "characters": [
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dabi identity guard",
+          "Todoroki family spoiler",
+          "future reveal"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "character:endeavor",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "topic:dabi-identity-guard",
+        "topic:future-reveal",
+        "topic:todoroki-family-spoiler"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Dabi identity guard",
+            "Todoroki family spoiler",
+            "future reveal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s true identity as Toya Todoroki has not been publicly revealed and must not leak into Hassaikai-era scenes.",
+        "injection": "Before the later Dabi reveal, do not have characters know or state that Dabi is Toya Todoroki. Keep Todoroki-family villain identity material gated.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_reveal_the_u_a_traitor_during_this_period",
+      "title": "Do Not Reveal The U.A. Traitor During This Period",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.dorms-after-kamino",
+        "validToAnchor": "mha.lhr.remedial-course-completed",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10550,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "License Exam through Remedial Course"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "U.A. traitor guard",
+          "future reveal",
+          "information leak"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:future-reveal",
+        "topic:information-leak",
+        "topic:u-a-traitor-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "U.A. traitor guard",
+            "future reveal",
+            "information leak"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The U.A. traitor reveal belongs to a later arc and must not surface during the license, Hassaikai, or remedial period.",
+        "injection": "If information leaks or prior attacks are discussed, preserve uncertainty. Do not identify the U.A. traitor during this deck.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_use_blackwhip_or_later_one_for_all_quirks_yet",
+      "title": "Do Not Use Blackwhip Or Later One For All Quirks Yet",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.dorms-after-kamino",
+        "validToAnchor": "mha.lhr.remedial-course-completed",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10550,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "License Exam through Remedial Course"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.provisional-license",
+          "label": "Provisional License",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.provisional-exam-active",
+          "label": "Provisional License Exam active",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-retirement",
+          "label": "After All Might retirement",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "One For All future quirks guard",
+          "Blackwhip not active",
+          "ability timing"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:provisional-license",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "quirk:one-for-all",
+        "topic:ability-timing",
+        "topic:blackwhip-not-active",
+        "topic:one-for-all-future-quirks-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "One For All future quirks guard",
+            "Blackwhip not active",
+            "ability timing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During this period, Izuku has not awakened Blackwhip or other later One For All vestige Quirks.",
+        "injection": "Do not give Izuku Blackwhip, Float, Danger Sense, Smokescreen, Fa Jin, or Gearshift during this deck.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_treat_eri_as_a_controlled_healing_solution_yet",
+      "title": "Do Not Treat Eri As A Controlled Healing Solution Yet",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.overhaul-defeated",
+        "validToAnchor": "mha.lhr.mirio-quirkless-aftermath",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hassaikai raid aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Eri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rewind guard",
+          "Eri healing limit",
+          "future restoration guard"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "character:eri",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "quirk:rewind",
+        "topic:eri-healing-limit",
+        "topic:future-restoration-guard",
+        "topic:rewind-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Rewind guard",
+            "Eri healing limit",
+            "future restoration guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the Hassaikai raid, Eri cannot safely control Rewind and must not function as an immediate healing or Quirk-restoration solution.",
+        "injection": "Keep Rewind unstable and medically supervised. Eri is not a convenient healer or restoration device in this period.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_advance_to_school_festival_eri_recovery_yet",
+      "title": "Do Not Advance To School Festival Eri Recovery Yet",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.overhaul-defeated",
+        "validToAnchor": "mha.lhr.mirio-quirkless-aftermath",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hassaikai raid aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Eri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "School Festival guard",
+          "Eri recovery timing",
+          "future emotional healing"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "character:eri",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "school:ua-high",
+        "topic:eri-recovery-timing",
+        "topic:future-emotional-healing",
+        "topic:school-festival-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "School Festival guard",
+            "Eri recovery timing",
+            "future emotional healing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri’s later emotional recovery and School Festival smile belong to the next deck, not the immediate Hassaikai aftermath.",
+        "injection": "Keep Eri in early recovery. Do not jump to her later School Festival emotional breakthrough.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_make_endeavor_fully_accepted_as_symbol_yet",
+      "title": "Do Not Make Endeavor Fully Accepted As Symbol Yet",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.remedial-course-starts",
+        "validToAnchor": "mha.lhr.remedial-course-completed",
+        "sortKeyFrom": 10350,
+        "sortKeyTo": 10550,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Remedial Course arc"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.remedial-course",
+          "label": "Remedial Course",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "license_state",
+          "id": "mha.license.remedial-course",
+          "label": "Provisional license remedial course",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:all-might"
+        ],
+        "characters": [
+          "Endeavor",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Endeavor future guard",
+          "Symbol transition",
+          "public trust"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:remedial-course",
+        "character:all-might",
+        "character:endeavor",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "topic:endeavor-future-guard",
+        "topic:public-trust",
+        "topic:symbol-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Endeavor future guard",
+            "Symbol transition",
+            "public trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the remedial course, Endeavor is beginning to face the No. 1 burden but has not yet undergone the later public High-End test.",
+        "injection": "Do not portray Endeavor as already publicly settled into a successful Symbol role. He is questioning what No. 1 should mean after All Might.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_let_overhaul_remain_a_major_free_villain_after_convoy_ambush",
+      "title": "Do Not Let Overhaul Remain A Major Free Villain After Convoy Ambush",
+      "kind": "future_guard",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.overhaul-defeated",
+        "validToAnchor": "mha.lhr.mirio-quirkless-aftermath",
+        "sortKeyFrom": 10100,
+        "sortKeyTo": 10300,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "Hassaikai raid aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:overhaul",
+          "mha:league-of-villains",
+          "mha:shie-hassaikai"
+        ],
+        "characters": [
+          "Overhaul"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Overhaul aftermath",
+          "convoy ambush consequence",
+          "Hassaikai collapse"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "character:overhaul",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "faction:shie-hassaikai",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "topic:convoy-ambush-consequence",
+        "topic:hassaikai-collapse",
+        "topic:overhaul-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Overhaul"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Overhaul aftermath",
+            "convoy ambush consequence",
+            "Hassaikai collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the convoy ambush, Overhaul is defeated, mutilated, and removed as a free major villain leader.",
+        "injection": "After the convoy ambush, do not keep Overhaul operating normally as Hassaikai leader. His immediate villain power is broken.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_license_hassaikai_remedial_do_not_reveal_later_league_evolution_yet",
+      "title": "Do Not Reveal Later League Evolution Yet",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.lhr.dorms-after-kamino",
+        "validToAnchor": "mha.lhr.remedial-course-completed",
+        "sortKeyFrom": 8000,
+        "sortKeyTo": 10550,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "License Exam through Remedial Course"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.shie-hassaikai",
+          "label": "Shie Hassaikai",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "work_study_state",
+          "id": "mha.work-study.nighteye-hassaikai-raid",
+          "label": "Nighteye-led Hassaikai operation",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.hassaikai-league-contact",
+          "label": "Shie Hassaikai and League contact",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:league-of-villains",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "League future guard",
+          "Meta Liberation Army not active",
+          "villain evolution timing"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:shie-hassaikai",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "meta:future-guard",
+        "meta:spoiler",
+        "quality:draft-reference",
+        "topic:league-future-guard",
+        "topic:meta-liberation-army-not-active",
+        "topic:villain-evolution-timing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "League future guard",
+            "Meta Liberation Army not active",
+            "villain evolution timing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The League’s later evolution through the Meta Liberation Army and Paranormal Liberation Front has not happened during this deck.",
+        "injection": "Keep the League smaller and resource-strained. Do not import Meta Liberation Army, Paranormal Liberation Front, or later Shigaraki awakening material.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 98-168",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

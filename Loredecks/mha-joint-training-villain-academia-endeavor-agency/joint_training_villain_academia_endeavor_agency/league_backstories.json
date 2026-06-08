@@ -1,0 +1,1395 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_liberation_terminology_replaces_quirk_with_meta_ability",
+      "title": "Liberation Terminology Replaces Quirk With Meta Ability",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.giran-kidnapped",
+        "sortKeyFrom": 13000,
+        "sortKeyTo": 13000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Giran is kidnapped by the Meta Liberation Army"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-before-plf",
+          "label": "League before PLF merger",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:re-destro",
+          "mha:trumpet",
+          "mha:meta-liberation-army"
+        ],
+        "characters": [
+          "Re-Destro",
+          "Trumpet"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Meta Liberation Army"
+        ],
+        "topics": [
+          "meta ability terminology",
+          "ideological language"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:re-destro",
+        "character:trumpet",
+        "faction:meta-liberation-army",
+        "topic:meta-ability-terminology",
+        "topic:ideological-language"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Re-Destro",
+            "Trumpet"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Meta Liberation Army"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "meta ability terminology",
+            "ideological language"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The MLA prefers language such as meta ability, reflecting its ideological framing of Quirks as innate liberated nature.",
+        "injection": "When MLA members speak, use ideological terminology. They must not sound like ordinary hero-school instructors.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 218-219",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_mla_members_can_be_civilians_until_they_activate_as_combatants",
+      "title": "MLA Members Can Be Civilians Until They Activate As Combatants",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.deika-city-trap",
+        "sortKeyFrom": 13100,
+        "sortKeyTo": 13100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "The League enters Deika City trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-before-plf",
+          "label": "League before PLF merger",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:re-destro",
+          "mha:meta-liberation-army"
+        ],
+        "characters": [
+          "Re-Destro"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Meta Liberation Army"
+        ],
+        "topics": [
+          "civilian combatants",
+          "city mobilization"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:re-destro",
+        "faction:meta-liberation-army",
+        "topic:civilian-combatants",
+        "topic:city-mobilization"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Re-Destro"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Meta Liberation Army"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian combatants",
+            "city mobilization"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deika’s MLA population blurs civilian and combatant boundaries because many residents are ideologically mobilized fighters.",
+        "injection": "In Deika, do not treat every apparent civilian as neutral. The city can reveal mass participation in the trap.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 223-224",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_toga_does_not_become_morally_rehabilitated_by_her_backstory",
+      "title": "Toga Does Not Become Morally Rehabilitated By Her Backstory",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.toga-vs-curious",
+        "sortKeyFrom": 13150,
+        "sortKeyTo": 13150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga fights Curious and evolves Transform usage"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-before-plf",
+          "label": "League before PLF merger",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko"
+        ],
+        "characters": [
+          "Himiko Toga"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "sympathy guard",
+          "villain agency",
+          "blood fixation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:toga-himiko",
+        "topic:sympathy-guard",
+        "topic:villain-agency",
+        "topic:blood-fixation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "sympathy guard",
+            "villain agency",
+            "blood fixation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s backstory clarifies her desires and alienation without making her harmless or socially safe.",
+        "injection": "After Toga’s perspective deepens, keep her dangerous. Sympathy must not erase predation or blood fixation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 225-226",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_twice_loyalty_centers_on_the_league_as_found_family",
+      "title": "Twice Loyalty Centers On The League As Found Family",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.twice-overcomes-trauma",
+        "sortKeyFrom": 13200,
+        "sortKeyTo": 13200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Twice overcomes clone trauma"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-before-plf",
+          "label": "League before PLF merger",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:twice",
+          "mha:toga-himiko",
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Twice",
+          "Himiko Toga",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "found family",
+          "loyalty",
+          "villain bonds"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:twice",
+        "character:toga-himiko",
+        "character:shigaraki-tomura",
+        "faction:league-of-villains",
+        "topic:found-family",
+        "topic:loyalty",
+        "topic:villain-bonds"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Twice",
+            "Himiko Toga",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "found family",
+            "loyalty",
+            "villain bonds"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Twice’s strongest emotional driver is loyalty to the League members who accepted him despite instability and crime.",
+        "injection": "Write Twice’s devotion as found-family loyalty distorted through villain life, not as abstract ideology first.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 227-230",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_spinner_becomes_a_witness_to_shigaraki_meaning",
+      "title": "Spinner Becomes A Witness To Shigaraki Meaning",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.shigaraki-defeats-redestro",
+        "sortKeyFrom": 13350,
+        "sortKeyTo": 13350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki defeats Re-Destro"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-before-plf",
+          "label": "League before PLF merger",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:spinner",
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Spinner",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "loyalty shift",
+          "witnessing Shigaraki",
+          "villain meaning"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:spinner",
+        "character:shigaraki-tomura",
+        "faction:league-of-villains",
+        "topic:loyalty-shift",
+        "topic:witnessing-shigaraki",
+        "topic:villain-meaning"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Spinner",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "loyalty shift",
+            "witnessing Shigaraki",
+            "villain meaning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "By the end of Deika, Spinner begins to see Shigaraki as someone whose destructive path can give the League direction.",
+        "injection": "After Deika, Spinner’s loyalty should feel more personal and ideological than before.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 238-239",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_shigaraki_liberation_is_destruction_not_freedom_for_others",
+      "title": "Shigaraki Liberation Is Destruction Not Freedom For Others",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.shigaraki-defeats-redestro",
+        "sortKeyFrom": 13350,
+        "sortKeyTo": 13350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki defeats Re-Destro"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-before-plf",
+          "label": "League before PLF merger",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "destructive liberation",
+          "villain ideology",
+          "anti-utopia"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:shigaraki-tomura",
+        "faction:paranormal-liberation-front",
+        "topic:destructive-liberation",
+        "topic:villain-ideology",
+        "topic:anti-utopia"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "destructive liberation",
+            "villain ideology",
+            "anti-utopia"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s liberation is the removal of restraint through destruction, not a coherent plan for ordinary social freedom.",
+        "injection": "Do not make Shigaraki a conventional revolutionary planner. His liberation is catastrophic and personal.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 238-239",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_plf_scale_should_reframe_the_next_hero_threat_level",
+      "title": "PLF Scale Should Reframe The Next Hero Threat Level",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.plf-formed",
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Paranormal Liberation Front is formed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-formed-hidden",
+          "label": "Paranormal Liberation Front formed but hidden from public",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:re-destro",
+          "mha:hawks",
+          "mha:paranormal-liberation-front",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Re-Destro",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "national threat",
+          "organization scale",
+          "war setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:shigaraki-tomura",
+        "character:re-destro",
+        "character:hawks",
+        "faction:paranormal-liberation-front",
+        "faction:pro-heroes",
+        "topic:national-threat",
+        "topic:organization-scale",
+        "topic:war-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Re-Destro",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "national threat",
+            "organization scale",
+            "war setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Once the PLF forms, the villain threat shifts from a small League cell to a mass movement capable of national destabilization.",
+        "injection": "Post-PLF, treat villains as an organized societal threat, not just recurring school attackers.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_hawks_infiltration_depends_on_keeping_his_cover_intact",
+      "title": "Hawks Infiltration Depends On Keeping His Cover Intact",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.plf-formed",
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Paranormal Liberation Front is formed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-formed-hidden",
+          "label": "Paranormal Liberation Front formed but hidden from public",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:shigaraki-tomura",
+          "mha:dabi",
+          "mha:paranormal-liberation-front",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Hawks",
+          "Tomura Shigaraki",
+          "Dabi"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "infiltration cover",
+          "coded intelligence",
+          "spy risk"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:hawks",
+        "character:shigaraki-tomura",
+        "character:dabi",
+        "faction:paranormal-liberation-front",
+        "faction:hero-public-safety-commission",
+        "topic:infiltration-cover",
+        "topic:coded-intelligence",
+        "topic:spy-risk"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Tomura Shigaraki",
+            "Dabi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "infiltration cover",
+            "coded intelligence",
+            "spy risk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks’s access to PLF intelligence depends on convincing the villains he is useful and compromised enough to trust.",
+        "injection": "Do not have Hawks casually reveal his allegiance or full intel. His role requires coded communication and dangerous proximity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_dabi_tests_hawks_without_trusting_him",
+      "title": "Dabi Tests Hawks Without Trusting Him",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.plf-formed",
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Paranormal Liberation Front is formed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-formed-hidden",
+          "label": "Paranormal Liberation Front formed but hidden from public",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:hawks",
+          "mha:paranormal-liberation-front"
+        ],
+        "characters": [
+          "Dabi",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "mutual suspicion",
+          "Hawks cover",
+          "Dabi pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:dabi",
+        "character:hawks",
+        "faction:paranormal-liberation-front",
+        "topic:mutual-suspicion",
+        "topic:hawks-cover",
+        "topic:dabi-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "mutual suspicion",
+            "Hawks cover",
+            "Dabi pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi uses Hawks while withholding full trust, keeping pressure on the infiltration relationship before the war.",
+        "injection": "When Dabi and Hawks interact, keep suspicion alive. Their cooperation is transactional and dangerous.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_mla_resources_make_the_plf_more_dangerous_than_the_league_alone",
+      "title": "MLA Resources Make The PLF More Dangerous Than The League Alone",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.mla.plf-formed",
+        "sortKeyFrom": 13400,
+        "sortKeyTo": 13400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Paranormal Liberation Front is formed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.meta-liberation-army",
+          "label": "Meta Liberation Army / My Villain Academia",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-formed-hidden",
+          "label": "Paranormal Liberation Front formed but hidden from public",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:re-destro",
+          "mha:shigaraki-tomura",
+          "mha:paranormal-liberation-front",
+          "mha:league-of-villains",
+          "mha:meta-liberation-army"
+        ],
+        "characters": [
+          "Re-Destro",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Paranormal Liberation Front",
+          "League of Villains",
+          "Meta Liberation Army"
+        ],
+        "topics": [
+          "resources",
+          "logistics",
+          "villain hierarchy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:meta-liberation-army",
+        "character:re-destro",
+        "character:shigaraki-tomura",
+        "faction:paranormal-liberation-front",
+        "faction:league-of-villains",
+        "faction:meta-liberation-army",
+        "topic:resources",
+        "topic:logistics",
+        "topic:villain-hierarchy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Re-Destro",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Paranormal Liberation Front",
+            "League of Villains",
+            "Meta Liberation Army"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "resources",
+            "logistics",
+            "villain hierarchy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The PLF combines League volatility with MLA money, membership, logistics, and ideology, making it far more dangerous than either group alone.",
+        "injection": "After the merger, villain scenes can include infrastructure and command hierarchy instead of only a small hideout crew.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 240",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,3153 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hospital_raid_starts_before_shigaraki_is_ready",
+      "title": "Hospital Raid Starts Before Shigaraki Is Ready",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.hospital-raid-start",
+        "sortKeyFrom": 15200,
+        "sortKeyTo": 15200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Jaku Hospital raid begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kyudai-garaki",
+          "mha:hospital-raid-team",
+          "mha:nomu",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kyudai Garaki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Hospital Raid Team",
+          "Nomu"
+        ],
+        "topics": [
+          "interrupted enhancement",
+          "hospital raid timing",
+          "Garaki crisis"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:shigaraki-tomura",
+        "character:kyudai-garaki",
+        "faction:hospital-raid-team",
+        "faction:nomu",
+        "location:jaku-hospital",
+        "topic:interrupted-enhancement",
+        "topic:hospital-raid-timing",
+        "topic:garaki-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kyudai Garaki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Hospital Raid Team",
+            "Nomu"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "interrupted enhancement",
+            "hospital raid timing",
+            "Garaki crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The heroes attack Jaku Hospital before Shigaraki’s enhancement process is complete, forcing Garaki and the Nomu infrastructure into crisis.",
+        "injection": "At hospital-raid start, Shigaraki is not simply waiting as a finished boss; the heroes are trying to interrupt a process in progress.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 259",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mirko_drives_the_lab_assault_through_injury",
+      "title": "Mirko Drives The Lab Assault Through Injury",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mirko-lab-assault",
+        "sortKeyFrom": 15250,
+        "sortKeyTo": 15250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirko assaults Garaki laboratory"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirko",
+          "mha:kyudai-garaki",
+          "mha:hospital-raid-team",
+          "mha:nomu",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Mirko",
+          "Kyudai Garaki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Hospital Raid Team",
+          "Nomu"
+        ],
+        "topics": [
+          "Mirko endurance",
+          "lab assault",
+          "injury pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:mirko",
+        "character:kyudai-garaki",
+        "faction:hospital-raid-team",
+        "faction:nomu",
+        "location:jaku-hospital",
+        "topic:mirko-endurance",
+        "topic:lab-assault",
+        "topic:injury-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mirko",
+            "Kyudai Garaki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Hospital Raid Team",
+            "Nomu"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Mirko endurance",
+            "lab assault",
+            "injury pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirko pushes through severe injury and isolation to reach the core lab, making her aggression and endurance central to the hospital front.",
+        "injection": "Write Mirko’s raid scenes with ferocity and damage accumulation. She keeps moving through injury, not because she is unharmed.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 260-262",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_garaki_is_dangerous_through_infrastructure_not_combat_skill",
+      "title": "Garaki Is Dangerous Through Infrastructure Not Combat Skill",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.garaki-exposed",
+        "sortKeyFrom": 15225,
+        "sortKeyTo": 15225,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Doctor Garaki is exposed as PLF collaborator"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kyudai-garaki",
+          "mha:all-for-one",
+          "mha:nomu",
+          "mha:high-end-nomu",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Kyudai Garaki",
+          "All For One"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Nomu",
+          "High-End Nomu"
+        ],
+        "topics": [
+          "Nomu science",
+          "villain infrastructure",
+          "medical cover"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:kyudai-garaki",
+        "character:all-for-one",
+        "faction:nomu",
+        "faction:high-end-nomu",
+        "location:jaku-hospital",
+        "topic:nomu-science",
+        "topic:villain-infrastructure",
+        "topic:medical-cover"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kyudai Garaki",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Nomu",
+            "High-End Nomu"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nomu science",
+            "villain infrastructure",
+            "medical cover"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Garaki’s threat lies in hidden medical authority, Nomu production, body modification, and All For One infrastructure rather than frontline combat ability.",
+        "injection": "Use Garaki as a systems villain. His danger comes from labs, secrets, and engineered monsters, not from hand-to-hand combat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-260",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_high_end_nomu_are_independent_battlefield_threats",
+      "title": "High-End Nomu Are Independent Battlefield Threats",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.high-ends-awaken",
+        "sortKeyFrom": 15300,
+        "sortKeyTo": 15300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "High-End Nomu awaken in the hospital lab"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:high-end-nomu",
+          "mha:hospital-raid-team",
+          "mha:jaku-hospital",
+          "mha:super-regeneration",
+          "mha:nomu-enhancement"
+        ],
+        "characters": [],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Super Regeneration",
+          "Nomu Enhancement"
+        ],
+        "factions": [
+          "High-End Nomu",
+          "Hospital Raid Team"
+        ],
+        "topics": [
+          "High-End Nomu",
+          "pro hero level threat",
+          "regeneration"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:high-end-nomu",
+        "faction:hospital-raid-team",
+        "location:jaku-hospital",
+        "quirk:super-regeneration",
+        "quirk:nomu-enhancement",
+        "topic:high-end-nomu",
+        "topic:pro-hero-level-threat",
+        "topic:regeneration"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "High-End Nomu",
+            "Hospital Raid Team"
+          ],
+          "objectsAny": [
+            "Super Regeneration",
+            "Nomu Enhancement"
+          ],
+          "topicsAny": [
+            "High-End Nomu",
+            "pro hero level threat",
+            "regeneration"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "High-End Nomu can think, regenerate, and fight at pro-hero levels, making them more dangerous than standard Nomu.",
+        "injection": "When High-Ends awaken, treat them as coordinated lethal threats that can occupy top heroes and reshape the front.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 262-265",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "nomu_enhancement",
+        "name": "High-End Nomu physiology",
+        "stage": "war-active",
+        "ownerEntityIds": [
+          "mha:high-end-nomu"
+        ],
+        "constraints": [
+          "High-Ends can regenerate and reason but are still engineered beings."
+        ],
+        "antiLore": [
+          "Do not write them as ordinary low-tier Nomu."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mirko_damaging_the_tank_causes_imperfect_awakening",
+      "title": "Mirko Damaging The Tank Causes Imperfect Awakening",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mirko-damages-tank",
+        "sortKeyFrom": 15350,
+        "sortKeyTo": 15350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirko damages Shigaraki preservation tank"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirko",
+          "mha:shigaraki-tomura",
+          "mha:kyudai-garaki",
+          "mha:hospital-raid-team",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Mirko",
+          "Tomura Shigaraki",
+          "Kyudai Garaki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Hospital Raid Team"
+        ],
+        "topics": [
+          "tank damage",
+          "imperfect awakening",
+          "interrupted upgrade"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:mirko",
+        "character:shigaraki-tomura",
+        "character:kyudai-garaki",
+        "faction:hospital-raid-team",
+        "location:jaku-hospital",
+        "topic:tank-damage",
+        "topic:imperfect-awakening",
+        "topic:interrupted-upgrade"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mirko",
+            "Tomura Shigaraki",
+            "Kyudai Garaki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Hospital Raid Team"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "tank damage",
+            "imperfect awakening",
+            "interrupted upgrade"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirko damaging Shigaraki’s tank contributes to the incomplete and unstable timing of his awakening.",
+        "injection": "Tie Shigaraki’s war state to an interrupted process. His power is catastrophic, but the enhancement was not completed cleanly.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 266-268",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_present_mic_captures_garaki_but_cannot_stop_the_cascade_alone",
+      "title": "Present Mic Captures Garaki But Cannot Stop The Cascade Alone",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.present-mic-captures-garaki",
+        "sortKeyFrom": 15400,
+        "sortKeyTo": 15400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Present Mic captures Garaki and disrupts the lab"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:present-mic",
+          "mha:kyudai-garaki",
+          "mha:shigaraki-tomura",
+          "mha:hospital-raid-team",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Present Mic",
+          "Kyudai Garaki",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Hospital Raid Team"
+        ],
+        "topics": [
+          "Garaki capture",
+          "lab disruption",
+          "too-late success"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:present-mic",
+        "character:kyudai-garaki",
+        "character:shigaraki-tomura",
+        "faction:hospital-raid-team",
+        "location:jaku-hospital",
+        "topic:garaki-capture",
+        "topic:lab-disruption",
+        "topic:too-late-success"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Present Mic",
+            "Kyudai Garaki",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Hospital Raid Team"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Garaki capture",
+            "lab disruption",
+            "too-late success"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Present Mic captures Garaki and disrupts the lab, but the situation has already cascaded toward Shigaraki’s awakening.",
+        "injection": "Present Mic’s capture of Garaki matters, but do not treat it as ending the threat once Shigaraki begins waking.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 269-270",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_shigaraki_awakening_changes_the_war_scale",
+      "title": "Shigaraki Awakening Changes The War Scale",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.shigaraki-awakens",
+        "sortKeyFrom": 15450,
+        "sortKeyTo": 15450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki awakens from enhancement"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:endeavor",
+          "mha:aizawa-shota",
+          "mha:pro-heroes",
+          "mha:hospital-raid-team",
+          "mha:jaku-hospital",
+          "mha:decay"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Endeavor",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Decay"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "Hospital Raid Team"
+        ],
+        "topics": [
+          "war scale shift",
+          "catastrophic awakening",
+          "raid collapse"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:shigaraki-tomura",
+        "character:endeavor",
+        "character:aizawa-shota",
+        "faction:pro-heroes",
+        "faction:hospital-raid-team",
+        "location:jaku-hospital",
+        "quirk:decay",
+        "topic:war-scale-shift",
+        "topic:catastrophic-awakening",
+        "topic:raid-collapse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Endeavor",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hospital Raid Team"
+          ],
+          "objectsAny": [
+            "Decay"
+          ],
+          "topicsAny": [
+            "war scale shift",
+            "catastrophic awakening",
+            "raid collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s awakening transforms the raid from a controlled operation into a catastrophic survival battle.",
+        "injection": "After Shigaraki awakens, shift tone sharply: professional raid logic gives way to mass destruction, evacuation panic, and desperate containment.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 270-272",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_decay_wave_forces_immediate_evacuation_and_flight",
+      "title": "Decay Wave Forces Immediate Evacuation And Flight",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.decay-wave",
+        "sortKeyFrom": 15500,
+        "sortKeyTo": 15500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki releases a massive Decay wave"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:pro-heroes",
+          "mha:civilians",
+          "mha:jaku-hospital",
+          "mha:jaku-city",
+          "mha:decay"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku Hospital",
+          "Jaku City"
+        ],
+        "objects": [
+          "Decay"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "Civilians"
+        ],
+        "topics": [
+          "area decay",
+          "evacuation panic",
+          "ground danger"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:shigaraki-tomura",
+        "faction:pro-heroes",
+        "faction:civilians",
+        "location:jaku-hospital",
+        "location:jaku-city",
+        "quirk:decay",
+        "topic:area-decay",
+        "topic:evacuation-panic",
+        "topic:ground-danger"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital",
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "Civilians"
+          ],
+          "objectsAny": [
+            "Decay"
+          ],
+          "topicsAny": [
+            "area decay",
+            "evacuation panic",
+            "ground danger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s expanded Decay spreads destructively through connected surfaces, forcing heroes and civilians to escape upward or leave the ground.",
+        "injection": "During the Decay wave, ground contact and debris chains are lethal. Survival should require flight, carrying others, or breaking contact with the spread.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 272",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Decay",
+        "stage": "awakened-area-spread",
+        "ownerEntityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "constraints": [
+          "Decay spreads through contact chains and terrain at this stage."
+        ],
+        "antiLore": [
+          "Do not limit awakened Decay to one touched person during this Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_crust_dies_as_a_professional_rescue_choice",
+      "title": "Crust Dies As A Professional Rescue Choice",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.crust-death",
+        "sortKeyFrom": 15525,
+        "sortKeyTo": 15525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Crust dies saving Aizawa"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:crust",
+          "mha:aizawa-shota",
+          "mha:pro-heroes",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Crust",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "hero sacrifice",
+          "rescue choice",
+          "Decay casualty"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:crust",
+        "character:aizawa-shota",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "topic:hero-sacrifice",
+        "topic:rescue-choice",
+        "topic:decay-casualty"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Crust",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero sacrifice",
+            "rescue choice",
+            "Decay casualty"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Crust dies saving Aizawa from the Decay wave, making his final act a rescue choice rather than just battlefield casualty.",
+        "injection": "If Crust’s death is referenced, frame it around professional rescue and preserving Erasure for the battle, not a meaningless background death.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 272",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_aizawa_becomes_the_battle_s_critical_limiter",
+      "title": "Aizawa Becomes The Battle’s Critical Limiter",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-erasure-battle",
+        "sortKeyFrom": 15600,
+        "sortKeyTo": 15600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa holds Shigaraki under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:shigaraki-tomura",
+          "mha:manual",
+          "mha:rock-lock",
+          "mha:pro-heroes",
+          "mha:jaku-hospital",
+          "mha:erasure",
+          "mha:decay",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Tomura Shigaraki",
+          "Manual",
+          "Rock Lock"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Erasure",
+          "Decay",
+          "All For One"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "line of sight",
+          "tactical limiter",
+          "Erasure support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "quirk:erasure",
+        "character:aizawa-shota",
+        "character:shigaraki-tomura",
+        "character:manual",
+        "character:rock-lock",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "quirk:decay",
+        "character:all-for-one",
+        "topic:line-of-sight",
+        "topic:tactical-limiter",
+        "topic:erasure-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Tomura Shigaraki",
+            "Manual",
+            "Rock Lock"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Erasure",
+            "Decay",
+            "All For One"
+          ],
+          "topicsAny": [
+            "line of sight",
+            "tactical limiter",
+            "Erasure support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa’s Erasure is the main reason Shigaraki cannot freely use all available Quirk power during the Jaku fight.",
+        "injection": "When Aizawa has line of sight, Shigaraki is constrained. Protecting Aizawa should become a tactical priority for heroes.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 275-282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Erasure",
+        "stage": "war-critical-line-of-sight",
+        "ownerEntityIds": [
+          "mha:aizawa-shota"
+        ],
+        "constraints": [
+          "Erasure depends on Aizawa maintaining sight and eye function."
+        ],
+        "antiLore": [
+          "Do not let Erasure work if Aizawa cannot see the target."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_manual_supports_erasure_by_keeping_aizawa_s_eyes_usable",
+      "title": "Manual Supports Erasure By Keeping Aizawa’s Eyes Usable",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-erasure-battle",
+        "sortKeyFrom": 15600,
+        "sortKeyTo": 15600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa holds Shigaraki under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:manual",
+          "mha:aizawa-shota",
+          "mha:pro-heroes",
+          "mha:jaku-hospital",
+          "mha:erasure"
+        ],
+        "characters": [
+          "Manual",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Erasure"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "support hero utility",
+          "eye support",
+          "Erasure endurance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:manual",
+        "character:aizawa-shota",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "quirk:erasure",
+        "topic:support-hero-utility",
+        "topic:eye-support",
+        "topic:erasure-endurance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Manual",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Erasure"
+          ],
+          "topicsAny": [
+            "support hero utility",
+            "eye support",
+            "Erasure endurance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Manual’s support matters because keeping Aizawa’s eyes lubricated lets Erasure continue under extreme strain.",
+        "injection": "Include Manual’s support when Erasure endurance matters. Aizawa is not maintaining the entire suppression alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 275-282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_quirk_destroying_bullet_forces_aizawa_s_self_sacrifice",
+      "title": "Quirk-Destroying Bullet Forces Aizawa’s Self-Sacrifice",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-leg-injury",
+        "sortKeyFrom": 15650,
+        "sortKeyTo": 15650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa sacrifices his leg to stop a Quirk-destroying bullet"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:shigaraki-tomura",
+          "mha:pro-heroes",
+          "mha:jaku-hospital",
+          "mha:quirk-destroying-bullet",
+          "mha:erasure"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Quirk-Destroying Bullet",
+          "Erasure"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "self-amputation",
+          "Quirk protection",
+          "battlefield necessity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:aizawa-shota",
+        "character:shigaraki-tomura",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "quirk:quirk-destroying-bullet",
+        "quirk:erasure",
+        "topic:self-amputation",
+        "topic:quirk-protection",
+        "topic:battlefield-necessity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Quirk-Destroying Bullet",
+            "Erasure"
+          ],
+          "topicsAny": [
+            "self-amputation",
+            "Quirk protection",
+            "battlefield necessity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "A Quirk-destroying bullet threatens Aizawa’s Erasure, and he sacrifices his leg to prevent losing his Quirk.",
+        "injection": "In this moment, Aizawa’s choice should be brutal and immediate: preserving Erasure is worth bodily sacrifice because the battlefield depends on it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_shigaraki_body_is_enhanced_but_not_stable",
+      "title": "Shigaraki Body Is Enhanced But Not Stable",
+      "kind": "rule_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.shigaraki-awakens",
+        "sortKeyFrom": 15450,
+        "sortKeyTo": 15450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shigaraki awakens from enhancement"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:kyudai-garaki",
+          "mha:jaku-hospital",
+          "mha:decay",
+          "mha:overclocked-body"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One",
+          "Kyudai Garaki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "All For One",
+          "Decay",
+          "Overclocked Body"
+        ],
+        "factions": [],
+        "topics": [
+          "enhanced body",
+          "incomplete process",
+          "instability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "character:kyudai-garaki",
+        "location:jaku-hospital",
+        "quirk:decay",
+        "quirk:overclocked-body",
+        "topic:enhanced-body",
+        "topic:incomplete-process",
+        "topic:instability"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One",
+            "Kyudai Garaki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "All For One",
+            "Decay",
+            "Overclocked Body"
+          ],
+          "topicsAny": [
+            "enhanced body",
+            "incomplete process",
+            "instability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s body is massively enhanced, but the interrupted process and All For One influence make his condition unstable.",
+        "injection": "Do not write awakened Shigaraki as simply perfected. He is catastrophic, but instability and internal conflict remain relevant.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 270-272",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_endeavor_becomes_primary_firepower_against_shigaraki",
+      "title": "Endeavor Becomes Primary Firepower Against Shigaraki",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-erasure-battle",
+        "sortKeyFrom": 15600,
+        "sortKeyTo": 15600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa holds Shigaraki under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:shigaraki-tomura",
+          "mha:pro-heroes",
+          "mha:jaku-hospital",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "frontline firepower",
+          "Shigaraki pressure",
+          "Hellflame damage"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:endeavor",
+        "character:shigaraki-tomura",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "quirk:hellflame",
+        "topic:frontline-firepower",
+        "topic:shigaraki-pressure",
+        "topic:hellflame-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "frontline firepower",
+            "Shigaraki pressure",
+            "Hellflame damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s Hellflame output becomes one of the heroes’ main ways to damage and pressure Shigaraki under Erasure.",
+        "injection": "During Jaku, write Endeavor as heavy frontline firepower. He can injure Shigaraki but cannot solve the fight alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 275-282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_ryukyu_provides_airborne_restraint_and_protection",
+      "title": "Ryukyu Provides Airborne Restraint And Protection",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-erasure-battle",
+        "sortKeyFrom": 15600,
+        "sortKeyTo": 15600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa holds Shigaraki under Erasure"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ryukyu",
+          "mha:shigaraki-tomura",
+          "mha:pro-heroes",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Ryukyu",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "airborne restraint",
+          "dragon form",
+          "battlefield support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:ryukyu",
+        "character:shigaraki-tomura",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "topic:airborne-restraint",
+        "topic:dragon-form",
+        "topic:battlefield-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Ryukyu",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "airborne restraint",
+            "dragon form",
+            "battlefield support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ryukyu’s dragon form gives the heroes aerial mobility, restraint, and protection during the Shigaraki fight.",
+        "injection": "Use Ryukyu as more than background: she can carry, shield, grapple, and stabilize chaotic air-ground movement.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 275-282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_gran_torino_injury_marks_shigaraki_s_personal_history_returning",
+      "title": "Gran Torino Injury Marks Shigaraki’s Personal History Returning",
+      "kind": "event_anchor",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.gran-torino-injured",
+        "sortKeyFrom": 15625,
+        "sortKeyTo": 15625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Gran Torino is critically injured by Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gran-torino",
+          "mha:shigaraki-tomura",
+          "mha:nana-shimura",
+          "mha:pro-heroes",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Gran Torino",
+          "Tomura Shigaraki",
+          "Nana Shimura"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Nana Shimura history",
+          "mentor injury",
+          "family tragedy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:gran-torino",
+        "character:shigaraki-tomura",
+        "character:nana-shimura",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "topic:nana-shimura-history",
+        "topic:mentor-injury",
+        "topic:family-tragedy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gran Torino",
+            "Tomura Shigaraki",
+            "Nana Shimura"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nana Shimura history",
+            "mentor injury",
+            "family tragedy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s injury to Gran Torino connects the present battle to Nana Shimura’s family tragedy and mentor history.",
+        "injection": "If Gran Torino is struck, frame it as more than damage: Shigaraki’s origin, Nana’s choices, and old hero failures are pressing into the fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 281",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_search_makes_one_for_all_a_direct_target",
+      "title": "Search Makes One For All A Direct Target",
+      "kind": "ability_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-bakugo-rush",
+        "sortKeyFrom": 15550,
+        "sortKeyTo": 15550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Bakugo draw Shigaraki away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:midoriya-izuku",
+          "mha:all-for-one",
+          "mha:jaku-hospital",
+          "mha:search",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Izuku Midoriya",
+          "All For One"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Search",
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA targeting",
+          "Search Quirk",
+          "Deku danger"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "quirk:search",
+        "character:shigaraki-tomura",
+        "character:midoriya-izuku",
+        "character:all-for-one",
+        "location:jaku-hospital",
+        "quirk:one-for-all",
+        "topic:ofa-targeting",
+        "topic:search-quirk",
+        "topic:deku-danger"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Izuku Midoriya",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Search",
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA targeting",
+            "Search Quirk",
+            "Deku danger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki can identify One For All through Search, making Deku a direct target once Shigaraki awakens.",
+        "injection": "When Shigaraki targets Deku here, tie it to One For All detection and All For One’s obsession, not random combat preference.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-275",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_deku_and_bakugo_lure_shigaraki_to_reduce_civilian_risk",
+      "title": "Deku And Bakugo Lure Shigaraki To Reduce Civilian Risk",
+      "kind": "objective",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-bakugo-rush",
+        "sortKeyFrom": 15550,
+        "sortKeyTo": 15550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and Bakugo draw Shigaraki away"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.shigaraki-battle",
+          "label": "Shigaraki main battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-multiple-quirks-emerging",
+          "label": "OFA multiple Quirks emerging",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:shigaraki-tomura",
+          "mha:evacuation-team",
+          "mha:civilians",
+          "mha:jaku-city",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Evacuation Team",
+          "Civilians"
+        ],
+        "topics": [
+          "lure strategy",
+          "civilian protection",
+          "reckless rescue logic"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki",
+        "character:shigaraki-tomura",
+        "faction:evacuation-team",
+        "faction:civilians",
+        "location:jaku-city",
+        "quirk:one-for-all",
+        "topic:lure-strategy",
+        "topic:civilian-protection",
+        "topic:reckless-rescue-logic"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Evacuation Team",
+            "Civilians"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "lure strategy",
+            "civilian protection",
+            "reckless rescue logic"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku and Bakugo move toward Shigaraki partly to pull danger away from civilians and other evacuees once One For All is targeted.",
+        "injection": "Their rush toward Shigaraki should read as reckless but strategically motivated by reducing collateral damage around civilians.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-275",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_nomu_lab_destruction_removes_hidden_infrastructure_but_releases_immediate_threats",
+      "title": "Nomu Lab Destruction Removes Hidden Infrastructure But Releases Immediate Threats",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.high-ends-awaken",
+        "sortKeyFrom": 15300,
+        "sortKeyTo": 15300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "High-End Nomu awaken in the hospital lab"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hospital-raid-team",
+          "mha:high-end-nomu",
+          "mha:jaku-hospital"
+        ],
+        "characters": [],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Hospital Raid Team",
+          "High-End Nomu"
+        ],
+        "topics": [
+          "lab destruction",
+          "infrastructure tradeoff",
+          "released threats"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "faction:hospital-raid-team",
+        "faction:high-end-nomu",
+        "location:jaku-hospital",
+        "topic:lab-destruction",
+        "topic:infrastructure-tradeoff",
+        "topic:released-threats"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Hospital Raid Team",
+            "High-End Nomu"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "lab destruction",
+            "infrastructure tradeoff",
+            "released threats"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Destroying the lab damages villain infrastructure while also unleashing High-End threats before heroes can fully secure the site.",
+        "injection": "Hospital scenes should balance success and danger: the heroes damage infrastructure but cannot prevent every contingency.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 262-265",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mirko_injury_should_persist_after_the_lab_fight",
+      "title": "Mirko Injury Should Persist After The Lab Fight",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mirko-damages-tank",
+        "sortKeyFrom": 15350,
+        "sortKeyTo": 15350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirko damages Shigaraki preservation tank"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.jaku-hospital",
+          "label": "Jaku Hospital front",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.plf-open-war",
+          "label": "PLF in open war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirko",
+          "mha:pro-heroes",
+          "mha:jaku-hospital"
+        ],
+        "characters": [
+          "Mirko"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "injury continuity",
+          "prosthetic future",
+          "hero cost"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:mirko",
+        "faction:pro-heroes",
+        "location:jaku-hospital",
+        "topic:injury-continuity",
+        "topic:prosthetic-future",
+        "topic:hero-cost"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirko"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "injury continuity",
+            "prosthetic future",
+            "hero cost"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirko’s wounds from the lab fight are severe and should persist through post-war continuity.",
+        "injection": "After the lab fight, do not reset Mirko to pristine condition. Her survival carries physical cost.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 266-268",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_aizawa_injury_should_persist_after_the_war",
+      "title": "Aizawa Injury Should Persist After The War",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.aizawa-leg-injury",
+        "sortKeyFrom": 15650,
+        "sortKeyTo": 15650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aizawa sacrifices his leg to stop a Quirk-destroying bullet"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:pro-heroes",
+          "mha:u-a-high",
+          "mha:jaku-hospital",
+          "mha:erasure"
+        ],
+        "characters": [
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "Jaku Hospital"
+        ],
+        "objects": [
+          "Erasure"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "U.A. High"
+        ],
+        "topics": [
+          "injury continuity",
+          "teacher limitation",
+          "Erasure cost"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:aizawa-shota",
+        "faction:pro-heroes",
+        "faction:u-a-high",
+        "location:jaku-hospital",
+        "quirk:erasure",
+        "topic:injury-continuity",
+        "topic:teacher-limitation",
+        "topic:erasure-cost"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "Jaku Hospital"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "Erasure"
+          ],
+          "topicsAny": [
+            "injury continuity",
+            "teacher limitation",
+            "Erasure cost"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa’s war injury is severe and changes his post-war physical state and tactical availability.",
+        "injection": "After the bullet incident, keep Aizawa injured. Do not treat Eraser Head as physically unchanged after the war.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 282",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

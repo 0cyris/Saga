@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to Chapter 431 'More' optional post-series Context for manga-primary My Hero Academia.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent",
+    "relationship",
+    "adultCareer"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Only resolve to Chapter 431 'More' when the user explicitly references More, Chapter 431, adult post-series reunion, Ochaco's Toga dreams, the Quirk Counseling visit, Shoto's Number Two celebration, or Deku/Ochaco's final conversation.",
+  "localPatterns": [
+    {
+      "pattern": "chapter 431",
+      "result": {
+        "anchorFrom": "mha.more.chapter-431-start",
+        "anchorTo": "mha.more.more-ending",
+        "label": "Chapter 431 More"
+      }
+    },
+    {
+      "pattern": "more epilogue",
+      "result": {
+        "anchorFrom": "mha.more.chapter-431-start",
+        "anchorTo": "mha.more.more-ending",
+        "label": "Chapter 431 More"
+      }
+    },
+    {
+      "pattern": "post-series more",
+      "result": {
+        "anchorFrom": "mha.more.chapter-431-start",
+        "anchorTo": "mha.more.more-ending",
+        "label": "Chapter 431 More"
+      }
+    },
+    {
+      "pattern": "ochaco toga dream",
+      "result": {
+        "anchorId": "mha.more.ochaco-toga-dream",
+        "label": "Ochaco dreams of Toga"
+      }
+    },
+    {
+      "pattern": "quirk counseling",
+      "result": {
+        "anchorFrom": "mha.more.quirk-counseling-fieldwork",
+        "anchorTo": "mha.more.ochaco-tsuyu-train-talk",
+        "label": "Ochaco's Quirk Counseling work"
+      }
+    },
+    {
+      "pattern": "big three assist",
+      "result": {
+        "anchorId": "mha.more.big-three-assist",
+        "label": "The Big Three assist Quirk Counseling"
+      }
+    },
+    {
+      "pattern": "shoto number two",
+      "result": {
+        "anchorId": "mha.more.shoto-number-two-celebration",
+        "label": "Shoto's Number Two celebration"
+      }
+    },
+    {
+      "pattern": "class a reunion",
+      "result": {
+        "anchorFrom": "mha.more.former-class-a-reunion",
+        "anchorTo": "mha.more.criminal-incident-interrupts",
+        "label": "Former Class A adult reunion"
+      }
+    },
+    {
+      "pattern": "deku ochaco more",
+      "result": {
+        "anchorFrom": "mha.more.deku-ochaco-conversation",
+        "anchorTo": "mha.more.more-ending",
+        "label": "Deku and Ochaco ending conversation"
+      }
+    },
+    {
+      "pattern": "izuocha more",
+      "result": {
+        "anchorFrom": "mha.more.deku-ochaco-conversation",
+        "anchorTo": "mha.more.more-ending",
+        "label": "Deku and Ochaco ending conversation"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "arc": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

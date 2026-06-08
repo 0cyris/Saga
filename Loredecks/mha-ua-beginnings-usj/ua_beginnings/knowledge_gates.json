@@ -1,0 +1,1103 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_classmates_do_not_know_ofa_at_usj",
+      "title": "Classmates Do Not Know OFA At USJ",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "classmate knowledge",
+          "OFA secrecy",
+          "USJ"
+        ]
+      },
+      "tags": [
+        "secret:one-for-all",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "classmate knowledge",
+            "OFA secrecy",
+            "USJ"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At USJ, Class 1-A does not know One For All exists or that Izuku inherited it.",
+        "injection": "At USJ, classmates can notice Izuku's destructive power but must not infer OFA, All Might, or past-user mechanics.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_students_do_not_know_all_mights_time_limit",
+      "title": "USJ Students Do Not Know All Might's Time Limit",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "All Might",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "All Might secret",
+          "student knowledge",
+          "time limit"
+        ]
+      },
+      "tags": [
+        "secret:all-might-injury",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "All Might secret",
+            "student knowledge",
+            "time limit"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Most students at USJ do not know that All Might is fighting under a hidden time limit.",
+        "injection": "Do not let Class 1-A interpret All Might's strain with full private knowledge unless they already know his secret.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:yagi-toshinori"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_league_does_not_know_deku_is_ofa_successor",
+      "title": "League Does Not Know Deku Is OFA Successor",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:shigaraki-tomura",
+          "mha:kurogiri"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tomura Shigaraki",
+          "Kurogiri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "villain knowledge",
+          "successor secret",
+          "USJ"
+        ]
+      },
+      "tags": [
+        "secret:one-for-all",
+        "faction:league-of-villains",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tomura Shigaraki",
+            "Kurogiri"
+          ],
+          "topicsAny": [
+            "villain knowledge",
+            "successor secret",
+            "USJ"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At USJ, the League targets All Might and U.A.; it does not understand Izuku as One For All's successor.",
+        "injection": "Do not make early Shigaraki or Kurogiri treat Deku as the key OFA successor unless the story diverges.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:shigaraki-tomura",
+          "mha:kurogiri"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_is_not_publicly_fully_understood",
+      "title": "USJ Is Not Publicly Fully Understood",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-ends",
+        "validToAnchor": "mha.usj.after-usj-school-continues",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "public knowledge",
+          "media",
+          "partial information"
+        ]
+      },
+      "tags": [
+        "arc:usj",
+        "knowledge:public-limited",
+        "topic:media",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "public knowledge",
+            "media",
+            "partial information"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The public may learn U.A. was attacked, but not every detail of student actions, OFA secrets, or All Might's limit.",
+        "injection": "Media aftermath should have partial information and speculation rather than omniscient accuracy.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_aizawas_injury_matters_after_usj",
+      "title": "Aizawa's Injury Matters After USJ",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-ends",
+        "validToAnchor": "mha.usj.after-usj-school-continues",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Shota Aizawa",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Aizawa injury",
+          "aftermath",
+          "teacher sacrifice"
+        ]
+      },
+      "tags": [
+        "hero:eraser-head",
+        "status:injury",
+        "arc:usj",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shota Aizawa",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Aizawa injury",
+            "aftermath",
+            "teacher sacrifice"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aizawa's injuries at USJ are serious and should affect immediate aftermath rather than disappearing between scenes.",
+        "injection": "After USJ, account for Aizawa's physical damage, recovery, and the class's awareness of what teachers risked.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aizawa-shota"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_nomu_origin_remains_unknown_early",
+      "title": "Nomu Origin Remains Unknown Early",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nomu-usj"
+        ],
+        "characters": [
+          "USJ Nomu"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nomu origin",
+          "future guard",
+          "unknown enemy"
+        ]
+      },
+      "tags": [
+        "villain:nomu",
+        "secret:nomu-origin",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "USJ Nomu"
+          ],
+          "topicsAny": [
+            "Nomu origin",
+            "future guard",
+            "unknown enemy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At USJ, students and most heroes do not yet understand the full origin or production system behind Nomu.",
+        "injection": "Do not have early characters explain Nomu manufacturing, All For One's process, or later Nomu taxonomy in detail.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:nomu-usj"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_shigarakis_deeper_origin_must_not_leak",
+      "title": "Shigaraki's Deeper Origin Must Not Leak",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-begins",
+        "validToAnchor": "mha.usj.usj-attack-ends",
+        "sortKeyFrom": 2400,
+        "sortKeyTo": 2900,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ Attack"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Shigaraki origin",
+          "spoiler gate",
+          "USJ"
+        ]
+      },
+      "tags": [
+        "villain:shigaraki",
+        "secret:shigaraki-origin",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki"
+          ],
+          "topicsAny": [
+            "Shigaraki origin",
+            "spoiler gate",
+            "USJ"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "USJ-era scenes must not reveal Shigaraki's childhood identity or deeper grooming history.",
+        "injection": "Write early Shigaraki as a dangerous emerging villain without exposing late-series origin knowledge.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_ua_beginnings_usj_usj_does_not_make_students_licensed_heroes",
+      "title": "USJ Does Not Make Students Licensed Heroes",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.usj.usj-attack-ends",
+        "validToAnchor": "mha.usj.after-usj-school-continues",
+        "sortKeyFrom": 2900,
+        "sortKeyTo": 3000,
+        "precision": "anchor_window",
+        "windowKind": "bounded",
+        "label": "USJ aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.usj",
+          "label": "USJ",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.ua-first-term",
+          "label": "U.A. first term",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.league-first-attack",
+          "label": "League first attack",
+          "required": false
+        },
+        {
+          "axis": "class_state",
+          "id": "mha.class.first-crisis",
+          "label": "Class 1-A first crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "license gate",
+          "student status",
+          "aftermath"
+        ]
+      },
+      "tags": [
+        "arc:usj",
+        "topic:hero-licensing",
+        "class:ua-1a",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "license gate",
+            "student status",
+            "aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Surviving USJ does not grant Class 1-A legal hero-license authority.",
+        "injection": "After USJ, students may be more experienced, but they are still unlicensed first-year trainees.",
+        "constraints": [
+          "Protect private knowledge and future revelations during early U.A. scenes."
+        ],
+        "antiLore": [
+          "Do not let characters reason from author knowledge or later canon they have not received."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Chapters 13-21",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:league-of-villains"
+        ],
+        "notes": "Knowledge gate for U.A. Beginnings/USJ Context."
+      }
+    }
+  ]
+}

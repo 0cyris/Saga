@@ -1,0 +1,1762 @@
+{
+  "schemaVersion": 1,
+  "entities": {
+    "mha:aizawa-shota": {
+      "type": "character",
+      "label": "Shota Aizawa",
+      "aliases": [
+        "Aizawa",
+        "Eraser Head"
+      ],
+      "canonicalNames": [
+        "Shota Aizawa",
+        "Aizawa",
+        "Eraser Head"
+      ],
+      "tags": [
+        "character:aizawa-shota"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:all-for-one": {
+      "type": "character",
+      "label": "All For One",
+      "aliases": [
+        "AFO"
+      ],
+      "canonicalNames": [
+        "All For One",
+        "AFO"
+      ],
+      "tags": [
+        "character:all-for-one"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:all-for-one-quirk": {
+      "type": "ability",
+      "label": "All For One Quirk",
+      "aliases": [
+        "AFO Quirk"
+      ],
+      "canonicalNames": [
+        "All For One Quirk",
+        "AFO Quirk"
+      ],
+      "tags": [
+        "quirk:all-for-one"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:all-might": {
+      "type": "character",
+      "label": "All Might",
+      "aliases": [
+        "Toshinori Yagi",
+        "Symbol of Peace"
+      ],
+      "canonicalNames": [
+        "All Might",
+        "Toshinori Yagi",
+        "Symbol of Peace"
+      ],
+      "tags": [
+        "character:all-might"
+      ],
+      "relationships": [
+        {
+          "type": "mentor_of",
+          "targetEntityId": "mha:midoriya-izuku"
+        }
+      ],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:aoyama-yuga": {
+      "type": "character",
+      "label": "Yuga Aoyama",
+      "aliases": [
+        "Aoyama"
+      ],
+      "canonicalNames": [
+        "Yuga Aoyama",
+        "Aoyama"
+      ],
+      "tags": [
+        "character:aoyama-yuga"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:asui-tsuyu": {
+      "type": "character",
+      "label": "Tsuyu Asui",
+      "aliases": [
+        "Asui",
+        "Froppy"
+      ],
+      "canonicalNames": [
+        "Tsuyu Asui",
+        "Asui",
+        "Froppy"
+      ],
+      "tags": [
+        "character:asui-tsuyu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:bakugo-katsuki": {
+      "type": "character",
+      "label": "Katsuki Bakugo",
+      "aliases": [
+        "Bakugo",
+        "Kacchan"
+      ],
+      "canonicalNames": [
+        "Katsuki Bakugo",
+        "Bakugo",
+        "Kacchan"
+      ],
+      "tags": [
+        "character:bakugo-katsuki"
+      ],
+      "relationships": [
+        {
+          "type": "student_of",
+          "targetEntityId": "mha:ua-high"
+        },
+        {
+          "type": "member_of",
+          "targetEntityId": "mha:class-1a"
+        }
+      ],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:beast-forest": {
+      "type": "location",
+      "label": "Beast Forest",
+      "aliases": [
+        "training camp forest"
+      ],
+      "canonicalNames": [
+        "Beast Forest",
+        "training camp forest"
+      ],
+      "tags": [
+        "location:beast-forest"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:best-jeanist": {
+      "type": "character",
+      "label": "Best Jeanist",
+      "aliases": [
+        "Tsunagu Hakamada"
+      ],
+      "canonicalNames": [
+        "Best Jeanist",
+        "Tsunagu Hakamada"
+      ],
+      "tags": [
+        "character:best-jeanist"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:class-1a": {
+      "type": "faction",
+      "label": "U.A. Class 1-A",
+      "aliases": [
+        "Class 1-A"
+      ],
+      "canonicalNames": [
+        "U.A. Class 1-A",
+        "Class 1-A"
+      ],
+      "tags": [
+        "class:ua-1a"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:class-1b": {
+      "type": "faction",
+      "label": "U.A. Class 1-B",
+      "aliases": [
+        "Class 1-B"
+      ],
+      "canonicalNames": [
+        "U.A. Class 1-B",
+        "Class 1-B"
+      ],
+      "tags": [
+        "class:ua-1b"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:compress-quirk": {
+      "type": "ability",
+      "label": "Compress",
+      "aliases": [
+        "Mr. Compress Quirk"
+      ],
+      "canonicalNames": [
+        "Compress",
+        "Mr. Compress Quirk"
+      ],
+      "tags": [
+        "quirk:compress"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:dabi": {
+      "type": "character",
+      "label": "Dabi",
+      "aliases": [],
+      "canonicalNames": [
+        "Dabi"
+      ],
+      "tags": [
+        "character:dabi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:dark-shadow": {
+      "type": "ability",
+      "label": "Dark Shadow",
+      "aliases": [
+        "Tokoyami Quirk"
+      ],
+      "canonicalNames": [
+        "Dark Shadow",
+        "Tokoyami Quirk"
+      ],
+      "tags": [
+        "quirk:dark-shadow"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:edgeshot": {
+      "type": "character",
+      "label": "Edgeshot",
+      "aliases": [
+        "Shinya Kamihara"
+      ],
+      "canonicalNames": [
+        "Edgeshot",
+        "Shinya Kamihara"
+      ],
+      "tags": [
+        "character:edgeshot"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:endeavor": {
+      "type": "character",
+      "label": "Endeavor",
+      "aliases": [
+        "Enji Todoroki"
+      ],
+      "canonicalNames": [
+        "Endeavor",
+        "Enji Todoroki"
+      ],
+      "tags": [
+        "character:endeavor"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:gran-torino": {
+      "type": "character",
+      "label": "Gran Torino",
+      "aliases": [
+        "Sorahiko Torino"
+      ],
+      "canonicalNames": [
+        "Gran Torino",
+        "Sorahiko Torino"
+      ],
+      "tags": [
+        "character:gran-torino"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:iida-tenya": {
+      "type": "character",
+      "label": "Tenya Iida",
+      "aliases": [
+        "Iida",
+        "Ingenium"
+      ],
+      "canonicalNames": [
+        "Tenya Iida",
+        "Iida",
+        "Ingenium"
+      ],
+      "tags": [
+        "character:iida-tenya"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:jiro-kyoka": {
+      "type": "character",
+      "label": "Kyoka Jiro",
+      "aliases": [
+        "Jiro",
+        "Earphone Jack"
+      ],
+      "canonicalNames": [
+        "Kyoka Jiro",
+        "Jiro",
+        "Earphone Jack"
+      ],
+      "tags": [
+        "character:jiro-kyoka"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kaminari-denki": {
+      "type": "character",
+      "label": "Denki Kaminari",
+      "aliases": [
+        "Kaminari",
+        "Chargebolt"
+      ],
+      "canonicalNames": [
+        "Denki Kaminari",
+        "Kaminari",
+        "Chargebolt"
+      ],
+      "tags": [
+        "character:kaminari-denki"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kamino-ward": {
+      "type": "location",
+      "label": "Kamino Ward",
+      "aliases": [
+        "Kamino"
+      ],
+      "canonicalNames": [
+        "Kamino Ward",
+        "Kamino"
+      ],
+      "tags": [
+        "location:kamino-ward"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kamui-woods": {
+      "type": "character",
+      "label": "Kamui Woods",
+      "aliases": [
+        "Shinji Nishiya"
+      ],
+      "canonicalNames": [
+        "Kamui Woods",
+        "Shinji Nishiya"
+      ],
+      "tags": [
+        "character:kamui-woods"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kendo-itsuka": {
+      "type": "character",
+      "label": "Itsuka Kendo",
+      "aliases": [
+        "Kendo"
+      ],
+      "canonicalNames": [
+        "Itsuka Kendo",
+        "Kendo"
+      ],
+      "tags": [
+        "character:kendo-itsuka"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kirishima-eijiro": {
+      "type": "character",
+      "label": "Eijiro Kirishima",
+      "aliases": [
+        "Kirishima",
+        "Red Riot"
+      ],
+      "canonicalNames": [
+        "Eijiro Kirishima",
+        "Kirishima",
+        "Red Riot"
+      ],
+      "tags": [
+        "character:kirishima-eijiro"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kota-izumi": {
+      "type": "character",
+      "label": "Kota Izumi",
+      "aliases": [
+        "Kota"
+      ],
+      "canonicalNames": [
+        "Kota Izumi",
+        "Kota"
+      ],
+      "tags": [
+        "character:kota-izumi"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:kurogiri": {
+      "type": "character",
+      "label": "Kurogiri",
+      "aliases": [],
+      "canonicalNames": [
+        "Kurogiri"
+      ],
+      "tags": [
+        "character:kurogiri"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:league-of-villains": {
+      "type": "faction",
+      "label": "League of Villains",
+      "aliases": [
+        "League"
+      ],
+      "canonicalNames": [
+        "League of Villains",
+        "League"
+      ],
+      "tags": [
+        "faction:league-of-villains"
+      ],
+      "relationships": [
+        {
+          "type": "deploys",
+          "targetEntityId": "mha:vanguard-action-squad"
+        }
+      ],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:magne": {
+      "type": "character",
+      "label": "Magne",
+      "aliases": [
+        "Kenji Hikiishi"
+      ],
+      "canonicalNames": [
+        "Magne",
+        "Kenji Hikiishi"
+      ],
+      "tags": [
+        "character:magne"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:mandalay": {
+      "type": "character",
+      "label": "Mandalay",
+      "aliases": [
+        "Shino Sosaki"
+      ],
+      "canonicalNames": [
+        "Mandalay",
+        "Shino Sosaki"
+      ],
+      "tags": [
+        "character:mandalay"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:midoriya-inko": {
+      "type": "character",
+      "label": "Inko Midoriya",
+      "aliases": [
+        "Inko"
+      ],
+      "canonicalNames": [
+        "Inko Midoriya",
+        "Inko"
+      ],
+      "tags": [
+        "character:midoriya-inko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:midoriya-izuku": {
+      "type": "character",
+      "label": "Izuku Midoriya",
+      "aliases": [
+        "Deku",
+        "Midoriya",
+        "Izuku"
+      ],
+      "canonicalNames": [
+        "Izuku Midoriya",
+        "Deku",
+        "Midoriya",
+        "Izuku"
+      ],
+      "tags": [
+        "character:midoriya-izuku"
+      ],
+      "relationships": [
+        {
+          "type": "student_of",
+          "targetEntityId": "mha:ua-high"
+        },
+        {
+          "type": "successor",
+          "targetEntityId": "mha:all-might"
+        }
+      ],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:monoma-neito": {
+      "type": "character",
+      "label": "Neito Monoma",
+      "aliases": [
+        "Monoma"
+      ],
+      "canonicalNames": [
+        "Neito Monoma",
+        "Monoma"
+      ],
+      "tags": [
+        "character:monoma-neito"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:moonfish": {
+      "type": "character",
+      "label": "Moonfish",
+      "aliases": [],
+      "canonicalNames": [
+        "Moonfish"
+      ],
+      "tags": [
+        "character:moonfish"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:mr-compress": {
+      "type": "character",
+      "label": "Mr. Compress",
+      "aliases": [
+        "Atsuhiro Sako",
+        "Compress"
+      ],
+      "canonicalNames": [
+        "Mr. Compress",
+        "Atsuhiro Sako",
+        "Compress"
+      ],
+      "tags": [
+        "character:mr-compress"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:mt-lady": {
+      "type": "character",
+      "label": "Mt. Lady",
+      "aliases": [
+        "Yu Takeyama"
+      ],
+      "canonicalNames": [
+        "Mt. Lady",
+        "Yu Takeyama"
+      ],
+      "tags": [
+        "character:mt-lady"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:muscular": {
+      "type": "character",
+      "label": "Muscular",
+      "aliases": [
+        "Goto Imasuji"
+      ],
+      "canonicalNames": [
+        "Muscular",
+        "Goto Imasuji"
+      ],
+      "tags": [
+        "character:muscular"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:mustard": {
+      "type": "character",
+      "label": "Mustard",
+      "aliases": [],
+      "canonicalNames": [
+        "Mustard"
+      ],
+      "tags": [
+        "character:mustard"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:nezu": {
+      "type": "character",
+      "label": "Nezu",
+      "aliases": [
+        "Principal Nezu"
+      ],
+      "canonicalNames": [
+        "Nezu",
+        "Principal Nezu"
+      ],
+      "tags": [
+        "character:nezu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:nomu-factory": {
+      "type": "location",
+      "label": "Nomu Factory",
+      "aliases": [
+        "Nomu storage facility"
+      ],
+      "canonicalNames": [
+        "Nomu Factory",
+        "Nomu storage facility"
+      ],
+      "tags": [
+        "location:nomu-factory"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:one-for-all": {
+      "type": "ability",
+      "label": "One For All",
+      "aliases": [
+        "OFA"
+      ],
+      "canonicalNames": [
+        "One For All",
+        "OFA"
+      ],
+      "tags": [
+        "quirk:one-for-all"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:pixie-bob": {
+      "type": "character",
+      "label": "Pixie-Bob",
+      "aliases": [
+        "Ryuko Tsuchikawa"
+      ],
+      "canonicalNames": [
+        "Pixie-Bob",
+        "Ryuko Tsuchikawa"
+      ],
+      "tags": [
+        "character:pixie-bob"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:police": {
+      "type": "faction",
+      "label": "Police",
+      "aliases": [
+        "law enforcement"
+      ],
+      "canonicalNames": [
+        "Police",
+        "law enforcement"
+      ],
+      "tags": [
+        "faction:police"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:pro-heroes": {
+      "type": "faction",
+      "label": "Pro Heroes",
+      "aliases": [
+        "professional heroes"
+      ],
+      "canonicalNames": [
+        "Pro Heroes",
+        "professional heroes"
+      ],
+      "tags": [
+        "faction:pro-heroes"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:ragdoll": {
+      "type": "character",
+      "label": "Ragdoll",
+      "aliases": [
+        "Tomoko Shiretoko"
+      ],
+      "canonicalNames": [
+        "Ragdoll",
+        "Tomoko Shiretoko"
+      ],
+      "tags": [
+        "character:ragdoll"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:search-quirk": {
+      "type": "ability",
+      "label": "Search",
+      "aliases": [
+        "Ragdoll Quirk"
+      ],
+      "canonicalNames": [
+        "Search",
+        "Ragdoll Quirk"
+      ],
+      "tags": [
+        "quirk:search"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:shigaraki-tomura": {
+      "type": "character",
+      "label": "Tomura Shigaraki",
+      "aliases": [
+        "Shigaraki"
+      ],
+      "canonicalNames": [
+        "Tomura Shigaraki",
+        "Shigaraki"
+      ],
+      "tags": [
+        "character:shigaraki-tomura"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:shoji-mezo": {
+      "type": "character",
+      "label": "Mezo Shoji",
+      "aliases": [
+        "Shoji",
+        "Tentacole"
+      ],
+      "canonicalNames": [
+        "Mezo Shoji",
+        "Shoji",
+        "Tentacole"
+      ],
+      "tags": [
+        "character:shoji-mezo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:spinner": {
+      "type": "character",
+      "label": "Spinner",
+      "aliases": [
+        "Shuichi Iguchi"
+      ],
+      "canonicalNames": [
+        "Spinner",
+        "Shuichi Iguchi"
+      ],
+      "tags": [
+        "character:spinner"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:stain": {
+      "type": "character",
+      "label": "Stain",
+      "aliases": [],
+      "canonicalNames": [
+        "Stain"
+      ],
+      "tags": [
+        "character:stain"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:tetsutetsu-tetsutetsu": {
+      "type": "character",
+      "label": "Tetsutetsu Tetsutetsu",
+      "aliases": [
+        "Tetsutetsu"
+      ],
+      "canonicalNames": [
+        "Tetsutetsu Tetsutetsu",
+        "Tetsutetsu"
+      ],
+      "tags": [
+        "character:tetsutetsu-tetsutetsu"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:tiger": {
+      "type": "character",
+      "label": "Tiger",
+      "aliases": [
+        "Yawara Chatora"
+      ],
+      "canonicalNames": [
+        "Tiger",
+        "Yawara Chatora"
+      ],
+      "tags": [
+        "character:tiger"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:todoroki-shoto": {
+      "type": "character",
+      "label": "Shoto Todoroki",
+      "aliases": [
+        "Todoroki",
+        "Shoto"
+      ],
+      "canonicalNames": [
+        "Shoto Todoroki",
+        "Todoroki",
+        "Shoto"
+      ],
+      "tags": [
+        "character:todoroki-shoto"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:toga-himiko": {
+      "type": "character",
+      "label": "Himiko Toga",
+      "aliases": [
+        "Toga"
+      ],
+      "canonicalNames": [
+        "Himiko Toga",
+        "Toga"
+      ],
+      "tags": [
+        "character:toga-himiko"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:tokoyami-fumikage": {
+      "type": "character",
+      "label": "Fumikage Tokoyami",
+      "aliases": [
+        "Tokoyami",
+        "Tsukuyomi"
+      ],
+      "canonicalNames": [
+        "Fumikage Tokoyami",
+        "Tokoyami",
+        "Tsukuyomi"
+      ],
+      "tags": [
+        "character:tokoyami-fumikage"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:twice": {
+      "type": "character",
+      "label": "Twice",
+      "aliases": [
+        "Jin Bubaigawara"
+      ],
+      "canonicalNames": [
+        "Twice",
+        "Jin Bubaigawara"
+      ],
+      "tags": [
+        "character:twice"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:ua-high": {
+      "type": "location",
+      "label": "U.A. High School",
+      "aliases": [
+        "U.A.",
+        "UA High"
+      ],
+      "canonicalNames": [
+        "U.A. High School",
+        "U.A.",
+        "UA High"
+      ],
+      "tags": [
+        "school:ua-high"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:uraraka-ochaco": {
+      "type": "character",
+      "label": "Ochaco Uraraka",
+      "aliases": [
+        "Uraraka",
+        "Uravity"
+      ],
+      "canonicalNames": [
+        "Ochaco Uraraka",
+        "Uraraka",
+        "Uravity"
+      ],
+      "tags": [
+        "character:uraraka-ochaco"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:vanguard-action-squad": {
+      "type": "faction",
+      "label": "Vanguard Action Squad",
+      "aliases": [
+        "Vanguard",
+        "Vanguard Action Squad"
+      ],
+      "canonicalNames": [
+        "Vanguard Action Squad",
+        "Vanguard",
+        "Vanguard Action Squad"
+      ],
+      "tags": [
+        "faction:vanguard-action-squad"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:warp-gate": {
+      "type": "ability",
+      "label": "Warp Gate",
+      "aliases": [
+        "Kurogiri Quirk"
+      ],
+      "canonicalNames": [
+        "Warp Gate",
+        "Kurogiri Quirk"
+      ],
+      "tags": [
+        "quirk:warp-gate"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:wild-wild-pussycats": {
+      "type": "faction",
+      "label": "Wild Wild Pussycats",
+      "aliases": [
+        "Pussycats"
+      ],
+      "canonicalNames": [
+        "Wild Wild Pussycats",
+        "Pussycats"
+      ],
+      "tags": [
+        "faction:wild-wild-pussycats"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    },
+    "mha:yaoyorozu-momo": {
+      "type": "character",
+      "label": "Momo Yaoyorozu",
+      "aliases": [
+        "Yaoyorozu",
+        "Creati"
+      ],
+      "canonicalNames": [
+        "Momo Yaoyorozu",
+        "Yaoyorozu",
+        "Creati"
+      ],
+      "tags": [
+        "character:yaoyorozu-momo"
+      ],
+      "relationships": [],
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "confidence": 0.86
+      },
+      "extensions": {}
+    }
+  }
+}

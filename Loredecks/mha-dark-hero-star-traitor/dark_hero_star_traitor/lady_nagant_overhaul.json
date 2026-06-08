@@ -1,0 +1,2454 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_lady_nagant_is_sent_by_afo",
+      "title": "Lady Nagant Is Sent By AFO",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.lady-nagant-ambush",
+        "sortKeyFrom": 17350,
+        "sortKeyTo": 17350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lady Nagant ambushes Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:all-for-one",
+          "mha:midoriya-izuku",
+          "mha:all-for-one-escapees"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "All For One",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "All For One Escapees"
+        ],
+        "topics": [
+          "Deku capture",
+          "AFO orders",
+          "disillusioned hero"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:all-for-one",
+        "character:midoriya-izuku",
+        "faction:all-for-one-escapees",
+        "topic:deku-capture",
+        "topic:afo-orders",
+        "topic:disillusioned-hero"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "All For One",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "All For One Escapees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Deku capture",
+            "AFO orders",
+            "disillusioned hero"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One sends Lady Nagant to capture Deku and exploit her disillusionment with hero society.",
+        "injection": "Nagant should enter as an AFO-directed hunter with her own bitterness, not as a random mercenary.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 312-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_was_hpsc_assassin",
+      "title": "Nagant Was HPSC Assassin",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.lady-nagant-ambush",
+        "sortKeyFrom": 17350,
+        "sortKeyTo": 17350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lady Nagant ambushes Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Lady Nagant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "HPSC assassin",
+          "state violence",
+          "hidden hero work"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "faction:hero-public-safety-commission",
+        "topic:hpsc-assassin",
+        "topic:state-violence",
+        "topic:hidden-hero-work"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "HPSC assassin",
+            "state violence",
+            "hidden hero work"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Lady Nagant once killed for the Hero Public Safety Commission, giving her insider knowledge of hero society’s hidden violence.",
+        "injection": "When Nagant explains her past, let it expose institutional rot without making every hero personally complicit.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 312-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:lady-nagant"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_cynicism_has_evidence",
+      "title": "Nagant Cynicism Has Evidence",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-vs-lady-nagant",
+        "sortKeyFrom": 17400,
+        "sortKeyTo": 17400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku fights Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:midoriya-izuku",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "cynicism",
+          "hero society corruption",
+          "moral wound"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:midoriya-izuku",
+        "faction:hero-public-safety-commission",
+        "topic:cynicism",
+        "topic:hero-society-corruption",
+        "topic:moral-wound"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "cynicism",
+            "hero society corruption",
+            "moral wound"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nagant’s cynicism comes from real corruption and dirty work, not from simple villainous spite.",
+        "injection": "Deku should have to answer a credible moral wound in hero society, not just defeat an evil sniper.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_rifle_threatens_from_extreme_range",
+      "title": "Nagant Rifle Threatens From Extreme Range",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.lady-nagant-ambush",
+        "sortKeyFrom": 17350,
+        "sortKeyTo": 17350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Lady Nagant ambushes Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Rifle",
+          "sniper range",
+          "line of sight"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:rifle",
+        "character:lady-nagant",
+        "character:midoriya-izuku",
+        "topic:rifle",
+        "topic:sniper-range",
+        "topic:line-of-sight"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Rifle",
+            "sniper range",
+            "line of sight"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Lady Nagant’s Rifle makes distance and line of sight lethal before Deku can close in.",
+        "injection": "Use Nagant’s range to pressure movement, cover, and timing; close combat must not be automatic.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 312-313",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Rifle",
+        "stage": "dark_hero_battle",
+        "ownerEntityIds": [
+          "mha:lady-nagant"
+        ],
+        "constraints": [
+          "Quirk use depends on active Context and physical condition."
+        ],
+        "antiLore": [
+          "Do not use later Final War status to override Dark Hero limitations."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_uses_air_walk_from_afo",
+      "title": "Nagant Uses Air Walk From AFO",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-vs-lady-nagant",
+        "sortKeyFrom": 17400,
+        "sortKeyTo": 17400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku fights Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Air Walk",
+          "granted Quirk",
+          "mobility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:air-walk",
+        "character:lady-nagant",
+        "character:all-for-one",
+        "topic:air-walk",
+        "topic:granted-quirk",
+        "topic:mobility"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Air Walk",
+            "granted Quirk",
+            "mobility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One grants Lady Nagant Air Walk, improving her angles and mobility during the fight.",
+        "injection": "Nagant can reposition in the air, but Air Walk is an added tool from AFO, not her original Quirk.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Air Walk",
+        "stage": "dark_hero_battle",
+        "ownerEntityIds": [
+          "mha:lady-nagant"
+        ],
+        "constraints": [
+          "Quirk use depends on active Context and physical condition."
+        ],
+        "antiLore": [
+          "Do not use later Final War status to override Dark Hero limitations."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_uses_overhaul_as_bait",
+      "title": "Nagant Uses Overhaul As Bait",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.overhaul-with-nagant",
+        "sortKeyFrom": 17450,
+        "sortKeyTo": 17450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Overhaul appears with Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:overhaul",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "Overhaul",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Overhaul bait",
+          "leverage",
+          "damaged villain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:overhaul",
+        "character:midoriya-izuku",
+        "topic:overhaul-bait",
+        "topic:leverage",
+        "topic:damaged-villain"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "Overhaul",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Overhaul bait",
+            "leverage",
+            "damaged villain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nagant keeps Chisaki with her because he is useful as bait and leverage, not because he has regained status.",
+        "injection": "Use Overhaul’s presence as a damaged complication; he is not leading the operation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_overhaul_is_broken_and_fixated_on_boss",
+      "title": "Overhaul Is Broken And Fixated On Boss",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.overhaul-with-nagant",
+        "sortKeyFrom": 17450,
+        "sortKeyTo": 17450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Overhaul appears with Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:overhaul"
+        ],
+        "characters": [
+          "Overhaul"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "broken Chisaki",
+          "boss fixation",
+          "lost status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:overhaul",
+        "topic:broken-chisaki",
+        "topic:boss-fixation",
+        "topic:lost-status"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Overhaul"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "broken Chisaki",
+            "boss fixation",
+            "lost status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Chisaki is psychologically diminished and fixated on apologizing to his boss after losing power and hands.",
+        "injection": "Post-prison Chisaki should feel ruined and obsessive, not restored to Hassaikai leadership.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_overhaul_cannot_use_quirk_normally",
+      "title": "Overhaul Cannot Use Quirk Normally",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.overhaul-with-nagant",
+        "sortKeyFrom": 17450,
+        "sortKeyTo": 17450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Overhaul appears with Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:overhaul"
+        ],
+        "characters": [
+          "Overhaul"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Quirk loss",
+          "arms lost",
+          "combat limitation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:overhaul",
+        "topic:quirk-loss",
+        "topic:arms-lost",
+        "topic:combat-limitation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Overhaul"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Quirk loss",
+            "arms lost",
+            "combat limitation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "With his arms gone, Chisaki cannot function as the same Overhaul threat he was during the Hassaikai raid.",
+        "injection": "Do not give Chisaki casual Overhaul combat ability in this arc unless the story has explicitly changed his condition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_sees_nagant_as_saveable",
+      "title": "Deku Sees Nagant As Saveable",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-vs-lady-nagant",
+        "sortKeyFrom": 17400,
+        "sortKeyTo": 17400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku fights Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:lady-nagant"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Lady Nagant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mercy",
+          "saveable antagonist",
+          "understanding"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:lady-nagant",
+        "topic:mercy",
+        "topic:saveable-antagonist",
+        "topic:understanding"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Lady Nagant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mercy",
+            "saveable antagonist",
+            "understanding"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku recognizes that Nagant is not simply evil and tries to reach the person behind her cynicism.",
+        "injection": "Deku’s response should combine tactical urgency with mercy; he is trying to understand and save, not only win.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_faux_100_percent_combines_quirks",
+      "title": "Faux 100 Percent Combines Quirks",
+      "kind": "ability_gate",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.fa-jin-revealed",
+        "sortKeyFrom": 17425,
+        "sortKeyTo": 17425,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku uses Fa Jin for Faux 100 Percent"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "Faux 100 Percent",
+          "Fa Jin",
+          "layered technique"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "quirk:fa-jin",
+        "character:midoriya-izuku",
+        "quirk:one-for-all",
+        "topic:faux-100-percent",
+        "topic:fa-jin",
+        "topic:layered-technique"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "Faux 100 Percent",
+            "Fa Jin",
+            "layered technique"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku uses Fa Jin and other OFA tools to simulate a 100 percent-level burst without simply using old full-power Smash damage.",
+        "injection": "Treat Faux 100 Percent as a layered technique with setup and timing, not permanent safe full-power OFA.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Fa Jin",
+        "stage": "dark_hero_battle",
+        "ownerEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "constraints": [
+          "Quirk use depends on active Context and physical condition."
+        ],
+        "antiLore": [
+          "Do not use later Final War status to override Dark Hero limitations."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_tests_deku_ideals_under_fire",
+      "title": "Nagant Tests Deku Ideals Under Fire",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-vs-lady-nagant",
+        "sortKeyFrom": 17400,
+        "sortKeyTo": 17400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku fights Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "ideological fight",
+          "hero society critique",
+          "capture mission"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:midoriya-izuku",
+        "topic:ideological-fight",
+        "topic:hero-society-critique",
+        "topic:capture-mission"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "ideological fight",
+            "hero society critique",
+            "capture mission"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nagant challenges Deku’s belief that hero society can still be saved while actively trying to capture him.",
+        "injection": "Let the fight be ideological and tactical at once; dialogue should pressure Deku’s ideals while bullets pressure his body.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_afo_turns_nagant_into_a_bomb",
+      "title": "AFO Turns Nagant Into A Bomb",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.nagant-explosion",
+        "sortKeyFrom": 17475,
+        "sortKeyTo": 17475,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One turns Nagant into an explosive trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:lady-nagant",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "All For One",
+          "Lady Nagant",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "AFO failsafe",
+          "explosive trap",
+          "contingency"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:all-for-one",
+        "character:lady-nagant",
+        "character:midoriya-izuku",
+        "topic:afo-failsafe",
+        "topic:explosive-trap",
+        "topic:contingency"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Lady Nagant",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "AFO failsafe",
+            "explosive trap",
+            "contingency"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One planted a failsafe in Nagant, detonating her when she turns toward Deku’s side.",
+        "injection": "Use the explosion as AFO’s cruelty and contingency planning; Nagant’s change of heart must not make her safe.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_warning_points_to_mansion",
+      "title": "Nagant Warning Points To Mansion",
+      "kind": "knowledge_gate",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.nagant-explosion",
+        "sortKeyFrom": 17475,
+        "sortKeyTo": 17475,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One turns Nagant into an explosive trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:midoriya-izuku",
+          "mha:all-for-one",
+          "mha:top-pro-heroes",
+          "mha:afo-mansion"
+        ],
+        "characters": [
+          "Lady Nagant",
+          "Izuku Midoriya",
+          "All For One"
+        ],
+        "locations": [
+          "AFO Mansion"
+        ],
+        "objects": [],
+        "factions": [
+          "Top Pro Heroes"
+        ],
+        "topics": [
+          "clue",
+          "mansion lead",
+          "trap setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:midoriya-izuku",
+        "character:all-for-one",
+        "faction:top-pro-heroes",
+        "location:afo-mansion",
+        "topic:clue",
+        "topic:mansion-lead",
+        "topic:trap-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant",
+            "Izuku Midoriya",
+            "All For One"
+          ],
+          "locationsAny": [
+            "AFO Mansion"
+          ],
+          "factionsAny": [
+            "Top Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "clue",
+            "mansion lead",
+            "trap setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Before collapsing, Nagant gives Deku information that leads him toward All For One’s mansion trap.",
+        "injection": "Nagant’s clue should move the investigation forward while still leaving AFO in control of the next trap.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:lady-nagant",
+          "mha:midoriya-izuku",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:civilians"
+        ],
+        "notes": "Default generated visibility; verify during canon review."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_mansion_message_shows_afo_psychological_warfare",
+      "title": "Mansion Message Shows AFO Psychological Warfare",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.mansion-trap",
+        "sortKeyFrom": 17500,
+        "sortKeyTo": 17500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku reaches AFO mansion trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:midoriya-izuku",
+          "mha:top-pro-heroes",
+          "mha:afo-mansion"
+        ],
+        "characters": [
+          "All For One",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "AFO Mansion"
+        ],
+        "objects": [],
+        "factions": [
+          "Top Pro Heroes"
+        ],
+        "topics": [
+          "psychological warfare",
+          "trap message",
+          "isolation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:all-for-one",
+        "character:midoriya-izuku",
+        "faction:top-pro-heroes",
+        "location:afo-mansion",
+        "topic:psychological-warfare",
+        "topic:trap-message",
+        "topic:isolation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "AFO Mansion"
+          ],
+          "factionsAny": [
+            "Top Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "psychological warfare",
+            "trap message",
+            "isolation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The mansion trap is built to taunt Deku and deepen his isolation rather than to start the final battle.",
+        "injection": "AFO’s message should escalate psychological pressure; do not turn the mansion into the Final War confrontation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 316-317",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_is_critically_injured_not_fully_restored",
+      "title": "Nagant Is Critically Injured Not Fully Restored",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.nagant-explosion",
+        "sortKeyFrom": 17475,
+        "sortKeyTo": 17475,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One turns Nagant into an explosive trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant"
+        ],
+        "characters": [
+          "Lady Nagant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "critical injury",
+          "medical fragility",
+          "later support guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "topic:critical-injury",
+        "topic:medical-fragility",
+        "topic:later-support-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "critical injury",
+            "medical fragility",
+            "later support guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After AFO’s trap, Nagant survives only in a critical, medically fragile state.",
+        "injection": "Do not put Nagant back into normal field support immediately after the explosion; later aid must stay Context-gated.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_mercy_is_risky_but_consistent",
+      "title": "Deku Mercy Is Risky But Consistent",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-vs-lady-nagant",
+        "sortKeyFrom": 17400,
+        "sortKeyTo": 17400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku fights Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:lady-nagant"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Lady Nagant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mercy",
+          "risk",
+          "heroic instinct"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:lady-nagant",
+        "topic:mercy",
+        "topic:risk",
+        "topic:heroic-instinct"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Lady Nagant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "mercy",
+            "risk",
+            "heroic instinct"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s mercy toward Nagant reflects his core heroic instinct even when it creates risk.",
+        "injection": "Deku should remain willing to reach for enemies with visible pain; that mercy is a strength under strain, not naivety alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nagant_final_war_support_not_yet_available",
+      "title": "Nagant Final War Support Not Yet Available",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.nagant-explosion",
+        "sortKeyFrom": 17475,
+        "sortKeyTo": 17475,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One turns Nagant into an explosive trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:lady-nagant",
+          "mha:top-pro-heroes"
+        ],
+        "characters": [
+          "Lady Nagant"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Top Pro Heroes"
+        ],
+        "topics": [
+          "future support",
+          "Final War guard",
+          "recovery gate"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "faction:top-pro-heroes",
+        "topic:future-support",
+        "topic:final-war-guard",
+        "topic:recovery-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Lady Nagant"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Top Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future support",
+            "Final War guard",
+            "recovery gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nagant’s later contribution is not available during the Dark Hero arc immediately after her explosion.",
+        "injection": "Do not use Nagant as a stable ally or sniper support until a later Context explicitly permits it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_overhaul_has_no_hassaikai_command_here",
+      "title": "Overhaul Has No Hassaikai Command Here",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.overhaul-with-nagant",
+        "sortKeyFrom": 17450,
+        "sortKeyTo": 17450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Overhaul appears with Lady Nagant"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.deku-solo",
+          "label": "Deku solo route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.postwar-collapse",
+          "label": "Postwar hero society collapse",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:overhaul"
+        ],
+        "characters": [
+          "Overhaul"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Hassaikai aftermath",
+          "lost command",
+          "AU guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:overhaul",
+        "topic:hassaikai-aftermath",
+        "topic:lost-command",
+        "topic:au-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Overhaul"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Hassaikai aftermath",
+            "lost command",
+            "AU guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Shie Hassaikai power structure is gone; Chisaki does not command an organization during Dark Hero.",
+        "injection": "Do not reintroduce Overhaul with intact Hassaikai authority in this arc unless the user has established an AU divergence.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,870 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve chat context to the MHA School Festival and Pro Hero deck context.",
+  "preferredFields": [
+    "arc",
+    "chapterRange",
+    "beforeAfter",
+    "majorEvent",
+    "schoolStage",
+    "heroSocietyState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known anchors and arc windows over invented dates. Keep manga-primary continuity unless an overlay is loaded.",
+  "localPatterns": [
+    {
+      "pattern": "post-hassaikai recovery and school life resume",
+      "result": {
+        "anchorId": "mha.sfp.post-hassaikai-recovery",
+        "label": "Post-Hassaikai recovery and school life resume"
+      }
+    },
+    {
+      "pattern": "after overhaul",
+      "result": {
+        "anchorId": "mha.sfp.post-hassaikai-recovery",
+        "label": "Post-Hassaikai recovery and school life resume"
+      }
+    },
+    {
+      "pattern": "post hassaikai",
+      "result": {
+        "anchorId": "mha.sfp.post-hassaikai-recovery",
+        "label": "Post-Hassaikai recovery and school life resume"
+      }
+    },
+    {
+      "pattern": "after eri rescue",
+      "result": {
+        "anchorId": "mha.sfp.post-hassaikai-recovery",
+        "label": "Post-Hassaikai recovery and school life resume"
+      }
+    },
+    {
+      "pattern": "eri is placed under u.a. care and aizawa monitoring",
+      "result": {
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      }
+    },
+    {
+      "pattern": "eri at u.a.",
+      "result": {
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      }
+    },
+    {
+      "pattern": "eri transferred to u.a.",
+      "result": {
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      }
+    },
+    {
+      "pattern": "aizawa monitors eri",
+      "result": {
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      }
+    },
+    {
+      "pattern": "u.a. school festival preparations begin under public doubt",
+      "result": {
+        "anchorId": "mha.sfp.festival-announced",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      }
+    },
+    {
+      "pattern": "school festival planning",
+      "result": {
+        "anchorId": "mha.sfp.festival-announced",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      }
+    },
+    {
+      "pattern": "festival preparations",
+      "result": {
+        "anchorId": "mha.sfp.festival-announced",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      }
+    },
+    {
+      "pattern": "class 1-a performance",
+      "result": {
+        "anchorId": "mha.sfp.festival-announced",
+        "label": "U.A. School Festival preparations begin under public doubt"
+      }
+    },
+    {
+      "pattern": "class 1-a chooses a music-and-dance performance",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance-plan",
+        "label": "Class 1-A chooses a music-and-dance performance"
+      }
+    },
+    {
+      "pattern": "class 1-a band",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance-plan",
+        "label": "Class 1-A chooses a music-and-dance performance"
+      }
+    },
+    {
+      "pattern": "concert plan",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance-plan",
+        "label": "Class 1-A chooses a music-and-dance performance"
+      }
+    },
+    {
+      "pattern": "dance team",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance-plan",
+        "label": "Class 1-A chooses a music-and-dance performance"
+      }
+    },
+    {
+      "pattern": "jiro becomes central to the class performance",
+      "result": {
+        "anchorId": "mha.sfp.jiro-central-music-role",
+        "label": "Jiro becomes central to the class performance"
+      }
+    },
+    {
+      "pattern": "jiro music",
+      "result": {
+        "anchorId": "mha.sfp.jiro-central-music-role",
+        "label": "Jiro becomes central to the class performance"
+      }
+    },
+    {
+      "pattern": "jiro band role",
+      "result": {
+        "anchorId": "mha.sfp.jiro-central-music-role",
+        "label": "Jiro becomes central to the class performance"
+      }
+    },
+    {
+      "pattern": "earphone jack performance",
+      "result": {
+        "anchorId": "mha.sfp.jiro-central-music-role",
+        "label": "Jiro becomes central to the class performance"
+      }
+    },
+    {
+      "pattern": "izuku trains air force finger-flick technique",
+      "result": {
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "label": "Izuku trains Air Force finger-flick technique"
+      }
+    },
+    {
+      "pattern": "air force training",
+      "result": {
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "label": "Izuku trains Air Force finger-flick technique"
+      }
+    },
+    {
+      "pattern": "deku air force",
+      "result": {
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "label": "Izuku trains Air Force finger-flick technique"
+      }
+    },
+    {
+      "pattern": "finger flicks",
+      "result": {
+        "anchorId": "mha.sfp.deku-air-force-training",
+        "label": "Izuku trains Air Force finger-flick technique"
+      }
+    },
+    {
+      "pattern": "mei hatsume provides support gear for air force",
+      "result": {
+        "anchorId": "mha.sfp.mei-support-gloves",
+        "label": "Mei Hatsume provides support gear for Air Force"
+      }
+    },
+    {
+      "pattern": "air force gloves",
+      "result": {
+        "anchorId": "mha.sfp.mei-support-gloves",
+        "label": "Mei Hatsume provides support gear for Air Force"
+      }
+    },
+    {
+      "pattern": "mei gloves",
+      "result": {
+        "anchorId": "mha.sfp.mei-support-gloves",
+        "label": "Mei Hatsume provides support gear for Air Force"
+      }
+    },
+    {
+      "pattern": "support gear",
+      "result": {
+        "anchorId": "mha.sfp.mei-support-gloves",
+        "label": "Mei Hatsume provides support gear for Air Force"
+      }
+    },
+    {
+      "pattern": "gentle criminal and la brava target online notoriety",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      }
+    },
+    {
+      "pattern": "gentle and la brava",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      }
+    },
+    {
+      "pattern": "gentle criminal introduced",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      }
+    },
+    {
+      "pattern": "la brava introduced",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-introduced",
+        "label": "Gentle Criminal and La Brava target online notoriety"
+      }
+    },
+    {
+      "pattern": "gentle chooses u.a. as his target for notoriety",
+      "result": {
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      }
+    },
+    {
+      "pattern": "gentle targets u.a.",
+      "result": {
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      }
+    },
+    {
+      "pattern": "u.a. infiltration plan",
+      "result": {
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      }
+    },
+    {
+      "pattern": "festival attack plan",
+      "result": {
+        "anchorId": "mha.sfp.gentle-targets-ua",
+        "label": "Gentle chooses U.A. as his target for notoriety"
+      }
+    },
+    {
+      "pattern": "school festival morning begins",
+      "result": {
+        "anchorId": "mha.sfp.festival-morning",
+        "label": "School Festival morning begins"
+      }
+    },
+    {
+      "pattern": "festival morning",
+      "result": {
+        "anchorId": "mha.sfp.festival-morning",
+        "label": "School Festival morning begins"
+      }
+    },
+    {
+      "pattern": "day of the festival",
+      "result": {
+        "anchorId": "mha.sfp.festival-morning",
+        "label": "School Festival morning begins"
+      }
+    },
+    {
+      "pattern": "school festival day",
+      "result": {
+        "anchorId": "mha.sfp.festival-morning",
+        "label": "School Festival morning begins"
+      }
+    },
+    {
+      "pattern": "izuku encounters gentle and la brava before the festival",
+      "result": {
+        "anchorId": "mha.sfp.deku-encounters-gentle",
+        "label": "Izuku encounters Gentle and La Brava before the festival"
+      }
+    },
+    {
+      "pattern": "deku meets gentle",
+      "result": {
+        "anchorId": "mha.sfp.deku-encounters-gentle",
+        "label": "Izuku encounters Gentle and La Brava before the festival"
+      }
+    },
+    {
+      "pattern": "deku vs gentle starts",
+      "result": {
+        "anchorId": "mha.sfp.deku-encounters-gentle",
+        "label": "Izuku encounters Gentle and La Brava before the festival"
+      }
+    },
+    {
+      "pattern": "construction site fight",
+      "result": {
+        "anchorId": "mha.sfp.deku-encounters-gentle",
+        "label": "Izuku encounters Gentle and La Brava before the festival"
+      }
+    },
+    {
+      "pattern": "gentle uses elasticity to control terrain and momentum",
+      "result": {
+        "anchorId": "mha.sfp.gentle-elasticity-fight",
+        "label": "Gentle uses Elasticity to control terrain and momentum"
+      }
+    },
+    {
+      "pattern": "elasticity fight",
+      "result": {
+        "anchorId": "mha.sfp.gentle-elasticity-fight",
+        "label": "Gentle uses Elasticity to control terrain and momentum"
+      }
+    },
+    {
+      "pattern": "gentle elasticity",
+      "result": {
+        "anchorId": "mha.sfp.gentle-elasticity-fight",
+        "label": "Gentle uses Elasticity to control terrain and momentum"
+      }
+    },
+    {
+      "pattern": "deku vs gentle",
+      "result": {
+        "anchorId": "mha.sfp.gentle-elasticity-fight",
+        "label": "Gentle uses Elasticity to control terrain and momentum"
+      }
+    },
+    {
+      "pattern": "la brava boosts gentle through love",
+      "result": {
+        "anchorId": "mha.sfp.la-brava-love-boost",
+        "label": "La Brava boosts Gentle through Love"
+      }
+    },
+    {
+      "pattern": "la brava love",
+      "result": {
+        "anchorId": "mha.sfp.la-brava-love-boost",
+        "label": "La Brava boosts Gentle through Love"
+      }
+    },
+    {
+      "pattern": "gentle power boost",
+      "result": {
+        "anchorId": "mha.sfp.la-brava-love-boost",
+        "label": "La Brava boosts Gentle through Love"
+      }
+    },
+    {
+      "pattern": "love quirk",
+      "result": {
+        "anchorId": "mha.sfp.la-brava-love-boost",
+        "label": "La Brava boosts Gentle through Love"
+      }
+    },
+    {
+      "pattern": "izuku defeats gentle without exposing u.a. to panic",
+      "result": {
+        "anchorId": "mha.sfp.gentle-defeated",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      }
+    },
+    {
+      "pattern": "gentle defeated",
+      "result": {
+        "anchorId": "mha.sfp.gentle-defeated",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      }
+    },
+    {
+      "pattern": "deku stops gentle",
+      "result": {
+        "anchorId": "mha.sfp.gentle-defeated",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      }
+    },
+    {
+      "pattern": "festival saved",
+      "result": {
+        "anchorId": "mha.sfp.gentle-defeated",
+        "label": "Izuku defeats Gentle without exposing U.A. to panic"
+      }
+    },
+    {
+      "pattern": "u.a. school festival starts",
+      "result": {
+        "anchorId": "mha.sfp.school-festival-starts",
+        "label": "U.A. School Festival starts"
+      }
+    },
+    {
+      "pattern": "festival starts",
+      "result": {
+        "anchorId": "mha.sfp.school-festival-starts",
+        "label": "U.A. School Festival starts"
+      }
+    },
+    {
+      "pattern": "school festival starts",
+      "result": {
+        "anchorId": "mha.sfp.school-festival-starts",
+        "label": "U.A. School Festival starts"
+      }
+    },
+    {
+      "pattern": "class 1-a show",
+      "result": {
+        "anchorId": "mha.sfp.school-festival-starts",
+        "label": "U.A. School Festival starts"
+      }
+    },
+    {
+      "pattern": "class 1-a performs to lift student morale",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance",
+        "label": "Class 1-A performs to lift student morale"
+      }
+    },
+    {
+      "pattern": "class 1-a performance",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance",
+        "label": "Class 1-A performs to lift student morale"
+      }
+    },
+    {
+      "pattern": "jiro concert",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance",
+        "label": "Class 1-A performs to lift student morale"
+      }
+    },
+    {
+      "pattern": "let it flow school festival",
+      "result": {
+        "anchorId": "mha.sfp.class-1a-performance",
+        "label": "Class 1-A performs to lift student morale"
+      }
+    },
+    {
+      "pattern": "eri smiles during the school festival performance",
+      "result": {
+        "anchorId": "mha.sfp.eri-smiles",
+        "label": "Eri smiles during the school festival performance"
+      }
+    },
+    {
+      "pattern": "eri smiles",
+      "result": {
+        "anchorId": "mha.sfp.eri-smiles",
+        "label": "Eri smiles during the school festival performance"
+      }
+    },
+    {
+      "pattern": "eri festival smile",
+      "result": {
+        "anchorId": "mha.sfp.eri-smiles",
+        "label": "Eri smiles during the school festival performance"
+      }
+    },
+    {
+      "pattern": "eri recovery moment",
+      "result": {
+        "anchorId": "mha.sfp.eri-smiles",
+        "label": "Eri smiles during the school festival performance"
+      }
+    },
+    {
+      "pattern": "gentle and la brava accept arrest after protecting each other",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      }
+    },
+    {
+      "pattern": "gentle arrested",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      }
+    },
+    {
+      "pattern": "la brava arrested",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      }
+    },
+    {
+      "pattern": "gentle surrender",
+      "result": {
+        "anchorId": "mha.sfp.gentle-la-brava-surrender",
+        "label": "Gentle and La Brava accept arrest after protecting each other"
+      }
+    },
+    {
+      "pattern": "jp hero billboard chart establishes the post-all might rankings",
+      "result": {
+        "anchorId": "mha.sfp.billboard-chart",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      }
+    },
+    {
+      "pattern": "hero billboard chart",
+      "result": {
+        "anchorId": "mha.sfp.billboard-chart",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      }
+    },
+    {
+      "pattern": "hero rankings",
+      "result": {
+        "anchorId": "mha.sfp.billboard-chart",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      }
+    },
+    {
+      "pattern": "new rankings",
+      "result": {
+        "anchorId": "mha.sfp.billboard-chart",
+        "label": "JP Hero Billboard Chart establishes the post-All Might rankings"
+      }
+    },
+    {
+      "pattern": "endeavor stands publicly as the new number one hero",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      }
+    },
+    {
+      "pattern": "endeavor number one",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      }
+    },
+    {
+      "pattern": "new number one",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      }
+    },
+    {
+      "pattern": "endeavor top hero",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-number-one",
+        "label": "Endeavor stands publicly as the new Number One Hero"
+      }
+    },
+    {
+      "pattern": "hawks appears as the young number two hero",
+      "result": {
+        "anchorId": "mha.sfp.hawks-number-two",
+        "label": "Hawks appears as the young Number Two Hero"
+      }
+    },
+    {
+      "pattern": "hawks number two",
+      "result": {
+        "anchorId": "mha.sfp.hawks-number-two",
+        "label": "Hawks appears as the young Number Two Hero"
+      }
+    },
+    {
+      "pattern": "wing hero hawks",
+      "result": {
+        "anchorId": "mha.sfp.hawks-number-two",
+        "label": "Hawks appears as the young Number Two Hero"
+      }
+    },
+    {
+      "pattern": "hawks introduced",
+      "result": {
+        "anchorId": "mha.sfp.hawks-number-two",
+        "label": "Hawks appears as the young Number Two Hero"
+      }
+    },
+    {
+      "pattern": "hawks draws endeavor into investigating nomu rumors",
+      "result": {
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      }
+    },
+    {
+      "pattern": "hawks and endeavor",
+      "result": {
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      }
+    },
+    {
+      "pattern": "nomu rumors",
+      "result": {
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      }
+    },
+    {
+      "pattern": "team up",
+      "result": {
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      }
+    },
+    {
+      "pattern": "high-end nomu hood attacks during endeavor and hawks meeting",
+      "result": {
+        "anchorId": "mha.sfp.high-end-attacks",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      }
+    },
+    {
+      "pattern": "high-end attack",
+      "result": {
+        "anchorId": "mha.sfp.high-end-attacks",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      }
+    },
+    {
+      "pattern": "hood attacks",
+      "result": {
+        "anchorId": "mha.sfp.high-end-attacks",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      }
+    },
+    {
+      "pattern": "nomu attacks endeavor",
+      "result": {
+        "anchorId": "mha.sfp.high-end-attacks",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      }
+    },
+    {
+      "pattern": "endeavor and hawks fight hood in public view",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      }
+    },
+    {
+      "pattern": "endeavor vs hood",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      }
+    },
+    {
+      "pattern": "hawks supports endeavor",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      }
+    },
+    {
+      "pattern": "high-end fight",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      }
+    },
+    {
+      "pattern": "endeavor defeats hood and raises his fist",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-plus-ultra",
+        "label": "Endeavor defeats Hood and raises his fist"
+      }
+    },
+    {
+      "pattern": "endeavor raises fist",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-plus-ultra",
+        "label": "Endeavor defeats Hood and raises his fist"
+      }
+    },
+    {
+      "pattern": "endeavor defeats hood",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-plus-ultra",
+        "label": "Endeavor defeats Hood and raises his fist"
+      }
+    },
+    {
+      "pattern": "plus ultra prominence burn",
+      "result": {
+        "anchorId": "mha.sfp.endeavor-plus-ultra",
+        "label": "Endeavor defeats Hood and raises his fist"
+      }
+    },
+    {
+      "pattern": "dabi appears after hood is defeated",
+      "result": {
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "label": "Dabi appears after Hood is defeated"
+      }
+    },
+    {
+      "pattern": "dabi after hood",
+      "result": {
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "label": "Dabi appears after Hood is defeated"
+      }
+    },
+    {
+      "pattern": "dabi hawks endeavor",
+      "result": {
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "label": "Dabi appears after Hood is defeated"
+      }
+    },
+    {
+      "pattern": "dabi appears",
+      "result": {
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "label": "Dabi appears after Hood is defeated"
+      }
+    },
+    {
+      "pattern": "todoroki family processes endeavor’s public stand",
+      "result": {
+        "anchorId": "mha.sfp.todoroki-family-watches",
+        "label": "Todoroki family processes Endeavor’s public stand"
+      }
+    },
+    {
+      "pattern": "todoroki family watches",
+      "result": {
+        "anchorId": "mha.sfp.todoroki-family-watches",
+        "label": "Todoroki family processes Endeavor’s public stand"
+      }
+    },
+    {
+      "pattern": "endeavor family reaction",
+      "result": {
+        "anchorId": "mha.sfp.todoroki-family-watches",
+        "label": "Todoroki family processes Endeavor’s public stand"
+      }
+    },
+    {
+      "pattern": "todoroki family",
+      "result": {
+        "anchorId": "mha.sfp.todoroki-family-watches",
+        "label": "Todoroki family processes Endeavor’s public stand"
+      }
+    },
+    {
+      "pattern": "hawks begins operating under dangerous hidden obligations",
+      "result": {
+        "anchorId": "mha.sfp.hawks-double-agent-thread",
+        "label": "Hawks begins operating under dangerous hidden obligations"
+      }
+    },
+    {
+      "pattern": "hawks double agent",
+      "result": {
+        "anchorId": "mha.sfp.hawks-double-agent-thread",
+        "label": "Hawks begins operating under dangerous hidden obligations"
+      }
+    },
+    {
+      "pattern": "hawks secret mission",
+      "result": {
+        "anchorId": "mha.sfp.hawks-double-agent-thread",
+        "label": "Hawks begins operating under dangerous hidden obligations"
+      }
+    },
+    {
+      "pattern": "hawks and dabi",
+      "result": {
+        "anchorId": "mha.sfp.hawks-double-agent-thread",
+        "label": "Hawks begins operating under dangerous hidden obligations"
+      }
+    },
+    {
+      "pattern": "izuku experiences a deeper one for all vestige dream",
+      "result": {
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      }
+    },
+    {
+      "pattern": "ofa vestige dream",
+      "result": {
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      }
+    },
+    {
+      "pattern": "one for all dream",
+      "result": {
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      }
+    },
+    {
+      "pattern": "vestiges",
+      "result": {
+        "anchorId": "mha.sfp.ofa-vestige-dream",
+        "label": "Izuku experiences a deeper One For All vestige dream"
+      }
+    },
+    {
+      "pattern": "u.a. school festival arc",
+      "result": {
+        "anchorFrom": "mha.sfp.post-hassaikai-recovery",
+        "anchorTo": "mha.sfp.gentle-la-brava-surrender",
+        "label": "U.A. School Festival Arc"
+      }
+    },
+    {
+      "pattern": "school festival preparation window",
+      "result": {
+        "anchorFrom": "mha.sfp.festival-announced",
+        "anchorTo": "mha.sfp.festival-morning",
+        "label": "School Festival preparation window"
+      }
+    },
+    {
+      "pattern": "gentle and la brava threat window",
+      "result": {
+        "anchorFrom": "mha.sfp.gentle-la-brava-introduced",
+        "anchorTo": "mha.sfp.gentle-la-brava-surrender",
+        "label": "Gentle and La Brava threat window"
+      }
+    },
+    {
+      "pattern": "school festival day",
+      "result": {
+        "anchorFrom": "mha.sfp.festival-morning",
+        "anchorTo": "mha.sfp.eri-smiles",
+        "label": "School Festival day"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "branchId": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

@@ -1,0 +1,2383 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_one_for_all_must_stay_secret_early",
+      "title": "One For All Must Stay Secret Early",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "OFA secrecy",
+          "inheritance",
+          "classmates"
+        ]
+      },
+      "tags": [
+        "secret:one-for-all",
+        "quirk:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might"
+          ],
+          "topicsAny": [
+            "OFA secrecy",
+            "inheritance",
+            "classmates"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "One For All's transfer mechanics and stockpile nature are known only to a small circle early in the story.",
+        "injection": "Early classmates must not casually infer that Deku inherited All Might's Quirk unless the story establishes that reveal.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_all_mights_weak_form_is_not_public_early",
+      "title": "All Might's Weak Form Is Not Public Early",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "weak form",
+          "hidden injury",
+          "public image"
+        ]
+      },
+      "tags": [
+        "secret:all-might-injury",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "weak form",
+            "hidden injury",
+            "public image"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's frail true form and severe injury are hidden from ordinary citizens and most students at the start.",
+        "injection": "Do not let the public or uninformed classmates know All Might's weak form unless a scene directly exposes it.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:yagi-toshinori",
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_dekus_quirk_history_looks_suspicious",
+      "title": "Deku's Quirk History Looks Suspicious",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "suspicious Quirk",
+          "classmate knowledge",
+          "poor control"
+        ]
+      },
+      "tags": [
+        "character:midoriya-izuku",
+        "secret:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "suspicious Quirk",
+            "classmate knowledge",
+            "poor control"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Izuku's sudden Quirk manifestation can appear unusual, but most classmates lack enough facts to understand One For All.",
+        "injection": "Classmates may notice Deku's poor control without automatically solving the secret behind it.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_bakugo_notices_dekus_change_before_others",
+      "title": "Bakugo Notices Deku's Change Before Others",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Bakugo suspicion",
+          "childhood context",
+          "Deku's change"
+        ]
+      },
+      "tags": [
+        "character:bakugo-katsuki",
+        "relationship:deku-bakugo",
+        "secret:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo"
+          ],
+          "topicsAny": [
+            "Bakugo suspicion",
+            "childhood context",
+            "Deku's change"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo has childhood context that makes Deku's sudden power especially provocative and suspicious to him.",
+        "injection": "Bakugo should react more personally to Deku's new power than classmates who did not know Quirkless Izuku.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_most_students_do_not_know_all_might_mentors_deku",
+      "title": "Most Students Do Not Know All Might Mentors Deku",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All Might",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "mentorship secret",
+          "successor",
+          "classmate knowledge"
+        ]
+      },
+      "tags": [
+        "hero:all-might",
+        "character:midoriya-izuku",
+        "secret:one-for-all",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All Might",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "mentorship secret",
+            "successor",
+            "classmate knowledge"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Early on, All Might's private successor relationship with Izuku is not known to Class 1-A.",
+        "injection": "Do not have Class 1-A treat Deku as All Might's chosen successor during early U.A. unless the story reveals it.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:yagi-toshinori"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_leagues_backer_is_hidden_early",
+      "title": "League's Backer Is Hidden Early",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kurogiri",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Kurogiri",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hidden backer",
+          "League support",
+          "AFO secrecy"
+        ]
+      },
+      "tags": [
+        "faction:league-of-villains",
+        "secret:all-for-one",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Kurogiri",
+            "All For One"
+          ],
+          "topicsAny": [
+            "hidden backer",
+            "League support",
+            "AFO secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The early League of Villains appears through Shigaraki and Kurogiri while its deeper backing remains hidden from students and most heroes.",
+        "injection": "Do not make early Class 1-A scenes aware of All For One's role behind the League.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura",
+          "mha:kurogiri",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_usj_reveals_real_villain_danger",
+      "title": "USJ Reveals Real Villain Danger",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "student trauma",
+          "real villains",
+          "school threat"
+        ]
+      },
+      "tags": [
+        "arc:usj",
+        "status:usj-aftermath",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "student trauma",
+            "real villains",
+            "school threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The USJ attack transforms villain danger from news and training abstraction into direct student trauma.",
+        "injection": "After USJ, Class 1-A should understand that villains can target them personally.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_early_deku_cannot_use_full_cowl",
+      "title": "Early Deku Cannot Use Full Cowl",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Full Cowl gate",
+          "OFA control",
+          "timeline"
+        ]
+      },
+      "tags": [
+        "quirk:one-for-all",
+        "status:ofa-uncontrolled",
+        "knowledge:timeline",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "Full Cowl gate",
+            "OFA control",
+            "timeline"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Before later training, Izuku does not know Full Cowl and should rely on risky burst use of One For All.",
+        "injection": "Do not give early Deku smooth full-body One For All control before he learns it.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_sports_festival_knowledge_must_not_leak_into_usj",
+      "title": "Sports Festival Knowledge Must Not Leak Into USJ",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.ua-high-active",
+        "validToAnchor": "mha.core.symbol-of-peace-falls",
+        "sortKeyFrom": 1500,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before later early-school developments"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:iida-tenya"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Tenya Iida"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future guard",
+          "Sports Festival",
+          "Hosu"
+        ]
+      },
+      "tags": [
+        "arc:sports-festival",
+        "arc:hero-killer",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Tenya Iida"
+          ],
+          "topicsAny": [
+            "future guard",
+            "Sports Festival",
+            "Hosu"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Todoroki's family backstory, Iida's Stain trauma, and Sports Festival breakthroughs must not be assumed during USJ-era scenes.",
+        "injection": "During U.A. Beginnings or USJ Context, keep later Sports Festival and Hosu developments out unless the story diverges.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:todoroki-shoto",
+          "mha:iida-tenya"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_kamino_must_not_leak_into_early_u_a",
+      "title": "Kamino Must Not Leak Into Early U.A.",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.symbol-of-peace-falls",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 5000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before Kamino"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:yagi-toshinori",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Kamino future guard",
+          "All Might retirement",
+          "AFO reveal"
+        ]
+      },
+      "tags": [
+        "event:kamino",
+        "meta:future-guard",
+        "hero:all-might",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "topicsAny": [
+            "Kamino future guard",
+            "All Might retirement",
+            "AFO reveal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might's public retirement and All For One's open return are not early-U.A. knowledge.",
+        "injection": "Before Kamino Context, do not have students or civilians behave as if the Symbol of Peace has already fallen.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:yagi-toshinori",
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_blackwhip_must_not_exist_early",
+      "title": "Blackwhip Must Not Exist Early",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.blackwhip-awakens",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 7500,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before Blackwhip awakens"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Blackwhip gate",
+          "multiple Quirks",
+          "OFA future"
+        ]
+      },
+      "tags": [
+        "quirk:blackwhip",
+        "quirk:one-for-all",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "Blackwhip gate",
+            "multiple Quirks",
+            "OFA future"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Blackwhip and the later multiple-Quirk aspects of One For All are not available in early arcs.",
+        "injection": "Before the Joint Training Context, Deku must not use Blackwhip, Danger Sense, Fa Jin, Gearshift, or other later OFA-linked Quirks.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_eri_and_rewind_are_not_early_factors",
+      "title": "Eri And Rewind Are Not Early Factors",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Eri future guard",
+          "Rewind",
+          "Overhaul"
+        ]
+      },
+      "tags": [
+        "character:eri",
+        "quirk:rewind",
+        "arc:shie-hassaikai",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Eri future guard",
+            "Rewind",
+            "Overhaul"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri, Overhaul, and Rewind must not affect early U.A. arcs before the Shie Hassaikai material is introduced.",
+        "injection": "Do not use Eri, Rewind, or Overhaul rescue logic as early fixes for injuries or Quirk damage.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_dabi_identity_must_stay_hidden_until_war",
+      "title": "Dabi Identity Must Stay Hidden Until War",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.dabi-reveals-identity",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 9400,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before Dabi identity reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Dabi identity",
+          "Toya reveal",
+          "spoiler guard"
+        ]
+      },
+      "tags": [
+        "secret:dabi-identity",
+        "family:todoroki",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Dabi identity",
+            "Toya reveal",
+            "spoiler guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi's Toya identity is a late major reveal and must not color early Todoroki-family scenes as public knowledge.",
+        "injection": "Before the war reveal, characters may suspect Todoroki family pain, but they must not know Dabi is Toya.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_u_a_traitor_must_stay_hidden_until_reveal",
+      "title": "U.A. Traitor Must Stay Hidden Until Reveal",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.ua-traitor-revealed",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 11000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before U.A. traitor reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "traitor reveal",
+          "spoiler guard",
+          "class suspicion"
+        ]
+      },
+      "tags": [
+        "arc:ua-traitor",
+        "meta:future-guard",
+        "secret:ua-traitor",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "traitor reveal",
+            "spoiler guard",
+            "class suspicion"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The U.A. traitor plot must not be resolved or named before the traitor reveal Context.",
+        "injection": "Do not let early scenes expose the traitor identity or have Class 1-A act with that knowledge unless the story introduces it.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_final_war_outcomes_must_not_bleed_back",
+      "title": "Final War Outcomes Must Not Bleed Back",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "secret",
+      "revealPolicy": "spoiler_guard",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.final-war",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 12000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "Before Final War"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Katsuki Bakugo",
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Final War future guard",
+          "epilogue",
+          "outcomes"
+        ]
+      },
+      "tags": [
+        "arc:final-war",
+        "arc:epilogue",
+        "meta:future-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Katsuki Bakugo",
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "Final War future guard",
+            "epilogue",
+            "outcomes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Late-war injuries, deaths, reconciliations, Quirk losses, and postwar careers must not affect earlier school arcs.",
+        "injection": "Keep early arcs anchored to their current state even if the model knows later outcomes.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:midoriya-izuku",
+          "mha:bakugo-katsuki"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_manga_continuity_excludes_anime_only_events",
+      "title": "Manga Continuity Excludes Anime-Only Events",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "manga continuity",
+          "anime-only exclusion",
+          "movies"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "adaptation:anime",
+        "meta:continuity-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "manga continuity",
+            "anime-only exclusion",
+            "movies"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "This deck family uses manga-primary continuity; anime-only scenes, movies, OVAs, and games must not be assumed canon.",
+        "injection": "Do not import movie or anime-only details into this deck unless an overlay deck explicitly adds them.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_chapter_431_more_is_optional_overlay",
+      "title": "Chapter 431 More Is Optional Overlay",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Chapter 431",
+          "optional overlay",
+          "post-series"
+        ]
+      },
+      "tags": [
+        "arc:post-series-more",
+        "meta:continuity-guard",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "topicsAny": [
+            "Chapter 431",
+            "optional overlay",
+            "post-series"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Chapter 431 'More' material is not part of the default main continuity deck family and should be loaded separately if desired.",
+        "injection": "Do not inject post-series Chapter 431 relationship or adult-life material unless the optional overlay is active.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_class_1_a_does_not_know_villain_plans",
+      "title": "Class 1-A Does Not Know Villain Plans",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "U.A. Class 1-A",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "student knowledge",
+          "villain plans",
+          "limited information"
+        ]
+      },
+      "tags": [
+        "class:ua-1a",
+        "knowledge:limited",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A",
+            "Tomura Shigaraki"
+          ],
+          "topicsAny": [
+            "student knowledge",
+            "villain plans",
+            "limited information"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Students usually know only what teachers, police, media, or direct experience reveal about villain strategy.",
+        "injection": "Do not give Class 1-A omniscient knowledge of League motives or operations after limited encounters.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_public_does_not_know_classroom_details",
+      "title": "Public Does Not Know Classroom Details",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a"
+        ],
+        "characters": [
+          "U.A. Class 1-A"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "public knowledge",
+          "school privacy",
+          "student weaknesses"
+        ]
+      },
+      "tags": [
+        "school:ua-high",
+        "knowledge:private",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "U.A. Class 1-A"
+          ],
+          "topicsAny": [
+            "public knowledge",
+            "school privacy",
+            "student weaknesses"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The public may know U.A. as a school and symbol, but not every classroom test, student weakness, or private training result.",
+        "injection": "Media and civilians must not know private student development unless an event is public or leaked.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_mha_core_recovery_does_not_erase_injury_cost",
+      "title": "Recovery Does Not Erase Injury Cost",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 80,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 92,
+      "context": {
+        "scope": "window",
+        "validFromAnchor": "mha.core.all-might-symbol-era",
+        "validToAnchor": "mha.core.epilogue",
+        "sortKeyFrom": 1000,
+        "sortKeyTo": 13000,
+        "precision": "anchor_window",
+        "windowKind": "wide",
+        "label": "MHA main series"
+      },
+      "coordinates": [
+        {
+          "axis": "series_state",
+          "id": "mha.series.symbol-of-peace-era",
+          "label": "Symbol of Peace era",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:recovery-girl",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Recovery Girl",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "injury cost",
+          "healing limits",
+          "Recovery Girl"
+        ]
+      },
+      "tags": [
+        "hero:recovery-girl",
+        "topic:injury-consequence",
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "low",
+        "triggers": {
+          "charactersAny": [
+            "Recovery Girl",
+            "Izuku Midoriya"
+          ],
+          "topicsAny": [
+            "injury cost",
+            "healing limits",
+            "Recovery Girl"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Healing and medical support exist, but serious injuries still carry pain, risk, time cost, and consequences.",
+        "injection": "Do not use Recovery Girl or medical care to erase all injury stakes without cost or recovery time.",
+        "constraints": [
+          "Use this as a spoiler and audience-knowledge gate, not as public exposition."
+        ],
+        "antiLore": [
+          "Do not let later canon or private secrets leak into earlier Context unless the story explicitly introduced them."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapter": "Core knowledge gates",
+        "confidence": 0.85,
+        "notes": "Saga draft Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:recovery-girl",
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ],
+        "notes": "Adjust according to scene-specific reveals and accepted story divergence."
+      }
+    }
+  ]
+}

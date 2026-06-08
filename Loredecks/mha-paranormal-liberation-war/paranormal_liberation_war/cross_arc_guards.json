@@ -1,0 +1,861 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_use_final_war_resolutions_during_plw",
+      "title": "Do Not Use Final War Resolutions During PLW",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 98,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.war-collapse",
+        "sortKeyFrom": 16600,
+        "sortKeyTo": 16600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "War battle collapses into mass casualty aftermath"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:shigaraki-tomura",
+          "mha:toga-himiko",
+          "mha:dabi",
+          "mha:bakugo-katsuki",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Tomura Shigaraki",
+          "Himiko Toga",
+          "Dabi",
+          "Katsuki Bakugo",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Final War guard",
+          "future outcomes",
+          "spoiler protection"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:final-war",
+        "character:midoriya-izuku",
+        "character:shigaraki-tomura",
+        "character:toga-himiko",
+        "character:dabi",
+        "character:bakugo-katsuki",
+        "character:all-for-one",
+        "topic:final-war-guard",
+        "topic:future-outcomes",
+        "topic:spoiler-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Tomura Shigaraki",
+            "Himiko Toga",
+            "Dabi",
+            "Katsuki Bakugo",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Final War guard",
+            "future outcomes",
+            "spoiler protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Final War outcomes for Shigaraki, Toga, Dabi, Bakugo, All For One, and Deku are not active during the Paranormal Liberation War.",
+        "injection": "During PLW Context, keep later Final War resolutions out unless the story diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 296",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_treat_dabi_reveal_as_known_before_the_broadcast",
+      "title": "Do Not Treat Dabi Reveal As Known Before The Broadcast",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 98,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-broadcast",
+        "sortKeyFrom": 16400,
+        "sortKeyTo": 16400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi broadcasts Toya Todoroki identity"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:toya-todoroki",
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Dabi",
+          "Toya Todoroki",
+          "Endeavor",
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "Dabi reveal timing",
+          "Toya identity gate",
+          "spoiler protection"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:dabi-toya",
+        "character:dabi",
+        "character:toya-todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "faction:todoroki-family",
+        "topic:dabi-reveal-timing",
+        "topic:toya-identity-gate",
+        "topic:spoiler-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Toya Todoroki",
+            "Endeavor",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Dabi reveal timing",
+            "Toya identity gate",
+            "spoiler protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s Toya identity becomes public at the broadcast, not earlier in the war or in pre-war scenes.",
+        "injection": "Before the broadcast anchor, keep Toya identity private; after it, treat the reveal as public and destabilizing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_treat_society_as_stable_after_the_war",
+      "title": "Do Not Treat Society As Stable After The War",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.public-trust-collapses",
+        "sortKeyFrom": 16700,
+        "sortKeyTo": 16700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Public trust in hero society collapses"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-society",
+          "mha:civilians",
+          "mha:u-a-high"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Society",
+          "Civilians",
+          "U.A. High"
+        ],
+        "topics": [
+          "post-war continuity",
+          "society collapse",
+          "Dark Hero setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:hero-society",
+        "faction:civilians",
+        "faction:u-a-high",
+        "topic:post-war-continuity",
+        "topic:society-collapse",
+        "topic:dark-hero-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Society",
+            "Civilians",
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "post-war continuity",
+            "society collapse",
+            "Dark Hero setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After PLW, hero society is not back to normal; public anger, prison breaks, and hero departures reshape the next arc.",
+        "injection": "Post-war scenes should carry collapse forward. Do not reset to ordinary U.A. school-life tone after Chapter 296.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 300-306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_make_hawks_uninjured_after_dabi_burns_him",
+      "title": "Do Not Make Hawks Uninjured After Dabi Burns Him",
+      "kind": "future_guard",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.tokoyami-rescues-hawks",
+        "sortKeyFrom": 16150,
+        "sortKeyTo": 16150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Tokoyami rescues Hawks from Dabi"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:dabi",
+          "mha:tokoyami-fumikage",
+          "mha:pro-heroes",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Hawks",
+          "Dabi",
+          "Fumikage Tokoyami"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Hawks injury continuity",
+          "wing damage",
+          "post-war limitation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:hawks",
+        "character:dabi",
+        "character:tokoyami-fumikage",
+        "faction:pro-heroes",
+        "quirk:fierce-wings",
+        "topic:hawks-injury-continuity",
+        "topic:wing-damage",
+        "topic:post-war-limitation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Dabi",
+            "Fumikage Tokoyami"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "Hawks injury continuity",
+            "wing damage",
+            "post-war limitation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks survives Dabi’s attack but is badly injured and his wing function is severely damaged.",
+        "injection": "After the villa fight, do not write Hawks as operating at normal aerial speed or full combat capacity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 271",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_let_eri_become_a_universal_post_war_fix",
+      "title": "Do Not Let Eri Become A Universal Post-War Fix",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 91,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mirio-returns",
+        "sortKeyFrom": 16475,
+        "sortKeyTo": 16475,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirio returns with Permeation restored"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:togata-mirio",
+          "mha:hawks",
+          "mha:aizawa",
+          "mha:mirko"
+        ],
+        "characters": [
+          "Eri",
+          "Mirio Togata",
+          "Hawks",
+          "Aizawa",
+          "Mirko"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Eri limits",
+          "Rewind guard",
+          "consequence protection"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "quirk:rewind",
+        "character:eri",
+        "character:togata-mirio",
+        "character:hawks",
+        "entity:aizawa",
+        "character:mirko",
+        "topic:eri-limits",
+        "topic:rewind-guard",
+        "topic:consequence-protection"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Mirio Togata",
+            "Hawks",
+            "Aizawa",
+            "Mirko"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Eri limits",
+            "Rewind guard",
+            "consequence protection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio’s restored Quirk does not mean Eri can freely reverse every injury, death, lost Quirk, or social consequence after the war.",
+        "injection": "Keep Eri’s Rewind limited and controlled. The war’s injuries and losses should remain consequential.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 292",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_do_not_import_star_and_stripe_before_her_arc",
+      "title": "Do Not Import Star And Stripe Before Her Arc",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.deku-leaves-ua",
+        "sortKeyFrom": 16800,
+        "sortKeyTo": 16800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku leaves U.A. to protect others"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.collapse-after-war",
+          "label": "Hero society collapses after war",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hero-society"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Society"
+        ],
+        "topics": [
+          "Star and Stripe guard",
+          "future character",
+          "arc boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:star-and-stripe",
+        "faction:hero-society",
+        "topic:star-and-stripe-guard",
+        "topic:future-character",
+        "topic:arc-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Star and Stripe guard",
+            "future character",
+            "arc boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Star and Stripe is not involved during the Paranormal Liberation War or immediate Chapter 306 transition.",
+        "injection": "During PLW and immediate aftermath, do not introduce Star and Stripe intervention unless the user story intentionally diverges.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    }
+  ]
+}

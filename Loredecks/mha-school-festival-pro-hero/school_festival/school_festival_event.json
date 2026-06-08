@@ -1,0 +1,918 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_school_festival_starts_despite_hidden_near_miss",
+      "title": "School Festival Starts Despite Hidden Near Miss",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.school-festival-starts",
+        "sortKeyFrom": 10700,
+        "sortKeyTo": 10700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "U.A. School Festival starts"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:gentle-criminal",
+          "mha:ua-high",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Gentle Criminal"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "festival begins",
+          "hidden near miss",
+          "event continuity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:midoriya-izuku",
+        "character:gentle-criminal",
+        "school:ua-high",
+        "topic:festival-begins",
+        "topic:hidden-near-miss",
+        "topic:event-continuity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Gentle Criminal"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "festival begins",
+            "hidden near miss",
+            "event continuity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The School Festival begins because Izuku stops Gentle before U.A. suffers a public breach.",
+        "injection": "The festival can proceed normally only because the breach was stopped in time. Most attendees should experience celebration, not crisis.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 179",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_class_1_a_concert_is_emotional_relief",
+      "title": "Class 1-A Concert Is Emotional Relief",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.class-1a-performance",
+        "sortKeyFrom": 10750,
+        "sortKeyTo": 10750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A performs to lift student morale"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:ashido-mina",
+          "mha:bakugo-katsuki",
+          "mha:eri",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Kyoka Jiro",
+          "Mina Ashido",
+          "Katsuki Bakugo",
+          "Eri"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "concert",
+          "emotional relief",
+          "school morale"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:jiro-kyoka",
+        "character:ashido-mina",
+        "character:bakugo-katsuki",
+        "character:eri",
+        "class:ua-1a",
+        "topic:concert",
+        "topic:emotional-relief",
+        "topic:school-morale"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro",
+            "Mina Ashido",
+            "Katsuki Bakugo",
+            "Eri"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "concert",
+            "emotional relief",
+            "school morale"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A’s concert functions as emotional relief for U.A. students after months of fear, resentment, and disruption.",
+        "injection": "Write the performance as communal release. Its importance is emotional and social, not a combat feat.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 180-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_jiro_performance_reveals_a_private_passion_publicly",
+      "title": "Jiro Performance Reveals A Private Passion Publicly",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.class-1a-performance",
+        "sortKeyFrom": 10750,
+        "sortKeyTo": 10750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A performs to lift student morale"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:jiro-kyoka",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Kyoka Jiro"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "music confidence",
+          "public performance",
+          "class support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:jiro-kyoka",
+        "class:ua-1a",
+        "topic:music-confidence",
+        "topic:public-performance",
+        "topic:class-support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kyoka Jiro"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "music confidence",
+            "public performance",
+            "class support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Jiro publicly shares a private musical passion and receives support from classmates.",
+        "injection": "During the concert, let Jiro’s confidence matter. This is a vulnerability payoff, not just background music.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 180-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_bakugo_takes_performance_seriously_without_softening_tone",
+      "title": "Bakugo Takes Performance Seriously Without Softening Tone",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.class-1a-performance",
+        "sortKeyFrom": 10750,
+        "sortKeyTo": 10750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A performs to lift student morale"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:jiro-kyoka",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Kyoka Jiro"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "drumming",
+          "class cooperation",
+          "Bakugo tone"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:bakugo-katsuki",
+        "character:jiro-kyoka",
+        "class:ua-1a",
+        "topic:drumming",
+        "topic:class-cooperation",
+        "topic:bakugo-tone"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Kyoka Jiro"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "drumming",
+            "class cooperation",
+            "Bakugo tone"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo takes the performance seriously while staying abrasive and competitive in tone.",
+        "injection": "Keep Bakugo recognizably harsh, but do not make him sabotage the class. His commitment can show through intensity.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 180-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_smile_is_publicly_small_but_narratively_major",
+      "title": "Eri Smile Is Publicly Small But Narratively Major",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-smiles",
+        "sortKeyFrom": 10800,
+        "sortKeyTo": 10800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri smiles during the school festival performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:midoriya-izuku",
+          "mha:mirio-togata",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Eri",
+          "Izuku Midoriya",
+          "Mirio Togata"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "Eri smiles",
+          "emotional payoff",
+          "rescue aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:midoriya-izuku",
+        "character:mirio-togata",
+        "class:ua-1a",
+        "topic:eri-smiles",
+        "topic:emotional-payoff",
+        "topic:rescue-aftermath"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Izuku Midoriya",
+            "Mirio Togata"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "Eri smiles",
+            "emotional payoff",
+            "rescue aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri smiling may be a small public moment, but it is a major emotional milestone for her and the people who rescued her.",
+        "injection": "Treat Eri’s smile with weight. It should land as a recovery milestone, not as a gag or routine audience reaction.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_school_festival_does_not_resolve_public_distrust_fully",
+      "title": "School Festival Does Not Resolve Public Distrust Fully",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-smiles",
+        "sortKeyFrom": 10800,
+        "sortKeyTo": 10800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri smiles during the school festival performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "U.A. High",
+          "Class 1-A"
+        ],
+        "topics": [
+          "public trust",
+          "local success",
+          "society pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "school:ua-high",
+        "class:ua-1a",
+        "topic:public-trust",
+        "topic:local-success",
+        "topic:society-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "public trust",
+            "local success",
+            "society pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The festival improves morale but does not erase society-wide distrust of U.A., heroes, or Class 1-A.",
+        "injection": "After the festival, keep it as a local success. Do not pretend one concert fixes the wider hero-society legitimacy problem.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_class_1_a_victory_is_noncombat_heroism",
+      "title": "Class 1-A Victory Is Noncombat Heroism",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.class-1a-performance",
+        "sortKeyFrom": 10750,
+        "sortKeyTo": 10750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A performs to lift student morale"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "noncombat heroism",
+          "morale repair",
+          "care work"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "class:ua-1a",
+        "topic:noncombat-heroism",
+        "topic:morale-repair",
+        "topic:care-work"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "noncombat heroism",
+            "morale repair",
+            "care work"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A’s success at the festival is a form of noncombat heroism: reducing fear, making space for joy, and supporting a rescued child.",
+        "injection": "Use this arc to show that heroism includes morale, care, and recovery. Not every meaningful victory needs a defeated villain onstage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 180-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

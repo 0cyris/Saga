@@ -1,0 +1,1632 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_league_attempts_to_reframe_bakugo_as_recruitable",
+      "title": "League Attempts To Reframe Bakugo As Recruitable",
+      "kind": "objective",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:league-of-villains",
+          "mha:shigaraki-tomura",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "Katsuki Bakugo"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "villain recruitment",
+          "misreading Bakugo",
+          "League ideology"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "villain recruitment",
+            "misreading Bakugo",
+            "League ideology"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The League tries to interpret Bakugo’s aggression and public image as evidence he can be recruited, but they misunderstand his core drive.",
+        "injection": "At the League hideout, make the villains misread Bakugo’s violent temperament as villain potential while Bakugo remains fundamentally committed to winning as a hero.",
+        "constraints": [
+          "Bakugo can be rude and defiant without being ideologically tempted by villainy."
+        ],
+        "antiLore": [
+          "Do not make Bakugo genuinely consider joining the League in this arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-89",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_bakugo_refuses_villain_recruitment_without_softening",
+      "title": "Bakugo Refuses Villain Recruitment Without Softening",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.bakugo-rejects-league",
+        "sortKeyFrom": 7200,
+        "sortKeyTo": 7200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo rejects League recruitment"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:league-of-villains",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "defiance",
+          "hero ambition",
+          "villain rejection"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "defiance",
+            "hero ambition",
+            "villain rejection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo rejects the League because his ambition is to win as a hero, not because he suddenly becomes polite or emotionally open.",
+        "injection": "When Bakugo faces the League, keep him abrasive, furious, and untempted; his morality is expressed through heroic ambition rather than gentleness.",
+        "constraints": [
+          "His refusal must not erase his aggressive personality."
+        ],
+        "antiLore": [
+          "Do not turn Bakugo into a villain sympathizer or a suddenly mild captive."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-89",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_shigaraki_is_still_dependent_on_all_for_one",
+      "title": "Shigaraki Is Still Dependent On All For One",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Tomura Shigaraki",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "mentor control",
+          "villain dependency",
+          "Shigaraki development"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Tomura Shigaraki",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "mentor control",
+            "villain dependency",
+            "Shigaraki development"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During Kamino, Shigaraki is still a developing villain leader whose escape and survival depend heavily on All For One.",
+        "injection": "In the Hideout Raid, portray Shigaraki as dangerous but not yet the independent final-stage threat; All For One remains the dominant mastermind.",
+        "constraints": [
+          "Shigaraki can show growth and agency without surpassing All For One here."
+        ],
+        "antiLore": [
+          "Do not import later awakened Shigaraki power or independence into Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_league_core_escapes_while_all_for_one_takes_the_stage",
+      "title": "League Core Escapes While All For One Takes The Stage",
+      "kind": "status_change",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:league-of-villains",
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "All For One",
+          "Tomura Shigaraki",
+          "League of Villains"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "villain escape",
+          "AFO intervention",
+          "League survival"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Tomura Shigaraki",
+            "League of Villains"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "villain escape",
+            "AFO intervention",
+            "League survival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One intervenes to protect and evacuate Shigaraki’s League while drawing All Might into the decisive public battle.",
+        "injection": "When All For One appears, shift the scene scale: the League’s survival becomes tied to his intervention, and All Might is forced into a public endgame fight.",
+        "constraints": [
+          "All For One’s priority includes Shigaraki’s escape, not merely defeating All Might."
+        ],
+        "antiLore": [
+          "Do not have the League casually overpower the pro raid on their own."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-91",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_dabi_identity_must_stay_unrevealed_at_kamino",
+      "title": "Dabi Identity Must Stay Unrevealed At Kamino",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Dabi identity guard",
+          "Todoroki family spoiler",
+          "future reveal"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:dabi",
+        "character:endeavor",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "family:todoroki",
+        "fandom:mha",
+        "meta:future-guard",
+        "quality:draft-reference",
+        "secret:dabi-identity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Dabi identity guard",
+            "Todoroki family spoiler",
+            "future reveal"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi is present as a League member, but his later identity reveal must not be known or stated during Kamino.",
+        "injection": "During the Training Camp and Kamino arcs, write Dabi as a dangerous League villain without revealing his later family identity.",
+        "constraints": [
+          "Suspicion or visual resemblance must not become confirmed knowledge."
+        ],
+        "antiLore": [
+          "Do not call Dabi Toya or reveal his relationship to Endeavor before the proper war arc."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 74-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:dabi"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:endeavor",
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_toga_is_not_yet_a_fully_public_infiltration_threat",
+      "title": "Toga Is Not Yet A Fully Public Infiltration Threat",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:class-1a"
+        ],
+        "characters": [
+          "Himiko Toga"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Toga future guard",
+          "Transform Quirk secrecy",
+          "blood sample"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:toga-himiko",
+        "class:ua-1a",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "quality:draft-reference",
+        "secret:toga-blood-sample"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Toga future guard",
+            "Transform Quirk secrecy",
+            "blood sample"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga’s blood-taking has future consequences, but the heroes do not yet have full operational awareness of her later infiltration threat.",
+        "injection": "Keep Toga’s future disguise danger latent in this arc; do not let heroes preemptively know all later uses of her Transform Quirk.",
+        "constraints": [
+          "Her personality can be unsettling without full future plot leakage."
+        ],
+        "antiLore": [
+          "Do not reveal or deploy later Toga infiltration outcomes early."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 80-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:toga-himiko"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_twice_spinner_magne_and_compress_give_the_league_texture",
+      "title": "Twice Spinner Magne And Compress Give The League Texture",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:twice",
+          "mha:spinner",
+          "mha:magne",
+          "mha:mr-compress",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Twice",
+          "Spinner",
+          "Magne",
+          "Mr. Compress"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "League personalities",
+          "villain roster",
+          "ideological variety"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:magne",
+        "character:mr-compress",
+        "character:spinner",
+        "character:twice",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Twice",
+            "Spinner",
+            "Magne",
+            "Mr. Compress"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "League personalities",
+            "villain roster",
+            "ideological variety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The League roster contains distinct personalities and motives; they are not interchangeable henchmen.",
+        "injection": "When the League is present around Kamino, give members distinct voices and roles: Twice unstable, Spinner ideological, Magne forceful, Compress theatrical.",
+        "constraints": [
+          "Their deeper later arcs must not be fully imported here."
+        ],
+        "antiLore": [
+          "Do not write every League member as a generic silent minion."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 74-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_kurogiri_enables_league_mobility_but_not_omniscience",
+      "title": "Kurogiri Enables League Mobility But Not Omniscience",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kurogiri",
+          "mha:warp-gate",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Kurogiri"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "warp gate",
+          "villain mobility",
+          "escape logistics"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:kurogiri",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:warp-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Kurogiri"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "warp gate",
+            "villain mobility",
+            "escape logistics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kurogiri’s Warp Gate enables League movement and escape, but it does not make the League omniscient or immune to tactical surprise.",
+        "injection": "Use Kurogiri’s warping as major mobility infrastructure for the League without making it a perfect answer to every tactical problem.",
+        "constraints": [
+          "Warping depends on location knowledge, coordination, and Kurogiri’s condition."
+        ],
+        "antiLore": [
+          "Do not make Kurogiri automatically know all hidden enemy positions."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Warp Gate",
+        "stage": "League mobility support",
+        "ownerEntityIds": [
+          "mha:kurogiri"
+        ],
+        "constraints": [
+          "Provides portals but requires coordination and cannot replace intelligence."
+        ],
+        "antiLore": [
+          "Do not treat Warp Gate as omniscient teleportation."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_ragdoll_search_loss_matters_beyond_the_camp",
+      "title": "Ragdoll Search Loss Matters Beyond The Camp",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.nomu-factory-revealed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Nomu factory revealed as second raid site"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ragdoll",
+          "mha:all-for-one",
+          "mha:search-quirk",
+          "mha:wild-wild-pussycats"
+        ],
+        "characters": [
+          "Ragdoll",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Wild Wild Pussycats"
+        ],
+        "topics": [
+          "Quirk theft",
+          "Search Quirk",
+          "Pussycats loss"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:ragdoll",
+        "continuity:mha-manga-main",
+        "faction:wild-wild-pussycats",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:search",
+        "secret:quirk-theft"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ragdoll",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Wild Wild Pussycats"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Quirk theft",
+            "Search Quirk",
+            "Pussycats loss"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ragdoll’s Search Quirk is taken by All For One, making the camp attack’s consequences extend beyond immediate injuries and capture.",
+        "injection": "After Kamino reveals Ragdoll’s condition, treat Search as lost from the Pussycats and dangerous in enemy hands, while avoiding later Shigaraki-specific uses before their arc.",
+        "constraints": [
+          "The loss is personal, tactical, and institutional."
+        ],
+        "antiLore": [
+          "Do not let Ragdoll continue using Search after it is stolen."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-95",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "Search",
+        "stage": "stolen by All For One",
+        "ownerEntityIds": [
+          "mha:ragdoll",
+          "mha:all-for-one"
+        ],
+        "constraints": [
+          "Ragdoll loses access after theft."
+        ],
+        "antiLore": [
+          "Do not give Ragdoll her Search functionality post-theft."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_bakugo_captivity_shows_his_pride_under_pressure",
+      "title": "Bakugo Captivity Shows His Pride Under Pressure",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.league-hideout",
+        "sortKeyFrom": 7150,
+        "sortKeyTo": 7150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo held at League hideout"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "League Hideout"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "captivity",
+          "pride",
+          "defiance"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "League Hideout"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "captivity",
+            "pride",
+            "defiance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s captivity tests his pride under real villain pressure, but his refusal is direct and uncompromising.",
+        "injection": "In captivity, write Bakugo as angry and defiant under pressure; he is vulnerable by situation, not psychologically converted.",
+        "constraints": [
+          "He can be afraid or cornered without conceding."
+        ],
+        "antiLore": [
+          "Do not make Bakugo calmly negotiate villain membership."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 85-89",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_for_one_treats_shigaraki_as_successor_project",
+      "title": "All For One Treats Shigaraki As Successor Project",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "All For One",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "successor project",
+          "villain mentorship",
+          "AFO planning"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "successor project",
+            "villain mentorship",
+            "AFO planning"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s actions at Kamino prioritize Shigaraki’s survival and future as much as immediate victory.",
+        "injection": "At Kamino, write All For One as protecting a long-term successor project; Shigaraki is not expendable to him.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

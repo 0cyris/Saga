@@ -1,0 +1,2690 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_danger-sense-loss-changes-deku-s-defense",
+      "title": "Danger Sense Loss Changes Deku’s Defense",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.danger-sense-stolen",
+        "sortKeyFrom": 20650,
+        "sortKeyTo": 20650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Danger Sense is stolen from Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:heroes",
+          "mha:danger-sense"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [
+          "Danger Sense"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Quirk stolen",
+          "defense loss"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:heroes",
+        "item:danger-sense",
+        "topic:quirk-stolen",
+        "topic:defense-loss",
+        "event:danger-sense-is-stolen-from-deku"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Danger Sense"
+          ],
+          "topicsAny": [
+            "Quirk stolen",
+            "defense loss"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki steals Danger Sense, reducing Deku’s ability to anticipate danger.",
+        "injection": "After Danger Sense is stolen, do not let Deku rely on it as an active warning system.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 410-411",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Danger Sense",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura"
+        ],
+        "requiredTags": [
+          "item:danger-sense"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_vestige-transfer-strategy-weaponizes-ofa-sacrifice",
+      "title": "Vestige Transfer Strategy Weaponizes OFA Sacrifice",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-vestige-transfer-plan",
+        "sortKeyFrom": 20700,
+        "sortKeyTo": 20700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and the vestiges use transfer strategy"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges",
+          "mha:shigaraki-tomura",
+          "mha:vestige-world",
+          "mha:heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "One For All Vestiges",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "sacrificial strategy",
+          "vestige transfer"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:one-for-all-vestiges",
+        "character:shigaraki-tomura",
+        "location:vestige-world",
+        "faction:heroes",
+        "item:one-for-all",
+        "topic:sacrificial-strategy",
+        "topic:vestige-transfer",
+        "event:deku-and-the-vestiges-use-transfer-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "One For All Vestiges",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "sacrificial strategy",
+            "vestige transfer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku's final strategy sacrifices One For All vestiges to break through Shigaraki from inside.",
+        "injection": "During the final confrontation, OFA becomes a sacrifice route, not a power-up path.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 412-418",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges"
+        ],
+        "requiredTags": [
+          "item:one-for-all"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-s-goal-is-saving-tenko-not-sparing-consequences",
+      "title": "Deku’s Goal Is Saving Tenko Not Sparing Consequences",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-vestige-transfer-plan",
+        "sortKeyFrom": 20700,
+        "sortKeyTo": 20700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and the vestiges use transfer strategy"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:vestige-world",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "saving impulse",
+          "consequence tension"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "location:vestige-world",
+        "faction:heroes",
+        "topic:saving-impulse",
+        "topic:consequence-tension",
+        "event:deku-and-the-vestiges-use-transfer-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "saving impulse",
+            "consequence tension"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku tries to reach the crying child within Shigaraki while still opposing the catastrophic villain in front of him.",
+        "injection": "Keep Deku’s save impulse morally tense; saving Tenko does not erase Shigaraki’s destruction.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 412-418",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_tenko-origin-is-late-final-war-knowledge",
+      "title": "Tenko Origin Is Late Final War Knowledge",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.tenko-origin-reached",
+        "sortKeyFrom": 20750,
+        "sortKeyTo": 20750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku reaches Tenko’s origin inside Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:izuku-midoriya",
+          "mha:nana-shimura",
+          "mha:vestige-world"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "Izuku Midoriya",
+          "Nana Shimura"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "origin reveal",
+          "childhood trauma"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:izuku-midoriya",
+        "character:nana-shimura",
+        "location:vestige-world",
+        "topic:origin-reveal",
+        "topic:childhood-trauma",
+        "event:deku-reaches-tenko-s-origin-inside-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "Izuku Midoriya",
+            "Nana Shimura"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "origin reveal",
+            "childhood trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku reaches Tenko’s origin only during the late vestige conflict.",
+        "injection": "Do not reveal Tenko’s full origin to Deku or unrelated characters before this late Final War Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 415-418",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:shigaraki-tomura",
+          "mha:izuku-midoriya",
+          "mha:nana-shimura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-manipulation-of-tenko-is-final-spoiler",
+      "title": "AFO Manipulation Of Tenko Is Final Spoiler",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-origin-manipulation-revealed",
+        "sortKeyFrom": 20800,
+        "sortKeyTo": 20800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One’s manipulation of Shigaraki is revealed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:vestige-world",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "origin manipulation",
+          "final spoiler"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "location:vestige-world",
+        "faction:villains",
+        "topic:origin-manipulation",
+        "topic:final-spoiler",
+        "event:all-for-one-s-manipulation-of-shigaraki-is-revealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "origin manipulation",
+            "final spoiler"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s deep manipulation of Tenko’s life is a late Final War reveal, not background knowledge everyone has.",
+        "injection": "Gate AFO’s role in shaping Tenko until the reveal; earlier scenes should preserve uncertainty and horror.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 419-421",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shigaraki-is-not-reduced-to-afo-puppet",
+      "title": "Shigaraki Is Not Reduced To AFO Puppet",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-origin-manipulation-revealed",
+        "sortKeyFrom": 20800,
+        "sortKeyTo": 20800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One’s manipulation of Shigaraki is revealed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:all-for-one",
+          "mha:izuku-midoriya",
+          "mha:vestige-world",
+          "mha:villains"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "All For One",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "agency",
+          "victim and villain"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:all-for-one",
+        "character:izuku-midoriya",
+        "location:vestige-world",
+        "faction:villains",
+        "topic:agency",
+        "topic:victim-and-villain",
+        "event:all-for-one-s-manipulation-of-shigaraki-is-revealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "All For One",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "agency",
+            "victim and villain"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even after AFO’s manipulation is revealed, Shigaraki’s choices, pain, and villain identity remain part of the scene.",
+        "injection": "Avoid making Shigaraki a blameless puppet or pure monster; the final conflict holds both victimhood and harm.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 419-421",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_heroes-across-the-battlefield-support-deku",
+      "title": "Heroes Across The Battlefield Support Deku",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.heroes-support-final-push",
+        "sortKeyFrom": 20850,
+        "sortKeyTo": 20850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes support Deku’s final push"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:class-1-a",
+          "mha:heroes",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Class 1-A",
+          "Heroes"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "collective heroism",
+          "final support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:class-1-a",
+        "character:heroes",
+        "faction:heroes",
+        "topic:collective-heroism",
+        "topic:final-support",
+        "event:heroes-support-deku-s-final-push"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Class 1-A",
+            "Heroes"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "collective heroism",
+            "final support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The final push is collective: many heroes and students create the conditions for Deku to act.",
+        "injection": "Do not frame Deku as winning in isolation; the series climax depends on distributed support.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 421-423",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ofa-and-afo-end-through-the-final-conflict",
+      "title": "OFA And AFO End Through The Final Conflict",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-shigaraki-conflict-ends",
+        "sortKeyFrom": 20900,
+        "sortKeyTo": 20900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One and Shigaraki conflict ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:final-battlefield",
+          "mha:one-for-all",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "All For One",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Final Battlefield"
+        ],
+        "objects": [
+          "One For All",
+          "All For One"
+        ],
+        "factions": [],
+        "topics": [
+          "Quirk legacy end",
+          "final conflict"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "location:final-battlefield",
+        "item:one-for-all",
+        "item:all-for-one",
+        "topic:quirk-legacy-end",
+        "topic:final-conflict",
+        "event:all-for-one-and-shigaraki-conflict-ends"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "All For One",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Final Battlefield"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All",
+            "All For One"
+          ],
+          "topicsAny": [
+            "Quirk legacy end",
+            "final conflict"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The inherited conflict between One For All and All For One reaches its endpoint in the final battle.",
+        "injection": "After this anchor, treat the OFA/AFO legacy as concluded, with aftermath focused on cost and society.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 423-424",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:all-for-one"
+        ],
+        "requiredTags": [
+          "item:one-for-all",
+          "item:all-for-one"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shigaraki-final-moment-should-not-be-a-simple-redemption",
+      "title": "Shigaraki Final Moment Should Not Be A Simple Redemption",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-shigaraki-conflict-ends",
+        "sortKeyFrom": 20900,
+        "sortKeyTo": 20900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One and Shigaraki conflict ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:shigaraki-tomura",
+          "mha:izuku-midoriya",
+          "mha:final-battlefield"
+        ],
+        "characters": [
+          "Shigaraki Tomura",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Final Battlefield"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "villain ending",
+          "ambiguous redemption"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:shigaraki-tomura",
+        "character:izuku-midoriya",
+        "location:final-battlefield",
+        "topic:villain-ending",
+        "topic:ambiguous-redemption",
+        "event:all-for-one-and-shigaraki-conflict-ends"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shigaraki Tomura",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Final Battlefield"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "villain ending",
+            "ambiguous redemption"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shigaraki’s ending carries recognition and tragedy without erasing his villain role or casualties.",
+        "injection": "Do not write a clean redemption arc; keep the ending tragic, unresolved, and morally costly.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 423-424",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-loses-more-than-a-battle-resource",
+      "title": "Deku Loses More Than A Battle Resource",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-shigaraki-conflict-ends",
+        "sortKeyFrom": 20900,
+        "sortKeyTo": 20900,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One and Shigaraki conflict ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges",
+          "mha:final-battlefield",
+          "mha:heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "One For All Vestiges"
+        ],
+        "locations": [
+          "Final Battlefield"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "loss",
+          "hero identity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:one-for-all-vestiges",
+        "location:final-battlefield",
+        "faction:heroes",
+        "item:one-for-all",
+        "topic:loss",
+        "topic:hero-identity",
+        "event:all-for-one-and-shigaraki-conflict-ends"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "One For All Vestiges"
+          ],
+          "locationsAny": [
+            "Final Battlefield"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "loss",
+            "hero identity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s loss of OFA is an identity and future-cost event, not merely running out of power.",
+        "injection": "In post-battle scenes, show the emotional and vocational cost of OFA fading.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 423-424",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges"
+        ],
+        "requiredTags": [
+          "item:one-for-all"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_final-war-victory-is-not-a-clean-celebration",
+      "title": "Final War Victory Is Not A Clean Celebration",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.war-ends",
+        "sortKeyFrom": 20950,
+        "sortKeyTo": 20950,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War ends"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:heroes",
+          "mha:civilians",
+          "mha:heroes",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Heroes",
+          "Civilians"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Civilians"
+        ],
+        "topics": [
+          "war aftermath",
+          "cost of victory"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:heroes",
+        "character:civilians",
+        "faction:heroes",
+        "faction:civilians",
+        "topic:war-aftermath",
+        "topic:cost-of-victory",
+        "event:final-war-ends"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Heroes",
+            "Civilians"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "war aftermath",
+            "cost of victory"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The war ends with enormous injury, grief, and institutional damage even though the central villain threat is stopped.",
+        "injection": "Write victory as relief mixed with trauma and reconstruction, not an uncomplicated festival ending.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 424",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-one-casually-understands-vestige-strategy-outside-ofa-circle",
+      "title": "No One Casually Understands Vestige Strategy Outside OFA Circle",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-vestige-transfer-plan",
+        "sortKeyFrom": 20700,
+        "sortKeyTo": 20700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and the vestiges use transfer strategy"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges",
+          "mha:vestige-world",
+          "mha:heroes",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "One For All Vestiges"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "knowledge boundary",
+          "vestige secrecy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:one-for-all-vestiges",
+        "location:vestige-world",
+        "faction:heroes",
+        "item:one-for-all",
+        "topic:knowledge-boundary",
+        "topic:vestige-secrecy",
+        "event:deku-and-the-vestiges-use-transfer-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "One For All Vestiges"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "knowledge boundary",
+            "vestige secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The vestige transfer strategy is internal to Deku and OFA-linked experience, not public tactical knowledge.",
+        "injection": "Do not have outside characters narrate the full vestige plan unless the story gives them a way to learn it.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 412-418",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges"
+        ],
+        "requiredTags": [
+          "item:one-for-all"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya",
+          "mha:one-for-all-vestiges"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-final-professional-status-is-epilogue-only",
+      "title": "Deku Final Professional Status Is Epilogue Only",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-support-suit",
+        "sortKeyFrom": 21300,
+        "sortKeyTo": 21300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku receives support suit chance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "future guard",
+          "teacher status"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "faction:heroes",
+        "topic:future-guard",
+        "topic:teacher-status",
+        "event:deku-receives-support-suit-chance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "teacher status"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s adult role and support suit are Chapter 430 epilogue material, not active Final War information.",
+        "injection": "Block adult-teacher and support-suit outcomes until the epilogue time-skip Context.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 430",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:izuku-midoriya"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_ofa-vestiges-disagree-but-commit",
+      "title": "OFA Vestiges Disagree But Commit",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.deku-vestige-transfer-plan",
+        "sortKeyFrom": 20700,
+        "sortKeyTo": 20700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku and the vestiges use transfer strategy"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:one-for-all-vestiges",
+          "mha:izuku-midoriya",
+          "mha:vestige-world"
+        ],
+        "characters": [
+          "One For All Vestiges",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "vestige debate",
+          "inherited will"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:one-for-all-vestiges",
+        "character:izuku-midoriya",
+        "location:vestige-world",
+        "topic:vestige-debate",
+        "topic:inherited-will",
+        "event:deku-and-the-vestiges-use-transfer-strategy"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "One For All Vestiges",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "vestige debate",
+            "inherited will"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The OFA vestiges have concerns about Deku’s plan but commit to the risky transfer strategy.",
+        "injection": "Use vestige scenes as debate and consent under pressure, not a single all-knowing command voice.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 412-418",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_afo-treats-people-as-installed-parts",
+      "title": "AFO Treats People As Installed Parts",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-origin-manipulation-revealed",
+        "sortKeyFrom": 20800,
+        "sortKeyTo": 20800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One’s manipulation of Shigaraki is revealed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:vestige-world",
+          "mha:villains"
+        ],
+        "characters": [
+          "All For One",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "instrumentalization",
+          "villain philosophy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "location:vestige-world",
+        "faction:villains",
+        "topic:instrumentalization",
+        "topic:villain-philosophy",
+        "event:all-for-one-s-manipulation-of-shigaraki-is-revealed"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "instrumentalization",
+            "villain philosophy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s treatment of Shigaraki reveals his broader habit of reducing people to useful pieces.",
+        "injection": "Write AFO’s final ideology as possessive instrumentalization, not chaotic cruelty alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 419-421",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_class-1-a-support-reaches-beyond-physical-presence",
+      "title": "Class 1-A Support Reaches Beyond Physical Presence",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.heroes-support-final-push",
+        "sortKeyFrom": 20850,
+        "sortKeyTo": 20850,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes support Deku’s final push"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:class-1-a",
+          "mha:izuku-midoriya",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Class 1-A",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "emotional support",
+          "shared origin"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:class-1-a",
+        "character:izuku-midoriya",
+        "faction:heroes",
+        "topic:emotional-support",
+        "topic:shared-origin",
+        "event:heroes-support-deku-s-final-push"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Class 1-A",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "emotional support",
+            "shared origin"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A’s support matters emotionally and structurally even when not every student lands the final hit.",
+        "injection": "Keep the class network present in Deku’s final effort; the theme is shared heroism.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 421-423",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_deku-adapts-to-fighting-without-full-ofa-set",
+      "title": "Deku Adapts To Fighting Without Full OFA Set",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.danger-sense-stolen",
+        "sortKeyFrom": 20650,
+        "sortKeyTo": 20650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Danger Sense is stolen from Deku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:izuku-midoriya",
+          "mha:shigaraki-tomura",
+          "mha:floating-u-a",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Shigaraki Tomura"
+        ],
+        "locations": [
+          "Floating U.A."
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "OFA loss",
+          "adaptation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:izuku-midoriya",
+        "character:shigaraki-tomura",
+        "location:floating-u-a",
+        "faction:heroes",
+        "topic:ofa-loss",
+        "topic:adaptation",
+        "event:danger-sense-is-stolen-from-deku"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Shigaraki Tomura"
+          ],
+          "locationsAny": [
+            "Floating U.A."
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "OFA loss",
+            "adaptation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "As Quirk factors are lost or transferred, Deku must adapt rather than rely on a full OFA toolkit.",
+        "injection": "Reduce Deku’s available options as the final fight progresses.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 410-411",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_nana-shimura-link-deepens-tenko-tragedy",
+      "title": "Nana Shimura Link Deepens Tenko Tragedy",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.tenko-origin-reached",
+        "sortKeyFrom": 20750,
+        "sortKeyTo": 20750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku reaches Tenko’s origin inside Shigaraki"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.deku-shigaraki-final",
+          "label": "Deku and Shigaraki final battlefield",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.ofa-final-transfer",
+          "label": "One For All final transfer stage",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nana-shimura",
+          "mha:shigaraki-tomura",
+          "mha:izuku-midoriya",
+          "mha:vestige-world",
+          "mha:one-for-all-vestiges"
+        ],
+        "characters": [
+          "Nana Shimura",
+          "Shigaraki Tomura",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "Vestige World"
+        ],
+        "objects": [],
+        "factions": [
+          "One For All Vestiges"
+        ],
+        "topics": [
+          "family legacy",
+          "grandmother connection"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:nana-shimura",
+        "character:shigaraki-tomura",
+        "character:izuku-midoriya",
+        "location:vestige-world",
+        "faction:one-for-all-vestiges",
+        "topic:family-legacy",
+        "topic:grandmother-connection",
+        "event:deku-reaches-tenko-s-origin-inside-shigaraki"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Nana Shimura",
+            "Shigaraki Tomura",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "Vestige World"
+          ],
+          "factionsAny": [
+            "One For All Vestiges"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "family legacy",
+            "grandmother connection"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Nana Shimura’s connection to Tenko deepens the inherited tragedy between OFA, AFO, and Shigaraki.",
+        "injection": "Use Nana’s presence as grief and responsibility, not simple exposition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 415-418",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

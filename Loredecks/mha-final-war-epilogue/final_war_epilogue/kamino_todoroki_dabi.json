@@ -1,0 +1,2177 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shoto-leads-the-kamino-dabi-matchup",
+      "title": "Shoto Leads The Kamino Dabi Matchup",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.kamino-dabi-battle-starts",
+        "sortKeyFrom": 19300,
+        "sortKeyTo": 19300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kamino battle against Dabi begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:dabi",
+          "mha:kamino-ward",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Todoroki Shoto",
+          "Dabi"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "family confrontation",
+          "fire and ice"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:todoroki-shoto",
+        "character:dabi",
+        "location:kamino-ward",
+        "faction:heroes",
+        "topic:family-confrontation",
+        "topic:fire-and-ice",
+        "event:kamino-battle-against-dabi-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Todoroki Shoto",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "family confrontation",
+            "fire and ice"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto is assigned to confront Dabi because the battle is both tactical and family-specific.",
+        "injection": "Center Shoto’s role as both hero and brother; the fight is not merely a firepower contest.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-350",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_phosphor-balances-fire-and-ice",
+      "title": "Phosphor Balances Fire And Ice",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.kamino-dabi-battle-starts",
+        "sortKeyFrom": 19300,
+        "sortKeyTo": 19300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kamino battle against Dabi begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:kamino-ward",
+          "mha:heroes",
+          "mha:phosphor"
+        ],
+        "characters": [
+          "Todoroki Shoto"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [
+          "Phosphor"
+        ],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "Half-Cold Half-Hot",
+          "temperature balance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:todoroki-shoto",
+        "location:kamino-ward",
+        "faction:heroes",
+        "item:phosphor",
+        "topic:half-cold-half-hot",
+        "topic:temperature-balance",
+        "event:kamino-battle-against-dabi-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [
+            "Phosphor"
+          ],
+          "topicsAny": [
+            "Half-Cold Half-Hot",
+            "temperature balance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto’s Phosphor technique uses both sides of his Quirk to stabilize and counter extreme heat.",
+        "injection": "Use Phosphor as a hard-earned integration of Shoto’s dual inheritance, not an instant generic ice blast.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-350",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_dabi-first-defeat-is-not-the-end",
+      "title": "Dabi First Defeat Is Not The End",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shoto-defeats-dabi-first",
+        "sortKeyFrom": 19400,
+        "sortKeyTo": 19400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shoto defeats Dabi at Kamino first time"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:kamino-ward",
+          "mha:villains",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Dabi",
+          "Todoroki Shoto"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains",
+          "Heroes"
+        ],
+        "topics": [
+          "false resolution",
+          "family trauma"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "character:todoroki-shoto",
+        "location:kamino-ward",
+        "faction:villains",
+        "faction:heroes",
+        "topic:false-resolution",
+        "topic:family-trauma",
+        "event:shoto-defeats-dabi-at-kamino-first-time"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Villains",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "false resolution",
+            "family trauma"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto appears to stop Dabi at Kamino, but Dabi’s body and hatred continue driving the conflict later.",
+        "injection": "Do not treat the Kamino victory as the complete Todoroki resolution; it delays a deeper family crisis.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 351-353",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_dabi-s-body-is-failing-under-his-own-flames",
+      "title": "Dabi’s Body Is Failing Under His Own Flames",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shoto-defeats-dabi-first",
+        "sortKeyFrom": 19400,
+        "sortKeyTo": 19400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shoto defeats Dabi at Kamino first time"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:kamino-ward",
+          "mha:gunga-mountain-villa",
+          "mha:villains"
+        ],
+        "characters": [
+          "Dabi"
+        ],
+        "locations": [
+          "Kamino Ward",
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Villains"
+        ],
+        "topics": [
+          "self destruction",
+          "blue flame cost"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "location:kamino-ward",
+        "location:gunga-mountain-villa",
+        "faction:villains",
+        "topic:self-destruction",
+        "topic:blue-flame-cost",
+        "event:shoto-defeats-dabi-at-kamino-first-time"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Kamino Ward",
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "self destruction",
+            "blue flame cost"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s power is inseparable from bodily collapse; his hatred pushes him through damage that should stop him.",
+        "injection": "Portray Dabi’s threat as self-destructive and horrific, not sustainable fire mastery.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 351-353",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_dabi-becomes-a-thermal-catastrophe-at-gunga",
+      "title": "Dabi Becomes A Thermal Catastrophe At Gunga",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gunga-dabi-crisis",
+        "sortKeyFrom": 20250,
+        "sortKeyTo": 20250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi turns Gunga into a thermal crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:gunga-mountain-villa",
+          "mha:heroes",
+          "mha:villains"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Villains"
+        ],
+        "topics": [
+          "thermal crisis",
+          "mass casualty risk"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "character:endeavor",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "faction:villains",
+        "topic:thermal-crisis",
+        "topic:mass-casualty-risk",
+        "event:dabi-turns-gunga-into-a-thermal-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "thermal crisis",
+            "mass casualty risk"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s final state creates a massive heat danger that can kill nearby allies, enemies, and family alike.",
+        "injection": "Write Gunga Dabi scenes as disaster containment as much as personal confrontation.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 375-389",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_todoroki-family-intervention-is-collective",
+      "title": "Todoroki Family Intervention Is Collective",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-converges",
+        "sortKeyFrom": 20300,
+        "sortKeyTo": 20300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family converges on Dabi"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-rei",
+          "mha:todoroki-shoto",
+          "mha:todoroki-fuyumi",
+          "mha:todoroki-natsuo",
+          "mha:dabi",
+          "mha:gunga-mountain-villa",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Endeavor",
+          "Todoroki Rei",
+          "Todoroki Shoto",
+          "Todoroki Fuyumi",
+          "Todoroki Natsuo",
+          "Dabi"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "family intervention",
+          "shared responsibility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:endeavor",
+        "character:todoroki-rei",
+        "character:todoroki-shoto",
+        "character:todoroki-fuyumi",
+        "character:todoroki-natsuo",
+        "character:dabi",
+        "location:gunga-mountain-villa",
+        "faction:todoroki-family",
+        "topic:family-intervention",
+        "topic:shared-responsibility",
+        "event:todoroki-family-converges-on-dabi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Todoroki Rei",
+            "Todoroki Shoto",
+            "Todoroki Fuyumi",
+            "Todoroki Natsuo",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "family intervention",
+            "shared responsibility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Todoroki family converges to stop Toya because Endeavor alone cannot repair the harm or contain the crisis.",
+        "injection": "Make the family intervention collective; this is not a clean Endeavor redemption duel.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-390",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_iida-enables-shoto-s-last-minute-arrival",
+      "title": "Iida Enables Shoto’s Last-Minute Arrival",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-converges",
+        "sortKeyFrom": 20300,
+        "sortKeyTo": 20300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family converges on Dabi"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:todoroki-shoto",
+          "mha:gunga-mountain-villa",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Iida Tenya",
+          "Todoroki Shoto"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "speed support",
+          "team relay"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:iida-tenya",
+        "character:todoroki-shoto",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "topic:speed-support",
+        "topic:team-relay",
+        "event:todoroki-family-converges-on-dabi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Iida Tenya",
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "speed support",
+            "team relay"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida uses his speed and resolve to help Shoto reach the family crisis in time.",
+        "injection": "Use Iida’s role as support and relay; his contribution is crucial even when he is not the emotional center.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-390",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_endeavor-cannot-undo-toya-with-one-speech",
+      "title": "Endeavor Cannot Undo Toya With One Speech",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-converges",
+        "sortKeyFrom": 20300,
+        "sortKeyTo": 20300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family converges on Dabi"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:dabi",
+          "mha:gunga-mountain-villa",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Endeavor",
+          "Dabi"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "abuse aftermath",
+          "failed atonement"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:endeavor",
+        "character:dabi",
+        "location:gunga-mountain-villa",
+        "faction:todoroki-family",
+        "topic:abuse-aftermath",
+        "topic:failed-atonement",
+        "event:todoroki-family-converges-on-dabi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "abuse aftermath",
+            "failed atonement"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s guilt and recognition do not erase Toya’s suffering or the family’s damage.",
+        "injection": "Avoid sudden reconciliation; this confrontation should remain painful, incomplete, and consequence-heavy.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-390",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_toya-aftermath-remains-medical-and-emotional",
+      "title": "Toya Aftermath Remains Medical And Emotional",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-aftermath",
+        "sortKeyFrom": 21050,
+        "sortKeyTo": 21050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family aftermath after the war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:hospital",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor",
+          "Todoroki Shoto"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "postwar injury",
+          "family aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "location:hospital",
+        "faction:todoroki-family",
+        "topic:postwar-injury",
+        "topic:family-aftermath",
+        "event:todoroki-family-aftermath-after-the-war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor",
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "postwar injury",
+            "family aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the war, Toya’s condition and family conversations remain grim rather than triumphant.",
+        "injection": "In epilogue Context, keep the Todoroki aftermath somber; survival does not mean healing is simple.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 426-427",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_shoto-separates-his-hero-path-from-endeavor",
+      "title": "Shoto Separates His Hero Path From Endeavor",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-aftermath",
+        "sortKeyFrom": 21050,
+        "sortKeyTo": 21050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family aftermath after the war"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:dabi",
+          "mha:hospital",
+          "mha:todoroki-family",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Todoroki Shoto",
+          "Endeavor",
+          "Dabi"
+        ],
+        "locations": [
+          "Hospital"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family",
+          "Heroes"
+        ],
+        "topics": [
+          "independent identity",
+          "hero path"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "character:dabi",
+        "location:hospital",
+        "faction:todoroki-family",
+        "faction:heroes",
+        "topic:independent-identity",
+        "topic:hero-path",
+        "event:todoroki-family-aftermath-after-the-war"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Todoroki Shoto",
+            "Endeavor",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Hospital"
+          ],
+          "factionsAny": [
+            "Todoroki Family",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "independent identity",
+            "hero path"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto continues defining himself as a hero beyond Endeavor’s legacy and the family scandal.",
+        "injection": "Write Shoto’s postwar identity as self-chosen; he is not just Endeavor’s son or Toya’s brother.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 426-427",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_dabi-truth-is-public-during-final-war",
+      "title": "Dabi Truth Is Public During Final War",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gunga-dabi-crisis",
+        "sortKeyFrom": 20250,
+        "sortKeyTo": 20250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi turns Gunga into a thermal crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:gunga-mountain-villa",
+          "mha:heroes",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Civilians"
+        ],
+        "topics": [
+          "public scandal",
+          "Toya reveal aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "character:endeavor",
+        "character:hawks",
+        "location:gunga-mountain-villa",
+        "faction:heroes",
+        "faction:civilians",
+        "topic:public-scandal",
+        "topic:toya-reveal-aftermath",
+        "event:dabi-turns-gunga-into-a-thermal-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public scandal",
+            "Toya reveal aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "By Final War, Dabi’s Toya identity and Endeavor family abuse are already public context from the war broadcast.",
+        "injection": "Do not hide the Toya reveal in Final War scenes after the broadcast; the scandal is active public damage.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 375-389",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-early-todoroki-family-resolution-before-final-war",
+      "title": "No Early Todoroki Family Resolution Before Final War",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.kamino-dabi-battle-starts",
+        "sortKeyFrom": 19300,
+        "sortKeyTo": 19300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kamino battle against Dabi begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:endeavor",
+          "mha:kamino-ward",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Dabi",
+          "Todoroki Shoto",
+          "Endeavor"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "future guard",
+          "family resolution gate"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "character:todoroki-shoto",
+        "character:endeavor",
+        "location:kamino-ward",
+        "faction:todoroki-family",
+        "topic:future-guard",
+        "topic:family-resolution-gate",
+        "event:kamino-battle-against-dabi-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Todoroki Shoto",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "family resolution gate"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the initial Kamino battle, the full family convergence and postwar aftermath have not happened yet.",
+        "injection": "Gate later Gunga and epilogue family states until their anchors; Shoto must not speak as if the family crisis is already resolved.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-350",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:endeavor"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_rei-facing-toya-is-necessary-not-decorative",
+      "title": "Rei Facing Toya Is Necessary Not Decorative",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.todoroki-family-converges",
+        "sortKeyFrom": 20300,
+        "sortKeyTo": 20300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Todoroki family converges on Dabi"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-rei",
+          "mha:dabi",
+          "mha:gunga-mountain-villa",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Todoroki Rei",
+          "Dabi"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "mother and son",
+          "family accountability"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:todoroki-rei",
+        "character:dabi",
+        "location:gunga-mountain-villa",
+        "faction:todoroki-family",
+        "topic:mother-and-son",
+        "topic:family-accountability",
+        "event:todoroki-family-converges-on-dabi"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Todoroki Rei",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "mother and son",
+            "family accountability"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Rei’s presence matters because Toya’s tragedy involves the entire family system, not just Endeavor.",
+        "injection": "Do not leave Rei as passive scenery; her arrival is part of the family reckoning.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 386-390",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_dabi-copies-movement-more-than-balance",
+      "title": "Dabi Copies Movement More Than Balance",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.shoto-defeats-dabi-first",
+        "sortKeyFrom": 19400,
+        "sortKeyTo": 19400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shoto defeats Dabi at Kamino first time"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:todoroki-shoto",
+          "mha:kamino-ward"
+        ],
+        "characters": [
+          "Dabi",
+          "Todoroki Shoto"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "imitation",
+          "unstable adaptation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:dabi",
+        "character:todoroki-shoto",
+        "location:kamino-ward",
+        "topic:imitation",
+        "topic:unstable-adaptation",
+        "event:shoto-defeats-dabi-at-kamino-first-time"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Todoroki Shoto"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "imitation",
+            "unstable adaptation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi can imitate or adapt from Shoto’s movement, but he lacks Shoto’s balanced fire-and-ice stability.",
+        "injection": "Do not give Dabi true safe Phosphor mastery; his imitation is dangerous and unstable.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 351-353",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_endeavor-chooses-to-burn-with-toya-if-needed",
+      "title": "Endeavor Chooses To Burn With Toya If Needed",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.gunga-dabi-crisis",
+        "sortKeyFrom": 20250,
+        "sortKeyTo": 20250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi turns Gunga into a thermal crisis"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "battlefield",
+          "id": "mha.battlefield.kamino-gunga",
+          "label": "Kamino and Gunga Todoroki battlefield",
+          "required": false
+        },
+        {
+          "axis": "family_state",
+          "id": "mha.family.todoroki-final-confrontation",
+          "label": "Todoroki final family confrontation",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:dabi",
+          "mha:gunga-mountain-villa",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Endeavor",
+          "Dabi"
+        ],
+        "locations": [
+          "Gunga Mountain Villa"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "atonement",
+          "death wish"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:endeavor",
+        "character:dabi",
+        "location:gunga-mountain-villa",
+        "faction:todoroki-family",
+        "topic:atonement",
+        "topic:death-wish",
+        "event:dabi-turns-gunga-into-a-thermal-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Gunga Mountain Villa"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "atonement",
+            "death wish"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor is prepared to die containing Toya’s explosion before the rest of the family intervenes.",
+        "injection": "Use Endeavor’s intent as despairing accountability, not a triumphant sacrifice.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 375-389",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

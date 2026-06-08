@@ -1,0 +1,834 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.dhst.tartarus-breakout",
+      "label": "Tartarus breakout releases All For One and prisoners",
+      "sortKey": 17000,
+      "aliases": [
+        "Tartarus breakout",
+        "All For One escapes Tartarus"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "event:tartarus-breakout"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 297-306"
+      }
+    },
+    {
+      "id": "mha.dhst.prisons-fall",
+      "label": "Multiple prison breakouts destabilize Japan",
+      "sortKey": 17025,
+      "aliases": [
+        "prisons fall",
+        "multiple prison breakouts"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "event:prison-breakouts"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 297-306"
+      }
+    },
+    {
+      "id": "mha.dhst.hero-society-collapse",
+      "label": "Hero society collapses under postwar fear",
+      "sortKey": 17050,
+      "aliases": [
+        "hero society collapse",
+        "postwar public fear"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "topic:hero-society-collapse"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 306-307"
+      }
+    },
+    {
+      "id": "mha.dhst.deku-leaves-ua",
+      "label": "Deku leaves U.A. to draw danger away",
+      "sortKey": 17100,
+      "aliases": [
+        "Deku leaves UA",
+        "Deku leaves U.A.",
+        "Izuku leaves school"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306"
+      }
+    },
+    {
+      "id": "mha.dhst.ofa-council-truth",
+      "label": "One For All truth is shared with selected allies",
+      "sortKey": 17125,
+      "aliases": [
+        "OFA council truth",
+        "Deku letters to class",
+        "One For All revealed to class"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306"
+      }
+    },
+    {
+      "id": "mha.dhst.top-hero-network",
+      "label": "Deku works with All Might and top heroes",
+      "sortKey": 17150,
+      "aliases": [
+        "top hero network",
+        "Deku with top pros"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "faction:pro-heroes"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309"
+      }
+    },
+    {
+      "id": "mha.dhst.muscular-rematch",
+      "label": "Deku defeats Muscular in rematch",
+      "sortKey": 17200,
+      "aliases": [
+        "Muscular rematch",
+        "Deku vs Muscular rematch"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:muscular"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309"
+      }
+    },
+    {
+      "id": "mha.dhst.yo-shindo-civilians",
+      "label": "Yo Shindo fails to persuade endangered civilians",
+      "sortKey": 17225,
+      "aliases": [
+        "Yo Shindo civilians",
+        "Grand tries evacuation"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:yo-shindo",
+        "topic:evacuation"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 307-309"
+      }
+    },
+    {
+      "id": "mha.dhst.deku-solo-deteriorates",
+      "label": "Deku deteriorates through solo hero work",
+      "sortKey": 17275,
+      "aliases": [
+        "Dark Deku deteriorates",
+        "solo Deku exhausted"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-317"
+      }
+    },
+    {
+      "id": "mha.dhst.second-third-users-align",
+      "label": "Second and Third OFA users align with Deku",
+      "sortKey": 17300,
+      "aliases": [
+        "Second and Third users cooperate",
+        "OFA vestiges align"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 310-313"
+      }
+    },
+    {
+      "id": "mha.dhst.lady-nagant-ambush",
+      "label": "Lady Nagant ambushes Deku",
+      "sortKey": 17350,
+      "aliases": [
+        "Lady Nagant ambush",
+        "Nagant attacks Deku"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:lady-nagant"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 312-313"
+      }
+    },
+    {
+      "id": "mha.dhst.deku-vs-lady-nagant",
+      "label": "Deku fights Lady Nagant",
+      "sortKey": 17400,
+      "aliases": [
+        "Deku vs Lady Nagant",
+        "Nagant battle"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315"
+      }
+    },
+    {
+      "id": "mha.dhst.fa-jin-revealed",
+      "label": "Deku uses Fa Jin for Faux 100 Percent",
+      "sortKey": 17425,
+      "aliases": [
+        "Fa Jin revealed",
+        "Faux 100 Percent"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "quirk:fa-jin"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315"
+      }
+    },
+    {
+      "id": "mha.dhst.overhaul-with-nagant",
+      "label": "Overhaul appears with Lady Nagant",
+      "sortKey": 17450,
+      "aliases": [
+        "Overhaul with Nagant",
+        "Chisaki after prison"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:overhaul"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 313-315"
+      }
+    },
+    {
+      "id": "mha.dhst.nagant-explosion",
+      "label": "All For One turns Nagant into an explosive trap",
+      "sortKey": 17475,
+      "aliases": [
+        "Nagant explodes",
+        "AFO trap on Nagant"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:lady-nagant",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 315"
+      }
+    },
+    {
+      "id": "mha.dhst.mansion-trap",
+      "label": "Deku reaches AFO mansion trap",
+      "sortKey": 17500,
+      "aliases": [
+        "mansion trap",
+        "AFO mansion message"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 316-317"
+      }
+    },
+    {
+      "id": "mha.dhst.dictator-incident",
+      "label": "Dictator uses civilians against exhausted Deku",
+      "sortKey": 17550,
+      "aliases": [
+        "Dictator incident",
+        "civilians controlled by Dictator"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:dictator"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 318"
+      }
+    },
+    {
+      "id": "mha.dhst.class-1a-intervenes",
+      "label": "Class 1-A intervenes to bring Deku back",
+      "sortKey": 17600,
+      "aliases": [
+        "Class 1-A intervenes",
+        "Class A finds Deku"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "class:ua-1a"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321"
+      }
+    },
+    {
+      "id": "mha.dhst.iida-reaches-deku",
+      "label": "Iida reaches Deku through Class 1-A teamwork",
+      "sortKey": 17625,
+      "aliases": [
+        "Iida reaches Deku",
+        "Class A catches Deku"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:iida-tenya"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 321"
+      }
+    },
+    {
+      "id": "mha.dhst.bakugo-apology",
+      "label": "Bakugo apologizes to Izuku",
+      "sortKey": 17650,
+      "aliases": [
+        "Bakugo apology",
+        "Kacchan apologizes"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 322"
+      }
+    },
+    {
+      "id": "mha.dhst.ua-refugee-conflict",
+      "label": "Civilians at U.A. reject Deku sheltering there",
+      "sortKey": 17700,
+      "aliases": [
+        "U.A. civilians reject Deku",
+        "refugee conflict at UA"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "location:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 323-324"
+      }
+    },
+    {
+      "id": "mha.dhst.ochaco-speech",
+      "label": "Ochaco speaks for Deku before civilians",
+      "sortKey": 17725,
+      "aliases": [
+        "Uraraka speech",
+        "Ochaco speech"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:uraraka-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 324"
+      }
+    },
+    {
+      "id": "mha.dhst.deku-rests-at-ua",
+      "label": "Deku is allowed to rest at U.A.",
+      "sortKey": 17750,
+      "aliases": [
+        "Deku rests at UA",
+        "Deku returns to UA"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "location:ua-high",
+        "character:midoriya-izuku"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 325-326"
+      }
+    },
+    {
+      "id": "mha.dhst.stain-all-might",
+      "label": "Stain confronts All Might after the collapse",
+      "sortKey": 17775,
+      "aliases": [
+        "Stain and All Might",
+        "All Might meets Stain"
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:stain",
+        "character:all-might"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 326-328"
+      }
+    },
+    {
+      "id": "mha.dhst.star-arrives",
+      "label": "Star and Stripe heads for Japan",
+      "sortKey": 18000,
+      "aliases": [
+        "Star and Stripe arrives",
+        "Cathleen heads to Japan"
+      ],
+      "tags": [
+        "arc:star-and-stripe",
+        "character:star-and-stripe"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 329"
+      }
+    },
+    {
+      "id": "mha.dhst.star-vs-shigaraki",
+      "label": "Star and Stripe battles Shigaraki/AFO",
+      "sortKey": 18050,
+      "aliases": [
+        "Star vs Shigaraki",
+        "Star and Stripe fight"
+      ],
+      "tags": [
+        "arc:star-and-stripe",
+        "character:star-and-stripe",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333"
+      }
+    },
+    {
+      "id": "mha.dhst.new-order-rules",
+      "label": "New Order rule limits become central",
+      "sortKey": 18075,
+      "aliases": [
+        "New Order rules",
+        "New Order limits"
+      ],
+      "tags": [
+        "arc:star-and-stripe",
+        "quirk:new-order"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 330-333"
+      }
+    },
+    {
+      "id": "mha.dhst.star-sacrifice",
+      "label": "Star sacrifices herself to damage Shigaraki/AFO",
+      "sortKey": 18100,
+      "aliases": [
+        "Star sacrifice",
+        "New Order revolts"
+      ],
+      "tags": [
+        "arc:star-and-stripe",
+        "character:star-and-stripe"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 333"
+      }
+    },
+    {
+      "id": "mha.dhst.shigaraki-delay",
+      "label": "Star damage delays Shigaraki completion",
+      "sortKey": 18125,
+      "aliases": [
+        "Shigaraki delayed",
+        "AFO plan delayed by Star"
+      ],
+      "tags": [
+        "arc:star-and-stripe",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 334"
+      }
+    },
+    {
+      "id": "mha.dhst.aoyama-reveal",
+      "label": "Aoyama is revealed as the U.A. traitor",
+      "sortKey": 18500,
+      "aliases": [
+        "Aoyama traitor reveal",
+        "UA traitor revealed"
+      ],
+      "tags": [
+        "arc:ua-traitor",
+        "character:aoyama-yuga"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 335-337"
+      }
+    },
+    {
+      "id": "mha.dhst.aoyama-family-coercion",
+      "label": "Aoyama family coercion by All For One is exposed",
+      "sortKey": 18525,
+      "aliases": [
+        "Aoyama family coerced",
+        "AFO coerces Aoyama"
+      ],
+      "tags": [
+        "arc:ua-traitor",
+        "character:aoyama-yuga",
+        "character:all-for-one"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 336-337"
+      }
+    },
+    {
+      "id": "mha.dhst.class-a-response-aoyama",
+      "label": "Class 1-A responds to Aoyama as a person",
+      "sortKey": 18550,
+      "aliases": [
+        "Class A responds to Aoyama",
+        "Deku reaches Aoyama"
+      ],
+      "tags": [
+        "arc:ua-traitor",
+        "class:ua-1a",
+        "character:aoyama-yuga"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 337-338"
+      }
+    },
+    {
+      "id": "mha.dhst.aizawa-aoyama-plan",
+      "label": "Aizawa proposes using Aoyama to draw out All For One",
+      "sortKey": 18600,
+      "aliases": [
+        "Aizawa Aoyama plan",
+        "use Aoyama as bait"
+      ],
+      "tags": [
+        "arc:ua-traitor",
+        "character:aizawa-shota",
+        "character:aoyama-yuga"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 338-340"
+      }
+    },
+    {
+      "id": "mha.dhst.final-war-prep",
+      "label": "Heroes prepare final operation after traitor reveal",
+      "sortKey": 18650,
+      "aliases": [
+        "final war prep",
+        "heroes prepare final battle"
+      ],
+      "tags": [
+        "arc:ua-traitor",
+        "arc:final-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 339-342"
+      }
+    },
+    {
+      "id": "mha.dhst.before-final-war",
+      "label": "Before the Final War begins",
+      "sortKey": 18700,
+      "aliases": [
+        "before Final War",
+        "immediately before final battle"
+      ],
+      "tags": [
+        "arc:ua-traitor",
+        "arc:final-war"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 342"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.dhst.window.dark-hero",
+      "label": "Dark Hero Arc",
+      "anchorFrom": "mha.dhst.tartarus-breakout",
+      "anchorTo": "mha.dhst.stain-all-might",
+      "sortKeyFrom": 17000,
+      "sortKeyTo": 17775,
+      "aliases": [
+        "Dark Hero arc",
+        "vigilante Deku arc"
+      ],
+      "tags": [
+        "arc:dark-hero"
+      ]
+    },
+    {
+      "id": "mha.dhst.window.lady-nagant",
+      "label": "Lady Nagant and HPSC legacy",
+      "anchorFrom": "mha.dhst.lady-nagant-ambush",
+      "anchorTo": "mha.dhst.nagant-explosion",
+      "sortKeyFrom": 17350,
+      "sortKeyTo": 17475,
+      "aliases": [
+        "Lady Nagant fight",
+        "Nagant arc segment"
+      ],
+      "tags": [
+        "character:lady-nagant"
+      ]
+    },
+    {
+      "id": "mha.dhst.window.class-rescue",
+      "label": "Class 1-A brings Deku back",
+      "anchorFrom": "mha.dhst.class-1a-intervenes",
+      "anchorTo": "mha.dhst.deku-rests-at-ua",
+      "sortKeyFrom": 17600,
+      "sortKeyTo": 17750,
+      "aliases": [
+        "Class A retrieval",
+        "Class 1-A rescue Deku"
+      ],
+      "tags": [
+        "class:ua-1a",
+        "character:midoriya-izuku"
+      ]
+    },
+    {
+      "id": "mha.dhst.window.star-and-stripe",
+      "label": "Star and Stripe Arc",
+      "anchorFrom": "mha.dhst.star-arrives",
+      "anchorTo": "mha.dhst.shigaraki-delay",
+      "sortKeyFrom": 18000,
+      "sortKeyTo": 18125,
+      "aliases": [
+        "Star and Stripe arc",
+        "Star vs Shigaraki"
+      ],
+      "tags": [
+        "arc:star-and-stripe"
+      ]
+    },
+    {
+      "id": "mha.dhst.window.ua-traitor",
+      "label": "U.A. Traitor Arc",
+      "anchorFrom": "mha.dhst.aoyama-reveal",
+      "anchorTo": "mha.dhst.before-final-war",
+      "sortKeyFrom": 18500,
+      "sortKeyTo": 18700,
+      "aliases": [
+        "U.A. Traitor arc",
+        "UA traitor reveal"
+      ],
+      "tags": [
+        "arc:ua-traitor"
+      ]
+    },
+    {
+      "id": "mha.dhst.window.final-war-staging",
+      "label": "Final War staging before battle",
+      "anchorFrom": "mha.dhst.aizawa-aoyama-plan",
+      "anchorTo": "mha.dhst.before-final-war",
+      "sortKeyFrom": 18600,
+      "sortKeyTo": 18700,
+      "aliases": [
+        "before Final War",
+        "final battle preparation"
+      ],
+      "tags": [
+        "arc:final-war"
+      ]
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "arc",
+      "id": "mha.arc.dark-hero",
+      "label": "Dark Hero Arc"
+    },
+    {
+      "axis": "arc",
+      "id": "mha.arc.star-and-stripe",
+      "label": "Star and Stripe Arc"
+    },
+    {
+      "axis": "arc",
+      "id": "mha.arc.ua-traitor",
+      "label": "U.A. Traitor Arc"
+    },
+    {
+      "axis": "route",
+      "id": "mha.route.deku-solo",
+      "label": "Deku solo route"
+    },
+    {
+      "axis": "route",
+      "id": "mha.route.class-1a-retrieval",
+      "label": "Class 1-A retrieval route"
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.global-shigaraki",
+      "label": "Global response to Shigaraki/AFO"
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.postwar-collapse",
+      "label": "Postwar hero society collapse"
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.ua-refuge",
+      "label": "U.A. civilian refuge crisis"
+    },
+    {
+      "axis": "villain_org_state",
+      "id": "mha.villains.afo-breakout-network",
+      "label": "All For One breakout network active"
+    },
+    {
+      "axis": "quirk_stage",
+      "id": "mha.quirk.ofa-multiple-quirks-active",
+      "label": "One For All multiple Quirks active"
+    },
+    {
+      "axis": "adaptation",
+      "id": "manga-primary",
+      "label": "Manga primary continuity"
+    }
+  ]
+}

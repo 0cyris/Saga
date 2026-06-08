@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 3,
+  "weights": {
+    "contextMatch": 30,
+    "contextUnresolvedPenalty": -8,
+    "anchorProximity": 16,
+    "tagMatch": 18,
+    "packStack": 10,
+    "sourceConfidence": 8,
+    "healthWarningPenalty": -4,
+    "duplicatePenalty": -25
+  },
+  "kindBoosts": {
+    "knowledge_gate": 18,
+    "ability_gate": 16,
+    "secret": 18,
+    "event_anchor": 10
+  },
+  "packTypeBoosts": {
+    "bundled": 4,
+    "custom": 2,
+    "generated": 0
+  }
+}

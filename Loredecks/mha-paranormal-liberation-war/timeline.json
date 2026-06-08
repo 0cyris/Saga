@@ -1,0 +1,1168 @@
+{
+  "schemaVersion": 1,
+  "timelineMode": "hybrid",
+  "sortKeyScale": "pack_local",
+  "anchors": [
+    {
+      "id": "mha.plw.winter-reports",
+      "label": "Class 1-A returns from winter work studies",
+      "sortKey": 15000,
+      "aliases": [
+        "winter reports",
+        "students report internships"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "school:ua-high"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 253"
+      }
+    },
+    {
+      "id": "mha.plw.kurogiri-shirakumo",
+      "label": "Kurogiri and Shirakumo truth is confronted",
+      "sortKey": 15050,
+      "aliases": [
+        "Kurogiri Shirakumo reveal",
+        "Aizawa and Present Mic at Tartarus"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "secret:kurogiri-shirakumo"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 254-255"
+      }
+    },
+    {
+      "id": "mha.plw.hawks-plf-intel",
+      "label": "Hawks intelligence points heroes toward PLF war",
+      "sortKey": 15100,
+      "aliases": [
+        "Hawks warning",
+        "PLF intel",
+        "hospital and villa intel"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:hawks",
+        "faction:paranormal-liberation-front"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 256-258"
+      }
+    },
+    {
+      "id": "mha.plw.heroes-mobilize",
+      "label": "Heroes mobilize for coordinated raids",
+      "sortKey": 15150,
+      "aliases": [
+        "heroes mobilize",
+        "operation begins",
+        "raid teams assemble"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "faction:pro-heroes"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 258-259"
+      }
+    },
+    {
+      "id": "mha.plw.evacuations-begin",
+      "label": "Students assist evacuation before combat escalates",
+      "sortKey": 15175,
+      "aliases": [
+        "evacuation begins",
+        "student evacuation teams"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "topic:evacuation"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 258-259"
+      }
+    },
+    {
+      "id": "mha.plw.hospital-raid-start",
+      "label": "Jaku Hospital raid begins",
+      "sortKey": 15200,
+      "aliases": [
+        "hospital raid starts",
+        "Jaku Hospital operation"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "location:jaku-hospital"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 259"
+      }
+    },
+    {
+      "id": "mha.plw.garaki-exposed",
+      "label": "Doctor Garaki is exposed as PLF collaborator",
+      "sortKey": 15225,
+      "aliases": [
+        "Garaki exposed",
+        "doctor exposed",
+        "Ujiko exposed"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:kyudai-garaki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-260"
+      }
+    },
+    {
+      "id": "mha.plw.mirko-lab-assault",
+      "label": "Mirko assaults Garaki laboratory",
+      "sortKey": 15250,
+      "aliases": [
+        "Mirko lab assault",
+        "Mirko pushes ahead"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:mirko"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 260-262"
+      }
+    },
+    {
+      "id": "mha.plw.high-ends-awaken",
+      "label": "High-End Nomu awaken in the hospital lab",
+      "sortKey": 15300,
+      "aliases": [
+        "High Ends awaken",
+        "Nomu lab fight"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "entity:high-end-nomu"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 262-265"
+      }
+    },
+    {
+      "id": "mha.plw.mirko-damages-tank",
+      "label": "Mirko damages Shigaraki preservation tank",
+      "sortKey": 15350,
+      "aliases": [
+        "Mirko breaks Shigaraki tank",
+        "Shigaraki tank damaged"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:mirko",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 266-268"
+      }
+    },
+    {
+      "id": "mha.plw.present-mic-captures-garaki",
+      "label": "Present Mic captures Garaki and disrupts the lab",
+      "sortKey": 15400,
+      "aliases": [
+        "Present Mic captures Garaki",
+        "Garaki captured"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:present-mic",
+        "character:kyudai-garaki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 269-270"
+      }
+    },
+    {
+      "id": "mha.plw.shigaraki-awakens",
+      "label": "Shigaraki awakens from enhancement",
+      "sortKey": 15450,
+      "aliases": [
+        "Shigaraki awakens",
+        "Tomura wakes up"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 270-272"
+      }
+    },
+    {
+      "id": "mha.plw.decay-wave",
+      "label": "Shigaraki releases a massive Decay wave",
+      "sortKey": 15500,
+      "aliases": [
+        "Decay wave",
+        "Jaku destruction"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "quirk:decay"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 272"
+      }
+    },
+    {
+      "id": "mha.plw.crust-death",
+      "label": "Crust dies saving Aizawa",
+      "sortKey": 15525,
+      "aliases": [
+        "Crust death",
+        "Crust saves Aizawa"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:crust",
+        "character:aizawa-shota"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 272"
+      }
+    },
+    {
+      "id": "mha.plw.deku-bakugo-rush",
+      "label": "Deku and Bakugo draw Shigaraki away",
+      "sortKey": 15550,
+      "aliases": [
+        "Deku and Bakugo rush Shigaraki",
+        "Shigaraki targets One For All"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:midoriya-izuku",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-275"
+      }
+    },
+    {
+      "id": "mha.plw.aizawa-erasure-battle",
+      "label": "Aizawa holds Shigaraki under Erasure",
+      "sortKey": 15600,
+      "aliases": [
+        "Aizawa erases Shigaraki",
+        "Erasure holds Shigaraki back"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:aizawa-shota",
+        "quirk:erasure"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 275-282"
+      }
+    },
+    {
+      "id": "mha.plw.gran-torino-injured",
+      "label": "Gran Torino is critically injured by Shigaraki",
+      "sortKey": 15625,
+      "aliases": [
+        "Gran Torino injured",
+        "Shigaraki wounds Gran Torino"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:gran-torino"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 281"
+      }
+    },
+    {
+      "id": "mha.plw.aizawa-leg-injury",
+      "label": "Aizawa sacrifices his leg to stop a Quirk-destroying bullet",
+      "sortKey": 15650,
+      "aliases": [
+        "Aizawa cuts off leg",
+        "Aizawa stops bullet"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:aizawa-shota"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 282"
+      }
+    },
+    {
+      "id": "mha.plw.float-awakens",
+      "label": "Deku uses Float in battle",
+      "sortKey": 15700,
+      "aliases": [
+        "Float awakens",
+        "Deku uses Nana Shimura Quirk"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "quirk:float",
+        "quirk:one-for-all"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 283"
+      }
+    },
+    {
+      "id": "mha.plw.bakugo-rising",
+      "label": "Bakugo takes a hit meant for Deku",
+      "sortKey": 15750,
+      "aliases": [
+        "Bakugo Rising",
+        "Bakugo saves Deku"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:bakugo-katsuki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 285"
+      }
+    },
+    {
+      "id": "mha.plw.afo-vestige-pressure",
+      "label": "All For One influence pressures Shigaraki from within",
+      "sortKey": 15800,
+      "aliases": [
+        "AFO vestige pressure",
+        "All For One inside Shigaraki"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:all-for-one",
+        "character:shigaraki-tomura"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 286-287"
+      }
+    },
+    {
+      "id": "mha.plw.villa-raid-start",
+      "label": "Gunga Mountain Villa raid begins",
+      "sortKey": 16000,
+      "aliases": [
+        "villa raid starts",
+        "Gunga raid begins"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "location:gunga-mountain-villa"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 259-263"
+      }
+    },
+    {
+      "id": "mha.plw.kaminari-frontline",
+      "label": "Kaminari absorbs PLF opening lightning",
+      "sortKey": 16025,
+      "aliases": [
+        "Kaminari frontline",
+        "Kaminari absorbs electric attack"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:kaminari-denki"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 263"
+      }
+    },
+    {
+      "id": "mha.plw.hawks-confronts-twice",
+      "label": "Hawks confronts Twice in the villa",
+      "sortKey": 16050,
+      "aliases": [
+        "Hawks vs Twice",
+        "Hawks traps Twice"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:hawks",
+        "character:twice"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 264-266"
+      }
+    },
+    {
+      "id": "mha.plw.twice-death",
+      "label": "Twice dies during Hawks confrontation",
+      "sortKey": 16100,
+      "aliases": [
+        "Twice dies",
+        "Jin Bubaigawara death"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:twice",
+        "character:hawks"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 266"
+      }
+    },
+    {
+      "id": "mha.plw.dabi-attacks-hawks",
+      "label": "Dabi burns Hawks after Twice death",
+      "sortKey": 16125,
+      "aliases": [
+        "Dabi attacks Hawks",
+        "Hawks wings burned"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:dabi",
+        "character:hawks"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 267-271"
+      }
+    },
+    {
+      "id": "mha.plw.tokoyami-rescues-hawks",
+      "label": "Tokoyami rescues Hawks from Dabi",
+      "sortKey": 16150,
+      "aliases": [
+        "Tokoyami saves Hawks",
+        "Dark Shadow rescues Hawks"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:tokoyami-fumikage",
+        "character:hawks"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 271"
+      }
+    },
+    {
+      "id": "mha.plw.gigantomachia-awakens",
+      "label": "Gigantomachia wakes and moves for Shigaraki",
+      "sortKey": 16200,
+      "aliases": [
+        "Gigantomachia awakens",
+        "Machia moves"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:gigantomachia"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 273-276"
+      }
+    },
+    {
+      "id": "mha.plw.machia-march",
+      "label": "Gigantomachia begins destructive march",
+      "sortKey": 16250,
+      "aliases": [
+        "Machia march",
+        "Gigantomachia rampage"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:gigantomachia"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 276-279"
+      }
+    },
+    {
+      "id": "mha.plw.midnight-falls",
+      "label": "Midnight is separated and fatally endangered",
+      "sortKey": 16275,
+      "aliases": [
+        "Midnight falls",
+        "Midnight gives sedative instruction"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:midnight"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 278-279"
+      }
+    },
+    {
+      "id": "mha.plw.students-sedative-plan",
+      "label": "Students attempt sedative plan against Gigantomachia",
+      "sortKey": 16300,
+      "aliases": [
+        "sedative plan",
+        "Momo plans sedative"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:yaoyorozu-momo",
+        "character:gigantomachia"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 279-280"
+      }
+    },
+    {
+      "id": "mha.plw.machia-reaches-battlefield",
+      "label": "Gigantomachia reaches the main battlefield",
+      "sortKey": 16350,
+      "aliases": [
+        "Machia reaches Shigaraki",
+        "League arrives on Machia"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:gigantomachia"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 286-289"
+      }
+    },
+    {
+      "id": "mha.plw.dabi-broadcast",
+      "label": "Dabi broadcasts Toya Todoroki identity",
+      "sortKey": 16400,
+      "aliases": [
+        "Dabi broadcast",
+        "Toya reveal",
+        "Dabi Dance"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "secret:dabi-toya",
+        "character:dabi"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290"
+      }
+    },
+    {
+      "id": "mha.plw.endeavor-breaks",
+      "label": "Endeavor freezes under Toya reveal",
+      "sortKey": 16425,
+      "aliases": [
+        "Endeavor freezes",
+        "Endeavor hears Toya"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "family:todoroki",
+        "character:endeavor"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 290-291"
+      }
+    },
+    {
+      "id": "mha.plw.best-jeanist-arrives",
+      "label": "Best Jeanist returns alive and restrains the battlefield",
+      "sortKey": 16450,
+      "aliases": [
+        "Best Jeanist arrives",
+        "Jeanist returns"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:best-jeanist"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 291-292"
+      }
+    },
+    {
+      "id": "mha.plw.mirio-returns",
+      "label": "Mirio returns with Permeation restored",
+      "sortKey": 16475,
+      "aliases": [
+        "Mirio returns",
+        "Lemillion returns"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:mirio-togata",
+        "quirk:permeation"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 292"
+      }
+    },
+    {
+      "id": "mha.plw.toga-ochaco-confrontation",
+      "label": "Toga confronts Ochaco over heroes and Twice",
+      "sortKey": 16500,
+      "aliases": [
+        "Toga and Ochaco confrontation",
+        "Toga asks Uraraka"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:toga-himiko",
+        "character:uraraka-ochaco"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 288-289"
+      }
+    },
+    {
+      "id": "mha.plw.mr-compress-sacrifice",
+      "label": "Mr. Compress sacrifices himself to enable villain escape",
+      "sortKey": 16525,
+      "aliases": [
+        "Mr Compress sacrifice",
+        "Compress escape play"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:mr-compress"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 294-295"
+      }
+    },
+    {
+      "id": "mha.plw.war-collapse",
+      "label": "War battle collapses into mass casualty aftermath",
+      "sortKey": 16600,
+      "aliases": [
+        "war aftermath begins",
+        "battle ends",
+        "heroes collapse"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "topic:war-aftermath"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 296"
+      }
+    },
+    {
+      "id": "mha.plw.prison-breaks",
+      "label": "All For One triggers prison breaks",
+      "sortKey": 16625,
+      "aliases": [
+        "Tartarus break",
+        "prison breakouts"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:all-for-one",
+        "location:tartarus"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 297-298"
+      }
+    },
+    {
+      "id": "mha.plw.hospital-aftermath",
+      "label": "Surviving students and heroes wake to losses",
+      "sortKey": 16650,
+      "aliases": [
+        "hospital aftermath",
+        "students after war"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "topic:war-aftermath"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 299-303"
+      }
+    },
+    {
+      "id": "mha.plw.public-trust-collapses",
+      "label": "Public trust in hero society collapses",
+      "sortKey": 16700,
+      "aliases": [
+        "hero society collapse",
+        "public trust collapses"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "topic:hero-society-collapse"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 300-306"
+      }
+    },
+    {
+      "id": "mha.plw.ofa-council",
+      "label": "Deku confronts One For All vestiges in hospital state",
+      "sortKey": 16750,
+      "aliases": [
+        "OFA vestige council",
+        "Deku talks to vestiges"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "quirk:one-for-all",
+        "topic:vestiges"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 304-305"
+      }
+    },
+    {
+      "id": "mha.plw.deku-leaves-ua",
+      "label": "Deku leaves U.A. to protect others",
+      "sortKey": 16800,
+      "aliases": [
+        "Deku leaves U.A.",
+        "Deku becomes vigilante setup",
+        "Dark Hero setup"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war",
+        "character:midoriya-izuku",
+        "arc:dark-hero"
+      ],
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 306"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "mha.plw.window.full",
+      "label": "Paranormal Liberation War full arc",
+      "anchorFrom": "mha.plw.winter-reports",
+      "anchorTo": "mha.plw.deku-leaves-ua",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "Paranormal Liberation War arc",
+        "PLW arc"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war"
+      ]
+    },
+    {
+      "id": "mha.plw.window.prewar-setup",
+      "label": "Pre-war setup and Kurogiri/Hawks intelligence",
+      "anchorFrom": "mha.plw.winter-reports",
+      "anchorTo": "mha.plw.heroes-mobilize",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 15150,
+      "aliases": [
+        "pre-war setup",
+        "before the raids"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war"
+      ]
+    },
+    {
+      "id": "mha.plw.window.hospital-raid",
+      "label": "Jaku Hospital raid",
+      "anchorFrom": "mha.plw.hospital-raid-start",
+      "anchorTo": "mha.plw.afo-vestige-pressure",
+      "sortKeyFrom": 15200,
+      "sortKeyTo": 15800,
+      "aliases": [
+        "hospital front",
+        "Jaku front"
+      ],
+      "tags": [
+        "location:jaku-hospital"
+      ]
+    },
+    {
+      "id": "mha.plw.window.villa-raid",
+      "label": "Gunga Mountain Villa raid",
+      "anchorFrom": "mha.plw.villa-raid-start",
+      "anchorTo": "mha.plw.mr-compress-sacrifice",
+      "sortKeyFrom": 16000,
+      "sortKeyTo": 16525,
+      "aliases": [
+        "villa front",
+        "Gunga front"
+      ],
+      "tags": [
+        "location:gunga-mountain-villa"
+      ]
+    },
+    {
+      "id": "mha.plw.window.shigaraki-battle",
+      "label": "Shigaraki battlefield",
+      "anchorFrom": "mha.plw.shigaraki-awakens",
+      "anchorTo": "mha.plw.best-jeanist-arrives",
+      "sortKeyFrom": 15450,
+      "sortKeyTo": 16450,
+      "aliases": [
+        "Shigaraki fight",
+        "Jaku battlefield"
+      ],
+      "tags": [
+        "character:shigaraki-tomura"
+      ]
+    },
+    {
+      "id": "mha.plw.window.gigantomachia-march",
+      "label": "Gigantomachia march",
+      "anchorFrom": "mha.plw.gigantomachia-awakens",
+      "anchorTo": "mha.plw.machia-reaches-battlefield",
+      "sortKeyFrom": 16200,
+      "sortKeyTo": 16350,
+      "aliases": [
+        "Machia march",
+        "Gigantomachia rampage"
+      ],
+      "tags": [
+        "character:gigantomachia"
+      ]
+    },
+    {
+      "id": "mha.plw.window.dabi-broadcast",
+      "label": "Dabi broadcast and Todoroki family shock",
+      "anchorFrom": "mha.plw.dabi-broadcast",
+      "anchorTo": "mha.plw.best-jeanist-arrives",
+      "sortKeyFrom": 16400,
+      "sortKeyTo": 16450,
+      "aliases": [
+        "Dabi Dance",
+        "Toya reveal"
+      ],
+      "tags": [
+        "secret:dabi-toya",
+        "family:todoroki"
+      ]
+    },
+    {
+      "id": "mha.plw.window.aftermath",
+      "label": "War aftermath and hero-society collapse",
+      "anchorFrom": "mha.plw.war-collapse",
+      "anchorTo": "mha.plw.deku-leaves-ua",
+      "sortKeyFrom": 16600,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "post-war aftermath",
+        "after the war"
+      ],
+      "tags": [
+        "topic:war-aftermath",
+        "topic:hero-society-collapse"
+      ]
+    },
+    {
+      "id": "mha.plw.window.dark-hero-setup",
+      "label": "Setup for Dark Hero arc",
+      "anchorFrom": "mha.plw.ofa-council",
+      "anchorTo": "mha.plw.deku-leaves-ua",
+      "sortKeyFrom": 16750,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "Dark Hero setup",
+        "Deku leaves U.A."
+      ],
+      "tags": [
+        "arc:dark-hero",
+        "character:midoriya-izuku"
+      ]
+    }
+  ],
+  "coordinates": [
+    {
+      "axis": "arc",
+      "id": "mha.arc.paranormal-liberation-war",
+      "label": "Paranormal Liberation War",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "PLW",
+        "war arc",
+        "Paranormal Liberation War"
+      ]
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.prewar-intel",
+      "label": "Pre-war intelligence and mobilization",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 15175,
+      "aliases": [
+        "pre-war intel"
+      ]
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.jaku-hospital",
+      "label": "Jaku Hospital front",
+      "sortKeyFrom": 15200,
+      "sortKeyTo": 15800,
+      "aliases": [
+        "hospital front",
+        "Jaku front"
+      ]
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.gunga-villa",
+      "label": "Gunga Mountain Villa front",
+      "sortKeyFrom": 16000,
+      "sortKeyTo": 16525,
+      "aliases": [
+        "villa front",
+        "Gunga front"
+      ]
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.evacuation",
+      "label": "Civilian evacuation and student rear guard",
+      "sortKeyFrom": 15175,
+      "sortKeyTo": 16350,
+      "aliases": [
+        "evacuation teams",
+        "rear guard"
+      ]
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.shigaraki-battle",
+      "label": "Shigaraki main battlefield",
+      "sortKeyFrom": 15450,
+      "sortKeyTo": 16475,
+      "aliases": [
+        "main battlefield",
+        "Shigaraki fight"
+      ]
+    },
+    {
+      "axis": "front",
+      "id": "mha.front.gigantomachia-march",
+      "label": "Gigantomachia march",
+      "sortKeyFrom": 16200,
+      "sortKeyTo": 16350,
+      "aliases": [
+        "Machia march"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.war-in-progress",
+      "label": "Hero society in open war with PLF",
+      "sortKeyFrom": 15150,
+      "sortKeyTo": 16600,
+      "aliases": [
+        "open war"
+      ]
+    },
+    {
+      "axis": "hero_society_state",
+      "id": "mha.hero-society.collapse-after-war",
+      "label": "Hero society collapses after the war",
+      "sortKeyFrom": 16600,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "hero society collapse",
+        "post-war collapse"
+      ]
+    },
+    {
+      "axis": "villain_org_state",
+      "id": "mha.villains.plf-open-war",
+      "label": "Paranormal Liberation Front in open war",
+      "sortKeyFrom": 15150,
+      "sortKeyTo": 16600,
+      "aliases": [
+        "PLF open war"
+      ]
+    },
+    {
+      "axis": "quirk_stage",
+      "id": "mha.quirk.ofa-multiple-quirks-emerging",
+      "label": "One For All multiple Quirks emerging under crisis",
+      "sortKeyFrom": 15700,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "OFA multiple Quirks emerging"
+      ]
+    },
+    {
+      "axis": "adaptation",
+      "id": "manga-primary",
+      "label": "Manga primary continuity",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "manga",
+        "manga primary"
+      ]
+    }
+  ],
+  "arcs": [
+    {
+      "id": "mha.arc.paranormal-liberation-war",
+      "label": "Paranormal Liberation War",
+      "sortKeyFrom": 15000,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "PLW",
+        "war arc"
+      ],
+      "tags": [
+        "arc:paranormal-liberation-war"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "mha.phase.hero-society-collapse",
+      "label": "Hero society collapse after PLW",
+      "sortKeyFrom": 16600,
+      "sortKeyTo": 16800,
+      "aliases": [
+        "post-war collapse"
+      ],
+      "tags": [
+        "topic:hero-society-collapse"
+      ]
+    }
+  ]
+}

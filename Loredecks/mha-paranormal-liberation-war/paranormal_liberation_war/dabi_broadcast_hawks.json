@@ -1,0 +1,2116 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_dabi_broadcast_turns_private_abuse_into_public_crisis",
+      "title": "Dabi Broadcast Turns Private Abuse Into Public Crisis",
+      "kind": "event_anchor",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 98,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-broadcast",
+        "sortKeyFrom": 16400,
+        "sortKeyTo": 16400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi broadcasts Toya Todoroki identity"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:toya-todoroki",
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:todoroki-family",
+          "mha:hero-society",
+          "mha:civilians",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Dabi",
+          "Toya Todoroki",
+          "Endeavor",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family",
+          "Hero Society",
+          "Civilians"
+        ],
+        "topics": [
+          "public scandal",
+          "Toya reveal",
+          "Endeavor abuse"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:dabi-toya",
+        "family:todoroki",
+        "character:dabi",
+        "character:toya-todoroki",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "faction:todoroki-family",
+        "faction:hero-society",
+        "faction:civilians",
+        "location:jaku-city",
+        "topic:public-scandal",
+        "topic:toya-reveal",
+        "topic:endeavor-abuse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Toya Todoroki",
+            "Endeavor",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Todoroki Family",
+            "Hero Society",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public scandal",
+            "Toya reveal",
+            "Endeavor abuse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi's broadcast turns the Todoroki family's private abuse into a national hero-society crisis.",
+        "injection": "After Dabi's broadcast, Toya identity is public and destabilizing; before it, keep the secret gated.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_dabi_times_the_reveal_for_maximum_hero_society_damage",
+      "title": "Dabi Times The Reveal For Maximum Hero-Society Damage",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-broadcast",
+        "sortKeyFrom": 16400,
+        "sortKeyTo": 16400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi broadcasts Toya Todoroki identity"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:hero-society",
+          "mha:paranormal-liberation-front",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "Hero Society",
+          "Paranormal Liberation Front"
+        ],
+        "topics": [
+          "media attack",
+          "strategic reveal",
+          "public trust damage"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "secret:dabi-toya",
+        "character:dabi",
+        "character:endeavor",
+        "character:hawks",
+        "faction:hero-society",
+        "faction:paranormal-liberation-front",
+        "location:jaku-city",
+        "topic:media-attack",
+        "topic:strategic-reveal",
+        "topic:public-trust-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Hero Society",
+            "Paranormal Liberation Front"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "media attack",
+            "strategic reveal",
+            "public trust damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi releases the Toya reveal during a national disaster to maximize damage to Endeavor, Hawks, and public trust.",
+        "injection": "Write Dabi’s broadcast as strategic cruelty. It is not only confession; it is timing, media attack, and revenge.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_endeavor_freezes_because_the_villain_is_his_son",
+      "title": "Endeavor Freezes Because The Villain Is His Son",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.endeavor-breaks",
+        "sortKeyFrom": 16425,
+        "sortKeyTo": 16425,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor freezes under Toya reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:dabi",
+          "mha:toya-todoroki",
+          "mha:todoroki-shoto",
+          "mha:todoroki-family",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Endeavor",
+          "Dabi",
+          "Toya Todoroki",
+          "Shoto Todoroki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "guilt paralysis",
+          "family trauma",
+          "No.1 hero collapse"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "family:todoroki",
+        "character:endeavor",
+        "character:dabi",
+        "character:toya-todoroki",
+        "character:todoroki-shoto",
+        "faction:todoroki-family",
+        "location:jaku-city",
+        "topic:guilt-paralysis",
+        "topic:family-trauma",
+        "topic:no-1-hero-collapse"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Dabi",
+            "Toya Todoroki",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "guilt paralysis",
+            "family trauma",
+            "No.1 hero collapse"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor is psychologically stopped by the Toya reveal because the enemy is his own son and the consequence of his abuse.",
+        "injection": "After Toya reveal, Endeavor must not instantly respond like an unaffected battlefield commander. Shock and guilt can paralyze him.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 290-291",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_shoto_has_to_fight_through_family_catastrophe_in_public",
+      "title": "Shoto Has To Fight Through Family Catastrophe In Public",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 92,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.endeavor-breaks",
+        "sortKeyFrom": 16425,
+        "sortKeyTo": 16425,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor freezes under Toya reveal"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:todoroki-family",
+          "mha:jaku-city",
+          "mha:half-cold-half-hot",
+          "mha:blueflame"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Dabi",
+          "Endeavor"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Half-Cold Half-Hot",
+          "Blueflame"
+        ],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "family catastrophe",
+          "public trauma",
+          "Shoto pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "family:todoroki",
+        "character:todoroki-shoto",
+        "character:dabi",
+        "character:endeavor",
+        "faction:todoroki-family",
+        "location:jaku-city",
+        "entity:half-cold-half-hot",
+        "quirk:blueflame",
+        "topic:family-catastrophe",
+        "topic:public-trauma",
+        "topic:shoto-pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Dabi",
+            "Endeavor"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [
+            "Half-Cold Half-Hot",
+            "Blueflame"
+          ],
+          "topicsAny": [
+            "family catastrophe",
+            "public trauma",
+            "Shoto pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shoto faces Dabi’s reveal in the middle of battle, with family trauma suddenly turned into public spectacle and immediate danger.",
+        "injection": "Write Shoto as fighting under emotional shock. He is not just another fire-ice combatant here; this is family catastrophe.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 290-291",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_dabi_does_not_care_who_dies_from_the_broadcast_timing",
+      "title": "Dabi Does Not Care Who Dies From The Broadcast Timing",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-broadcast",
+        "sortKeyFrom": 16400,
+        "sortKeyTo": 16400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi broadcasts Toya Todoroki identity"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:civilians",
+          "mha:hero-society",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Dabi"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Hero Society"
+        ],
+        "topics": [
+          "collateral indifference",
+          "revenge framing",
+          "truth weaponized"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:dabi",
+        "faction:civilians",
+        "faction:hero-society",
+        "location:jaku-city",
+        "topic:collateral-indifference",
+        "topic:revenge-framing",
+        "topic:truth-weaponized"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "collateral indifference",
+            "revenge framing",
+            "truth weaponized"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s revenge framing does not make him protective of civilians or allies; he uses the disaster’s timing regardless of collateral suffering.",
+        "injection": "Do not soften Dabi into a principled whistleblower. His reveal exposes truth, but he weaponizes it with lethal indifference.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_hawks_killing_twice_becomes_public_narrative_ammunition",
+      "title": "Hawks Killing Twice Becomes Public Narrative Ammunition",
+      "kind": "knowledge_gate",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-broadcast",
+        "sortKeyFrom": 16400,
+        "sortKeyTo": 16400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi broadcasts Toya Todoroki identity"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:hawks",
+          "mha:twice",
+          "mha:hero-society",
+          "mha:civilians"
+        ],
+        "characters": [
+          "Dabi",
+          "Hawks",
+          "Twice"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Society",
+          "Civilians"
+        ],
+        "topics": [
+          "Hawks exposure",
+          "public narrative",
+          "Twice killing"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:dabi",
+        "character:hawks",
+        "character:twice",
+        "faction:hero-society",
+        "faction:civilians",
+        "topic:hawks-exposure",
+        "topic:public-narrative",
+        "topic:twice-killing"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Hawks",
+            "Twice"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Society",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Hawks exposure",
+            "public narrative",
+            "Twice killing"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi uses footage and framing around Hawks killing Twice to damage Hawks’ public image and hero legitimacy.",
+        "injection": "After Dabi’s broadcast, Hawks’ undercover killing is no longer just private operational trauma; it becomes public narrative warfare.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_best_jeanist_return_undercuts_but_does_not_erase_dabi_s_damage",
+      "title": "Best Jeanist Return Undercuts But Does Not Erase Dabi’s Damage",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.best-jeanist-arrives",
+        "sortKeyFrom": 16450,
+        "sortKeyTo": 16450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Best Jeanist returns alive and restrains the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:best-jeanist",
+          "mha:dabi",
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:hero-society",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Best Jeanist",
+          "Dabi",
+          "Hawks"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Hero Society"
+        ],
+        "topics": [
+          "counter-narrative",
+          "public trust damage",
+          "Jeanist return"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:best-jeanist",
+        "character:dabi",
+        "character:hawks",
+        "faction:pro-heroes",
+        "faction:hero-society",
+        "location:jaku-city",
+        "topic:counter-narrative",
+        "topic:public-trust-damage",
+        "topic:jeanist-return"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Best Jeanist",
+            "Dabi",
+            "Hawks"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "counter-narrative",
+            "public trust damage",
+            "Jeanist return"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Best Jeanist’s return disproves part of Dabi’s Hawks accusation, but it does not erase the damage caused by the Toya reveal and Twice footage.",
+        "injection": "Use Jeanist’s return as partial counter-narrative, not a full reset of public trust.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 291-292",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_best_jeanist_restrains_a_battlefield_already_past_control",
+      "title": "Best Jeanist Restrains A Battlefield Already Past Control",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.best-jeanist-arrives",
+        "sortKeyFrom": 16450,
+        "sortKeyTo": 16450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Best Jeanist returns alive and restrains the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:best-jeanist",
+          "mha:gigantomachia",
+          "mha:dabi",
+          "mha:shigaraki-tomura",
+          "mha:pro-heroes",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Best Jeanist",
+          "Gigantomachia",
+          "Dabi",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "battlefield restraint",
+          "late stabilization",
+          "irreversible damage"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:best-jeanist",
+        "character:gigantomachia",
+        "character:dabi",
+        "character:shigaraki-tomura",
+        "faction:pro-heroes",
+        "location:jaku-city",
+        "topic:battlefield-restraint",
+        "topic:late-stabilization",
+        "topic:irreversible-damage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Best Jeanist",
+            "Gigantomachia",
+            "Dabi",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "battlefield restraint",
+            "late stabilization",
+            "irreversible damage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Best Jeanist’s arrival helps restrain villains and rescue the battlefield, but the war has already inflicted irreversible social and physical damage.",
+        "injection": "Write Jeanist as crucial stabilization, not an undo button. He restrains disaster after the damage has already spread.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 291-292",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mirio_return_signals_eri_progress_but_not_free_restoration_for_everyone",
+      "title": "Mirio Return Signals Eri Progress But Not Free Restoration For Everyone",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mirio-returns",
+        "sortKeyFrom": 16475,
+        "sortKeyTo": 16475,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mirio returns with Permeation restored"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:togata-mirio",
+          "mha:eri",
+          "mha:pro-heroes",
+          "mha:u-a-students",
+          "mha:jaku-city",
+          "mha:permeation"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Eri"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Permeation"
+        ],
+        "factions": [
+          "Pro Heroes",
+          "U.A. Students"
+        ],
+        "topics": [
+          "Mirio return",
+          "Eri progress",
+          "Rewind limits"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "quirk:rewind",
+        "character:togata-mirio",
+        "character:eri",
+        "faction:pro-heroes",
+        "faction:u-a-students",
+        "location:jaku-city",
+        "quirk:permeation",
+        "topic:mirio-return",
+        "topic:eri-progress",
+        "topic:rewind-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Eri"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "U.A. Students"
+          ],
+          "objectsAny": [
+            "Permeation"
+          ],
+          "topicsAny": [
+            "Mirio return",
+            "Eri progress",
+            "Rewind limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mirio returns with Permeation restored, showing Eri’s progress, but Rewind is still not a casual cure-all.",
+        "injection": "After Mirio returns, do not make Eri instantly restore every injury or lost Quirk. Her success with Mirio is exceptional and controlled.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 292",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_toga_confronts_ochaco_over_who_heroes_choose_to_save",
+      "title": "Toga Confronts Ochaco Over Who Heroes Choose To Save",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.toga-ochaco-confrontation",
+        "sortKeyFrom": 16500,
+        "sortKeyTo": 16500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga confronts Ochaco over heroes and Twice"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:toga-himiko",
+          "mha:uraraka-ochaco",
+          "mha:twice",
+          "mha:league-of-villains",
+          "mha:u-a-students",
+          "mha:jaku-city",
+          "mha:transform"
+        ],
+        "characters": [
+          "Himiko Toga",
+          "Ochaco Uraraka",
+          "Twice"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Transform"
+        ],
+        "factions": [
+          "League of Villains",
+          "U.A. Students"
+        ],
+        "topics": [
+          "villain grief",
+          "save question",
+          "Ochaco-Toga conflict"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:toga-himiko",
+        "character:uraraka-ochaco",
+        "character:twice",
+        "faction:league-of-villains",
+        "faction:u-a-students",
+        "location:jaku-city",
+        "quirk:transform",
+        "topic:villain-grief",
+        "topic:save-question",
+        "topic:ochaco-toga-conflict"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Himiko Toga",
+            "Ochaco Uraraka",
+            "Twice"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "League of Villains",
+            "U.A. Students"
+          ],
+          "objectsAny": [
+            "Transform"
+          ],
+          "topicsAny": [
+            "villain grief",
+            "save question",
+            "Ochaco-Toga conflict"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Toga challenges Ochaco with grief over Twice and the question of whether heroes see villains as people worth saving.",
+        "injection": "In Toga/Ochaco scenes here, center the emotional question: who counts as someone heroes will save, and what happens to grief outside hero categories.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 288-289",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_ochaco_is_not_ready_to_answer_toga_fully_yet",
+      "title": "Ochaco Is Not Ready To Answer Toga Fully Yet",
+      "kind": "knowledge_gate",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.toga-ochaco-confrontation",
+        "sortKeyFrom": 16500,
+        "sortKeyTo": 16500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Toga confronts Ochaco over heroes and Twice"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:toga-himiko",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Himiko Toga"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "unresolved conflict",
+          "future Toga arc",
+          "hero compassion limits"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "arc:final-war",
+        "character:uraraka-ochaco",
+        "character:toga-himiko",
+        "location:jaku-city",
+        "topic:unresolved-conflict",
+        "topic:future-toga-arc",
+        "topic:hero-compassion-limits"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Himiko Toga"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "unresolved conflict",
+            "future Toga arc",
+            "hero compassion limits"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco’s war confrontation with Toga does not yet resolve their ideological conflict; it plants emotional stakes for later arcs.",
+        "injection": "Do not make Ochaco solve Toga here. This encounter should remain unresolved and future-facing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 288-289",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_mr_compress_sacrifice_is_a_league_escape_play",
+      "title": "Mr. Compress Sacrifice Is A League Escape Play",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mr-compress-sacrifice",
+        "sortKeyFrom": 16525,
+        "sortKeyTo": 16525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mr. Compress sacrifices himself to enable villain escape"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mr-compress",
+          "mha:shigaraki-tomura",
+          "mha:dabi",
+          "mha:spinner",
+          "mha:league-of-villains",
+          "mha:jaku-city",
+          "mha:compress"
+        ],
+        "characters": [
+          "Mr. Compress",
+          "Tomura Shigaraki",
+          "Dabi",
+          "Spinner"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [
+          "Compress"
+        ],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "escape play",
+          "showmanship",
+          "League survival"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:mr-compress",
+        "character:shigaraki-tomura",
+        "character:dabi",
+        "character:spinner",
+        "faction:league-of-villains",
+        "location:jaku-city",
+        "quirk:compress",
+        "topic:escape-play",
+        "topic:showmanship",
+        "topic:league-survival"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mr. Compress",
+            "Tomura Shigaraki",
+            "Dabi",
+            "Spinner"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [
+            "Compress"
+          ],
+          "topicsAny": [
+            "escape play",
+            "showmanship",
+            "League survival"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Mr. Compress injures and exposes himself to free key League members and enable escape from the collapsing battlefield.",
+        "injection": "Treat Compress’s move as desperate showmanship and tactical sacrifice for the League, not random self-harm.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 294-295",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_spinner_remains_focused_on_shigaraki_s_will",
+      "title": "Spinner Remains Focused On Shigaraki’s Will",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.mr-compress-sacrifice",
+        "sortKeyFrom": 16525,
+        "sortKeyTo": 16525,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Mr. Compress sacrifices himself to enable villain escape"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:spinner",
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains",
+          "mha:jaku-city"
+        ],
+        "characters": [
+          "Spinner",
+          "Tomura Shigaraki"
+        ],
+        "locations": [
+          "Jaku City"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Shigaraki loyalty",
+          "villain identity",
+          "Spinner motivation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "character:spinner",
+        "character:shigaraki-tomura",
+        "faction:league-of-villains",
+        "location:jaku-city",
+        "topic:shigaraki-loyalty",
+        "topic:villain-identity",
+        "topic:spinner-motivation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Spinner",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [
+            "Jaku City"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Shigaraki loyalty",
+            "villain identity",
+            "Spinner motivation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Spinner’s loyalty is increasingly tied to Shigaraki personally and to what he believes Shigaraki represents.",
+        "injection": "When Spinner acts in the war endgame, write him as clinging to Shigaraki’s stated will, not as a generic PLF ideologue.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 294-295",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_paranormal_liberation_war_toya_reveal_should_not_become_instant_family_reconciliation",
+      "title": "Toya Reveal Should Not Become Instant Family Reconciliation",
+      "kind": "future_guard",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 90,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 93,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.plw.dabi-broadcast",
+        "sortKeyFrom": 16400,
+        "sortKeyTo": 16400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi broadcasts Toya Todoroki identity"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.paranormal-liberation-war",
+          "label": "Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        },
+        {
+          "axis": "front",
+          "id": "mha.front.gunga-villa",
+          "label": "Gunga Mountain Villa front",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.war-in-progress",
+          "label": "Hero society in open war with PLF",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor",
+          "Shoto Todoroki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Todoroki Family"
+        ],
+        "topics": [
+          "Todoroki rupture",
+          "no reconciliation",
+          "family trauma guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "arc:paranormal-liberation-war",
+        "quality:draft-reference",
+        "family:todoroki",
+        "character:dabi",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "faction:todoroki-family",
+        "topic:todoroki-rupture",
+        "topic:no-reconciliation",
+        "topic:family-trauma-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor",
+            "Shoto Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Todoroki rupture",
+            "no reconciliation",
+            "family trauma guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi’s reveal exposes family trauma but does not produce reconciliation, forgiveness, or full answers during the war.",
+        "injection": "Do not turn the broadcast into a resolved Todoroki family conversation. It is a rupture, not closure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 290",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    }
+  ]
+}

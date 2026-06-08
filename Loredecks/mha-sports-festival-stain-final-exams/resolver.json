@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve Sports Festival, Hero Killer/Stain/Hosu, and Final Exams Context for manga-primary My Hero Academia.",
+  "preferredFields": [
+    "arc",
+    "chapter",
+    "beforeAfter",
+    "majorEvent"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known Sports Festival, Hosu/Stain, internship, or Final Exams anchors over invented dates.",
+  "localPatterns": [
+    {
+      "pattern": "during sports festival",
+      "result": {
+        "anchorFrom": "mha.ssf.sports-festival-announced",
+        "anchorTo": "mha.ssf.sports-festival-ends",
+        "label": "During U.A. Sports Festival"
+      }
+    },
+    {
+      "pattern": "deku vs todoroki",
+      "result": {
+        "anchorId": "mha.ssf.midoriya-vs-todoroki",
+        "label": "Izuku vs Shoto"
+      }
+    },
+    {
+      "pattern": "after todoroki uses fire",
+      "result": {
+        "anchorFrom": "mha.ssf.midoriya-vs-todoroki",
+        "label": "After Shoto uses fire publicly"
+      }
+    },
+    {
+      "pattern": "during hosu",
+      "result": {
+        "anchorFrom": "mha.stain.hosu-nomu-attack",
+        "anchorTo": "mha.stain.stain-defeated",
+        "label": "During Hosu incident"
+      }
+    },
+    {
+      "pattern": "stain fight",
+      "result": {
+        "anchorId": "mha.stain.stain-attacks-iida",
+        "label": "Stain fight in Hosu"
+      }
+    },
+    {
+      "pattern": "after stain is defeated",
+      "result": {
+        "anchorFrom": "mha.stain.stain-defeated",
+        "label": "After Stain is defeated"
+      }
+    },
+    {
+      "pattern": "during final exams",
+      "result": {
+        "anchorFrom": "mha.finals.exam-week-begins",
+        "anchorTo": "mha.finals.summer-camp-setup",
+        "label": "During Final Exams"
+      }
+    },
+    {
+      "pattern": "deku and bakugo vs all might",
+      "result": {
+        "anchorId": "mha.finals.deku-bakugo-vs-all-might",
+        "label": "Izuku and Bakugo vs All Might"
+      }
+    },
+    {
+      "pattern": "shigaraki mall",
+      "result": {
+        "anchorId": "mha.finals.shigaraki-mall-confrontation",
+        "label": "Shigaraki confronts Izuku at the mall"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

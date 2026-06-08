@@ -1,0 +1,4502 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:pro-hero": {
+      "label": "Pro Hero",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Pro Hero tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "pro hero"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:provisional-license": {
+      "label": "Provisional License",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Provisional License tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "provisional license"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:remedial-course": {
+      "label": "Remedial Course",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Remedial Course tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:school-festival": {
+      "label": "School Festival",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "School Festival tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "school festival"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:shie-hassaikai": {
+      "label": "Shie Hassaikai",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Shie Hassaikai tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:all-might": {
+      "label": "All Might",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "All Might tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "all might"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asui-tsuyu": {
+      "label": "Asui Tsuyu",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Asui Tsuyu tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "asui tsuyu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bakugo-katsuki": {
+      "label": "Bakugo Katsuki",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Bakugo Katsuki tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "bakugo katsuki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:camie-utsushimi": {
+      "label": "Camie Utsushimi",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Camie Utsushimi tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "camie utsushimi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:endeavor": {
+      "label": "Endeavor",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Endeavor tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "endeavor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:eri": {
+      "label": "Eri",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Eri tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:fat-gum": {
+      "label": "Fat Gum",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Fat Gum tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "fat gum"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gang-orca": {
+      "label": "Gang Orca",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Gang Orca tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "gang orca"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:inasa-yoarashi": {
+      "label": "Inasa Yoarashi",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Inasa Yoarashi tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "inasa yoarashi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kirishima-eijiro": {
+      "label": "Kirishima Eijiro",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kirishima Eijiro tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "kirishima eijiro"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:magne": {
+      "label": "Magne",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Magne tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "magne"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midoriya-izuku": {
+      "label": "Midoriya Izuku",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Midoriya Izuku tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "midoriya izuku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mimic": {
+      "label": "Mimic",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mimic tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mimic"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mirio-togata": {
+      "label": "Mirio Togata",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mirio Togata tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mirio togata"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mr-compress": {
+      "label": "Mr Compress",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mr Compress tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mr compress"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nejire-hado": {
+      "label": "Nejire Hado",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Nejire Hado tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "nejire hado"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:overhaul": {
+      "label": "Overhaul",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Overhaul tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "overhaul"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:rappa": {
+      "label": "Rappa",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Rappa tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rappa"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ryukyu": {
+      "label": "Ryukyu",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Ryukyu tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "ryukyu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shigaraki-tomura": {
+      "label": "Shigaraki Tomura",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Shigaraki Tomura tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shigaraki tomura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:sir-nighteye": {
+      "label": "Sir Nighteye",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Sir Nighteye tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "sir nighteye"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tamaki-amajiki": {
+      "label": "Tamaki Amajiki",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Tamaki Amajiki tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "tamaki amajiki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tengai": {
+      "label": "Tengai",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Tengai tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "tengai"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:todoroki-shoto": {
+      "label": "Todoroki Shoto",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Todoroki Shoto tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "todoroki shoto"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toga-himiko": {
+      "label": "Toga Himiko",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Toga Himiko tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "toga himiko"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:uraraka-ochaco": {
+      "label": "Uraraka Ochaco",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Uraraka Ochaco tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "uraraka ochaco"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "class:ua-1a": {
+      "label": "Ua 1A",
+      "color": "#2f855a",
+      "textColor": "#ffffff",
+      "description": "Ua 1A tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "ua 1a"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:mha-manga-main": {
+      "label": "Mha Manga Main",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Mha Manga Main tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mha manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:provisional-license-exam": {
+      "label": "Provisional License Exam",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Provisional License Exam tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "provisional license exam"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:remedial-course": {
+      "label": "Remedial Course",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Remedial Course tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:sports-festival": {
+      "label": "Sports Festival",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Sports Festival tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "sports festival"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:big-three": {
+      "label": "Big Three",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Big Three tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "big three"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:eight-bullets": {
+      "label": "Eight Bullets",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Eight Bullets tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eight bullets"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:huc": {
+      "label": "Huc",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Huc tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "huc"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:league-of-villains": {
+      "label": "League Of Villains",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "League Of Villains tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "league of villains"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:police": {
+      "label": "Police",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Police tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "police"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:pro-heroes": {
+      "label": "Pro Heroes",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Pro Heroes tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "pro heroes"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:shie-hassaikai": {
+      "label": "Shie Hassaikai",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Shie Hassaikai tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "family:todoroki": {
+      "label": "Todoroki",
+      "color": "#9a3412",
+      "textColor": "#ffffff",
+      "description": "Todoroki tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "todoroki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:mha": {
+      "label": "Mha",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Mha tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mha"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:provisional-hero-license": {
+      "label": "Provisional Hero License",
+      "color": "#92400e",
+      "textColor": "#ffffff",
+      "description": "Provisional Hero License tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "provisional hero license"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "item:quirk-destroying-bullets": {
+      "label": "Quirk Destroying Bullets",
+      "color": "#92400e",
+      "textColor": "#ffffff",
+      "description": "Quirk Destroying Bullets tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk destroying bullets"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:hassaikai-underground": {
+      "label": "Hassaikai Underground",
+      "color": "#22543d",
+      "textColor": "#ffffff",
+      "description": "Hassaikai Underground tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hassaikai underground"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:future-guard": {
+      "label": "Future Guard",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Future Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:spoiler": {
+      "label": "Spoiler",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft-reference": {
+      "label": "Draft Reference",
+      "color": "#525252",
+      "textColor": "#ffffff",
+      "description": "Draft Reference tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "draft reference"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:one-for-all": {
+      "label": "One For All",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:permeation": {
+      "label": "Permeation",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "Permeation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "permeation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:rewind": {
+      "label": "Rewind",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "Rewind tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rewind"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:ketsubutsu": {
+      "label": "Ketsubutsu",
+      "color": "#234e52",
+      "textColor": "#ffffff",
+      "description": "Ketsubutsu tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "ketsubutsu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:shiketsu": {
+      "label": "Shiketsu",
+      "color": "#234e52",
+      "textColor": "#ffffff",
+      "description": "Shiketsu tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shiketsu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:ua-high": {
+      "label": "Ua High",
+      "color": "#234e52",
+      "textColor": "#ffffff",
+      "description": "Ua High tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "ua high"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:dabi-identity": {
+      "label": "Dabi Identity",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Dabi Identity tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "dabi identity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:eri-abuse": {
+      "label": "Eri Abuse",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Eri Abuse tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri abuse"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:eri-rewind-source": {
+      "label": "Eri Rewind Source",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Eri Rewind Source tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri rewind source"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:one-for-all": {
+      "label": "One For All",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:toga-blood-sample": {
+      "label": "Toga Blood Sample",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Toga Blood Sample tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "toga blood sample"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:toga-camie": {
+      "label": "Toga Camie",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Toga Camie tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "toga camie"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:ua-traitor": {
+      "label": "Ua Traitor",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Ua Traitor tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "ua traitor"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:ability-timing": {
+      "label": "Ability Timing",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Ability Timing tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "ability timing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:abuse-psychology": {
+      "label": "Abuse Psychology",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Abuse Psychology tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "abuse psychology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:abuse-survival": {
+      "label": "Abuse Survival",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Abuse Survival tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "abuse survival"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:adult-concern": {
+      "label": "Adult Concern",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Adult Concern tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "adult concern"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:agency-staff": {
+      "label": "Agency Staff",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Agency Staff tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "agency staff"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:agency-under-trauma": {
+      "label": "Agency Under Trauma",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Agency Under Trauma tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "agency under trauma"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:all-might-imitation": {
+      "label": "All Might Imitation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "All Might Imitation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "all might imitation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:all-might-legacy": {
+      "label": "All Might Legacy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "All Might Legacy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "all might legacy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:anti-quirk-ideology": {
+      "label": "Anti Quirk Ideology",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Anti Quirk Ideology tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "anti quirk ideology"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:anxiety-and-competence": {
+      "label": "Anxiety And Competence",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Anxiety And Competence tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "anxiety and competence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:arm-injury-avoidance": {
+      "label": "Arm Injury Avoidance",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Arm Injury Avoidance tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "arm injury avoidance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bakugo-growth": {
+      "label": "Bakugo Growth",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Bakugo Growth tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "bakugo growth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:barrier-defense": {
+      "label": "Barrier Defense",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Barrier Defense tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "barrier defense"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:base-instability": {
+      "label": "Base Instability",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Base Instability tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "base instability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:battle-hunger": {
+      "label": "Battle Hunger",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Battle Hunger tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "battle hunger"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bedside-manner": {
+      "label": "Bedside Manner",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Bedside Manner tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "bedside manner"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:big-three-participation": {
+      "label": "Big Three Participation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Big Three Participation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "big three participation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:big-three-pressure": {
+      "label": "Big Three Pressure",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Big Three Pressure tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "big three pressure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:blackwhip-not-active": {
+      "label": "Blackwhip Not Active",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Blackwhip Not Active tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "blackwhip not active"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:blood-theft": {
+      "label": "Blood Theft",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Blood Theft tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "blood theft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:body-control": {
+      "label": "Body Control",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Body Control tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "body control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:body-reconstruction": {
+      "label": "Body Reconstruction",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Body Reconstruction tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "body reconstruction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:boss-fight-escalation": {
+      "label": "Boss Fight Escalation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Boss Fight Escalation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "boss fight escalation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bullet-theft": {
+      "label": "Bullet Theft",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Bullet Theft tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "bullet theft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:camie-absence": {
+      "label": "Camie Absence",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Camie Absence tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "camie absence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:camie-impersonation": {
+      "label": "Camie Impersonation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Camie Impersonation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "camie impersonation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:child-communication": {
+      "label": "Child Communication",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Child Communication tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "child communication"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:child-cynicism": {
+      "label": "Child Cynicism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Child Cynicism tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "child cynicism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:child-engagement": {
+      "label": "Child Engagement",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Child Engagement tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "child engagement"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:child-handling": {
+      "label": "Child Handling",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Child Handling tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "child handling"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:child-rescue-training": {
+      "label": "Child Rescue Training",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Child Rescue Training tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "child rescue training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:civilian-reassurance": {
+      "label": "Civilian Reassurance",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Civilian Reassurance tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "civilian reassurance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:civilian-scoring": {
+      "label": "Civilian Scoring",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Civilian Scoring tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "civilian scoring"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:class-bonding": {
+      "label": "Class Bonding",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Class Bonding tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "class bonding"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:classmate-status": {
+      "label": "Classmate Status",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Classmate Status tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "classmate status"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:climax-choice": {
+      "label": "Climax Choice",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Climax Choice tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "climax choice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:coerced-obedience": {
+      "label": "Coerced Obedience",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Coerced Obedience tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "coerced obedience"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:coercive-control": {
+      "label": "Coercive Control",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Coercive Control tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "coercive control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:combat-readiness": {
+      "label": "Combat Readiness",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Combat Readiness tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "combat readiness"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:competitive-growth": {
+      "label": "Competitive Growth",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Competitive Growth tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "competitive growth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:control-obsession": {
+      "label": "Control Obsession",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Control Obsession tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "control obsession"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:convoy-ambush": {
+      "label": "Convoy Ambush",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Convoy Ambush tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "convoy ambush"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:convoy-ambush-consequence": {
+      "label": "Convoy Ambush Consequence",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Convoy Ambush Consequence tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "convoy ambush consequence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:convoy-vulnerability": {
+      "label": "Convoy Vulnerability",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Convoy Vulnerability tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "convoy vulnerability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:coordination": {
+      "label": "Coordination",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Coordination tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "coordination"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dabi-identity-guard": {
+      "label": "Dabi Identity Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Dabi Identity Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "dabi identity guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:damage-absorption": {
+      "label": "Damage Absorption",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Damage Absorption tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "damage absorption"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:deathbed-reconciliation": {
+      "label": "Deathbed Reconciliation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Deathbed Reconciliation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "deathbed reconciliation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:defensive-limit": {
+      "label": "Defensive Limit",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Defensive Limit tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "defensive limit"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:delayed-legal-authority": {
+      "label": "Delayed Legal Authority",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Delayed Legal Authority tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "delayed legal authority"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:delaying-tactics": {
+      "label": "Delaying Tactics",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Delaying Tactics tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "delaying tactics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:discipline": {
+      "label": "Discipline",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Discipline tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "discipline"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dorm-system": {
+      "label": "Dorm System",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Dorm System tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "dorm system"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:elite-training-culture": {
+      "label": "Elite Training Culture",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Elite Training Culture tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "elite training culture"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:endeavor-future-guard": {
+      "label": "Endeavor Future Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Endeavor Future Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "endeavor future guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:endeavor-shadow": {
+      "label": "Endeavor Shadow",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Endeavor Shadow tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "endeavor shadow"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:endeavor-transition": {
+      "label": "Endeavor Transition",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Endeavor Transition tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "endeavor transition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:enthusiasm-control": {
+      "label": "Enthusiasm Control",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Enthusiasm Control tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "enthusiasm control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:erasure-support": {
+      "label": "Erasure Support",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Erasure Support tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "erasure support"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:eri-blood": {
+      "label": "Eri Blood",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Eri Blood tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri blood"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:eri-healing-limit": {
+      "label": "Eri Healing Limit",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Eri Healing Limit tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri healing limit"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:eri-protection": {
+      "label": "Eri Protection",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Eri Protection tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri protection"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:eri-recovery-timing": {
+      "label": "Eri Recovery Timing",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Eri Recovery Timing tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "eri recovery timing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:estrangement": {
+      "label": "Estrangement",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Estrangement tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "estrangement"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:exam-standards": {
+      "label": "Exam Standards",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Exam Standards tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "exam standards"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:failed-teamwork": {
+      "label": "Failed Teamwork",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Failed Teamwork tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "failed teamwork"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:false-family": {
+      "label": "False Family",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "False Family tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "false family"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:family-harm": {
+      "label": "Family Harm",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Family Harm tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "family harm"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fatalism": {
+      "label": "Fatalism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Fatalism tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "fatalism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fear-and-courage": {
+      "label": "Fear And Courage",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Fear And Courage tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "fear and courage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:field-consequences": {
+      "label": "Field Consequences",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Field Consequences tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "field consequences"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:fire-side-baggage": {
+      "label": "Fire Side Baggage",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Fire Side Baggage tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "fire side baggage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:friendly-fire-risk": {
+      "label": "Friendly Fire Risk",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Friendly Fire Risk tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "friendly fire risk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-changed": {
+      "label": "Future Changed",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Changed tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future changed"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-emotional-healing": {
+      "label": "Future Emotional Healing",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Emotional Healing tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future emotional healing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-infiltration-setup": {
+      "label": "Future Infiltration Setup",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Infiltration Setup tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future infiltration setup"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-pro-hero-arc-setup": {
+      "label": "Future Pro Hero Arc Setup",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Pro Hero Arc Setup tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future pro hero arc setup"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-resistance": {
+      "label": "Future Resistance",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Resistance tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future resistance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-restoration-guard": {
+      "label": "Future Restoration Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Restoration Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future restoration guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-reveal": {
+      "label": "Future Reveal",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Reveal tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future reveal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:future-sight": {
+      "label": "Future Sight",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Future Sight tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "future sight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hassaikai-collapse": {
+      "label": "Hassaikai Collapse",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hassaikai Collapse tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hassaikai collapse"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hassaikai-subordinate-tension": {
+      "label": "Hassaikai Subordinate Tension",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hassaikai Subordinate Tension tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hassaikai subordinate tension"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-conduct": {
+      "label": "Hero Conduct",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Conduct tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero conduct"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-conduct-improvement": {
+      "label": "Hero Conduct Improvement",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Conduct Improvement tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero conduct improvement"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-growth": {
+      "label": "Hero Growth",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Growth tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero growth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-hesitation": {
+      "label": "Hero Hesitation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Hesitation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero hesitation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-ideal": {
+      "label": "Hero Ideal",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Ideal tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero ideal"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-identity": {
+      "label": "Hero Identity",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Identity tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero identity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-law": {
+      "label": "Hero Law",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Law tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero law"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-professionalism": {
+      "label": "Hero Professionalism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Professionalism tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero professionalism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-society-threat": {
+      "label": "Hero Society Threat",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Society Threat tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hero society threat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:heroism-without-power": {
+      "label": "Heroism Without Power",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Heroism Without Power tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "heroism without power"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hospitalization": {
+      "label": "Hospitalization",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hospitalization tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "hospitalization"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:humor-test": {
+      "label": "Humor Test",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Humor Test tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "humor test"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:identity-conflict": {
+      "label": "Identity Conflict",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Identity Conflict tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "identity conflict"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:impersonation-aftermath": {
+      "label": "Impersonation Aftermath",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Impersonation Aftermath tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "impersonation aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:incomplete-victory": {
+      "label": "Incomplete Victory",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Incomplete Victory tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "incomplete victory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:infinite-100-percent": {
+      "label": "Infinite 100 Percent",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Infinite 100 Percent tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "infinite 100 percent"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:information-leak": {
+      "label": "Information Leak",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Information Leak tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "information leak"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:instrumental-abuse": {
+      "label": "Instrumental Abuse",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Instrumental Abuse tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "instrumental abuse"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:kamino-guilt": {
+      "label": "Kamino Guilt",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Kamino Guilt tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "kamino guilt"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:large-scale-villain-pressure": {
+      "label": "Large Scale Villain Pressure",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Large Scale Villain Pressure tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "large scale villain pressure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:league-future-guard": {
+      "label": "League Future Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "League Future Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "league future guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:league-grievance": {
+      "label": "League Grievance",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "League Grievance tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "league grievance"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:league-strategic-win": {
+      "label": "League Strategic Win",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "League Strategic Win tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "league strategic win"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legal-agency": {
+      "label": "Legal Agency",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Legal Agency tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "legal agency"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legal-authority": {
+      "label": "Legal Authority",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Legal Authority tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "legal authority"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legal-constraints": {
+      "label": "Legal Constraints",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Legal Constraints tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "legal constraints"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:legal-operation": {
+      "label": "Legal Operation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Legal Operation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "legal operation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:license-exam-rivalry": {
+      "label": "License Exam Rivalry",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "License Exam Rivalry tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "license exam rivalry"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:license-failure": {
+      "label": "License Failure",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "License Failure tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "license failure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:license-failure-recovery": {
+      "label": "License Failure Recovery",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "License Failure Recovery tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "license failure recovery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:license-gap": {
+      "label": "License Gap",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "License Gap tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "license gap"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:license-recovery": {
+      "label": "License Recovery",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "License Recovery tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "license recovery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:licensed-student-status": {
+      "label": "Licensed Student Status",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Licensed Student Status tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "licensed student status"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:manifest-strategy": {
+      "label": "Manifest Strategy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Manifest Strategy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "manifest strategy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:medical-monitoring": {
+      "label": "Medical Monitoring",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Medical Monitoring tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "medical monitoring"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mentor-grief": {
+      "label": "Mentor Grief",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Mentor Grief tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mentor grief"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mentor-judgment": {
+      "label": "Mentor Judgment",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Mentor Judgment tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mentor judgment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mentor-protection": {
+      "label": "Mentor Protection",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Mentor Protection tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mentor protection"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mentor-regret": {
+      "label": "Mentor Regret",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Mentor Regret tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mentor regret"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:meta-liberation-army-not-active": {
+      "label": "Meta Liberation Army Not Active",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Meta Liberation Army Not Active tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "meta liberation army not active"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:multi-agency-coordination": {
+      "label": "Multi Agency Coordination",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Multi Agency Coordination tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "multi agency coordination"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:mutual-rivalry": {
+      "label": "Mutual Rivalry",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Mutual Rivalry tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "mutual rivalry"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:next-generation": {
+      "label": "Next Generation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Next Generation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "next generation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:nighteye-death": {
+      "label": "Nighteye Death",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Nighteye Death tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "nighteye death"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:nighteye-office": {
+      "label": "Nighteye Office",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Nighteye Office tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "nighteye office"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:nighteye-skepticism": {
+      "label": "Nighteye Skepticism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Nighteye Skepticism tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "nighteye skepticism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-1-burden": {
+      "label": "No 1 Burden",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "No 1 Burden tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "no 1 burden"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:no-1-pressure": {
+      "label": "No 1 Pressure",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "No 1 Pressure tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "no 1 pressure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:one-for-all-adaptation": {
+      "label": "One For All Adaptation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "One For All Adaptation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "one for all adaptation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:one-for-all-future-quirks-guard": {
+      "label": "One For All Future Quirks Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "One For All Future Quirks Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "one for all future quirks guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:one-for-all-secrecy": {
+      "label": "One For All Secrecy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "One For All Secrecy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "one for all secrecy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:one-for-all-secret": {
+      "label": "One For All Secret",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "One For All Secret tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "one for all secret"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:organized-crime": {
+      "label": "Organized Crime",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Organized Crime tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "organized crime"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:organized-crime-defeat": {
+      "label": "Organized Crime Defeat",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Organized Crime Defeat tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "organized crime defeat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overhaul-aftermath": {
+      "label": "Overhaul Aftermath",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Overhaul Aftermath tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "overhaul aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overhaul-defeat": {
+      "label": "Overhaul Defeat",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Overhaul Defeat tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "overhaul defeat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overhaul-fusion": {
+      "label": "Overhaul Fusion",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Overhaul Fusion tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "overhaul fusion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overhaul-subordinate": {
+      "label": "Overhaul Subordinate",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Overhaul Subordinate tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "overhaul subordinate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:overhaul-violence": {
+      "label": "Overhaul Violence",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Overhaul Violence tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "overhaul violence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:paired-enemies": {
+      "label": "Paired Enemies",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Paired Enemies tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "paired enemies"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:panic-control": {
+      "label": "Panic Control",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Panic Control tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "panic control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:perception": {
+      "label": "Perception",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Perception tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "perception"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:permeation-mastery": {
+      "label": "Permeation Mastery",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Permeation Mastery tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "permeation mastery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:playful-communication": {
+      "label": "Playful Communication",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Playful Communication tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "playful communication"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:post-afo-league-weakness": {
+      "label": "Post Afo League Weakness",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Post Afo League Weakness tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "post afo league weakness"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:post-crisis-normalcy": {
+      "label": "Post Crisis Normalcy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Post Crisis Normalcy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "post crisis normalcy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:post-kamino-restrictions": {
+      "label": "Post Kamino Restrictions",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Post Kamino Restrictions tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "post kamino restrictions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:power-collision": {
+      "label": "Power Collision",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Power Collision tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "power collision"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:predicted-death": {
+      "label": "Predicted Death",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Predicted Death tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "predicted death"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prediction": {
+      "label": "Prediction",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Prediction tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "prediction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:prediction-burden": {
+      "label": "Prediction Burden",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Prediction Burden tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "prediction burden"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:private-rooms": {
+      "label": "Private Rooms",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Private Rooms tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "private rooms"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:professional-focus": {
+      "label": "Professional Focus",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Professional Focus tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "professional focus"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:provisional-license-preparation": {
+      "label": "Provisional License Preparation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Provisional License Preparation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "provisional license preparation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:provisional-limits": {
+      "label": "Provisional Limits",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Provisional Limits tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "provisional limits"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-communication": {
+      "label": "Public Communication",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Communication tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public communication"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-conduct": {
+      "label": "Public Conduct",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Conduct tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public conduct"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-emergency-permissions": {
+      "label": "Public Emergency Permissions",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Emergency Permissions tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public emergency permissions"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-exposure": {
+      "label": "Public Exposure",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Exposure tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public exposure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-footage": {
+      "label": "Public Footage",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Footage tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public footage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-hero-action": {
+      "label": "Public Hero Action",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Hero Action tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public hero action"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-hero-transition": {
+      "label": "Public Hero Transition",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Hero Transition tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public hero transition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-trust": {
+      "label": "Public Trust",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Trust tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "public trust"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:pursuit-delay": {
+      "label": "Pursuit Delay",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Pursuit Delay tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "pursuit delay"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-control": {
+      "label": "Quirk Control",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Control tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-destroying-bullet-source": {
+      "label": "Quirk Destroying Bullet Source",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Destroying Bullet Source tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk destroying bullet source"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-erasure-weapon": {
+      "label": "Quirk Erasure Weapon",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Erasure Weapon tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk erasure weapon"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-loss": {
+      "label": "Quirk Loss",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Loss tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk loss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-safety": {
+      "label": "Quirk Safety",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Safety tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk safety"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-training": {
+      "label": "Quirk Training",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Training tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "quirk training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:raid-objective": {
+      "label": "Raid Objective",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Raid Objective tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "raid objective"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:raid-obstacles": {
+      "label": "Raid Obstacles",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Raid Obstacles tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "raid obstacles"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:raid-planning": {
+      "label": "Raid Planning",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Raid Planning tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "raid planning"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:raid-professionalism": {
+      "label": "Raid Professionalism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Raid Professionalism tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "raid professionalism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:raid-separation": {
+      "label": "Raid Separation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Raid Separation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "raid separation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:raid-utility": {
+      "label": "Raid Utility",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Raid Utility tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "raid utility"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:reaching-for-rescue": {
+      "label": "Reaching For Rescue",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Reaching For Rescue tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "reaching for rescue"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:real-camie": {
+      "label": "Real Camie",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Real Camie tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "real camie"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:red-riot-unbreakable": {
+      "label": "Red Riot Unbreakable",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Red Riot Unbreakable tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "red riot unbreakable"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:regret": {
+      "label": "Regret",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Regret tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "regret"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:remedial-completion": {
+      "label": "Remedial Completion",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Remedial Completion tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "remedial completion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:remedial-consequences": {
+      "label": "Remedial Consequences",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Remedial Consequences tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "remedial consequences"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:remedial-course": {
+      "label": "Remedial Course",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Remedial Course tag for My Hero Academia retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:remedial-growth": {
+      "label": "Remedial Growth",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Remedial Growth tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "remedial growth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:remedial-license-training": {
+      "label": "Remedial License Training",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Remedial License Training tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "remedial license training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-communication": {
+      "label": "Rescue Communication",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Communication tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue communication"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-conduct": {
+      "label": "Rescue Conduct",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Conduct tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue conduct"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-mission": {
+      "label": "Rescue Mission",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Mission tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue mission"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-motivation": {
+      "label": "Rescue Motivation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Motivation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue motivation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-promise": {
+      "label": "Rescue Promise",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Promise tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue promise"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-scoring": {
+      "label": "Rescue Scoring",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Scoring tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue scoring"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-simulation": {
+      "label": "Rescue Simulation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Simulation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue simulation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rescue-under-attack": {
+      "label": "Rescue Under Attack",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rescue Under Attack tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rescue under attack"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:resource-view": {
+      "label": "Resource View",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Resource View tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "resource view"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:retired-mentor": {
+      "label": "Retired Mentor",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Retired Mentor tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "retired mentor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rewind-exploitation": {
+      "label": "Rewind Exploitation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rewind Exploitation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rewind exploitation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rewind-guard": {
+      "label": "Rewind Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rewind Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rewind guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rewind-instability": {
+      "label": "Rewind Instability",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rewind Instability tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rewind instability"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rewind-offset": {
+      "label": "Rewind Offset",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rewind Offset tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rewind offset"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rival-hero-school": {
+      "label": "Rival Hero School",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rival Hero School tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rival hero school"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rival-school-tactics": {
+      "label": "Rival School Tactics",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rival School Tactics tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rival school tactics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rivalry-insight": {
+      "label": "Rivalry Insight",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rivalry Insight tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rivalry insight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:rivalry-reset": {
+      "label": "Rivalry Reset",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Rivalry Reset tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "rivalry reset"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:romantic-feelings": {
+      "label": "Romantic Feelings",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Romantic Feelings tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "romantic feelings"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sacrifice": {
+      "label": "Sacrifice",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Sacrifice tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "sacrifice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:safety-after-abuse": {
+      "label": "Safety After Abuse",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Safety After Abuse tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "safety after abuse"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:school-festival-guard": {
+      "label": "School Festival Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "School Festival Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "school festival guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:school-security": {
+      "label": "School Security",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "School Security tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "school security"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:secret-deduction": {
+      "label": "Secret Deduction",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Secret Deduction tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "secret deduction"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:self-blame": {
+      "label": "Self Blame",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Self Blame tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "self blame"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:senior-student-mastery": {
+      "label": "Senior Student Mastery",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Senior Student Mastery tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "senior student mastery"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shared-burden": {
+      "label": "Shared Burden",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Shared Burden tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shared burden"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shared-secrecy": {
+      "label": "Shared Secrecy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Shared Secrecy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shared secrecy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shifting-base": {
+      "label": "Shifting Base",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Shifting Base tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shifting base"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shiketsu-confusion": {
+      "label": "Shiketsu Confusion",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Shiketsu Confusion tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shiketsu confusion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shiketsu-continuity": {
+      "label": "Shiketsu Continuity",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Shiketsu Continuity tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shiketsu continuity"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:shoot-style": {
+      "label": "Shoot Style",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Shoot Style tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "shoot style"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:social-intuition": {
+      "label": "Social Intuition",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Social Intuition tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "social intuition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:social-repair": {
+      "label": "Social Repair",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Social Repair tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "social repair"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:soft-skills": {
+      "label": "Soft Skills",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Soft Skills tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "soft skills"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:special-moves": {
+      "label": "Special Moves",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Special Moves tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "special moves"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:specialist-subordinates": {
+      "label": "Specialist Subordinates",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Specialist Subordinates tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "specialist subordinates"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:sports-festival-footage": {
+      "label": "Sports Festival Footage",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Sports Festival Footage tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "sports festival footage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:stored-counterattack": {
+      "label": "Stored Counterattack",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Stored Counterattack tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "stored counterattack"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:strategic-fear": {
+      "label": "Strategic Fear",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Strategic Fear tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "strategic fear"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:strategic-loss": {
+      "label": "Strategic Loss",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Strategic Loss tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "strategic loss"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:strategic-theft": {
+      "label": "Strategic Theft",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Strategic Theft tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "strategic theft"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:student-agency": {
+      "label": "Student Agency",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Student Agency tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "student agency"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:student-rescue-work": {
+      "label": "Student Rescue Work",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Student Rescue Work tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "student rescue work"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:student-skepticism": {
+      "label": "Student Skepticism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Student Skepticism tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "student skepticism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:student-supervision": {
+      "label": "Student Supervision",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Student Supervision tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "student supervision"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:successor-judgment": {
+      "label": "Successor Judgment",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Successor Judgment tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "successor judgment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:successor-knowledge": {
+      "label": "Successor Knowledge",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Successor Knowledge tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "successor knowledge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:support-battle": {
+      "label": "Support Battle",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Support Battle tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "support battle"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:support-gear": {
+      "label": "Support Gear",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Support Gear tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "support gear"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:surface-battle": {
+      "label": "Surface Battle",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Surface Battle tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "surface battle"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:surface-fight": {
+      "label": "Surface Fight",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Surface Fight tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "surface fight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:surface-support": {
+      "label": "Surface Support",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Surface Support tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "surface support"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:symbol-aftermath": {
+      "label": "Symbol Aftermath",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Symbol Aftermath tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "symbol aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:symbol-of-peace-burden": {
+      "label": "Symbol Of Peace Burden",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Symbol Of Peace Burden tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "symbol of peace burden"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:symbol-transition": {
+      "label": "Symbol Transition",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Symbol Transition tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "symbol transition"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tactical-problem": {
+      "label": "Tactical Problem",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Tactical Problem tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "tactical problem"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tactical-revenge": {
+      "label": "Tactical Revenge",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Tactical Revenge tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "tactical revenge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:teacher-judgment": {
+      "label": "Teacher Judgment",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Teacher Judgment tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "teacher judgment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:teaching-role": {
+      "label": "Teaching Role",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Teaching Role tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "teaching role"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:team-coordination": {
+      "label": "Team Coordination",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Team Coordination tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "team coordination"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:temporary-synergy": {
+      "label": "Temporary Synergy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Temporary Synergy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "temporary synergy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:time-slowing": {
+      "label": "Time Slowing",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Time Slowing tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "time slowing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:todoroki-family-spoiler": {
+      "label": "Todoroki Family Spoiler",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Todoroki Family Spoiler tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "todoroki family spoiler"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:todoroki-resentment": {
+      "label": "Todoroki Resentment",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Todoroki Resentment tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "todoroki resentment"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:toga-infiltration": {
+      "label": "Toga Infiltration",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Toga Infiltration tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "toga infiltration"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:transform-quirk": {
+      "label": "Transform Quirk",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Transform Quirk tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "transform quirk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:trauma-after-rescue": {
+      "label": "Trauma After Rescue",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Trauma After Rescue tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "trauma after rescue"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:triage-under-combat": {
+      "label": "Triage Under Combat",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Triage Under Combat tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "triage under combat"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:u-a-crush-strategy": {
+      "label": "U A Crush Strategy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "U A Crush Strategy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "u a crush strategy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:u-a-hierarchy": {
+      "label": "U A Hierarchy",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "U A Hierarchy tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "u a hierarchy"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:u-a-targeting": {
+      "label": "U A Targeting",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "U A Targeting tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "u a targeting"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:u-a-traitor-guard": {
+      "label": "U A Traitor Guard",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "U A Traitor Guard tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "u a traitor guard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:underground-labyrinth": {
+      "label": "Underground Labyrinth",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Underground Labyrinth tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "underground labyrinth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:underworld-influence": {
+      "label": "Underworld Influence",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Underworld Influence tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "underworld influence"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:unsanctioned-fight": {
+      "label": "Unsanctioned Fight",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Unsanctioned Fight tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "unsanctioned fight"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:victim-communication": {
+      "label": "Victim Communication",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Victim Communication tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "victim communication"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-casualty": {
+      "label": "Villain Casualty",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Casualty tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain casualty"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-emotion": {
+      "label": "Villain Emotion",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Emotion tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain emotion"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-evolution-timing": {
+      "label": "Villain Evolution Timing",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Evolution Timing tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain evolution timing"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-faction-negotiation": {
+      "label": "Villain Faction Negotiation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Faction Negotiation tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain faction negotiation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-growth": {
+      "label": "Villain Growth",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Growth tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain growth"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-honor": {
+      "label": "Villain Honor",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Honor tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain honor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-power-shift": {
+      "label": "Villain Power Shift",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Power Shift tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain power shift"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:villain-pressure-test": {
+      "label": "Villain Pressure Test",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Villain Pressure Test tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "villain pressure test"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:wind-control": {
+      "label": "Wind Control",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Wind Control tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "wind control"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:work-study": {
+      "label": "Work Study",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Work Study tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "work study"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:work-study-bridge": {
+      "label": "Work Study Bridge",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Work Study Bridge tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "work study bridge"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:work-study-logistics": {
+      "label": "Work Study Logistics",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Work Study Logistics tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "work study logistics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:work-study-risk": {
+      "label": "Work Study Risk",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Work Study Risk tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "work study risk"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:work-study-support": {
+      "label": "Work Study Support",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Work Study Support tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "work study support"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:work-study-teamwork": {
+      "label": "Work Study Teamwork",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Work Study Teamwork tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "work study teamwork"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:yakuza-restoration": {
+      "label": "Yakuza Restoration",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Yakuza Restoration tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "yakuza restoration"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:yakuza-structure": {
+      "label": "Yakuza Structure",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Yakuza Structure tag for My Hero Academia retrieval and filtering.",
+      "aliases": [
+        "yakuza structure"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

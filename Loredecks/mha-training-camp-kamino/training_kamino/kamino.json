@@ -1,0 +1,2664 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_pro_hero_raid_is_coordinated_lawful_force",
+      "title": "Pro Hero Raid Is Coordinated Lawful Force",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.pro-raid-planned",
+        "sortKeyFrom": 7100,
+        "sortKeyTo": 7100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Police and pro heroes plan coordinated raids"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:pro-heroes",
+          "mha:police",
+          "mha:best-jeanist",
+          "mha:edgeshot",
+          "mha:mt-lady",
+          "mha:kamui-woods"
+        ],
+        "characters": [
+          "Best Jeanist",
+          "Edgeshot",
+          "Mt. Lady",
+          "Kamui Woods"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "Police"
+        ],
+        "topics": [
+          "coordinated raid",
+          "lawful hero work",
+          "police cooperation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:best-jeanist",
+        "character:edgeshot",
+        "character:kamui-woods",
+        "character:mt-lady",
+        "continuity:mha-manga-main",
+        "faction:police",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:police-cooperation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Best Jeanist",
+            "Edgeshot",
+            "Mt. Lady",
+            "Kamui Woods"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "coordinated raid",
+            "lawful hero work",
+            "police cooperation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The adult rescue operation is a coordinated pro hero and police raid, contrasting with the students’ unauthorized rescue impulse.",
+        "injection": "For the Hideout Raid, show pro heroes and police operating through coordinated lawful force, surveillance, and simultaneous raids rather than improvising like students.",
+        "constraints": [
+          "The raid should feel planned and institutional."
+        ],
+        "antiLore": [
+          "Do not make the adult raid a casual brawl with no police structure."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 86-89",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_best_jeanist_is_a_major_casualty_of_all_for_one_arrival",
+      "title": "Best Jeanist Is A Major Casualty Of All For One Arrival",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:best-jeanist",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "Best Jeanist",
+          "All For One"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "pro hero casualty",
+          "All For One threat",
+          "Kamino battlefield"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:best-jeanist",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Best Jeanist",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "pro hero casualty",
+            "All For One threat",
+            "Kamino battlefield"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Best Jeanist’s severe injury demonstrates how quickly All For One outclasses even top pro heroes at Kamino.",
+        "injection": "When All For One enters, top pros should be endangered immediately; Best Jeanist’s injury signals the gap in scale.",
+        "constraints": [
+          "This should raise stakes before All Might takes center stage."
+        ],
+        "antiLore": [
+          "Do not portray All For One as only dangerous to students."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-90",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_nomu_factory_reveals_villain_infrastructure",
+      "title": "Nomu Factory Reveals Villain Infrastructure",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.nomu-factory-revealed",
+        "sortKeyFrom": 7300,
+        "sortKeyTo": 7300,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Nomu factory revealed as second raid site"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:nomu-factory",
+          "mha:league-of-villains",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Nomu Factory"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "Nomu production",
+          "villain infrastructure",
+          "body horror"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "continuity:mha-manga-main",
+        "faction:league-of-villains",
+        "fandom:mha",
+        "location:nomu-factory",
+        "quality:draft-reference",
+        "topic:nomu",
+        "topic:nomu-production"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Nomu Factory"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nomu production",
+            "villain infrastructure",
+            "body horror"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Nomu factory reveals that the League crisis is backed by organized villain infrastructure and grotesque bioengineered weapons.",
+        "injection": "At the factory raid, treat Nomu as evidence of deeper villain infrastructure, not isolated monsters of the week.",
+        "constraints": [
+          "The full scientific chain can remain incomplete."
+        ],
+        "antiLore": [
+          "Do not make Nomu production publicly or fully understood by students here."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 88-90",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_kamino_is_a_public_battlefield_not_a_hidden_duel",
+      "title": "Kamino Is A Public Battlefield Not A Hidden Duel",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.kamino-destruction",
+        "sortKeyFrom": 7400,
+        "sortKeyTo": 7400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kamino becomes a public disaster zone"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kamino-ward",
+          "mha:all-might",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes",
+          "League of Villains"
+        ],
+        "topics": [
+          "public disaster",
+          "broadcast battle",
+          "civilian danger"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:kamino-ward",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Pro Heroes",
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public disaster",
+            "broadcast battle",
+            "civilian danger"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Kamino battle becomes a public disaster and broadcast crisis, not a private confrontation between All Might and All For One.",
+        "injection": "During Kamino, include public visibility, urban destruction, civilians, media stakes, and the psychological impact of watching the Symbol of Peace struggle.",
+        "constraints": [
+          "Public perception is part of the battle’s consequence."
+        ],
+        "antiLore": [
+          "Do not stage Kamino as a secluded duel with no societal audience."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_for_one_combines_stolen_quirks_as_overwhelming_pressure",
+      "title": "All For One Combines Stolen Quirks As Overwhelming Pressure",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:all-for-one-quirk",
+          "mha:all-might"
+        ],
+        "characters": [
+          "All For One",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [
+          "All For One Quirk"
+        ],
+        "factions": [],
+        "topics": [
+          "stolen Quirks",
+          "compound attacks",
+          "Quirk theft"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:all-for-one"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "All For One Quirk"
+          ],
+          "topicsAny": [
+            "stolen Quirks",
+            "compound attacks",
+            "Quirk theft"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One fights by combining stolen Quirks into overwhelming compound attacks and battlefield control.",
+        "injection": "When All For One fights at Kamino, portray him as a strategic Quirk-stacking tyrant whose power comes from stolen abilities, not a single simple attack.",
+        "constraints": [
+          "His abilities can be vast, but avoid importing later body-transfer details here."
+        ],
+        "antiLore": [
+          "Do not reduce All For One to generic super strength alone."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "All For One",
+        "stage": "Kamino-era stolen Quirk arsenal",
+        "ownerEntityIds": [
+          "mha:all-for-one"
+        ],
+        "constraints": [
+          "Can combine stolen Quirks, but later body-transfer mechanics should not leak here."
+        ],
+        "antiLore": [
+          "Do not reveal later vestige/body-transfer plot points early."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_might_is_fighting_on_the_last_embers_of_one_for_all",
+      "title": "All Might Is Fighting On The Last Embers Of One For All",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-might-weakened-form-public",
+        "sortKeyFrom": 7500,
+        "sortKeyTo": 7500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might weakened form becomes publicly exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:one-for-all",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "OFA embers",
+          "time limit",
+          "weakened form"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "OFA embers",
+            "time limit",
+            "weakened form"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At Kamino, All Might fights on the fading embers of One For All after passing the Quirk to Izuku.",
+        "injection": "In the Kamino fight, make All Might’s power visibly finite: every exchange spends the last embers of One For All.",
+        "constraints": [
+          "He can still perform one final overwhelming act, but this is the end of his active heroic power."
+        ],
+        "antiLore": [
+          "Do not give All Might a stable post-Kamino combat form."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 92-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "ability": {
+        "system": "quirk",
+        "name": "One For All",
+        "stage": "All Might final embers",
+        "ownerEntityIds": [
+          "mha:all-might"
+        ],
+        "constraints": [
+          "Power is nearly exhausted and cannot sustain hero activity after Kamino."
+        ],
+        "antiLore": [
+          "Do not let All Might resume normal hero work after United States of Smash."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_might_weak_form_exposure_breaks_public_myth",
+      "title": "All Might Weak Form Exposure Breaks Public Myth",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "public",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-might-weakened-form-public",
+        "sortKeyFrom": 7500,
+        "sortKeyTo": 7500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might weakened form becomes publicly exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public weak form",
+          "Symbol myth broken",
+          "hero society trust"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "event:all-might-weak-form-exposed",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference",
+        "topic:public-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public weak form",
+            "Symbol myth broken",
+            "hero society trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s weakened form becomes publicly visible during Kamino, damaging the invincible Symbol of Peace image even before his final victory.",
+        "injection": "After All Might’s weak form is exposed, public awe should mix with fear, confusion, and grief over the Symbol of Peace’s vulnerability.",
+        "constraints": [
+          "The exposure is public and cannot be cleanly put back into secrecy."
+        ],
+        "antiLore": [
+          "Do not keep All Might’s condition a private secret after Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 92-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_united_states_of_smash_is_a_final_victory_not_a_reset",
+      "title": "United States Of Smash Is A Final Victory Not A Reset",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.united-states-of-smash",
+        "sortKeyFrom": 7550,
+        "sortKeyTo": 7550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might defeats All For One with final embers"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "final victory",
+          "United States of Smash",
+          "end of career"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "event:united-states-of-smash",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "final victory",
+            "United States of Smash",
+            "end of career"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might defeats All For One with United States of Smash, but the victory consumes his active hero career rather than restoring him.",
+        "injection": "Treat United States of Smash as both triumph and ending: All Might wins publicly, but his era as an active hero is over.",
+        "constraints": [
+          "The emotional tone should combine relief, awe, and loss."
+        ],
+        "antiLore": [
+          "Do not treat the final punch as healing All Might or preserving the old status quo."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 93-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_youre_next_has_public_and_private_meanings",
+      "title": "Youre Next Has Public And Private Meanings",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.youre-next",
+        "sortKeyFrom": 7600,
+        "sortKeyTo": 7600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might points to the next generation"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [
+          "One For All"
+        ],
+        "factions": [],
+        "topics": [
+          "successor message",
+          "public misreading",
+          "OFA secrecy"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all",
+        "secret:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [
+            "One For All"
+          ],
+          "topicsAny": [
+            "successor message",
+            "public misreading",
+            "OFA secrecy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s “You’re next” reads publicly as a warning to villains, while privately signaling Izuku’s burden as successor.",
+        "injection": "When All Might points after Kamino, preserve the double meaning: the public hears defiance, but Izuku understands succession and responsibility.",
+        "constraints": [
+          "Most viewers must not know the One For All inheritance meaning."
+        ],
+        "antiLore": [
+          "Do not make the public immediately know Izuku is All Might’s successor."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_bakugo_extraction_depends_on_timing_trust_and_noncombat_movement",
+      "title": "Bakugo Extraction Depends On Timing Trust And Noncombat Movement",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.bakugo-extracted",
+        "sortKeyFrom": 7450,
+        "sortKeyTo": 7450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo extracted by classmates without direct combat"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:kirishima-eijiro",
+          "mha:midoriya-izuku",
+          "mha:todoroki-shoto",
+          "mha:iida-tenya"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Eijiro Kirishima",
+          "Izuku Midoriya",
+          "Shoto Todoroki",
+          "Tenya Iida"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "rescue extraction",
+          "noncombat movement",
+          "Kirishima trust"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:iida-tenya",
+        "character:kirishima-eijiro",
+        "character:midoriya-izuku",
+        "character:todoroki-shoto",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Eijiro Kirishima",
+            "Izuku Midoriya",
+            "Shoto Todoroki",
+            "Tenya Iida"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue extraction",
+            "noncombat movement",
+            "Kirishima trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The students extract Bakugo by timing a noncombat movement plan around the pro battle and Kirishima’s ability to reach him emotionally.",
+        "injection": "For Bakugo’s extraction, emphasize timing, movement, and Kirishima’s handoff; the students succeed by avoiding a direct villain fight.",
+        "constraints": [
+          "The extraction is risky and unauthorized despite avoiding combat."
+        ],
+        "antiLore": [
+          "Do not rewrite the rescue as students defeating the League at Kamino."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 90-92",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_mt_lady_and_other_pros_create_the_opening_for_escape",
+      "title": "Mt Lady And Other Pros Create The Opening For Escape",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.bakugo-extracted",
+        "sortKeyFrom": 7450,
+        "sortKeyTo": 7450,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo extracted by classmates without direct combat"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mt-lady",
+          "mha:kamui-woods",
+          "mha:pro-heroes",
+          "mha:bakugo-katsuki"
+        ],
+        "characters": [
+          "Mt. Lady",
+          "Kamui Woods",
+          "Katsuki Bakugo"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "pro hero support",
+          "escape opening",
+          "Kamino extraction"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:bakugo-katsuki",
+        "character:kamui-woods",
+        "character:mt-lady",
+        "continuity:mha-manga-main",
+        "faction:pro-heroes",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mt. Lady",
+            "Kamui Woods",
+            "Katsuki Bakugo"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "pro hero support",
+            "escape opening",
+            "Kamino extraction"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo’s extraction depends on pro hero pressure and obstruction as well as the students’ movement plan.",
+        "injection": "When writing the extraction, include pro hero support as part of why the students can escape; the opening is not created by students alone.",
+        "constraints": [
+          "Pros are actively fighting and protecting civilians."
+        ],
+        "antiLore": [
+          "Do not erase Mt. Lady or other pro interventions from the extraction."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 90-92",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_gran_torino_knows_the_all_might_all_for_one_stakes",
+      "title": "Gran Torino Knows The All Might All For One Stakes",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:gran-torino",
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:one-for-all"
+        ],
+        "characters": [
+          "Gran Torino",
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "old OFA network",
+          "All Might past",
+          "AFO stakes"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "character:gran-torino",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference",
+        "quirk:one-for-all",
+        "secret:one-for-all"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Gran Torino",
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "old OFA network",
+            "All Might past",
+            "AFO stakes"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Gran Torino understands more of the long conflict between All Might, One For All, and All For One than ordinary pro heroes or students.",
+        "injection": "Use Gran Torino as an informed older participant in the Kamino crisis, but keep One For All’s full truth restricted to those in the successor circle.",
+        "constraints": [
+          "He can know past stakes without narrating every later revelation."
+        ],
+        "antiLore": [
+          "Do not make all pro heroes aware of One For All’s transfer mechanics."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-95",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:gran-torino",
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_nana_shimura_connection_must_stay_partial",
+      "title": "Nana Shimura Connection Must Stay Partial",
+      "kind": "future_guard",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "future_guard",
+      "specificityScore": 88,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "characters": [
+          "All Might",
+          "All For One",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "Nana Shimura partial knowledge",
+          "future Shigaraki lineage guard",
+          "OFA predecessor"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "character:shigaraki-tomura",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "meta:future-guard",
+        "quality:draft-reference",
+        "secret:nana-shimura"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "Nana Shimura partial knowledge",
+            "future Shigaraki lineage guard",
+            "OFA predecessor"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kamino can imply deep history among All Might, All For One, and past One For All holders, but later Shigaraki family revelations must remain gated.",
+        "injection": "During Kamino, allow All Might and All For One’s old hatred to surface without exposing the full later significance of Shigaraki’s family history to uninformed characters.",
+        "constraints": [
+          "All For One may weaponize personal knowledge; students must not understand the later lineage reveal."
+        ],
+        "antiLore": [
+          "Do not fully reveal Shigaraki’s Nana Shimura connection before its proper story point."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-95",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {},
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:class-1a",
+          "mha:pro-heroes"
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_for_one_uses_psychological_warfare_against_all_might",
+      "title": "All For One Uses Psychological Warfare Against All Might",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-for-one-arrives",
+        "sortKeyFrom": 7350,
+        "sortKeyTo": 7350,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One enters the battlefield"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:all-might"
+        ],
+        "characters": [
+          "All For One",
+          "All Might"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "psychological warfare",
+          "old enemies",
+          "public humiliation"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "psychological warfare",
+            "old enemies",
+            "public humiliation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One attacks All Might psychologically as well as physically, using history, exposure, and public stakes to break the Symbol.",
+        "injection": "During Kamino, let All For One taunt and manipulate All Might with old wounds and public pressure, not just raw power.",
+        "constraints": [
+          "His words should target All Might’s identity as Symbol and successor-holder."
+        ],
+        "antiLore": [
+          "Do not write All For One as a mute brute."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_might_protects_civilians_while_fighting_afo",
+      "title": "All Might Protects Civilians While Fighting AFO",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.kamino-destruction",
+        "sortKeyFrom": 7400,
+        "sortKeyTo": 7400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kamino becomes a public disaster zone"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:all-for-one",
+          "mha:kamino-ward"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "civilian protection",
+          "battlefield restraint",
+          "public heroism"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:kamino-ward",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian protection",
+            "battlefield restraint",
+            "public heroism"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s battle choices at Kamino are constrained by civilians, cameras, injuries, and the need to protect rather than merely win.",
+        "injection": "In Kamino action, keep All Might heroically constrained: he must defeat All For One while protecting civilians and preserving public courage.",
+        "constraints": [
+          "Restraint and symbolism matter alongside strength."
+        ],
+        "antiLore": [
+          "Do not write Kamino as a consequence-free slugfest."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 89-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_afo_uses_all_might_true_form_as_symbolic_attack",
+      "title": "AFO Uses All Might True Form As Symbolic Attack",
+      "kind": "behavior_constraint",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.all-might-weakened-form-public",
+        "sortKeyFrom": 7500,
+        "sortKeyTo": 7500,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might weakened form becomes publicly exposed"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:all-might"
+        ],
+        "characters": [
+          "All For One",
+          "All Might"
+        ],
+        "locations": [
+          "Kamino Ward"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "symbolic exposure",
+          "public humiliation",
+          "All Might image"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "All Might"
+          ],
+          "locationsAny": [
+            "Kamino Ward"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "symbolic exposure",
+            "public humiliation",
+            "All Might image"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One’s exposure of All Might’s weakened form is a symbolic attack on public faith as much as a combat tactic.",
+        "injection": "When All Might’s true form appears publicly, frame it as an attack on the myth of invincibility, not just a visual reveal.",
+        "constraints": [
+          "The crowd and cameras matter."
+        ],
+        "antiLore": [
+          "Do not make the reveal private or consequence-free."
+        ],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 92-94",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {}
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_all_might_public_victory_carries_private_cost",
+      "title": "All Might Public Victory Carries Private Cost",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.united-states-of-smash",
+        "sortKeyFrom": 7550,
+        "sortKeyTo": 7550,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All Might defeats All For One with final embers"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "All Might",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "public victory",
+          "private cost",
+          "mentor burden"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-might",
+        "character:midoriya-izuku",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "quality:draft-reference"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "public victory",
+            "private cost",
+            "mentor burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All Might’s public victory hides the private cost that he can no longer serve as active Symbol of Peace.",
+        "injection": "After United States of Smash, separate the public’s triumph from the successor circle’s knowledge of what was lost.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_training_camp_kamino_kamino_cameras_shape_the_meaning_of_the_battle",
+      "title": "Kamino Cameras Shape The Meaning Of The Battle",
+      "kind": "status_change",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 83,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.tck.kamino-destruction",
+        "sortKeyFrom": 7400,
+        "sortKeyTo": 7400,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Kamino becomes a public disaster zone"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.hideout-raid",
+          "label": "Hideout Raid",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.pre-dorm-crisis",
+          "label": "U.A. before dorm system under public crisis",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.kamino-crisis",
+          "label": "Kamino crisis and Symbol transition",
+          "required": false
+        },
+        {
+          "axis": "villain_org_state",
+          "id": "mha.villains.afo-revealed-kamino",
+          "label": "All For One exposed at Kamino",
+          "required": false
+        },
+        {
+          "axis": "quirk_stage",
+          "id": "mha.quirk.deku-full-cowling-early",
+          "label": "Deku early Full Cowling",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:kamino-ward",
+          "mha:all-might",
+          "mha:all-for-one"
+        ],
+        "characters": [
+          "All Might",
+          "All For One"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "media broadcast",
+          "public spectacle",
+          "symbolic battle"
+        ]
+      },
+      "tags": [
+        "adaptation:manga",
+        "arc:hideout-raid",
+        "character:all-for-one",
+        "character:all-might",
+        "continuity:mha-manga-main",
+        "fandom:mha",
+        "location:kamino-ward",
+        "quality:draft-reference",
+        "topic:media-broadcast"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "All For One"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "media broadcast",
+            "public spectacle",
+            "symbolic battle"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kamino is watched and interpreted in real time, making public perception part of the battlefield.",
+        "injection": "Use cameras and spectators as pressure in Kamino scenes; the battle is also a contest over the meaning of hero society.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 70-97",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

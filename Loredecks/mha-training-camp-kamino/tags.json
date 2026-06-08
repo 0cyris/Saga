@@ -1,0 +1,1393 @@
+{
+  "schemaVersion": 1,
+  "tags": {
+    "adaptation:manga": {
+      "label": "Manga",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Manga tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "manga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:forest-training-camp": {
+      "label": "Forest Training Camp",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Forest Training Camp tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "forest training camp"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:hero-killer": {
+      "label": "Hero Killer",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Hero Killer tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "hero killer"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:hideout-raid": {
+      "label": "Hideout Raid",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Hideout Raid tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "hideout raid"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:kamino-aftermath": {
+      "label": "Kamino Aftermath",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Kamino Aftermath tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kamino aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "arc:provisional-license": {
+      "label": "Provisional License",
+      "color": "#7b3f00",
+      "textColor": "#ffffff",
+      "description": "Provisional License tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "provisional license"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aizawa-shota": {
+      "label": "Aizawa Shota",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Aizawa Shota tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "aizawa shota"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:all-for-one": {
+      "label": "All For One",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "All For One tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:all-might": {
+      "label": "All Might",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "All Might tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "all might"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:aoyama-yuga": {
+      "label": "Aoyama Yuga",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Aoyama Yuga tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "aoyama yuga"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:asui-tsuyu": {
+      "label": "Asui Tsuyu",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Asui Tsuyu tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "asui tsuyu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:bakugo-katsuki": {
+      "label": "Bakugo Katsuki",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Bakugo Katsuki tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "bakugo katsuki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:best-jeanist": {
+      "label": "Best Jeanist",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Best Jeanist tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "best jeanist"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:dabi": {
+      "label": "Dabi",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Dabi tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "dabi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:edgeshot": {
+      "label": "Edgeshot",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Edgeshot tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "edgeshot"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:endeavor": {
+      "label": "Endeavor",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Endeavor tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "endeavor"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:gran-torino": {
+      "label": "Gran Torino",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Gran Torino tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "gran torino"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:iida-tenya": {
+      "label": "Iida Tenya",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Iida Tenya tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "iida tenya"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:jiro-kyoka": {
+      "label": "Jiro Kyoka",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Jiro Kyoka tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "jiro kyoka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kaminari-denki": {
+      "label": "Kaminari Denki",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kaminari Denki tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kaminari denki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kamui-woods": {
+      "label": "Kamui Woods",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kamui Woods tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kamui woods"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kendo-itsuka": {
+      "label": "Kendo Itsuka",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kendo Itsuka tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kendo itsuka"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kirishima-eijiro": {
+      "label": "Kirishima Eijiro",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kirishima Eijiro tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kirishima eijiro"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kota-izumi": {
+      "label": "Kota Izumi",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kota Izumi tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kota izumi"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:kurogiri": {
+      "label": "Kurogiri",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Kurogiri tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kurogiri"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:magne": {
+      "label": "Magne",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Magne tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "magne"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mandalay": {
+      "label": "Mandalay",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mandalay tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "mandalay"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midoriya-inko": {
+      "label": "Midoriya Inko",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Midoriya Inko tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "midoriya inko"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:midoriya-izuku": {
+      "label": "Midoriya Izuku",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Midoriya Izuku tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "midoriya izuku"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:monoma-neito": {
+      "label": "Monoma Neito",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Monoma Neito tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "monoma neito"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:moonfish": {
+      "label": "Moonfish",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Moonfish tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "moonfish"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mr-compress": {
+      "label": "Mr Compress",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mr Compress tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "mr compress"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mt-lady": {
+      "label": "Mt Lady",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mt Lady tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "mt lady"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:muscular": {
+      "label": "Muscular",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Muscular tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "muscular"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:mustard": {
+      "label": "Mustard",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Mustard tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "mustard"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:nezu": {
+      "label": "Nezu",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Nezu tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "nezu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:pixie-bob": {
+      "label": "Pixie Bob",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Pixie Bob tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "pixie bob"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:ragdoll": {
+      "label": "Ragdoll",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Ragdoll tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "ragdoll"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shigaraki-tomura": {
+      "label": "Shigaraki Tomura",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Shigaraki Tomura tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "shigaraki tomura"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:shoji-mezo": {
+      "label": "Shoji Mezo",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Shoji Mezo tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "shoji mezo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:spinner": {
+      "label": "Spinner",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Spinner tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "spinner"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:stain": {
+      "label": "Stain",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Stain tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "stain"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tetsutetsu-tetsutetsu": {
+      "label": "Tetsutetsu Tetsutetsu",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Tetsutetsu Tetsutetsu tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "tetsutetsu tetsutetsu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tiger": {
+      "label": "Tiger",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Tiger tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "tiger"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:todoroki-shoto": {
+      "label": "Todoroki Shoto",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Todoroki Shoto tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "todoroki shoto"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:toga-himiko": {
+      "label": "Toga Himiko",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Toga Himiko tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "toga himiko"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:tokoyami-fumikage": {
+      "label": "Tokoyami Fumikage",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Tokoyami Fumikage tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "tokoyami fumikage"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:twice": {
+      "label": "Twice",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Twice tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "twice"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:uraraka-ochaco": {
+      "label": "Uraraka Ochaco",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Uraraka Ochaco tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "uraraka ochaco"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "character:yaoyorozu-momo": {
+      "label": "Yaoyorozu Momo",
+      "color": "#1f4e79",
+      "textColor": "#ffffff",
+      "description": "Yaoyorozu Momo tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "yaoyorozu momo"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "class:ua-1a": {
+      "label": "Ua 1A",
+      "color": "#2f855a",
+      "textColor": "#ffffff",
+      "description": "Ua 1A tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "ua 1a"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "class:ua-1b": {
+      "label": "Ua 1B",
+      "color": "#2f855a",
+      "textColor": "#ffffff",
+      "description": "Ua 1B tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "ua 1b"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "continuity:mha-manga-main": {
+      "label": "Mha Manga Main",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Mha Manga Main tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "mha manga main"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:all-might-weak-form-exposed": {
+      "label": "All Might Weak Form Exposed",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "All Might Weak Form Exposed tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "all might weak form exposed"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:bakugo-captured": {
+      "label": "Bakugo Captured",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Bakugo Captured tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "bakugo captured"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:camp-aftermath": {
+      "label": "Camp Aftermath",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Camp Aftermath tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "camp aftermath"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:symbol-of-peace-falls": {
+      "label": "Symbol Of Peace Falls",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Symbol Of Peace Falls tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "symbol of peace falls"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:ua-dorms": {
+      "label": "Ua Dorms",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "Ua Dorms tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "ua dorms"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "event:united-states-of-smash": {
+      "label": "United States Of Smash",
+      "color": "#744210",
+      "textColor": "#ffffff",
+      "description": "United States Of Smash tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "united states of smash"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:league-of-villains": {
+      "label": "League Of Villains",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "League Of Villains tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "league of villains"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:police": {
+      "label": "Police",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Police tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "police"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:pro-heroes": {
+      "label": "Pro Heroes",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Pro Heroes tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:vanguard-action-squad": {
+      "label": "Vanguard Action Squad",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Vanguard Action Squad tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "vanguard action squad"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "faction:wild-wild-pussycats": {
+      "label": "Wild Wild Pussycats",
+      "color": "#7f1d1d",
+      "textColor": "#ffffff",
+      "description": "Wild Wild Pussycats tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "wild wild pussycats"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "family:todoroki": {
+      "label": "Todoroki",
+      "color": "#9a3412",
+      "textColor": "#ffffff",
+      "description": "Todoroki tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "todoroki"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "fandom:mha": {
+      "label": "Mha",
+      "color": "#5b677a",
+      "textColor": "#ffffff",
+      "description": "Mha tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "mha"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:beast-forest": {
+      "label": "Beast Forest",
+      "color": "#22543d",
+      "textColor": "#ffffff",
+      "description": "Beast Forest tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "beast forest"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:kamino-ward": {
+      "label": "Kamino Ward",
+      "color": "#22543d",
+      "textColor": "#ffffff",
+      "description": "Kamino Ward tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "kamino ward"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "location:nomu-factory": {
+      "label": "Nomu Factory",
+      "color": "#22543d",
+      "textColor": "#ffffff",
+      "description": "Nomu Factory tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "nomu factory"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:future-guard": {
+      "label": "Future Guard",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Future Guard tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "future guard"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "meta:spoiler": {
+      "label": "Spoiler",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Spoiler tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "spoiler"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "people:pro-heroes": {
+      "label": "Pro Heroes",
+      "color": "#3f6212",
+      "textColor": "#ffffff",
+      "description": "Pro Heroes tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quality:draft-reference": {
+      "label": "Draft Reference",
+      "color": "#525252",
+      "textColor": "#ffffff",
+      "description": "Draft Reference tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "draft reference"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:all-for-one": {
+      "label": "All For One",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "All For One tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:compress": {
+      "label": "Compress",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "Compress tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "compress"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:dark-shadow": {
+      "label": "Dark Shadow",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "Dark Shadow tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "dark shadow"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:one-for-all": {
+      "label": "One For All",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:search": {
+      "label": "Search",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "Search tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "search"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "quirk:warp-gate": {
+      "label": "Warp Gate",
+      "color": "#6d28d9",
+      "textColor": "#ffffff",
+      "description": "Warp Gate tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "warp gate"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "school:ua-high": {
+      "label": "Ua High",
+      "color": "#234e52",
+      "textColor": "#ffffff",
+      "description": "Ua High tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "ua high"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:bakugo-guilt": {
+      "label": "Bakugo Guilt",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Bakugo Guilt tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:bakugo-target": {
+      "label": "Bakugo Target",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Bakugo Target tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "bakugo target"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:camp-location-leak": {
+      "label": "Camp Location Leak",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Camp Location Leak tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "camp location leak"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:dabi-identity": {
+      "label": "Dabi Identity",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Dabi Identity tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "dabi identity"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:nana-shimura": {
+      "label": "Nana Shimura",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Nana Shimura tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "nana shimura"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:one-for-all": {
+      "label": "One For All",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "One For All tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:quirk-theft": {
+      "label": "Quirk Theft",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Quirk Theft tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "quirk theft"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:toga-blood-sample": {
+      "label": "Toga Blood Sample",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Toga Blood Sample tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "toga blood sample"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "secret:ua-traitor": {
+      "label": "Ua Traitor",
+      "color": "#702459",
+      "textColor": "#ffffff",
+      "description": "Ua Traitor tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "ua traitor"
+      ],
+      "parents": [],
+      "sensitive": true,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:bakugo-guilt": {
+      "label": "Bakugo Guilt",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Bakugo Guilt tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dorm-life": {
+      "label": "Dorm Life",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Dorm Life tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "dorm life"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dorm-room-bonding": {
+      "label": "Dorm Room Bonding",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Dorm Room Bonding tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "dorm room bonding"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:dorm-system": {
+      "label": "Dorm System",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Dorm System tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "dorm system"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-rankings": {
+      "label": "Hero Rankings",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Rankings tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "hero rankings"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-skepticism": {
+      "label": "Hero Skepticism",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Skepticism tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "hero skepticism"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:hero-society": {
+      "label": "Hero Society",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Hero Society tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "hero society"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:media-broadcast": {
+      "label": "Media Broadcast",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Media Broadcast tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "media broadcast"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:nomu": {
+      "label": "Nomu",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Nomu tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "nomu"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:nomu-production": {
+      "label": "Nomu Production",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Nomu Production tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "nomu production"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:parental-consent": {
+      "label": "Parental Consent",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Parental Consent tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "parental consent"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:police-cooperation": {
+      "label": "Police Cooperation",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Police Cooperation tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "police cooperation"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:police-coordination": {
+      "label": "Police Coordination",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Police Coordination tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "police coordination"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:public-trust": {
+      "label": "Public Trust",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Public Trust tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "public trust"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:quirk-training": {
+      "label": "Quirk Training",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Quirk Training tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "quirk training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:summer-training": {
+      "label": "Summer Training",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Summer Training tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "summer training"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tracker": {
+      "label": "Tracker",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Tracker tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "tracker"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tracker-device": {
+      "label": "Tracker Device",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Tracker Device tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "tracker device"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    },
+    "topic:tracker-ethics": {
+      "label": "Tracker Ethics",
+      "color": "#4a5568",
+      "textColor": "#ffffff",
+      "description": "Tracker Ethics tag for My Hero Academia Training Camp/Kamino retrieval and filtering.",
+      "aliases": [
+        "tracker ethics"
+      ],
+      "parents": [],
+      "sensitive": false,
+      "deprecated": false,
+      "replacement": ""
+    }
+  }
+}

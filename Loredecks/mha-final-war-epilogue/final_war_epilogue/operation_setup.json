@@ -1,0 +1,1537 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_aoyama-trap-opens-final-war",
+      "title": "Aoyama Trap Opens Final War",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 90,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.aoyama-trap-begins",
+        "sortKeyFrom": 19000,
+        "sortKeyTo": 19000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama trap begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:izuku-midoriya",
+          "mha:all-for-one",
+          "mha:parking-lot",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Aoyama Yuga",
+          "Izuku Midoriya",
+          "All For One"
+        ],
+        "locations": [
+          "Parking Lot"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes"
+        ],
+        "topics": [
+          "trap operation",
+          "traitor leverage",
+          "opening move"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:aoyama-yuga",
+        "character:izuku-midoriya",
+        "character:all-for-one",
+        "location:parking-lot",
+        "faction:heroes",
+        "topic:trap-operation",
+        "topic:traitor-leverage",
+        "topic:opening-move",
+        "event:aoyama-trap-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Aoyama Yuga",
+            "Izuku Midoriya",
+            "All For One"
+          ],
+          "locationsAny": [
+            "Parking Lot"
+          ],
+          "factionsAny": [
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "trap operation",
+            "traitor leverage",
+            "opening move"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Final War begins with heroes using Aoyama as bait to draw All For One into a controlled opening.",
+        "injection": "Frame the opening as a planned trap built from the traitor reveal, not a random encounter or casual ambush.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 343-344",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_all-for-one-expects-hidden-advantages",
+      "title": "All For One Expects Hidden Advantages",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 88,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.afo-appears-at-trap",
+        "sortKeyFrom": 19050,
+        "sortKeyTo": 19050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "All For One appears at the trap"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:parking-lot",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "All For One"
+        ],
+        "locations": [
+          "Parking Lot"
+        ],
+        "objects": [],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "contingency planning",
+          "villain overconfidence"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "location:parking-lot",
+        "faction:league-of-villains",
+        "topic:contingency-planning",
+        "topic:villain-overconfidence",
+        "event:all-for-one-appears-at-the-trap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One"
+          ],
+          "locationsAny": [
+            "Parking Lot"
+          ],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "contingency planning",
+            "villain overconfidence"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "All For One enters the trap with confidence because he expects his own contingencies and coercive control to remain decisive.",
+        "injection": "Keep All For One arrogant and prepared; the heroes can surprise him, but he must not behave like an uninformed street thug.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 343-344",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:all-for-one"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_monoma-copies-warp-gate-for-separation-plan",
+      "title": "Monoma Copies Warp Gate For Separation Plan",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 89,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.warp-gate-separation",
+        "sortKeyFrom": 19100,
+        "sortKeyTo": 19100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes split the villains with Warp Gate"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:monoma-neito",
+          "mha:kurogiri",
+          "mha:aizawa-shota",
+          "mha:heroes",
+          "mha:u-a-high"
+        ],
+        "characters": [
+          "Monoma Neito",
+          "Kurogiri",
+          "Aizawa Shota"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "U.A. High"
+        ],
+        "topics": [
+          "copied quirk",
+          "battlefield separation",
+          "warp logistics"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:monoma-neito",
+        "character:kurogiri",
+        "character:aizawa-shota",
+        "faction:heroes",
+        "faction:u-a-high",
+        "topic:copied-quirk",
+        "topic:battlefield-separation",
+        "topic:warp-logistics",
+        "event:heroes-split-the-villains-with-warp-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Monoma Neito",
+            "Kurogiri",
+            "Aizawa Shota"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "U.A. High"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "copied quirk",
+            "battlefield separation",
+            "warp logistics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Monoma copies Warp Gate so the heroes can split the villains across prepared battlefields.",
+        "injection": "Use Monoma as a critical tactical asset for separation and Erasure support, not just comic Class 1-B rivalry.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 344-345",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_final-war-battlefields-are-deliberately-matched",
+      "title": "Final War Battlefields Are Deliberately Matched",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.battlefields-established",
+        "sortKeyFrom": 19150,
+        "sortKeyTo": 19150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War battlefields are established"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:floating-u-a",
+          "mha:gunga-mountain-villa",
+          "mha:kamino-ward",
+          "mha:okuto-island",
+          "mha:heroes",
+          "mha:villains"
+        ],
+        "characters": [],
+        "locations": [
+          "Floating U.A.",
+          "Gunga Mountain Villa",
+          "Kamino Ward",
+          "Okuto Island"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Villains"
+        ],
+        "topics": [
+          "matchup strategy",
+          "battlefield design"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "location:floating-u-a",
+        "location:gunga-mountain-villa",
+        "location:kamino-ward",
+        "location:okuto-island",
+        "faction:heroes",
+        "faction:villains",
+        "topic:matchup-strategy",
+        "topic:battlefield-design",
+        "event:final-war-battlefields-are-established"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Floating U.A.",
+            "Gunga Mountain Villa",
+            "Kamino Ward",
+            "Okuto Island"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Villains"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "matchup strategy",
+            "battlefield design"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The heroes divide villains into specialized battlefields to avoid letting the enemy mass their strongest pieces together.",
+        "injection": "Maintain the battlefield logic: matchups are strategic attempts to isolate threats, delay catastrophes, and protect civilians.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_hero-coordination-is-broad-but-fragile",
+      "title": "Hero Coordination Is Broad But Fragile",
+      "kind": "faction_state",
+      "category": "faction",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 84,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.battlefields-established",
+        "sortKeyFrom": 19150,
+        "sortKeyTo": 19150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War battlefields are established"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aizawa-shota",
+          "mha:hawks",
+          "mha:best-jeanist",
+          "mha:heroes",
+          "mha:police"
+        ],
+        "characters": [
+          "Aizawa Shota",
+          "Hawks",
+          "Best Jeanist"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Police"
+        ],
+        "topics": [
+          "command structure",
+          "coordination fragility"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:aizawa-shota",
+        "character:hawks",
+        "character:best-jeanist",
+        "faction:heroes",
+        "faction:police",
+        "topic:command-structure",
+        "topic:coordination-fragility",
+        "event:final-war-battlefields-are-established"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aizawa Shota",
+            "Hawks",
+            "Best Jeanist"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Police"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "command structure",
+            "coordination fragility"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hero coordination spans students, pro heroes, police, support tech, and intelligence, but each battlefield can collapse if one support link fails.",
+        "injection": "Portray the operation as a multi-site system under strain; small failures can cascade across battlefields.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-postwar-outcome-during-initial-final-war",
+      "title": "No Postwar Outcome During Initial Final War",
+      "kind": "future_guard",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 94,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.battlefields-established",
+        "sortKeyFrom": 19150,
+        "sortKeyTo": 19150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War battlefields are established"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "future-canon guard",
+          "postwar guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "topic:future-canon-guard",
+        "topic:postwar-guard",
+        "event:final-war-battlefields-are-established"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "future-canon guard",
+            "postwar guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "At the start of the Final War, characters do not know who survives, how society changes, or what Deku’s final status will be.",
+        "injection": "Block epilogue knowledge during early Final War scenes; nobody should speak as if Chapter 430 outcomes are already known.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_warp-separation-prevents-villain-synergy",
+      "title": "Warp Separation Prevents Villain Synergy",
+      "kind": "rule_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "rule_constraint",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.warp-gate-separation",
+        "sortKeyFrom": 19100,
+        "sortKeyTo": 19100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Heroes split the villains with Warp Gate"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura",
+          "mha:toga-himiko",
+          "mha:dabi",
+          "mha:heroes",
+          "mha:villains",
+          "mha:warp-gate"
+        ],
+        "characters": [
+          "All For One",
+          "Shigaraki Tomura",
+          "Toga Himiko",
+          "Dabi"
+        ],
+        "locations": [],
+        "objects": [
+          "Warp Gate"
+        ],
+        "factions": [
+          "Heroes",
+          "Villains"
+        ],
+        "topics": [
+          "separation strategy",
+          "villain synergy"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:all-for-one",
+        "character:shigaraki-tomura",
+        "character:toga-himiko",
+        "character:dabi",
+        "faction:heroes",
+        "faction:villains",
+        "item:warp-gate",
+        "topic:separation-strategy",
+        "topic:villain-synergy",
+        "event:heroes-split-the-villains-with-warp-gate"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All For One",
+            "Shigaraki Tomura",
+            "Toga Himiko",
+            "Dabi"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Heroes",
+            "Villains"
+          ],
+          "objectsAny": [
+            "Warp Gate"
+          ],
+          "topicsAny": [
+            "separation strategy",
+            "villain synergy"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The separation plan exists because All For One, Shigaraki, Dabi, Toga, and other threats become worse if allowed to coordinate freely.",
+        "injection": "Keep the villains split unless Context reaches a warp breakdown; enemy regrouping should feel catastrophic.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 344-345",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Warp Gate",
+        "stage": "final_war",
+        "ownerEntityIds": [
+          "mha:all-for-one",
+          "mha:shigaraki-tomura"
+        ],
+        "requiredTags": [
+          "item:warp-gate"
+        ],
+        "constraints": [
+          "Keep this lore bounded to Final War or Chapter 430 epilogue Context unless the user story explicitly diverges."
+        ],
+        "antiLore": [
+          "Do not import Chapter 431 'More' or anime/movie-only material unless the corresponding overlay is active."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_aoyama-remains-coerced-but-choosing-to-help",
+      "title": "Aoyama Remains Coerced But Choosing To Help",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 87,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.aoyama-trap-begins",
+        "sortKeyFrom": 19000,
+        "sortKeyTo": 19000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Aoyama trap begins"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:aoyama-yuga",
+          "mha:aoyama-parents",
+          "mha:aizawa-shota",
+          "mha:izuku-midoriya",
+          "mha:u-a-high",
+          "mha:heroes"
+        ],
+        "characters": [
+          "Aoyama Yuga",
+          "Aoyama Parents",
+          "Aizawa Shota",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "Heroes"
+        ],
+        "topics": [
+          "coercion",
+          "atonement",
+          "traitor aftermath"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:aoyama-yuga",
+        "character:aoyama-parents",
+        "character:aizawa-shota",
+        "character:izuku-midoriya",
+        "faction:u-a-high",
+        "faction:heroes",
+        "topic:coercion",
+        "topic:atonement",
+        "topic:traitor-aftermath",
+        "event:aoyama-trap-begins"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Aoyama Yuga",
+            "Aoyama Parents",
+            "Aizawa Shota",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. High",
+            "Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "coercion",
+            "atonement",
+            "traitor aftermath"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Aoyama is still frightened and guilty, but he actively participates in the heroes’ plan after his betrayal is exposed.",
+        "injection": "Write Aoyama as coerced and terrified, yet trying to atone; do not flatten him into a gleeful villain or instantly forgiven classmate.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 343-344",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [
+          "mha:aoyama-yuga",
+          "mha:aoyama-parents",
+          "mha:aizawa-shota"
+        ],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_civilian-protection-shapes-the-final-operation",
+      "title": "Civilian Protection Shapes The Final Operation",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 82,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.battlefields-established",
+        "sortKeyFrom": 19150,
+        "sortKeyTo": 19150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War battlefields are established"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:evacuation-shelters",
+          "mha:u-a-fortress",
+          "mha:heroes",
+          "mha:civilians"
+        ],
+        "characters": [],
+        "locations": [
+          "Evacuation Shelters",
+          "U.A. Fortress"
+        ],
+        "objects": [],
+        "factions": [
+          "Heroes",
+          "Civilians"
+        ],
+        "topics": [
+          "civilian protection",
+          "evacuation state"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "location:evacuation-shelters",
+        "location:u-a-fortress",
+        "faction:heroes",
+        "faction:civilians",
+        "topic:civilian-protection",
+        "topic:evacuation-state",
+        "event:final-war-battlefields-are-established"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "Evacuation Shelters",
+            "U.A. Fortress"
+          ],
+          "factionsAny": [
+            "Heroes",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian protection",
+            "evacuation state"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The operation assumes civilians are sheltered and hero battlefields are chosen to limit collateral damage, even when plans fail.",
+        "injection": "Keep civilian safety as an active constraint behind tactical choices rather than treating the Final War as an empty arena fight.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_no-chapter-431-more-material-in-main-epilogue",
+      "title": "No Chapter 431 More Material In Main Epilogue",
+      "kind": "future_guard",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 96,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.battlefields-established",
+        "sortKeyFrom": 19150,
+        "sortKeyTo": 19150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War battlefields are established"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "chapter 431 guard",
+          "optional overlay"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "topic:chapter-431-guard",
+        "topic:optional-overlay",
+        "event:final-war-battlefields-are-established"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "chapter 431 guard",
+            "optional overlay"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Chapter 431 'More' is outside the default main manga deck and must not affect Final War or Chapter 430 epilogue scenes unless its overlay is loaded.",
+        "injection": "Do not inject Chapter 431 relationship or adult-extra material from the default Final War deck; reserve it for the optional 'More' overlay.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public",
+          "mha:uninformed-students"
+        ],
+        "notes": "Visibility is draft guidance; review against specific scene Context."
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_final_war_epilogue_support-course-labor-underpins-final-war",
+      "title": "Support Course Labor Underpins Final War",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 96,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 86,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.fwe.battlefields-established",
+        "sortKeyFrom": 19150,
+        "sortKeyTo": 19150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Final War battlefields are established"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.final-war",
+          "label": "Final War Arc",
+          "required": false
+        },
+        {
+          "axis": "war_phase",
+          "id": "mha.war-phase.operation-setup",
+          "label": "Final War operation setup",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mei-hatsume",
+          "mha:power-loader",
+          "mha:u-a-high",
+          "mha:support-course"
+        ],
+        "characters": [
+          "Mei Hatsume",
+          "Power Loader"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Support Course"
+        ],
+        "topics": [
+          "support logistics",
+          "student labor"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:final-war",
+        "arc:epilogue",
+        "character:mei-hatsume",
+        "character:power-loader",
+        "location:u-a-high",
+        "faction:support-course",
+        "topic:support-logistics",
+        "topic:student-labor",
+        "event:final-war-battlefields-are-established"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mei Hatsume",
+            "Power Loader"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Support Course"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "support logistics",
+            "student labor"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Support-course engineering and student labor make several battlefield systems possible.",
+        "injection": "Show support-course work as heroic infrastructure, not background set dressing.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 345-347",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

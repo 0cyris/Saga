@@ -1,0 +1,654 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_shinso_is_not_yet_socially_integrated_into_either_class",
+      "title": "Shinso Is Not Yet Socially Integrated Into Either Class",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.shinso-joins-training",
+        "sortKeyFrom": 12050,
+        "sortKeyTo": 12050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Shinso joins the exercise as a transfer candidate"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hitoshi-shinso",
+          "mha:u-a-class-1-a",
+          "mha:u-a-class-1-b"
+        ],
+        "characters": [
+          "Hitoshi Shinso"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "social integration",
+          "Hero Course transfer"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "character:hitoshi-shinso",
+        "school:ua-high",
+        "topic:social-integration",
+        "topic:hero-course-transfer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hitoshi Shinso"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "social integration",
+            "Hero Course transfer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Shinso is respected as a serious candidate but remains socially outside the daily bonds of Classes 1-A and 1-B.",
+        "injection": "Keep Shinso slightly apart in group dynamics. He is being evaluated, not already folded into the class family.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 194-195",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_class_1_a_has_more_crisis_experience_than_class_1_b",
+      "title": "Class 1-A Has More Crisis Experience Than Class 1-B",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.class-a-vs-b-announced",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Joint Training battle is announced"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:u-a-class-1-a",
+          "mha:u-a-class-1-b"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "real combat experience",
+          "training gap"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "school:ua-high",
+        "topic:real-combat-experience",
+        "topic:training-gap"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "real combat experience",
+            "training gap"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A carries unusual real-villain experience from USJ, Stain, training camp, Kamino, and Hassaikai, which affects instinct under pressure.",
+        "injection": "Use Class 1-A’s crisis experience as a real advantage, but not as a reason to erase Class 1-B’s training skill.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 194-195",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_class_1_b_resents_being_treated_as_secondary",
+      "title": "Class 1-B Resents Being Treated As Secondary",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.class-a-vs-b-announced",
+        "sortKeyFrom": 12000,
+        "sortKeyTo": 12000,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Joint Training battle is announced"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:u-a-class-1-a",
+          "mha:u-a-class-1-b"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "class resentment",
+          "competitive motivation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "school:ua-high",
+        "topic:class-resentment",
+        "topic:competitive-motivation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "class resentment",
+            "competitive motivation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-B has accumulated frustration from public and narrative attention favoring Class 1-A, feeding competitive intensity.",
+        "injection": "In class rivalry scenes, let Class 1-B push back against being treated as lesser or invisible.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 194-195",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_power_scaling_must_stay_matchup_sensitive",
+      "title": "Power Scaling Must Stay Matchup-Sensitive",
+      "kind": "behavior_constraint",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.match-5-conclusion",
+        "sortKeyFrom": 12600,
+        "sortKeyTo": 12600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Joint Training concludes after Match 5"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:u-a-class-1-a",
+          "mha:u-a-class-1-b"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "power scaling",
+          "matchups",
+          "battle conditions"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "school:ua-high",
+        "topic:power-scaling",
+        "topic:matchups",
+        "topic:battle-conditions"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "power scaling",
+            "matchups",
+            "battle conditions"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Joint Training fights are heavily matchup-dependent, with terrain, teammates, rescue conditions, and surprise shaping results.",
+        "injection": "Avoid hard universal rankings from these matches. Treat outcomes as Context-specific demonstrations of tactics and growth.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 215-217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_joint_training_villain_academia_endeavor_agency_joint_training_happens_before_the_league_becomes_publicly_reframed_as_plf",
+      "title": "Joint Training Happens Before The League Becomes Publicly Reframed As PLF",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 84,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 78,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.jt.ofa-multiple-quirks-revealed",
+        "sortKeyFrom": 12625,
+        "sortKeyTo": 12625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "One For All is revealed to contain multiple Quirks"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.joint-training",
+          "label": "Joint Training",
+          "required": false
+        },
+        {
+          "axis": "school_stage",
+          "id": "mha.school.first-year-winter",
+          "label": "Class 1-A first-year winter",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.post-all-might-pre-war",
+          "label": "Post-All Might society before the Paranormal Liberation War",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:u-a-class-1-a",
+          "mha:u-a-class-1-b"
+        ],
+        "characters": [],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. Class 1-B"
+        ],
+        "topics": [
+          "future guard",
+          "PLF secrecy",
+          "arc boundary"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:joint-training",
+        "school:ua-high",
+        "topic:future-guard",
+        "topic:plf-secrecy",
+        "topic:arc-boundary"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. Class 1-B"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "future guard",
+            "PLF secrecy",
+            "arc boundary"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During Joint Training, students and most teachers do not yet know that the League will merge with the Meta Liberation Army into the PLF.",
+        "injection": "Keep PLF knowledge out of Joint Training scenes. Students must not discuss the later villain reorganization as known fact.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 217",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "visibility": {
+        "knownByEntityIds": [],
+        "hiddenFromEntityIds": [
+          "mha:general-public"
+        ]
+      }
+    }
+  ]
+}

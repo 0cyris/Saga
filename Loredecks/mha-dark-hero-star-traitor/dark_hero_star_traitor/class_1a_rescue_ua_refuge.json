@@ -1,0 +1,2621 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_class_1_a_chooses_to_bring_deku_back",
+      "title": "Class 1-A Chooses To Bring Deku Back",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-1a-intervenes",
+        "sortKeyFrom": 17600,
+        "sortKeyTo": 17600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A intervenes to bring Deku back"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "intervention",
+          "friendship",
+          "retrieval"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:intervention",
+        "topic:friendship",
+        "topic:retrieval"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "intervention",
+            "friendship",
+            "retrieval"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A acts together to retrieve Deku because leaving him alone would destroy him.",
+        "injection": "Class 1-A should approach Deku as friends staging an intervention, not as enemies trying to defeat him.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_class_1_a_uses_teamwork_against_deku",
+      "title": "Class 1-A Uses Teamwork Against Deku",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-1a-intervenes",
+        "sortKeyFrom": 17600,
+        "sortKeyTo": 17600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A intervenes to bring Deku back"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "teamwork",
+          "coordinated Quirks",
+          "rescue battle"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:teamwork",
+        "topic:coordinated-quirks",
+        "topic:rescue-battle"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "teamwork",
+            "coordinated Quirks",
+            "rescue battle"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The class uses coordinated movement, Quirks, and emotional knowledge to slow Deku down.",
+        "injection": "Make the retrieval a teamwork sequence: individual appeals matter, but the class succeeds together.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_bakugo_understands_deku_self_destruction",
+      "title": "Bakugo Understands Deku Self-Destruction",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-1a-intervenes",
+        "sortKeyFrom": 17600,
+        "sortKeyTo": 17600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A intervenes to bring Deku back"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "self-destruction",
+          "rival insight",
+          "intervention"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:self-destruction",
+        "topic:rival-insight",
+        "topic:intervention"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "self-destruction",
+            "rival insight",
+            "intervention"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo recognizes the dangerous pattern behind Deku’s self-sacrificing isolation.",
+        "injection": "Bakugo should cut through Deku’s excuses sharply because he understands Deku’s worst heroic habit.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_iida_reaches_deku_by_taking_his_hand",
+      "title": "Iida Reaches Deku By Taking His Hand",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.iida-reaches-deku",
+        "sortKeyFrom": 17625,
+        "sortKeyTo": 17625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Iida reaches Deku through Class 1-A teamwork"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:iida-tenya",
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Tenya Iida",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "reciprocity",
+          "taking hand",
+          "friendship"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:iida-tenya",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:reciprocity",
+        "topic:taking-hand",
+        "topic:friendship"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Tenya Iida",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "reciprocity",
+            "taking hand",
+            "friendship"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Iida physically reaches Deku at the climax of the retrieval, answering Deku’s attempt to outrun help.",
+        "injection": "Use Iida’s reach as friendship and reciprocity: Deku once saved him, and now Iida refuses to let him run alone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_bakugo_apologizes_and_says_izuku",
+      "title": "Bakugo Apologizes And Says Izuku",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.bakugo-apology",
+        "sortKeyFrom": 17650,
+        "sortKeyTo": 17650,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Bakugo apologizes to Izuku"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:bakugo-katsuki",
+          "mha:midoriya-izuku"
+        ],
+        "characters": [
+          "Katsuki Bakugo",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "apology",
+          "given name",
+          "relationship shift"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:bakugo-katsuki",
+        "character:midoriya-izuku",
+        "topic:apology",
+        "topic:given-name",
+        "topic:relationship-shift"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Katsuki Bakugo",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "apology",
+            "given name",
+            "relationship shift"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Bakugo apologizes to Deku for years of mistreatment and uses Izuku’s given name in a vulnerable moment.",
+        "injection": "Bakugo’s apology should be sincere and difficult; it does not erase the past, but it changes the emotional baseline.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 322",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_todoroki_frames_help_as_shared_burden",
+      "title": "Todoroki Frames Help As Shared Burden",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-1a-intervenes",
+        "sortKeyFrom": 17600,
+        "sortKeyTo": 17600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A intervenes to bring Deku back"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:todoroki-shoto",
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Shoto Todoroki",
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "shared burden",
+          "friendship",
+          "support"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:todoroki-shoto",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:shared-burden",
+        "topic:friendship",
+        "topic:support"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Shoto Todoroki",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "shared burden",
+            "friendship",
+            "support"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Todoroki emphasizes that friends can share responsibility instead of letting Deku carry everything alone.",
+        "injection": "Todoroki’s appeal should connect to shared burdens, not simple orders to come home.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_class_1_a_fights_to_save_not_defeat",
+      "title": "Class 1-A Fights To Save Not Defeat",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.class-1a-intervenes",
+        "sortKeyFrom": 17600,
+        "sortKeyTo": 17600,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Class 1-A intervenes to bring Deku back"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "rescue objective",
+          "nonlethal intervention",
+          "class unity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:rescue-objective",
+        "topic:nonlethal-intervention",
+        "topic:class-unity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "rescue objective",
+            "nonlethal intervention",
+            "class unity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The class battle against Deku is a rescue attempt, not a contest of superiority.",
+        "injection": "Do not write classmates as trying to humiliate or overpower Deku for victory; their objective is to stop his collapse.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 319-321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_exhaustion_breaks_his_resistance",
+      "title": "Deku Exhaustion Breaks His Resistance",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.iida-reaches-deku",
+        "sortKeyFrom": 17625,
+        "sortKeyTo": 17625,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Iida reaches Deku through Class 1-A teamwork"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A"
+        ],
+        "topics": [
+          "collapse",
+          "emotional exhaustion",
+          "accepting help"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "topic:collapse",
+        "topic:emotional-exhaustion",
+        "topic:accepting-help"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "U.A. Class 1-A"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "collapse",
+            "emotional exhaustion",
+            "accepting help"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku is finally too exhausted and emotionally overwhelmed to keep rejecting everyone.",
+        "injection": "Let collapse come from accumulated fatigue and emotional pressure, not one simple argument instantly changing his mind.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 321",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_u_a_civilians_initially_reject_deku",
+      "title": "U.A. Civilians Initially Reject Deku",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ua-refugee-conflict",
+        "sortKeyFrom": 17700,
+        "sortKeyTo": 17700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Civilians at U.A. reject Deku sheltering there"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-refugees",
+          "mha:civilians",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Refugees",
+          "Civilians"
+        ],
+        "topics": [
+          "refugee fear",
+          "civilian rejection",
+          "shelter politics"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-refugees",
+        "faction:civilians",
+        "faction:ua-high",
+        "topic:refugee-fear",
+        "topic:civilian-rejection",
+        "topic:shelter-politics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Refugees",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "refugee fear",
+            "civilian rejection",
+            "shelter politics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Civilian refugees fear that allowing Deku into U.A. will draw All For One to them.",
+        "injection": "At U.A., civilian rejection should be understandable fear, not cartoon cruelty.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 323-324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_u_a_barrier_is_a_fortress_system",
+      "title": "U.A. Barrier Is A Fortress System",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ua-refugee-conflict",
+        "sortKeyFrom": 17700,
+        "sortKeyTo": 17700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Civilians at U.A. reject Deku sheltering there"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:ua-high",
+          "mha:ua-refugees",
+          "mha:ua-barrier"
+        ],
+        "characters": [],
+        "locations": [
+          "U.A. Barrier",
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "U.A. Refugees"
+        ],
+        "topics": [
+          "barrier system",
+          "evacuation infrastructure",
+          "fortress school"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "faction:ua-high",
+        "faction:ua-refugees",
+        "location:ua-barrier",
+        "topic:barrier-system",
+        "topic:evacuation-infrastructure",
+        "topic:fortress-school"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [],
+          "locationsAny": [
+            "U.A. Barrier",
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "U.A. Refugees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "barrier system",
+            "evacuation infrastructure",
+            "fortress school"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "U.A. has a large-scale defensive barrier and evacuation system designed for the postwar emergency.",
+        "injection": "Treat U.A. as hardened infrastructure during this period; it is not merely a school building with locked doors.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 323-324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_ochaco_defends_deku_right_to_rest",
+      "title": "Ochaco Defends Deku Right To Rest",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 92,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ochaco-speech",
+        "sortKeyFrom": 17725,
+        "sortKeyTo": 17725,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco speaks for Deku before civilians"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:uraraka-ochaco",
+          "mha:midoriya-izuku",
+          "mha:civilians",
+          "mha:ua-refugees",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Ochaco Uraraka",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "U.A. Refugees"
+        ],
+        "topics": [
+          "public speech",
+          "humanizing Deku",
+          "right to rest"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:uraraka-ochaco",
+        "character:midoriya-izuku",
+        "faction:civilians",
+        "faction:ua-refugees",
+        "faction:ua-high",
+        "topic:public-speech",
+        "topic:humanizing-deku",
+        "topic:right-to-rest"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Ochaco Uraraka",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "U.A. Refugees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public speech",
+            "humanizing Deku",
+            "right to rest"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Ochaco argues publicly that Deku is a person who needs shelter, not just a weapon or threat vector.",
+        "injection": "Ochaco’s speech should rehumanize Deku before frightened civilians; the point is rest and shared responsibility.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_kota_and_fox_woman_mark_civilian_trust",
+      "title": "Kota And Fox Woman Mark Civilian Trust",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ochaco-speech",
+        "sortKeyFrom": 17725,
+        "sortKeyTo": 17725,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Ochaco speaks for Deku before civilians"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:civilians",
+          "mha:ua-refugees",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "U.A. Refugees"
+        ],
+        "topics": [
+          "civilian trust",
+          "Kota",
+          "fox woman"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:civilians",
+        "faction:ua-refugees",
+        "faction:ua-high",
+        "topic:civilian-trust",
+        "topic:kota",
+        "topic:fox-woman"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "U.A. Refugees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian trust",
+            "Kota",
+            "fox woman"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Kota and the rescued fox-like woman help show that civilians can recognize Deku’s humanity amid fear.",
+        "injection": "Use small civilian gestures to soften the crowd after Ochaco’s speech; trust returns through people, not slogans.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_returns_to_rest_not_victory",
+      "title": "Deku Returns To Rest Not Victory",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-rests-at-ua",
+        "sortKeyFrom": 17750,
+        "sortKeyTo": 17750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku is allowed to rest at U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:ua-refugees",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "U.A. Refugees"
+        ],
+        "topics": [
+          "recovery pause",
+          "return to UA",
+          "unresolved threat"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:ua-refugees",
+        "faction:ua-high",
+        "topic:recovery-pause",
+        "topic:return-to-ua",
+        "topic:unresolved-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "U.A. Refugees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "recovery pause",
+            "return to UA",
+            "unresolved threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Deku’s return to U.A. is a pause for recovery, not the end of the crisis.",
+        "injection": "After Deku returns, let him rest and reconnect while the threat of AFO remains unresolved.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 325-326",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_all_might_and_stain_reframe_hero_ideals",
+      "title": "All Might And Stain Reframe Hero Ideals",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.stain-all-might",
+        "sortKeyFrom": 17775,
+        "sortKeyTo": 17775,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain confronts All Might after the collapse"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:all-might",
+          "mha:stain"
+        ],
+        "characters": [
+          "All Might",
+          "Stain"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "hero ideals",
+          "symbol legacy",
+          "ordinary courage"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:all-might",
+        "character:stain",
+        "topic:hero-ideals",
+        "topic:symbol-legacy",
+        "topic:ordinary-courage"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "All Might",
+            "Stain"
+          ],
+          "locationsAny": [],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "hero ideals",
+            "symbol legacy",
+            "ordinary courage"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain confronts All Might with evidence that his symbol still survives through ordinary people inspired by him.",
+        "injection": "The Stain meeting should be ideological and somber; it restores perspective, not All Might’s lost power.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 326-328",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_stain_still_condemns_false_heroes",
+      "title": "Stain Still Condemns False Heroes",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.stain-all-might",
+        "sortKeyFrom": 17775,
+        "sortKeyTo": 17775,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Stain confronts All Might after the collapse"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:stain",
+          "mha:all-might",
+          "mha:hero-society"
+        ],
+        "characters": [
+          "Stain",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Hero Society"
+        ],
+        "topics": [
+          "Stain ideology",
+          "false heroes",
+          "dangerous admirer"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:stain",
+        "character:all-might",
+        "faction:hero-society",
+        "topic:stain-ideology",
+        "topic:false-heroes",
+        "topic:dangerous-admirer"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Stain",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Stain ideology",
+            "false heroes",
+            "dangerous admirer"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Stain’s respect for All Might does not make him safe, gentle, or broadly pro-hero.",
+        "injection": "Do not soften Stain into a normal ally; his ideology remains violent and selective.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 326-328",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_nezu_trusts_u_a_systems_but_not_blindly",
+      "title": "Nezu Trusts U.A. Systems But Not Blindly",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ua-refugee-conflict",
+        "sortKeyFrom": 17700,
+        "sortKeyTo": 17700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Civilians at U.A. reject Deku sheltering there"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:principal-nezu",
+          "mha:ua-high",
+          "mha:ua-refugees",
+          "mha:ua-barrier"
+        ],
+        "characters": [
+          "Principal Nezu"
+        ],
+        "locations": [
+          "U.A. High",
+          "U.A. Barrier"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. High",
+          "U.A. Refugees"
+        ],
+        "topics": [
+          "shelter management",
+          "security strategy",
+          "public fear"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:principal-nezu",
+        "faction:ua-high",
+        "faction:ua-refugees",
+        "location:ua-barrier",
+        "topic:shelter-management",
+        "topic:security-strategy",
+        "topic:public-fear"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Principal Nezu"
+          ],
+          "locationsAny": [
+            "U.A. High",
+            "U.A. Barrier"
+          ],
+          "factionsAny": [
+            "U.A. High",
+            "U.A. Refugees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "shelter management",
+            "security strategy",
+            "public fear"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Principal Nezu relies on U.A.’s upgraded security and logistics while understanding public fear.",
+        "injection": "Nezu should appear strategic and humane, balancing technical shelter plans with the refugee crowd’s emotions.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 323-324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_civilian_fear_is_understandable_but_volatile",
+      "title": "Civilian Fear Is Understandable But Volatile",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.ua-refugee-conflict",
+        "sortKeyFrom": 17700,
+        "sortKeyTo": 17700,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Civilians at U.A. reject Deku sheltering there"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:civilians",
+          "mha:ua-refugees",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "U.A. Refugees"
+        ],
+        "topics": [
+          "civilian fear",
+          "crowd tension",
+          "moral complexity"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:civilians",
+        "faction:ua-refugees",
+        "faction:ua-high",
+        "topic:civilian-fear",
+        "topic:crowd-tension",
+        "topic:moral-complexity"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "U.A. Refugees"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian fear",
+            "crowd tension",
+            "moral complexity"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Civilians have rational reasons to fear Deku’s presence, but collective fear can become unjust and dangerous.",
+        "injection": "Write U.A. crowd tension as morally complicated: fear is real, but dehumanizing Deku is the failure.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 323-324",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_deku_needs_community_to_remain_a_hero",
+      "title": "Deku Needs Community To Remain A Hero",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-rests-at-ua",
+        "sortKeyFrom": 17750,
+        "sortKeyTo": 17750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku is allowed to rest at U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:ua-class-1a",
+          "mha:civilians",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "U.A. Class 1-A",
+          "Civilians"
+        ],
+        "topics": [
+          "community",
+          "mutual protection",
+          "anti-martyrdom"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "faction:ua-class-1a",
+        "faction:civilians",
+        "faction:ua-high",
+        "topic:community",
+        "topic:mutual-protection",
+        "topic:anti-martyrdom"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. Class 1-A",
+            "Civilians"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "community",
+            "mutual protection",
+            "anti-martyrdom"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The arc establishes that Deku’s heroism collapses without rest, community, and mutual protection.",
+        "injection": "Use post-return scenes to reinforce mutual support; solo martyrdom should no longer be treated as the correct answer.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 325-326",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_dark_hero_star_traitor_u_a_refuge_does_not_mean_public_trust_is_fixed",
+      "title": "U.A. Refuge Does Not Mean Public Trust Is Fixed",
+      "kind": "location_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 85,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.dhst.deku-rests-at-ua",
+        "sortKeyFrom": 17750,
+        "sortKeyTo": 17750,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Deku is allowed to rest at U.A."
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.dark-hero",
+          "label": "Dark Hero Arc",
+          "required": false
+        },
+        {
+          "axis": "route",
+          "id": "mha.route.class-1a-retrieval",
+          "label": "Class 1-A retrieval route",
+          "required": false
+        },
+        {
+          "axis": "hero_society_state",
+          "id": "mha.hero-society.ua-refuge",
+          "label": "U.A. civilian refuge crisis",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary continuity",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:midoriya-izuku",
+          "mha:uraraka-ochaco",
+          "mha:civilians",
+          "mha:hero-society",
+          "mha:ua-high"
+        ],
+        "characters": [
+          "Izuku Midoriya",
+          "Ochaco Uraraka"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [
+          "Civilians",
+          "Hero Society"
+        ],
+        "topics": [
+          "public trust",
+          "limited victory",
+          "ongoing crisis"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:dark-hero",
+        "character:midoriya-izuku",
+        "character:uraraka-ochaco",
+        "faction:civilians",
+        "faction:hero-society",
+        "faction:ua-high",
+        "topic:public-trust",
+        "topic:limited-victory",
+        "topic:ongoing-crisis"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Izuku Midoriya",
+            "Ochaco Uraraka"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Civilians",
+            "Hero Society"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "public trust",
+            "limited victory",
+            "ongoing crisis"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Allowing Deku inside U.A. does not instantly repair national trust in heroes.",
+        "injection": "Keep the wider public crisis active after Ochaco’s speech; one crowd softening is not nationwide restoration.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 325-326",
+        "confidence": 0.84,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

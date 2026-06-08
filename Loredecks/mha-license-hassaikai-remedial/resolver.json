@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "summary": "Resolve MHA Context for Provisional License, Shie Hassaikai, and Remedial Course material.",
+  "preferredFields": [
+    "arc",
+    "chapterRange",
+    "beforeAfter",
+    "majorEvent",
+    "licenseState",
+    "workStudyState"
+  ],
+  "ambiguousFallback": "use_window",
+  "promptAddendum": "Prefer known arc windows and anchors. Do not invent anime-only or movie continuity for this manga-primary deck.",
+  "localPatterns": [
+    {
+      "pattern": "during the provisional license exam",
+      "result": {
+        "anchorFrom": "mha.lhr.provisional-exam-arrival",
+        "anchorTo": "mha.lhr.license-results-aftermath",
+        "label": "During Provisional Hero License Exam"
+      }
+    },
+    {
+      "pattern": "after deku vs bakugo 2",
+      "result": {
+        "anchorFrom": "mha.lhr.rivalry-resets-after-ground-beta",
+        "label": "After Ground Beta fight"
+      }
+    },
+    {
+      "pattern": "during the overhaul raid",
+      "result": {
+        "anchorFrom": "mha.lhr.raid-starts",
+        "anchorTo": "mha.lhr.overhaul-defeated",
+        "label": "During the Shie Hassaikai raid"
+      }
+    },
+    {
+      "pattern": "after mirio loses his quirk",
+      "result": {
+        "anchorFrom": "mha.lhr.mirio-loses-permeation",
+        "label": "After Mirio loses Permeation"
+      }
+    },
+    {
+      "pattern": "after eri is rescued",
+      "result": {
+        "anchorFrom": "mha.lhr.overhaul-defeated",
+        "label": "After Eri is rescued"
+      }
+    },
+    {
+      "pattern": "during remedial course",
+      "result": {
+        "anchorFrom": "mha.lhr.remedial-course-starts",
+        "anchorTo": "mha.lhr.remedial-course-completed",
+        "label": "During the Remedial Course"
+      }
+    }
+  ],
+  "modelOutputShape": {
+    "contextType": "string",
+    "anchorId": "string",
+    "anchorFrom": "string",
+    "anchorTo": "string",
+    "arc": "string",
+    "label": "string",
+    "confidence": "number",
+    "summary": "string"
+  }
+}

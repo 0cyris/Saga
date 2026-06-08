@@ -1,0 +1,2118 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_high_end_hood_is_more_autonomous_than_earlier_nomu",
+      "title": "High-End Hood Is More Autonomous Than Earlier Nomu",
+      "kind": "faction_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "faction_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.high-end-attacks",
+        "sortKeyFrom": 11100,
+        "sortKeyTo": 11100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hood",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Hood",
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [
+          "High-End Nomu"
+        ],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "High-End autonomy",
+          "Nomu evolution",
+          "Hood threat"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hood",
+        "character:endeavor",
+        "character:hawks",
+        "faction:league-of-villains",
+        "topic:nomu",
+        "topic:high-end-autonomy",
+        "topic:nomu-evolution",
+        "topic:hood-threat"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hood",
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [
+            "High-End Nomu"
+          ],
+          "topicsAny": [
+            "High-End autonomy",
+            "Nomu evolution",
+            "Hood threat"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hood shows greater autonomy, speech, tactical aggression, and combat complexity than many earlier Nomu.",
+        "injection": "Treat Hood as a serious evolved Nomu threat. It can pressure Endeavor and Hawks through adaptation, mobility, and aggression.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 186-187",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_high_end_fight_is_public_symbol_test",
+      "title": "High-End Fight Is Public Symbol Test",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.high-end-attacks",
+        "sortKeyFrom": 11100,
+        "sortKeyTo": 11100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:hood",
+          "mha:pro-heroes",
+          "mha:hellflame",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hawks",
+          "Hood"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame",
+          "Fierce Wings",
+          "High-End Nomu"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "public symbol test",
+          "High-End fight",
+          "Number One burden"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:hawks",
+        "character:hood",
+        "faction:pro-heroes",
+        "quirk:hellflame",
+        "quirk:fierce-wings",
+        "topic:nomu",
+        "topic:public-symbol-test",
+        "topic:high-end-fight",
+        "topic:number-one-burden"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hawks",
+            "Hood"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame",
+            "Fierce Wings",
+            "High-End Nomu"
+          ],
+          "topicsAny": [
+            "public symbol test",
+            "High-End fight",
+            "Number One burden"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "The Hood fight tests Endeavor’s ability to act as public Number One under direct observation.",
+        "injection": "Stage the High-End fight as symbolic crisis as well as combat. People are watching whether Endeavor can stand where All Might once did.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 186-187",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hawks_prioritizes_rescue_and_support_during_hood_fight",
+      "title": "Hawks Prioritizes Rescue And Support During Hood Fight",
+      "kind": "objective",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "objective",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "rescue support",
+          "civilian evacuation",
+          "combat logistics"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "quirk:fierce-wings",
+        "topic:rescue-support",
+        "topic:civilian-evacuation",
+        "topic:combat-logistics"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "rescue support",
+            "civilian evacuation",
+            "combat logistics"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks uses Fierce Wings to rescue civilians, gather information, support Endeavor, and create openings rather than simply trade blows.",
+        "injection": "In the Hood fight, Hawks should be fast support and rescue logistics. He multiplies Endeavor’s chances without replacing Endeavor’s role.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_must_fight_through_injury_and_heat_limits",
+      "title": "Endeavor Must Fight Through Injury And Heat Limits",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:hood",
+          "mha:pro-heroes",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor",
+          "Hood"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame",
+          "High-End Nomu"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "heat limits",
+          "injury",
+          "Prominence Burn"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:hood",
+        "faction:pro-heroes",
+        "quirk:hellflame",
+        "topic:nomu",
+        "topic:heat-limits",
+        "topic:injury",
+        "topic:prominence-burn"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Hood"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame",
+            "High-End Nomu"
+          ],
+          "topicsAny": [
+            "heat limits",
+            "injury",
+            "Prominence Burn"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s Hellflame power is immense, but his body, overheating, and injuries matter during the Hood fight.",
+        "injection": "Do not make Endeavor physically limitless. His victory should feel costly, hot, painful, and driven by refusal to fall.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Hellflame",
+        "stage": "number_one_crisis",
+        "ownerEntityIds": [
+          "mha:endeavor"
+        ],
+        "constraints": [
+          "Endeavor can overheat and suffer serious injury.",
+          "High-output techniques require positioning and cost."
+        ],
+        "antiLore": [
+          "Do not treat Hellflame as consequence-free unlimited firepower."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hood_regeneration_forces_escalation",
+      "title": "Hood Regeneration Forces Escalation",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hood",
+          "mha:endeavor",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Hood",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "High-End Nomu"
+        ],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "regeneration",
+          "body horror",
+          "combat escalation"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hood",
+        "character:endeavor",
+        "faction:league-of-villains",
+        "topic:nomu",
+        "topic:regeneration",
+        "topic:body-horror",
+        "topic:combat-escalation"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hood",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [
+            "High-End Nomu"
+          ],
+          "topicsAny": [
+            "regeneration",
+            "body horror",
+            "combat escalation"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hood’s regeneration and body manipulation force Endeavor to escalate toward a decisive burn rather than routine capture.",
+        "injection": "Make Hood difficult to finish. Its regeneration and body structure should demand destructive, high-risk response.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hawks_feather_supply_can_be_depleted",
+      "title": "Hawks Feather Supply Can Be Depleted",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:pro-heroes",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "feather depletion",
+          "rescue limits",
+          "Hawks constraints"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "faction:pro-heroes",
+        "quirk:fierce-wings",
+        "topic:feather-depletion",
+        "topic:rescue-limits",
+        "topic:hawks-constraints"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "feather depletion",
+            "rescue limits",
+            "Hawks constraints"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks’s feathers are powerful but finite in an extended fight, especially when many are used for evacuation and support.",
+        "injection": "Track Hawks’s feather economy. His mobility and rescue capacity should degrade if he spends too many feathers.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_victory_is_not_clean_redemption",
+      "title": "Endeavor Victory Is Not Clean Redemption",
+      "kind": "relationship_state",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-plus-ultra",
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor defeats Hood and raises his fist"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:todoroki-shoto",
+          "mha:fuyumi-todoroki",
+          "mha:natsuo-todoroki",
+          "mha:todoroki-family",
+          "mha:pro-heroes",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor",
+          "Shoto Todoroki",
+          "Fuyumi Todoroki",
+          "Natsuo Todoroki"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [
+          "Todoroki Family",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "redemption incomplete",
+          "public victory",
+          "family consequences"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:todoroki-shoto",
+        "character:fuyumi-todoroki",
+        "character:natsuo-todoroki",
+        "family:todoroki",
+        "faction:pro-heroes",
+        "quirk:hellflame",
+        "topic:redemption-incomplete",
+        "topic:public-victory",
+        "topic:family-consequences"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "Shoto Todoroki",
+            "Fuyumi Todoroki",
+            "Natsuo Todoroki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Todoroki Family",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "redemption incomplete",
+            "public victory",
+            "family consequences"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor’s public victory over Hood is a meaningful start, but it does not erase his family abuse or instantly make him beloved.",
+        "injection": "After Hood, society may rally around Endeavor, but his family and moral debt remain unresolved.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_raised_fist_echoes_all_might_but_feels_different",
+      "title": "Raised Fist Echoes All Might But Feels Different",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-plus-ultra",
+        "sortKeyFrom": 11200,
+        "sortKeyTo": 11200,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor defeats Hood and raises his fist"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:all-might",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Endeavor",
+          "All Might"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "raised fist",
+          "symbol echo",
+          "public reassurance"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "character:all-might",
+        "faction:pro-heroes",
+        "topic:raised-fist",
+        "topic:symbol-echo",
+        "topic:public-reassurance"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor",
+            "All Might"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "raised fist",
+            "symbol echo",
+            "public reassurance"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor raising his fist after defeating Hood echoes All Might’s symbol, but the emotional meaning is rougher and unresolved.",
+        "injection": "Use the raised fist as a public symbol attempt, not a perfect replacement for All Might’s smile.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_civilians_witness_endeavor_s_vulnerability",
+      "title": "Civilians Witness Endeavor’s Vulnerability",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "civilian witness",
+          "public vulnerability",
+          "hero trust"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "topic:civilian-witness",
+        "topic:public-vulnerability",
+        "topic:hero-trust"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "civilian witness",
+            "public vulnerability",
+            "hero trust"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Civilians see Endeavor pushed, wounded, and still fighting, which changes the emotional register of his Number One role.",
+        "injection": "Let bystanders respond to both fear and recognition. Endeavor’s vulnerability matters because he keeps standing publicly.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_high_end_fight_signals_villains_are_still_advancing",
+      "title": "High-End Fight Signals Villains Are Still Advancing",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.high-end-attacks",
+        "sortKeyFrom": 11100,
+        "sortKeyTo": 11100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hood",
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:league-of-villains",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Hood",
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "High-End Nomu"
+        ],
+        "factions": [
+          "League of Villains",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Nomu development",
+          "threat escalation",
+          "villain science"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hood",
+        "character:hawks",
+        "character:endeavor",
+        "faction:league-of-villains",
+        "faction:pro-heroes",
+        "topic:nomu",
+        "topic:nomu-development",
+        "topic:threat-escalation",
+        "topic:villain-science"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hood",
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains",
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "High-End Nomu"
+          ],
+          "topicsAny": [
+            "Nomu development",
+            "threat escalation",
+            "villain science"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hood proves that villain-side Nomu development is still advancing after Kamino.",
+        "injection": "Use Hood as threat escalation. Heroes must not assume prior Nomu knowledge is enough.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 186-187",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_dabi_appearance_should_not_reveal_toya_yet",
+      "title": "Dabi Appearance Should Not Reveal Toya Yet",
+      "kind": "secret",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "secret",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "sortKeyFrom": 11250,
+        "sortKeyTo": 11250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi appears after Hood is defeated"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:league-of-villains",
+          "mha:todoroki-family"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains",
+          "Todoroki Family"
+        ],
+        "topics": [
+          "Dabi identity guard",
+          "Toya spoiler",
+          "future guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:dabi",
+        "character:endeavor",
+        "character:hawks",
+        "faction:league-of-villains",
+        "family:todoroki",
+        "topic:dabi-identity-guard",
+        "topic:toya-spoiler",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains",
+            "Todoroki Family"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Dabi identity guard",
+            "Toya spoiler",
+            "future guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi appears after the Hood fight, but his identity as Toya Todoroki is not revealed in this Context.",
+        "injection": "Do not reveal Dabi as Toya during Pro Hero scenes. Keep him threatening and cryptic unless the user has explicitly advanced to the war reveal.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 191",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_dabi_contact_with_hawks_is_suspicious_not_explained",
+      "title": "Dabi Contact With Hawks Is Suspicious Not Explained",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "sortKeyFrom": 11250,
+        "sortKeyTo": 11250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi appears after Hood is defeated"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:hawks",
+          "mha:league-of-villains",
+          "mha:hero-public-safety-commission"
+        ],
+        "characters": [
+          "Dabi",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains",
+          "Hero Public Safety Commission"
+        ],
+        "topics": [
+          "Hawks secret mission",
+          "Dabi contact",
+          "infiltration setup"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:dabi",
+        "character:hawks",
+        "faction:league-of-villains",
+        "faction:hero-public-safety-commission",
+        "topic:hawks-secret-mission",
+        "topic:dabi-contact",
+        "topic:infiltration-setup"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains",
+            "Hero Public Safety Commission"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Hawks secret mission",
+            "Dabi contact",
+            "infiltration setup"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi and Hawks have a suspicious connection after the Hood fight, but the full infiltration context is not public knowledge.",
+        "injection": "Let the Dabi/Hawks interaction feel dangerous and partial. Do not disclose all later spy mechanics or PLF context early.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 191",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_and_hawks_do_not_capture_dabi_here",
+      "title": "Endeavor And Hawks Do Not Capture Dabi Here",
+      "kind": "event_anchor",
+      "category": "event",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "event_anchor",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.dabi-appears-after-hood",
+        "sortKeyFrom": 11250,
+        "sortKeyTo": 11250,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Dabi appears after Hood is defeated"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:dabi",
+          "mha:endeavor",
+          "mha:hawks",
+          "mha:league-of-villains",
+          "mha:pro-heroes"
+        ],
+        "characters": [
+          "Dabi",
+          "Endeavor",
+          "Hawks"
+        ],
+        "locations": [],
+        "objects": [],
+        "factions": [
+          "League of Villains",
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Dabi escape",
+          "encounter unresolved",
+          "arc transition"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:dabi",
+        "character:endeavor",
+        "character:hawks",
+        "faction:league-of-villains",
+        "faction:pro-heroes",
+        "topic:dabi-escape",
+        "topic:encounter-unresolved",
+        "topic:arc-transition"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Dabi",
+            "Endeavor",
+            "Hawks"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains",
+            "Pro Heroes"
+          ],
+          "objectsAny": [],
+          "topicsAny": [
+            "Dabi escape",
+            "encounter unresolved",
+            "arc transition"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Dabi appears after the Hood fight but is not captured or resolved during this arc.",
+        "injection": "Do not turn the post-Hood Dabi encounter into a full arrest or Todoroki reveal. It is a tease and threat transition.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapter 191",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hawks_uses_casual_speech_to_control_tension",
+      "title": "Hawks Uses Casual Speech To Control Tension",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "low",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": false,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.hawks-endeavor-team-up",
+        "sortKeyFrom": 11050,
+        "sortKeyTo": 11050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Hawks draws Endeavor into investigating Nomu rumors"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:fierce-wings"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "Fierce Wings"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Hawks speech style",
+          "casual mask",
+          "social reading"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "quirk:fierce-wings",
+        "topic:hawks-speech-style",
+        "topic:casual-mask",
+        "topic:social-reading"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Fierce Wings"
+          ],
+          "topicsAny": [
+            "Hawks speech style",
+            "casual mask",
+            "social reading"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Hawks often uses casual speech, irreverence, and humor to control tension while reading people closely.",
+        "injection": "Write Hawks as verbally light but mentally sharp. His jokes must not erase his surveillance instincts.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 185-186",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_endeavor_speech_is_blunt_and_self_pressuring",
+      "title": "Endeavor Speech Is Blunt And Self-Pressuring",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "low",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 78,
+      "injectableByDefault": false,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.endeavor-hawks-vs-hood",
+        "sortKeyFrom": 11150,
+        "sortKeyTo": 11150,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Endeavor and Hawks fight Hood in public view"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:endeavor",
+          "mha:pro-heroes",
+          "mha:hellflame"
+        ],
+        "characters": [
+          "Endeavor"
+        ],
+        "locations": [],
+        "objects": [
+          "Hellflame"
+        ],
+        "factions": [
+          "Pro Heroes"
+        ],
+        "topics": [
+          "Endeavor speech style",
+          "bluntness",
+          "pressure"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:endeavor",
+        "faction:pro-heroes",
+        "quirk:hellflame",
+        "topic:endeavor-speech-style",
+        "topic:bluntness",
+        "topic:pressure"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "low",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Endeavor"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "Pro Heroes"
+          ],
+          "objectsAny": [
+            "Hellflame"
+          ],
+          "topicsAny": [
+            "Endeavor speech style",
+            "bluntness",
+            "pressure"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Endeavor tends toward blunt, self-pressuring speech rather than warmth or symbolic comfort.",
+        "injection": "Give Endeavor direct, severe, effort-driven dialogue. He can be sincere without sounding like All Might.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 187-190",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_hood_fight_should_not_include_later_paranormal_liberation_front_knowledge",
+      "title": "Hood Fight Should Not Include Later Paranormal Liberation Front Knowledge",
+      "kind": "knowledge_gate",
+      "category": "secret",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "spoiler_guard",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.high-end-attacks",
+        "sortKeyFrom": 11100,
+        "sortKeyTo": 11100,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "High-End Nomu Hood attacks during Endeavor and Hawks meeting"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.pro-hero",
+          "label": "Pro Hero",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:hawks",
+          "mha:endeavor",
+          "mha:shigaraki-tomura",
+          "mha:league-of-villains"
+        ],
+        "characters": [
+          "Hawks",
+          "Endeavor",
+          "Tomura Shigaraki"
+        ],
+        "locations": [],
+        "objects": [
+          "High-End Nomu"
+        ],
+        "factions": [
+          "League of Villains"
+        ],
+        "topics": [
+          "future guard",
+          "PLF hidden",
+          "Shigaraki evolution locked"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:pro-hero",
+        "character:hawks",
+        "character:endeavor",
+        "character:shigaraki-tomura",
+        "faction:league-of-villains",
+        "topic:nomu",
+        "topic:future-guard",
+        "topic:plf-hidden",
+        "topic:shigaraki-evolution-locked"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Hawks",
+            "Endeavor",
+            "Tomura Shigaraki"
+          ],
+          "locationsAny": [],
+          "factionsAny": [
+            "League of Villains"
+          ],
+          "objectsAny": [
+            "High-End Nomu"
+          ],
+          "topicsAny": [
+            "future guard",
+            "PLF hidden",
+            "Shigaraki evolution locked"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "During the Pro Hero arc, heroes do not yet understand the later Paranormal Liberation Front structure or Shigaraki’s coming transformation.",
+        "injection": "Keep Hood fight knowledge limited to Nomu escalation and suspicious villain movement. Do not import PLF organization or war preparations yet.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 186-187",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}

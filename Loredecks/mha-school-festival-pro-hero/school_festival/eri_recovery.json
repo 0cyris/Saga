@@ -1,0 +1,811 @@
+{
+  "schemaVersion": 3,
+  "entries": [
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_smile_is_a_milestone_not_a_cure",
+      "title": "Eri Smile Is A Milestone Not A Cure",
+      "kind": "status_change",
+      "category": "character",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "status_change",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-smiles",
+        "sortKeyFrom": 10800,
+        "sortKeyTo": 10800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri smiles during the school festival performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:mirio-togata",
+          "mha:midoriya-izuku",
+          "mha:rewind",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Eri",
+          "Mirio Togata",
+          "Izuku Midoriya"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind",
+          "U.A. School Festival"
+        ],
+        "factions": [],
+        "topics": [
+          "Eri smiles",
+          "trauma recovery",
+          "Rewind safety"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:mirio-togata",
+        "character:midoriya-izuku",
+        "quirk:rewind",
+        "topic:eri-smiles",
+        "topic:trauma-recovery",
+        "topic:rewind-safety"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Mirio Togata",
+            "Izuku Midoriya"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Rewind",
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "Eri smiles",
+            "trauma recovery",
+            "Rewind safety"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Eri smiling at the festival is a recovery milestone, not instant healing.",
+        "injection": "After the festival, Eri can have hope and joy without becoming socially fluent, Quirk-safe, or trauma-free.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore",
+            "manual_high_value_rewrite"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_class_1_a_performance_gives_eri_a_safe_memory",
+      "title": "Class 1-A Performance Gives Eri A Safe Memory",
+      "kind": "relationship_state",
+      "category": "relationship",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "relationship_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-smiles",
+        "sortKeyFrom": 10800,
+        "sortKeyTo": 10800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri smiles during the school festival performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:jiro-kyoka",
+          "mha:mirio-togata",
+          "mha:class-1a",
+          "mha:ua-school-festival"
+        ],
+        "characters": [
+          "Eri",
+          "Kyoka Jiro",
+          "Mirio Togata"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "U.A. School Festival"
+        ],
+        "factions": [
+          "Class 1-A"
+        ],
+        "topics": [
+          "safe memory",
+          "class support",
+          "Eri recovery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:jiro-kyoka",
+        "character:mirio-togata",
+        "class:ua-1a",
+        "topic:safe-memory",
+        "topic:class-support",
+        "topic:eri-recovery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Kyoka Jiro",
+            "Mirio Togata"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "Class 1-A"
+          ],
+          "objectsAny": [
+            "U.A. School Festival"
+          ],
+          "topicsAny": [
+            "safe memory",
+            "class support",
+            "Eri recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Class 1-A’s performance gives Eri a concrete safe memory associated with ordinary joy and people acting for her benefit.",
+        "injection": "Use the festival as a positive anchor for Eri. It should matter emotionally because it shows safety as a lived experience, not a lecture.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_rewind_remains_untrained_after_the_festival",
+      "title": "Eri Rewind Remains Untrained After The Festival",
+      "kind": "ability_gate",
+      "category": "rule",
+      "relevance": "high",
+      "canon": "canon",
+      "lorePurpose": "ability_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-smiles",
+        "sortKeyFrom": 10800,
+        "sortKeyTo": 10800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri smiles during the school festival performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:aizawa-shota",
+          "mha:mirio-togata",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Eri",
+          "Shota Aizawa",
+          "Mirio Togata"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [],
+        "topics": [
+          "Rewind instability",
+          "healing limit",
+          "future guard"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:aizawa-shota",
+        "character:mirio-togata",
+        "quirk:rewind",
+        "topic:rewind-instability",
+        "topic:healing-limit",
+        "topic:future-guard"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "high",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Shota Aizawa",
+            "Mirio Togata"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "Rewind instability",
+            "healing limit",
+            "future guard"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "After the festival, Eri still lacks controlled use of Rewind and cannot be treated as a general-purpose healing solution.",
+        "injection": "Do not use Eri as a convenient healer in this period. Rewind remains unstable, monitored, and narratively dangerous.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      },
+      "ability": {
+        "system": "quirk",
+        "name": "Rewind",
+        "stage": "untrained_child_monitoring",
+        "ownerEntityIds": [
+          "mha:eri"
+        ],
+        "constraints": [
+          "Eri cannot safely deploy Rewind on demand.",
+          "Aizawa’s Erasure is relevant to safety control."
+        ],
+        "antiLore": [
+          "Do not restore Mirio or heal major injuries through Rewind before the appropriate later Context."
+        ]
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_mirio_hope_around_eri_is_conditional",
+      "title": "Mirio Hope Around Eri Is Conditional",
+      "kind": "knowledge_gate",
+      "category": "knowledge",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "knowledge_gate",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "hidden",
+      "revealPolicy": "private",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:mirio-togata",
+          "mha:eri",
+          "mha:aizawa-shota",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Mirio Togata",
+          "Eri",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [],
+        "topics": [
+          "Mirio restoration",
+          "future hope",
+          "Rewind training"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:mirio-togata",
+        "character:eri",
+        "character:aizawa-shota",
+        "quirk:rewind",
+        "topic:mirio-restoration",
+        "topic:future-hope",
+        "topic:rewind-training"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Mirio Togata",
+            "Eri",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "Mirio restoration",
+            "future hope",
+            "Rewind training"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Characters may hope Eri can eventually help Mirio, but that is future possibility rather than immediate plan.",
+        "injection": "Allow cautious hope about Mirio’s future, but do not restore Permeation early or make Eri responsible for fixing everyone.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "tightened_fact_or_injection",
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_eri_should_not_be_socially_fluent_immediately",
+      "title": "Eri Should Not Be Socially Fluent Immediately",
+      "kind": "behavior_constraint",
+      "category": "character",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "behavior_constraint",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-smiles",
+        "sortKeyFrom": 10800,
+        "sortKeyTo": 10800,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri smiles during the school festival performance"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri"
+        ],
+        "characters": [
+          "Eri"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [],
+        "factions": [],
+        "topics": [
+          "social fluency",
+          "childhood trauma",
+          "gradual recovery"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "topic:social-fluency",
+        "topic:childhood-trauma",
+        "topic:gradual-recovery"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eri"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [],
+          "objectsAny": [],
+          "topicsAny": [
+            "social fluency",
+            "childhood trauma",
+            "gradual recovery"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Even after smiling, Eri has not gained normal social fluency, ordinary childhood confidence, or full understanding of U.A. life.",
+        "injection": "Keep Eri soft-spoken and learning. Positive scenes can show progress without skipping her developmental gap.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 181-182",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    },
+    {
+      "schemaVersion": 3,
+      "id": "mha_school_festival_pro_hero_aizawa_keeps_eri_access_practical_and_controlled",
+      "title": "Aizawa Keeps Eri Access Practical And Controlled",
+      "kind": "location_state",
+      "category": "location",
+      "relevance": "normal",
+      "canon": "canon",
+      "lorePurpose": "location_state",
+      "specificityScore": 86,
+      "injectableByDefault": true,
+      "truthStatus": "true",
+      "revealPolicy": "contextual",
+      "priority": 80,
+      "context": {
+        "scope": "anchor",
+        "anchorId": "mha.sfp.eri-transfers-ua-care",
+        "sortKeyFrom": 10050,
+        "sortKeyTo": 10050,
+        "precision": "anchor",
+        "windowKind": "event",
+        "label": "Eri is placed under U.A. care and Aizawa monitoring"
+      },
+      "coordinates": [
+        {
+          "axis": "arc",
+          "id": "mha.arc.school-festival",
+          "label": "U.A. School Festival",
+          "required": false
+        },
+        {
+          "axis": "adaptation",
+          "id": "manga-primary",
+          "label": "Manga primary",
+          "required": false
+        }
+      ],
+      "scope": {
+        "entityIds": [
+          "mha:eri",
+          "mha:aizawa-shota",
+          "mha:ua-high",
+          "mha:rewind"
+        ],
+        "characters": [
+          "Eri",
+          "Shota Aizawa"
+        ],
+        "locations": [
+          "U.A. High"
+        ],
+        "objects": [
+          "Rewind"
+        ],
+        "factions": [
+          "U.A. High"
+        ],
+        "topics": [
+          "supervision",
+          "U.A. safety",
+          "Eri access"
+        ]
+      },
+      "tags": [
+        "fandom:mha",
+        "continuity:mha-manga-main",
+        "adaptation:manga",
+        "quality:draft-reference",
+        "arc:school-festival",
+        "character:eri",
+        "character:aizawa-shota",
+        "school:ua-high",
+        "quirk:rewind",
+        "topic:supervision",
+        "topic:ua-safety",
+        "topic:eri-access"
+      ],
+      "retrieval": {
+        "activation": "topic_or_entity",
+        "frequency": "normal",
+        "contextBoost": "medium",
+        "triggers": {
+          "charactersAny": [
+            "Eri",
+            "Shota Aizawa"
+          ],
+          "locationsAny": [
+            "U.A. High"
+          ],
+          "factionsAny": [
+            "U.A. High"
+          ],
+          "objectsAny": [
+            "Rewind"
+          ],
+          "topicsAny": [
+            "supervision",
+            "U.A. safety",
+            "Eri access"
+          ]
+        }
+      },
+      "continuity": {
+        "continuityId": "mha-manga-main",
+        "canonTier": "primary",
+        "adaptation": "manga",
+        "medium": "manga",
+        "sourceBoundary": "My Hero Academia manga chapters 1-430. Chapter 431 'More' is treated as an optional post-series extra overlay unless explicitly loaded.",
+        "notes": "Anime-only scenes, movies, OVAs, Vigilantes, Team-Up Missions, light novels, games, and filler material are excluded from the primary deck family unless added as separate overlay decks."
+      },
+      "content": {
+        "fact": "Access to Eri is controlled by U.A. staff and safety concerns rather than being open to every student at all times.",
+        "injection": "Do not let Eri roam freely through U.A. with no supervision in this period. Friendly visits should still respect staff boundaries.",
+        "constraints": [],
+        "antiLore": [],
+        "notes": ""
+      },
+      "sourceInfo": {
+        "work": "My Hero Academia",
+        "sourceType": "manga",
+        "title": "My Hero Academia",
+        "chapterRange": "Chapters 169-170",
+        "confidence": 0.86,
+        "notes": "Draft Saga Lorecard; requires human canon review before reference release."
+      },
+      "extensions": {
+        "sagaQualityPass": {
+          "version": "v11",
+          "actions": [
+            "removed_boilerplate_constraints_or_antilore"
+          ]
+        }
+      }
+    }
+  ]
+}
