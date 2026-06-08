@@ -30,8 +30,17 @@ import {
     wireOverlayBackdropClose,
 } from './runtime-ui-kit.js';
 import {
+    truncateCleanText as truncateText,
+} from './runtime-formatters.js';
+import {
     createLoreTimelineCard,
 } from './lore-timeline-panel.js';
+import {
+    acceptPendingLoreEntries as acceptPendingLoreEntriesInState,
+    rejectPendingLoreEntries as rejectPendingLoreEntriesInState,
+    acceptPendingLoreEntry as acceptPendingLoreEntryInState,
+    rejectPendingLoreEntry as rejectPendingLoreEntryInState,
+} from './state-manager.js';
 
 let lorecardsPanelDeps = {};
 let acceptedLoreSearchRenderTimer = null;
@@ -102,7 +111,20 @@ function getSelectedLoreInjectionCount(state, settings) {
 }
 
 function getPendingLoreBatchLabel(state) {
-    return dep('getPendingLoreBatchLabel', () => '')(state);
+    const meta = state?.pendingLoreMeta || {};
+    const parts = [];
+    if (meta.createdAt) parts.push(`Generated ${new Date(meta.createdAt).toLocaleString()}`);
+    if (meta.status) parts.push(`status: ${meta.status}`);
+    if (meta.generationMode) parts.push(`${meta.generationMode} mode`);
+    if (meta.targetEntryCount) parts.push(`target ${meta.targetEntryCount}`);
+    if (meta.validEntryCount !== undefined) parts.push(`${meta.validEntryCount} valid`);
+    if (meta.rawEntryCount !== undefined) parts.push(`${meta.rawEntryCount} raw`);
+    if (meta.normalizedEntryCount !== undefined) parts.push(`${meta.normalizedEntryCount} normalized`);
+    if (meta.droppedDuplicateCount) parts.push(`${meta.droppedDuplicateCount} duplicates filtered`);
+    if (meta.droppedEntryCount) parts.push(`${meta.droppedEntryCount} dropped`);
+    if (meta.chunkCount) parts.push(`${meta.chunkCount} chunks`);
+    if (meta.sourceMessageCount) parts.push(`${meta.sourceMessageCount} source messages`);
+    return parts.length ? parts.join(' | ') : 'Pending lore batch awaiting review.';
 }
 
 function createLoreWorkbenchLaunchRow(mode, summaryText) {
@@ -1185,52 +1207,89 @@ function createSpellMetadataBadges(entry) {
     return row;
 }
 
-function isPendingLoreSelected(state, entry) {
-    return dep('isPendingLoreSelected', () => false)(state, entry);
-}
-
 function getLoreReviewId(entry) {
-    return dep('getLoreReviewId', raw => raw?.id || `${raw?.title || 'pending'}:${raw?.fact || ''}`)(entry);
+    return entry?.id || `${entry?.title || 'pending'}:${entry?.fact || ''}`;
 }
 
-function getPendingReviewSelectedIds(state) {
-    return dep('getPendingReviewSelectedIds', () => new Set())(state);
+function getPendingReviewSelectedIds(state = getState()) {
+    return new Set(Array.isArray(state?.lorePanel?.reviewSelectedIds) ? state.lorePanel.reviewSelectedIds : []);
+}
+
+function isPendingLoreSelected(state, entry) {
+    return getPendingReviewSelectedIds(state).has(getLoreReviewId(entry));
 }
 
 function setPendingReviewSelection(ids) {
-    return dep('setPendingReviewSelection', () => null)(ids);
+    const state = getState();
+    if (!state?.lorePanel) return;
+    state.lorePanel.reviewSelectedIds = Array.from(new Set((ids || []).filter(Boolean)));
+    saveState(state);
 }
 
 function togglePendingReviewSelection(id, selected) {
-    return dep('togglePendingReviewSelection', () => null)(id, selected);
+    if (!id) return;
+    const current = getPendingReviewSelectedIds();
+    if (selected) current.add(id);
+    else current.delete(id);
+    setPendingReviewSelection(Array.from(current));
 }
 
 function clearPendingReviewSelection() {
-    return dep('clearPendingReviewSelection', () => null)();
+    setPendingReviewSelection([]);
+}
+
+function getSelectedPendingIndexes() {
+    const state = getState();
+    const selected = getPendingReviewSelectedIds(state);
+    const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
+    return pending
+        .map((entry, index) => ({ entry, index }))
+        .filter(item => selected.has(getLoreReviewId(item.entry)))
+        .map(item => item.index);
 }
 
 function applySelectedPendingLore() {
-    return dep('applySelectedPendingLore', () => null)();
+    const indexes = getSelectedPendingIndexes().sort((a, b) => b - a);
+    if (!indexes.length) {
+        toast('No pending lore entries selected.', 'warning');
+        return;
+    }
+    for (const idx of indexes) acceptPendingLoreEntry(idx);
+    clearPendingReviewSelection();
+    refreshPanelBody({ preserveScroll: true });
+    refreshHeader();
+    refreshLoreWorkbench();
+    toast(`${indexes.length} selected lore entries accepted.`);
 }
 
 function dismissSelectedPendingLore() {
-    return dep('dismissSelectedPendingLore', () => null)();
+    const indexes = getSelectedPendingIndexes().sort((a, b) => b - a);
+    if (!indexes.length) {
+        toast('No pending lore entries selected.', 'warning');
+        return;
+    }
+    for (const idx of indexes) rejectPendingLoreEntry(idx);
+    clearPendingReviewSelection();
+    refreshPanelBody({ preserveScroll: true });
+    refreshHeader();
+    refreshLoreWorkbench();
+    toast(`${indexes.length} selected lore entries dismissed.`, 'info');
 }
 
 function acceptPendingLoreEntries() {
-    return dep('acceptPendingLoreEntries', () => null)();
+    return acceptPendingLoreEntriesInState();
 }
 
 function rejectPendingLoreEntries() {
-    return dep('rejectPendingLoreEntries', () => null)();
+    return rejectPendingLoreEntriesInState();
 }
 
 function acceptPendingLoreEntry(index) {
-    return dep('acceptPendingLoreEntry', () => null)(index);
+    return acceptPendingLoreEntryInState(index);
 }
 
 function rejectPendingLoreEntry(index) {
-    return dep('rejectPendingLoreEntry', () => null)(index);
+    return rejectPendingLoreEntryInState(index);
 }
 
 function refreshHeader() {
@@ -1258,11 +1317,32 @@ function getLoreDisplayLabel(field, value) {
 }
 
 function getCategoryCount(category, entries, counts) {
-    return dep('getCategoryCount', () => 0)(category, entries, counts);
+    const safeCounts = counts || {};
+    const safeEntries = Array.isArray(entries) ? entries : [];
+    if (category === 'all') return safeCounts.all || 0;
+    if (category === 'active' || category === 'high') return safeCounts.high || safeCounts.active || 0;
+    if (category === 'normal') return safeCounts.normal || 0;
+    if (category === 'low') return safeCounts.low || 0;
+    if (category === 'pinned') return safeCounts.pinned || 0;
+    if (category === 'suppressed') return safeCounts.suppressed || 0;
+    if (category === 'pending') return safeCounts.pending || 0;
+    return safeEntries.filter(entry => entry.category === category).length;
 }
 
 function getCategoryTooltip(category) {
-    return dep('getCategoryTooltip', () => String(category || ''))(category);
+    const registryMeta = getLoreRegistryMeta('categories', category);
+    if (registryMeta?.description) return registryMeta.description;
+    const map = {
+        all: 'Shows every accepted and pending lore entry.',
+        active: 'Legacy alias for High Relevance.',
+        high: 'Shows accepted lore in the High-Relevance injection tier.',
+        normal: 'Shows accepted lore in the Normal-Relevance injection tier.',
+        low: 'Shows accepted lore in the Low-Relevance injection tier.',
+        pinned: 'Shows entries manually prioritized and protected during injection/compression.',
+        suppressed: 'Shows muted entries excluded from injection.',
+        pending: 'Shows generated entries that still need review.',
+    };
+    return map[category] || `Shows lore entries in category: ${category}.`;
 }
 
 function setPanelState(patch, options = {}) {
@@ -1352,23 +1432,143 @@ export function toggleAcceptedLoreSelection(entryId, selected) {
 }
 
 function bulkUpdateAcceptedLore(ids, updater) {
-    return dep('bulkUpdateAcceptedLore', () => false)(ids, updater);
+    if (!ids?.length || typeof updater !== 'function') return false;
+    const state = getState();
+    const beforeTimeline = captureLoreTimelineState(state);
+    const idSet = new Set(ids);
+    let count = 0;
+    state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => {
+        if (!idSet.has(entry.id)) return entry;
+        count += 1;
+        return normalizeLoreEntry({ ...updater(entry), userEdited: true });
+    });
+    if (count) {
+        recordLoreTimelineEvent(state, {
+            before: beforeTimeline,
+            after: captureLoreTimelineState(state),
+            type: 'bulk_edit',
+            source: 'manual',
+            summary: `Bulk edited ${count} accepted lore entr${count === 1 ? 'y' : 'ies'}.`,
+        });
+    }
+    saveState(state);
+    refreshAcceptedLoreList({ preserveScroll: true });
+    refreshAcceptedLoreBulkToolbar();
+    refreshHeader();
+    refreshLoreWorkbench();
+    if (count) toast(`Updated ${count} accepted lore entr${count === 1 ? 'y' : 'ies'}.`, 'success');
+    return count > 0;
 }
 
 function bulkSetAcceptedPinned(ids, pinned) {
-    return dep('bulkSetAcceptedPinned', () => null)(ids, pinned);
+    const state = getState();
+    if (!state.loreSelection) state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+    const beforeTimeline = captureLoreTimelineState(state);
+    const idSet = new Set(ids);
+    const acceptedIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
+    const pinSet = new Set((state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id)));
+    const suppressedSet = new Set((state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id)));
+    for (const id of idSet) {
+        if (!acceptedIds.has(id)) continue;
+        if (pinned) {
+            pinSet.add(id);
+            suppressedSet.delete(id);
+        } else {
+            pinSet.delete(id);
+        }
+    }
+    state.loreSelection.pinnedIds = Array.from(pinSet);
+    state.loreSelection.suppressedIds = Array.from(suppressedSet);
+    recordLoreTimelineEvent(state, {
+        before: beforeTimeline,
+        after: captureLoreTimelineState(state),
+        type: pinned ? 'pin' : 'unpin',
+        source: 'manual',
+        summary: `${pinned ? 'Pinned' : 'Unpinned'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`,
+    });
+    saveState(state);
+    refreshAcceptedLoreList({ preserveScroll: true });
+    refreshAcceptedLoreBulkToolbar();
+    refreshHeader();
+    refreshLoreWorkbench();
+    toast(`${pinned ? 'Pinned' : 'Unpinned'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 function bulkSetAcceptedMuted(ids, muted) {
-    return dep('bulkSetAcceptedMuted', () => null)(ids, muted);
+    const state = getState();
+    if (!state.loreSelection) state.loreSelection = { pinnedIds: [], suppressedIds: [] };
+    const beforeTimeline = captureLoreTimelineState(state);
+    const idSet = new Set(ids);
+    const acceptedIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
+    const pinSet = new Set((state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id)));
+    const suppressedSet = new Set((state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id)));
+    for (const id of idSet) {
+        if (!acceptedIds.has(id)) continue;
+        if (muted) {
+            suppressedSet.add(id);
+            pinSet.delete(id);
+        } else {
+            suppressedSet.delete(id);
+        }
+    }
+    state.loreSelection.pinnedIds = Array.from(pinSet);
+    state.loreSelection.suppressedIds = Array.from(suppressedSet);
+    recordLoreTimelineEvent(state, {
+        before: beforeTimeline,
+        after: captureLoreTimelineState(state),
+        type: muted ? 'mute' : 'unmute',
+        source: 'manual',
+        summary: `${muted ? 'Muted' : 'Unmuted'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`,
+    });
+    saveState(state);
+    refreshAcceptedLoreList({ preserveScroll: true });
+    refreshAcceptedLoreBulkToolbar();
+    refreshHeader();
+    refreshLoreWorkbench();
+    toast(`${muted ? 'Muted' : 'Unmuted'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 function bulkAddTagToAcceptedLore(ids, tag) {
-    return dep('bulkAddTagToAcceptedLore', () => false)(ids, tag);
+    const clean = normalizeLoreTag(tag);
+    if (!clean) return false;
+    return bulkUpdateAcceptedLore(ids, entry => {
+        const tags = Array.isArray(entry.tags) ? entry.tags.map(normalizeLoreTag).filter(Boolean) : [];
+        const exists = tags.some(t => t.toLowerCase() === clean.toLowerCase());
+        return { ...entry, tags: exists ? tags : [...tags, clean] };
+    });
 }
 
 function bulkDeleteAcceptedLore(ids) {
-    return dep('bulkDeleteAcceptedLore', () => null)(ids);
+    const state = getState();
+    const beforeTimeline = captureLoreTimelineState(state);
+    const idSet = new Set(ids);
+    const before = Array.isArray(state.loreMatrix) ? state.loreMatrix.length : 0;
+    state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).filter(entry => !idSet.has(entry.id));
+    const acceptedIds = new Set(state.loreMatrix.map(entry => entry.id));
+    if (state.loreSelection) {
+        state.loreSelection.pinnedIds = (state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id));
+        state.loreSelection.suppressedIds = (state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id));
+    }
+    if (state.lorePanel) {
+        state.lorePanel.acceptedSelectedIds = (state.lorePanel.acceptedSelectedIds || []).filter(id => acceptedIds.has(id));
+        if (idSet.has(state.lorePanel.selectedEntryId)) state.lorePanel.selectedEntryId = '';
+    }
+    const deleted = before - state.loreMatrix.length;
+    if (deleted > 0) {
+        recordLoreTimelineEvent(state, {
+            before: beforeTimeline,
+            after: captureLoreTimelineState(state),
+            type: 'delete',
+            source: 'manual',
+            summary: `Deleted ${deleted} accepted lore entr${deleted === 1 ? 'y' : 'ies'}.`,
+        });
+    }
+    saveState(state);
+    refreshAcceptedLoreList({ preserveScroll: true });
+    refreshAcceptedLoreBulkToolbar();
+    refreshHeader();
+    refreshLoreWorkbench();
+    toast(`Deleted ${deleted} accepted lore entr${deleted === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 function getLoreRegistryValues(registryName, fallback = []) {
@@ -2687,12 +2887,6 @@ function commitInlineTagInput(entryId, rawTag) {
     addLoreTag(entryId, tag, { deferSave: true });
     if (!refreshAcceptedLoreRow(entryId)) refreshAcceptedLoreList({ preserveScroll: true });
     refreshLoreWorkbench();
-}
-
-function truncateText(text, maxLen) {
-    const clean = String(text || '').replace(/\s+/g, ' ').trim();
-    if (clean.length <= maxLen) return clean;
-    return `${clean.slice(0, Math.max(0, maxLen - 1))}...`;
 }
 
 export function renderLorecardsTab(container, state) {

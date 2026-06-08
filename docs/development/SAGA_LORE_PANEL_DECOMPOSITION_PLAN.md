@@ -1,6 +1,6 @@
 # Saga Lore Panel Decomposition Plan
 
-Status: Phase 9 Lorecards tab shell, compact/full Lore Timeline, Pending Lorecard Review wrapper/cards/bulk controls, Accepted Lorecards section shell/list renderer/bulk controls, New Lore dialog, Auto-Relevance card, accepted Lorecard card/tag-row rendering, accepted Lorecard edit/mutation helpers, shared Lorecard source/context badge helpers, and accepted-list refresh/filter orchestration implemented. Next queued Phase 9 slice: Accepted Lorecard Workbench boundary extraction.
+Status: Phase 9 Lorecards tab shell, compact/full Lore Timeline, Pending Lorecard Review wrapper/cards/bulk controls/mutation helpers, Accepted Lorecards section shell/list renderer/bulk controls/mutation helpers, New Lore dialog, Auto-Relevance card, accepted Lorecard card/tag-row rendering, accepted Lorecard edit/mutation helpers, shared Lorecard source/context badge helpers, accepted-list refresh/filter orchestration, Lorecard Workbench boundary, residual continuity delta review card extraction, and Phase 10 runtime tour/controller/guide/shell/navigation/formatter utility extraction plus Lorecard wrapper, shell-scroll, shell viewport-position, shell layout-normalization, and shell action cleanup implemented. Next queued Phase 10 slice: continue residual feature-neutral utility cleanup.
 
 Date: 2026-06-07.
 
@@ -14,8 +14,8 @@ This plan describes how to de-monolithize `lore-panel.js` without a risky rewrit
 
 Latest audit:
 
-- `lore-panel.js` is 22,108 lines.
-- It contains roughly 866 function-like declarations.
+- `lore-panel.js` is 20,335 lines.
+- It contains roughly 770 function-like declarations.
 - The public export surface is small: `showLorePanel`, `hideLorePanel`, `refreshLorePanel`, and `resetLorePanelLayout`.
 - Most functions are not individually huge; the issue is broad responsibility and shared top-level mutable state.
 - Existing domain modules already exist for several systems, but their UI composition still lives in `lore-panel.js`.
@@ -109,13 +109,15 @@ Phase 8 progress:
 Phase 9 progress:
 
 - `lorecards-panel.js` now owns the Lorecards tab shell: section header, compact Timeline card placement, Lorecard Generation section, Auto-Relevance section, Pending Lorecard Review section wrapper, Accepted Lorecards section wrapper, and accepted/injectable count display.
-- `lorecards-panel.js` now also owns the Pending Lorecard Review section body wrapper, pending cards, and bulk controls: pending count launch row placement, batch label placement, pending bulk toolbar/card rendering, select-all display, Apply/Dismiss Selected buttons, Apply/Dismiss All buttons, pending list shell, pending card rendering, pending checkbox rendering, targeted-entry preview, Apply/Apply-as-New/Dismiss buttons, pending pagination button, and empty state. Selected-state calculation, selection persistence, accept/reject mutations, badge metadata rendering, workbench launch behavior, and pagination persistence remain callback-driven from `lore-panel.js`.
-- `lorecards-panel.js` now also owns the Accepted Lorecards section shell, list renderer, card renderer, tag-row UI, editable metadata widgets, detail editor, pin/mute mutations, tag mutations, accepted entry save flow, shared purpose/source/context badge helpers, accepted-list refresh/filter orchestration, and bulk-control UI: accepted workbench launch placement, category tab row, source/search filter row, pin/mute help text, accepted bulk toolbar placement, accepted selection cleanup/persistence helpers, Select Filtered/Clear Selection buttons, Pin/Unpin/Mute/Unmute/Delete action buttons, bulk metadata dropdowns, Add Tag input/button, confirmation text, accepted list region shell, list summary, empty state, paged accepted-card placement, show-more pagination button, accepted card header/actions, collapsed/expanded metadata rows, detail-row display, active-when condition display, lifecycle/category/canon/truth/reveal/priority edit controls, direct accepted-entry editor, inline tag add/remove UI, accepted entry update helper, accepted search/source filtering, search scoring, source bucket classification, row/list refresh helpers, timeline-aware pin/mute helper routes, Loredeck source chips, context gate chips, context summary chips, and spell metadata chips. Accepted bulk state/timeline mutations, timeline snapshot/record behavior, and durable state persistence remain callback-driven from `lore-panel.js`.
+- `lorecards-panel.js` now also owns the Pending Lorecard Review section body wrapper, pending cards, bulk controls, and pending-review selection/mutation helpers: pending count launch row placement, batch label placement, pending bulk toolbar/card rendering, select-all display, Apply/Dismiss Selected buttons, Apply/Dismiss All buttons, pending list shell, pending card rendering, pending checkbox rendering, targeted-entry preview, Apply/Apply-as-New/Dismiss buttons, pending pagination button, empty state, selected-state calculation, selection persistence, selected-index lookup, selected accept/dismiss behavior, and direct state-manager accept/reject routing.
+- `lorecards-panel.js` now also owns the Accepted Lorecards section shell, list renderer, card renderer, tag-row UI, editable metadata widgets, detail editor, pin/mute mutations, tag mutations, accepted entry save flow, shared purpose/source/context badge helpers, accepted-list refresh/filter orchestration, bulk-control UI, accepted category count/tooltip helpers, pending batch-label formatting, and accepted bulk mutation helpers: accepted workbench launch placement, category tab row, source/search filter row, pin/mute help text, accepted bulk toolbar placement, accepted selection cleanup/persistence helpers, Select Filtered/Clear Selection buttons, Pin/Unpin/Mute/Unmute/Delete action buttons, bulk metadata dropdowns, Add Tag input/button, confirmation text, accepted list region shell, list summary, empty state, paged accepted-card placement, show-more pagination button, accepted card header/actions, collapsed/expanded metadata rows, detail-row display, active-when condition display, lifecycle/category/canon/truth/reveal/priority edit controls, direct accepted-entry editor, inline tag add/remove UI, accepted entry update helper, accepted search/source filtering, search scoring, source bucket classification, row/list refresh helpers, timeline-aware pin/mute helper routes, Loredeck source chips, context gate chips, context summary chips, spell metadata chips, accepted bulk edit/pin/mute/tag/delete state mutations, timeline snapshot/record behavior, and durable state persistence.
 - `lorecards-panel.js` now also owns the New Lore dialog behavior and shared New Lore field helpers: overlay shell, manual draft fields, metadata selects, validation, pending-draft creation, timeline-event recording callback route, refresh callback route, and close/focus behavior.
 - `lorecards-panel.js` now also owns the Auto-Relevance card: enable/mode/tuning/model controls, setting reset row placement, current-tier counts, pending suggestion rows, apply/reject actions, and manual Run Auto-Relevance action. Settings persistence, reset behavior, and Auto-Relevance mutation/model execution remain callback-driven from `lore-panel.js`.
 - `lore-timeline-panel.js` now owns the compact Lore Timeline launch card, latest-event mini rail, timeline event CSS classification helper, New Lore callback routing, fullscreen Lore Timeline overlay, graph, ruler, minimap, filter chips, sender/volume legend, event list, event detail, tooltip helpers, viewport pan/zoom/resize state, and recovery action UI. Runtime state lookup, refresh callbacks, recoverable-entry lookup, restore-to-pending mutation, and toast feedback remain callback-driven from `lore-panel.js`.
-- `lore-panel.js` configures these modules through `configureLorecardsPanel(...)` and `configureLoreTimelinePanel(...)`. Pending selection/mutation behavior, accepted bulk mutation behavior, timeline snapshot/record behavior, and Auto-Relevance action callbacks remain callback-driven from `lore-panel.js`.
-- Current source-line count: `lore-panel.js` is 22,108 lines, `lorecards-panel.js` is 2,425 lines, `lore-timeline-panel.js` is 1,282 lines, `theme-actions.js` is 366 lines, `theme-panel.js` is 618 lines, `settings-panel.js` is 887 lines, `context-panel.js` is 841 lines, `context-workbench-panel.js` is 1,858 lines, `loredeck-creator-panel.js` is 1,615 lines, `loredecks-tab-panel.js` is 793 lines, `loredeck-library-panel.js` is 4,402 lines, `loredeck-health-panel.js` is 1,668 lines, `runtime-theme.js` is 776 lines, and `runtime-ui-kit.js` is 584 lines.
+- `lorecards-panel.js` now also owns the fullscreen Lorecard Workbench boundary for accepted and pending review modes: overlay open/close state, shell/header, mode tabs, search controls, pending/accepted table and detail panes, selection routing, and Workbench refresh/focus preservation.
+- `continuity-panel.js` now owns the legacy pending Continuity delta review card that previously sat next to Lorecard review helpers in `lore-panel.js`: card shell, changed-section summary, raw delta preview, Apply Changes mutation, Dismiss Changes mutation, and runtime refresh handoff.
+- `lore-panel.js` configures these modules through `configureLorecardsPanel(...)` and `configureLoreTimelinePanel(...)`. Auto-Relevance model/action callbacks, timeline snapshot helpers shared outside Lorecards, and runtime-layout mounts remain callback-driven from `lore-panel.js`.
+- Current source-line count: `lore-panel.js` is 18,677 lines, `runtime-shell.js` is 458 lines, `runtime-formatters.js` is 13 lines, `runtime-navigation.js` is 103 lines, `runtime-guide-content.js` is 418 lines, `runtime-tour.js` is 261 lines, `continuity-panel.js` is 72 lines, `lorecards-panel.js` is 2,807 lines, `lore-timeline-panel.js` is 1,164 lines, `theme-actions.js` is 333 lines, `theme-panel.js` is 570 lines, `settings-panel.js` is 797 lines, `context-panel.js` is 764 lines, `context-workbench-panel.js` is 1,729 lines, `loredeck-creator-panel.js` is 1,489 lines, `loredecks-tab-panel.js` is 728 lines, `loredeck-library-panel.js` is 4,103 lines, `loredeck-health-panel.js` is 1,580 lines, `runtime-theme.js` is 740 lines, and `runtime-ui-kit.js` is 507 lines.
 - Validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lore-timeline-panel.js`, `lorecards-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Lorecards tab shell renders the timeline card and all four section wrappers while routing inner cards through configured callbacks.
 - Latest Pending Review wrapper validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Pending Lorecard Review wrapper renders the workbench launch row, batch label, bulk toolbar slot, pending list, selected pending-card callback state, and pagination button through configured callbacks.
 - Latest Accepted Lorecards shell validation passed with `node --check` on `lorecards-panel.js`, `lore-timeline-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted Accepted Lorecards section renders the accepted workbench launch row, category tabs, search/source filters, pin/mute help text, accepted bulk toolbar slot, accepted list region, and list-render callback.
@@ -130,6 +132,23 @@ Phase 9 progress:
 - Latest full Lore Timeline extraction validation passed with `node --check` on `lore-timeline-panel.js`, `lorecards-panel.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `lore-timeline-panel.js`, `lorecards-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the extracted fullscreen timeline opens, renders filter bar, graph, event list, and event detail, updates selected events, refreshes, and closes through the extracted Close action.
 - Latest shared source/context badge helper validation passed with `node --check` on `lorecards-panel.js`, `lore-panel.js`, `lore-timeline-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified the exported source/context badge helper renders Loredeck source chips, Context gate chips, and Context summary chips for Lorecard rows and remaining canon-preview row callers.
 - Latest accepted-list refresh/filter orchestration validation passed with `node --check` on `lorecards-panel.js`, `lore-panel.js`, `lore-timeline-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; fake-DOM smoke verified accepted filtering, stale-selection cleanup, source bucket classification, search scoring, preserved-scroll list refresh, rendered accepted card output, category-tab active state updates, and layout scheduler routing.
+- Latest Lorecard Workbench, Pending Review mutation helper, and accepted bulk mutation helper validation passed with `node --check` on `lorecards-panel.js`, `lore-panel.js`, `lore-timeline-panel.js`, and `index.js`; ES module import smoke passed for `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scans confirmed pending-review selection/mutation helpers and accepted bulk mutation helpers no longer remain in `lore-panel.js`.
+- Latest residual review helper cleanup validation passed with `node --check` on `continuity-panel.js`, `lore-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `index.js`; ES module import smoke passed for `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed `createDeltaReviewCard(...)` now lives in `continuity-panel.js` and `lore-panel.js` only calls the exported helper.
+- Latest runtime tour controller extraction validation passed with `node --check` on `runtime-tour.js`, `lore-panel.js`, `continuity-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed active tour state, target marking, step display, popover positioning, close behavior, and keyboard behavior now live in `runtime-tour.js`.
+- SillyTavern browser smoke after runtime tour controller extraction passed at `http://127.0.0.1:8000/`: after reload, the Session tab opened, the Saga Guide section expanded, Start Advanced Walkthrough opened the tour popover with a highlighted target, Escape closed the popover and cleared highlighting, and no browser console errors were observed.
+- Latest runtime guide-content extraction validation passed with `node --check` on `runtime-guide-content.js`, `runtime-tour.js`, `lore-panel.js`, `continuity-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed `GUIDE_STEPS`, `GUIDE_CONTENT`, and guide-builder helpers no longer remain in `lore-panel.js`.
+- SillyTavern browser smoke after runtime guide-content extraction passed at `http://127.0.0.1:8000/`: after reload, Saga mounted, the Session tab opened, the extracted guide content rendered the Saga Guide and Start Advanced Walkthrough button, the walkthrough opened with a highlighted target, Escape closed the popover and cleared highlighting, and no browser console errors were observed.
+- Latest runtime shell utility extraction validation passed with `node --check` on `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `lore-panel.js`, `continuity-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed rail/drawer geometry math, drawer scroll metrics, and runtime drag/resize controller state now live in `runtime-shell.js`.
+- SillyTavern browser smoke after runtime shell utility extraction passed at `http://127.0.0.1:8000/`: after reload, Saga mounted, the Session drawer opened, the extracted rail drag handler moved and persisted rail geometry, the extracted drawer resize handler updated drawer dimensions and CSS variables, the layout was nudged back to its starting geometry, and no browser console errors were observed.
+- Latest runtime shell scroll-helper extraction validation passed with `node --check` on `runtime-shell.js`, `lore-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-formatters.js`, `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed nested scroll handoff and active scroll-element lookup now live in `runtime-shell.js`.
+- Latest runtime shell viewport-position extraction validation passed with `node --check` on `runtime-shell.js`, `lore-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-formatters.js`, `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed rail centering and shell viewport-clamping implementations now live in `runtime-shell.js`.
+- Latest runtime shell layout-normalization extraction validation passed with `node --check` on `runtime-shell.js`, `runtime-navigation.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `runtime-formatters.js`, `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed runtime panel layout-state normalization now lives in `runtime-shell.js` while `lore-panel.js` calls the exported shell helper.
+- Latest runtime shell action extraction validation passed with `node --check` on `runtime-shell.js`, `runtime-navigation.js`, `lore-panel.js`, and `index.js`; ES module import smoke passed for `runtime-formatters.js`, `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed reset layout, drawer-tab toggles, and rail-mode toggles now live in `runtime-shell.js`, with `lore-panel.js` retaining only the public `resetLorePanelLayout(...)` facade.
+- Latest runtime navigation extraction validation passed with `node --check` on `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `lore-panel.js`, `continuity-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed tab labels/icons/tooltips, automation mode definitions, Basic/Advanced tab lists, and experience/automation normalization helpers now live in `runtime-navigation.js`.
+- SillyTavern browser smoke after runtime navigation extraction passed at `http://127.0.0.1:8000/`: after reload, Saga mounted, rail tab labels/tooltips/fallback icons rendered from the extracted navigation module, the Continuity fallback icon stayed `K`, Basic mode hid the Continuity tab while preserving the Basic tab set, Advanced mode restored the full tab set, and no browser console errors were observed.
+- Latest runtime formatter extraction validation passed with `node --check` on `runtime-formatters.js`, `lore-panel.js`, `lorecards-panel.js`, and `index.js`; ES module import smoke passed for `runtime-formatters.js`, `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed approximate token counting and shared text truncation now live in `runtime-formatters.js`.
+- Latest Lorecards wrapper cleanup validation passed with `node --check` on `lorecards-panel.js`, `lore-panel.js`, `runtime-formatters.js`, and `index.js`; ES module import smoke passed for `runtime-formatters.js`, `runtime-navigation.js`, `runtime-shell.js`, `runtime-guide-content.js`, `runtime-tour.js`, `continuity-panel.js`, `lorecards-panel.js`, `lore-timeline-panel.js`, and `lore-panel.js`; ownership scan confirmed pending batch-label formatting and accepted category count/tooltip helpers no longer remain in `lore-panel.js`.
+- SillyTavern browser smoke after Pending Review and accepted bulk mutation helper extraction passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, Lore Timeline, Lorecard Generation, Pending Lorecard Review, and Accepted Lorecards rendered, and no browser console errors were observed.
 - SillyTavern browser smoke passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, the extracted Lore Timeline card rendered, Lorecard Generation/Pending/Accepted sections rendered, the Open Timeline callback opened the existing full timeline workbench and closed it cleanly, and no browser console errors were observed.
 - SillyTavern browser smoke after Pending Review wrapper extraction passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, the extracted Pending Lorecard Review section rendered its workbench launch row and empty state for the current chat, no runtime render error card appeared, and no browser console errors were observed.
 - SillyTavern browser smoke after Accepted Lorecards shell extraction passed at `http://127.0.0.1:8000/`: after reload, the Lorecards rail tab opened, the extracted Accepted Lorecards section rendered category tabs, search/source filters, bulk toolbar, accepted list region, and no runtime render error card or browser console errors were observed.
@@ -142,14 +161,12 @@ Large responsibility clusters:
 2101-6700     Loredeck Creator provider-call and mutation controllers
 6701-7800     Context editor/workbench controller behavior
 7801-14900    Loredeck import/export, editor details, assistant, pending review, tag/timeline mutation surfaces
-14901-16016   Loredeck pending-review, generated-pack finalization, duplicate/delete, and editor mutation surfaces
-16017-16590   Settings tab shell and Theme Pack composition bridge
-16591-16954   Session tab, runtime status, danger/reset cards
-16955-18971   Context tab controller helpers, progress state, advanced editor behavior
-18972-20603   Continuity and Injection tab controller behavior
-20538-21179   Lorecard Workbench
-21180-21319   Accepted Lorecard bulk mutation/timeline-state helpers
-21320-22108   layout, tour, drag/resize, dialog and residual UI helpers
+14901-15556   Loredeck pending-review, generated-pack finalization, duplicate/delete, and editor mutation surfaces
+15509-15991   Settings tab shell and Theme Pack composition bridge
+15992-16357   Session tab, runtime status, danger/reset cards
+16358-18374   Context tab controller helpers, progress state, advanced editor behavior
+18375-19984   Continuity and Injection tab controller behavior
+19985-20335   accepted bulk toolbar mount, accepted-list layout, panel mutations, dialog and residual UI helpers
 ```
 
 ## Core Principle
@@ -442,7 +459,6 @@ May be extracted before or after `lorecards-panel.js` depending on coupling.
 
 Responsibilities:
 
-- guide steps.
 - active walkthrough state.
 - target highlighting.
 - popover positioning.
@@ -450,13 +466,57 @@ Responsibilities:
 
 This is optional for alpha and can be extracted late.
 
+### `runtime-guide-content.js`
+
+Responsibilities:
+
+- static Basic and Advanced guide step definitions.
+- guide card copy for the Session tab guide section.
+- read-only guide-step normalization helpers used by the runtime tour controller and Session instructions card.
+
+### Current Runtime Shell Slice
+
+Responsibilities:
+
+- runtime shell geometry constants.
+- rail mode normalization.
+- runtime panel layout-state normalization and legacy layout migration.
+- viewport, rail, drawer width/height, and drawer-direction calculations.
+- runtime shell geometry application.
+- runtime rail viewport-centering and viewport-clamping actions.
+- runtime shell actions for reset layout, tab drawer toggles, and rail display mode toggles.
+- drawer scroll metric CSS variables.
+- active tab/nested scroll-region lookup.
+- nested scroll wheel handoff from feature scroll regions to the runtime tab body.
+- rail drag handler state, movement clamping, and geometry persistence.
+- drawer resize handler state, size clamping, CSS variable updates, and geometry persistence.
+- callback bridge to `lore-panel.js` for state access, layout-state normalization, and accepted-list resize refresh.
+
+### `runtime-navigation.js`
+
+Responsibilities:
+
+- runtime tab labels, fallback icons, and tooltips.
+- automation mode labels, descriptions, and setting presets.
+- Basic and Advanced visible-tab lists.
+- tab, experience-mode, and automation-mode normalization helpers.
+- Experience Mode and Automation Mode status labels/tooltips.
+
+### `runtime-formatters.js`
+
+Responsibilities:
+
+- shared lightweight text truncation helpers.
+- shared approximate token counting helper for preview/budget displays.
+- small pure formatting functions that do not depend on DOM, runtime state, or feature modules.
+
 ## Shared-State Strategy
 
 Top-level UI state is the main coupling risk. It should be migrated in stages.
 
 Current state classes:
 
-- Shell state: `panelRoot`, drag offsets, resize state, tooltip state.
+- Shell state: `panelRoot` and tooltip state remain in `lore-panel.js`; drag offsets and resize state now live in `runtime-shell.js`.
 - Library state: open flag, query, sort, selected IDs, folder collapse, drag state, details height.
 - Creator state: input fields, revision instructions, selected projects, generation controllers, live generation jobs.
 - Context state: open flag, selected pack/key, queries, filters.
@@ -722,8 +782,8 @@ Goal: move Lorecard review/editing out of the runtime shell.
 
 Tasks:
 
-- Done: Move accepted Lorecard list, Pending Review card rendering, bulk edit controls, entry cards, tag chips, accepted-entry edit widgets/mutations, New Lorecard dialog, Auto-Relevance card, compact Lore Timeline card, full Lore Timeline workbench, shared purpose/source/context badge helpers, accepted-list refresh/filter orchestration, source bucket classification, search scoring, and spell metadata chips.
-- Remaining: Move the Accepted Lorecard Workbench boundary if it can be separated cleanly from runtime-shell overlay state and accepted bulk mutation/history behavior.
+- Done: Move accepted Lorecard list, Pending Review card rendering, pending selection/mutation helpers, bulk edit controls, accepted bulk mutation helpers, entry cards, tag chips, accepted-entry edit widgets/mutations, New Lorecard dialog, Auto-Relevance card, compact Lore Timeline card, full Lore Timeline workbench, Lorecard Workbench boundary, shared purpose/source/context badge helpers, accepted-list refresh/filter orchestration, source bucket classification, search scoring, spell metadata chips, and the residual continuity delta review card.
+- Remaining: No remaining Phase 9 Lorecards extraction step is currently identified. Begin Phase 10 runtime utility extraction.
 
 Constraints:
 
@@ -744,10 +804,30 @@ Exit criteria:
 
 Goal: finish the leftovers after core surfaces are independent.
 
+Phase 10 progress:
+
+- `runtime-tour.js` now owns active walkthrough state, target marking, walkthrough start/close, guide-step display, target lookup/highlighting, popover rendering/positioning, and keyboard navigation.
+- `runtime-guide-content.js` now owns static Basic/Advanced guide steps, Session guide copy, and guide-step normalization helpers.
+- `runtime-shell.js` now owns shell geometry constants, runtime panel layout-state normalization, rail/drawer sizing math, drawer scroll metric updates, nested scroll handoff, active scroll-element lookup, viewport centering/clamping actions, reset/tab-toggle/rail-mode actions, rail drag controller state, drawer resize controller state, and geometry persistence bridges.
+- `runtime-navigation.js` now owns runtime tab labels/icons/tooltips, automation mode definitions, Basic/Advanced tab lists, and experience/automation normalization helpers.
+- `runtime-formatters.js` now owns shared text truncation and approximate token-count helpers used by the runtime shell and extracted Lorecards panel.
+- `lorecards-panel.js` now owns pending batch-label formatting plus accepted category count/tooltip helpers instead of receiving them back through the `lore-panel.js` configuration bridge.
+- `lore-panel.js` configures the tour module with guide-content accessors and shell callbacks for section expansion, panel layout normalization, tab normalization, panel display, and root lookup.
+- `lore-panel.js` configures the shell module with root lookup, state access, layout-state normalization, and accepted-list resize refresh callbacks.
+
 Tasks:
 
-- Move walkthrough/tour logic.
-- Move remaining feature-neutral utilities.
+- Done: Move walkthrough/tour runtime logic.
+- Done: Move static guide definitions.
+- Done: Move runtime shell geometry, drawer metric, drag, and resize utilities.
+- Done: Move runtime panel layout-state normalization.
+- Done: Move runtime shell nested scroll handoff and active scroll-element lookup helpers.
+- Done: Move runtime rail viewport-centering and viewport-clamping actions.
+- Done: Move runtime reset, drawer-tab toggle, and rail-mode toggle actions; remove dead local shell wrappers.
+- Done: Move runtime tab metadata, automation mode definitions, and experience/navigation normalization helpers.
+- Done: Move shared text truncation and approximate token-count helpers.
+- Done: Remove Lorecards-owned category and pending-batch wrapper callbacks from `lore-panel.js`.
+- Continue moving remaining feature-neutral utilities.
 - Remove dead wrappers that no extracted module uses.
 - Re-run line-count audit.
 
@@ -886,8 +966,10 @@ Do not move feature-specific UI in the first slice.
 ```text
 lore-panel.js
 runtime-shell.js
+runtime-navigation.js
 runtime-ui-kit.js
 runtime-theme.js
+runtime-formatters.js
 runtime-panel-context.js
 loredecks-tab-panel.js
 loredeck-library-panel.js
@@ -900,6 +982,7 @@ theme-panel.js
 lorecards-panel.js
 lore-timeline-panel.js
 runtime-tour.js
+runtime-guide-content.js
 ```
 
 Target line-count direction:

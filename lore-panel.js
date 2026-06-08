@@ -6,7 +6,7 @@
  * runtime launch controls. This window is the runtime surface used during roleplay.
  */
 
-import { getPanelLoreState, getInjectableLoreEntries, getLoreRelevanceCounts, normalizeLoreMatrix, normalizeLoreEntry, normalizeLoreTag, LORE_LIFECYCLE_STATUSES } from './lore-matrix.js';
+import { getPanelLoreState, getInjectableLoreEntries, getLoreRelevanceCounts, normalizeLoreMatrix, normalizeLoreEntry, LORE_LIFECYCLE_STATUSES } from './lore-matrix.js';
 import { LORE_RELEVANCE_TIERS, LORE_RELEVANCE_LABELS, normalizeLoreRelevance, LORE_CATEGORY_VALUES, LORE_PURPOSE_LABELS } from './lore-relevance.js';
 import {
     getDefaultState,
@@ -20,12 +20,7 @@ import {
     getSettings,
     saveSettings,
     saveState,
-    applyDelta,
     pushStateSnapshot,
-    acceptPendingLoreEntries,
-    rejectPendingLoreEntries,
-    acceptPendingLoreEntry,
-    rejectPendingLoreEntry,
     appendPendingLoreEntries,
     restoreLoreTimelineEntriesToPending,
     setLoreContext,
@@ -128,7 +123,6 @@ import {
     createToggleCard,
     formatStructuredValue,
     hasDisplayableScope,
-    hideFloatingTooltip,
     humanizeScopeKey,
     isPlainObjectValue,
     promptTextAction,
@@ -137,6 +131,10 @@ import {
     toast,
     wireOverlayBackdropClose,
 } from './runtime-ui-kit.js';
+import {
+    estimateTokens,
+    truncateText,
+} from './runtime-formatters.js';
 import {
     TAB_ICON_PATHS,
     applyRuntimeTheme,
@@ -148,6 +146,54 @@ import {
     getThemePreset,
     normalizeAssetRef,
 } from './runtime-theme.js';
+import {
+    closeWandlightTour,
+    configureRuntimeTour,
+    markTourTarget,
+    showGuideStep,
+    startWandlightTour,
+} from './runtime-tour.js';
+import {
+    getRuntimeGuideContent,
+    getRuntimeGuideSteps,
+} from './runtime-guide-content.js';
+import {
+    AUTOMATION_MODES,
+    TAB_ICONS,
+    TAB_LABELS,
+    TAB_TOOLTIPS,
+    getAutomationLabel,
+    getAutomationTooltip,
+    getExperienceLabel,
+    getExperienceTooltip,
+    getVisibleTabsForExperience,
+    isBasicExperience,
+    normalizeAutomationMode,
+    normalizeExperienceMode,
+    normalizeTab,
+    normalizeTabForExperience,
+} from './runtime-navigation.js';
+import {
+    applyRuntimeShellGeometry,
+    clampRuntimeShellToViewport,
+    clampNumber,
+    configureRuntimeShell,
+    getConstrainedDrawerHeight,
+    getConstrainedDrawerWidth,
+    getActiveNestedScrollElement,
+    getActiveTabScrollElement,
+    getRailWidth,
+    installNestedScrollHandoff,
+    normalizePanelLayoutState,
+    normalizeRailMode,
+    onRuntimeDrawerResizeStart,
+    onRuntimeRailDragStart,
+    resetRuntimePanelLayout,
+    resolveDrawerDirection,
+    toggleRuntimeDrawerForTab,
+    toggleRuntimeRailMode,
+    updateDrawerScrollMetrics,
+} from './runtime-shell.js';
 import {
     buildLoredeckHealthPackSummary,
     buildLoredeckHealthReport,
@@ -241,6 +287,10 @@ import {
     getContextWorkbenchValidationIssues,
 } from './context-workbench-panel.js';
 import {
+    configureContinuityPanel,
+    createDeltaReviewCard,
+} from './continuity-panel.js';
+import {
     configureSettingsPanel,
     createProviderSettingsCard,
 } from './settings-panel.js';
@@ -288,18 +338,6 @@ import {
 const PANEL_ID = 'wandlight-lore-panel';
 const LORE_TIMELINE_ID = 'wandlight-lore-timeline';
 const CONTEXT_WORKBENCH_ID = 'wandlight-context-workbench';
-const MIN_PANEL_WIDTH = 420;
-const MIN_PANEL_HEIGHT = 360;
-const MIN_DRAWER_WIDTH = 360;
-const MIN_DRAWER_HEIGHT = 320;
-const RAIL_WIDTH_COMPACT = 60;
-const RAIL_WIDTH_EXPANDED = 206;
-const RAIL_DRAWER_GAP = 8;
-const MAX_PANEL_MARGIN = 16;
-const DEFAULT_RAIL_LEFT = 20;
-const DEFAULT_COMPACT_RAIL_HEIGHT_ESTIMATE = 420;
-const DEFAULT_EXPANDED_RAIL_HEIGHT_ESTIMATE = 420;
-const LAYOUT_VERSION = 2;
 const STORED_API_KEY_SETTING_PREFIXES = Object.freeze(['loreOpenAI', 'continuityOpenAI']);
 const STORED_API_KEY_SETTING_SUFFIXES = Object.freeze(['Encrypted', 'Salt', 'Iv', 'KeyEncrypted', 'KeySalt', 'KeyIv', 'KeySet']);
 const CONTEXT_DETECTION_SETTING_KEYS = Object.freeze([
@@ -484,36 +522,6 @@ const CATEGORY_LABELS = {
     faction: 'Faction',
     spell: 'Spell',
     artifact: 'Artifact',
-};
-
-const TAB_LABELS = {
-    loredecks: 'Loredecks',
-    session: 'Session',
-    context: 'Context',
-    continuity: 'Continuity',
-    lore: 'Lorecards',
-    injection: 'Injection',
-    settings: 'Settings',
-};
-
-const TAB_ICONS = {
-    loredecks: 'P',
-    session: 'S',
-    context: 'C',
-    continuity: 'K',
-    lore: 'L',
-    injection: 'I',
-    settings: 'O',
-};
-
-const TAB_TOOLTIPS = {
-    loredecks: 'Load, order, inspect, and edit Saga Loredecks.',
-    session: 'Runtime overview, preset status, instructions, and destructive cleanup actions.',
-    continuity: 'Scan, automatically track, view, and edit lightweight live continuity state: scene/timeline, active characters, key items, and active goals/threads.',
-    context: 'Detect, browse, resolve, and lock story position across loaded Loredecks.',
-    lore: 'Generate pending Lorecards, review generated Lorecards, and manage accepted Lorecards with search, filters, tags, pinning, and muting.',
-    injection: 'Choose what Saga sends to the model: continuity state, lore entries, direct/compressed handling, and live split injection previews.',
-    settings: 'Configure providers, runtime appearance, and Saga Theme Packs.',
 };
 
 configureLoredeckHealthPanel({
@@ -868,6 +876,33 @@ configureLoreTimelinePanel({
     openNewLoreDialog,
 });
 
+configureContinuityPanel({
+    refreshPanelBody,
+    refreshHeader,
+});
+
+configureRuntimeTour({
+    getGuideSteps: mode => getRuntimeGuideSteps(normalizeExperienceMode(mode)),
+    normalizeExperienceMode,
+    setSectionCollapsed,
+    normalizePanelLayoutState,
+    normalizeTabForExperience,
+    showRuntimePanel: showLorePanel,
+    getPanelRoot: () => panelRoot,
+    panelId: PANEL_ID,
+});
+
+configureRuntimeShell({
+    getPanelRoot: () => panelRoot,
+    getState,
+    getSettings,
+    saveState,
+    saveSettings,
+    showRuntimePanel: showLorePanel,
+    notify: toast,
+    updateAcceptedLoreScrollRegionHeight,
+});
+
 configureLorecardsPanel({
     getSettings,
     saveSettings,
@@ -884,21 +919,8 @@ configureLorecardsPanel({
     rejectAutoRelevanceSuggestions,
     clearAutoRelevanceSuggestions,
     getSelectedLoreInjectionCount,
-    getPendingLoreBatchLabel,
-    isPendingLoreSelected,
-    getLoreReviewId,
-    getPendingReviewSelectedIds,
-    setPendingReviewSelection,
-    togglePendingReviewSelection,
-    clearPendingReviewSelection,
-    applySelectedPendingLore,
-    dismissSelectedPendingLore,
     appendPendingLoreEntries,
     recordLoreTimelineEvent,
-    acceptPendingLoreEntries,
-    rejectPendingLoreEntries,
-    acceptPendingLoreEntry,
-    rejectPendingLoreEntry,
     captureLoreTimelineState,
     refreshLoreWorkbench,
     refreshLoreTimeline,
@@ -908,17 +930,10 @@ configureLorecardsPanel({
     getLoredeckDisplayName,
     getLoreRegistryMeta,
     applyLoreRegistryStyle,
-    getCategoryCount,
-    getCategoryTooltip,
     setPanelState,
     getPanelRoot: () => panelRoot,
     scheduleAcceptedLoreLayoutUpdate,
     getSearchRenderDebounceMs: () => SEARCH_RENDER_DEBOUNCE_MS,
-    bulkUpdateAcceptedLore,
-    bulkSetAcceptedPinned,
-    bulkSetAcceptedMuted,
-    bulkAddTagToAcceptedLore,
-    bulkDeleteAcceptedLore,
     scheduleStateSave,
     flushScheduledStateSave,
     getLoreRegistryValues,
@@ -1134,475 +1149,7 @@ function applyLoreRegistryStyle(el, field, value) {
     return el;
 }
 
-const AUTOMATION_MODES = {
-    manual: {
-        label: 'Manual',
-        description: 'No automatic extraction or lore generation. Use the buttons in this window when you want Saga to scan or generate.',
-        settings: {
-            autoExtract: false,
-            autoApplyDelta: false,
-            autoGenerateLore: false,
-            continuityTrackingMode: 'manual',
-            contextDetectionMode: 'manual',
-            loreGenerationMode: 'manual',
-        },
-    },
-    assisted: {
-        label: 'Assisted',
-        description: 'Automatically scans continuity state after turns. Context and lore generation stay manual.',
-        settings: {
-            autoExtract: true,
-            autoApplyDelta: true,
-            autoGenerateLore: false,
-            continuityTrackingMode: 'automatic',
-            contextDetectionMode: 'manual',
-            loreGenerationMode: 'manual',
-        },
-    },
-    automatic: {
-        label: 'Automatic',
-        description: 'Automatically scans continuity, detects context, and generates pending Lorecards on their configured intervals. Generated Lorecards still go to Pending Lorecard Review in the Lorecards tab.',
-        settings: {
-            autoExtract: true,
-            autoApplyDelta: true,
-            autoGenerateLore: true,
-            continuityTrackingMode: 'automatic',
-            contextDetectionMode: 'automatic',
-            loreGenerationMode: 'automatic',
-        },
-    },
-};
-
-const BASIC_EXPERIENCE_TABS = Object.freeze(['loredecks', 'session', 'context', 'lore', 'injection', 'settings']);
-const ADVANCED_EXPERIENCE_TABS = Object.freeze(Object.keys(TAB_LABELS));
-
-function guideStep(id, title, body, tab, target, options = {}) {
-    return Object.freeze({
-        id,
-        title,
-        body,
-        tab,
-        target,
-        actionLabel: 'Show',
-        ...options,
-    });
-}
-
-function freezeGuideSteps(steps) {
-    return Object.freeze(steps.map(step => Object.freeze(step)));
-}
-
-const GUIDE_STEPS = Object.freeze({
-    basic: freezeGuideSteps([
-        guideStep('active', 'Saga Active', 'The master runtime switch. Keep it on when you want Saga to select and inject accepted lore.', 'session', 'session.active', {
-            expected: 'When enabled, Saga can update prompt injection and run any manual tools you click.',
-            when: 'Turn it off only when you want the chat to ignore Saga without changing saved lore.',
-        }),
-        guideStep('metrics', 'Session Metrics', 'Summarizes pending lore, accepted lore, selected injection entries, and estimated injected tokens.', 'session', 'session.metrics', {
-            expected: 'These numbers tell you whether Saga has lore to review and whether lore is being selected for injection.',
-            when: 'Use this as a quick health check when the model seems unaware of stored lore.',
-        }),
-        guideStep('context-detect', 'Detect Context', 'Reads recent chat and updates the active Context Brief plus loaded Loredeck Contexts.', 'context', 'context.detect', {
-            expected: 'The Context Brief and unlocked Loredeck Context rows update from current story-position signals.',
-            when: 'Run this before canon suggestions and whenever the story jumps dates, arcs, chapters, episodes, quests, or major events.',
-        }),
-        guideStep('context-fields', 'Advanced Context Brief', 'Manually correct the legacy global Context Brief projection when detection is incomplete.', 'context', 'context.fields', {
-            expandSections: Object.freeze(['context.advancedBrief']),
-            expected: 'Manual edits still affect legacy canon suggestions and story-lore generation, while loaded Loredeck rows remain the primary Context surface.',
-            when: 'Use this for alternate timelines, unclear dates, or scenes where the chat has not stated the story position.',
-        }),
-        guideStep('new-lore', 'New Lore', 'Creates a manual pending lore draft from your own judgment.', 'lore', 'lore.new', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'The draft enters Pending Lore Review so it can be edited before acceptance.',
-            when: 'Use this for important objects, rules, promises, relationships, secrets, or story-specific facts.',
-        }),
-        guideStep('lore-context', 'Lore Context Status', 'Shows the global Context projection used by legacy canon and lore tools on this tab.', 'lore', 'lore.contextStatus', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'If the context is missing or stale, refresh it before adding canon lore.',
-            when: 'Check this before Preview Canon Packs or Scan Story Lore.',
-        }),
-        guideStep('canon-preview', 'Preview Canon Packs', 'Queries the local canon database without an API call and groups matching entries into packs.', 'lore', 'lore.canon.preview', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'A preview appears below with selectable date-aware canon constraints.',
-            when: 'Use this to add canon guardrails without paying for model generation.',
-        }),
-        guideStep('canon-results', 'Canon Preview Results', 'Review packs, detail level, selected count, and candidate entries before adding anything.', 'lore', 'lore.canon.previewResults', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Selected entries move to Pending Lore Review, not directly into accepted lore.',
-            when: 'Use this to avoid adding too many low-value canon entries.',
-        }),
-        guideStep('story-scan', 'Scan Story Lore', 'Uses the Reasoning provider to extract story-specific lore from recent chat.', 'lore', 'lore.story.scan', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Generated entries appear in Pending Lore Review after the scan completes.',
-            when: 'Run this after a meaningful amount of new story has happened.',
-        }),
-        guideStep('pending-workbench', 'Pending Workbench', 'Opens a larger review surface for many pending entries.', 'lore', 'lore.pending.workbench', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.pendingReview']),
-            expected: 'You get denser rows and a detail pane for batch review.',
-            when: 'Use this when there are dozens of pending entries.',
-        }),
-        guideStep('pending-entry', 'Pending Entry Anatomy', 'A pending entry shows title, metadata chips, tags, fact text, routing, and review actions.', 'lore', 'lore.pending.entry', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.pendingReview']),
-            expected: 'Accept durable lore. Dismiss recap facts or entries that are not useful for future prompting.',
-            when: 'Use this every time generated or canon lore is proposed.',
-        }),
-        guideStep('pending-bulk', 'Pending Bulk Actions', 'Select, apply, or dismiss groups of pending lore entries.', 'lore', 'lore.pending.bulk', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.basic.pendingReview', 'lore.pendingReview']),
-            expected: 'Bulk actions process only selected entries unless you choose Apply All or Dismiss All.',
-            when: 'Use this after scanning a large range or adding a whole canon pack.',
-        }),
-        guideStep('accepted-filters', 'Accepted Lore Filters', 'Search and filter accepted entries by category or source.', 'lore', 'lore.accepted.filters', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.basic.acceptedEntries', 'lore.acceptedEntries']),
-            expected: 'Only matching accepted entries remain visible.',
-            when: 'Use this once accepted lore grows beyond a small handful of entries.',
-        }),
-        guideStep('accepted-entry', 'Accepted Entry Controls', 'Accepted entries can be expanded, edited, retagged, pinned, muted, and assigned relevance.', 'lore', 'lore.accepted.entry', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.basic.acceptedEntries', 'lore.acceptedEntries']),
-            expected: 'Pin prioritizes an entry. Mute stores it but excludes it from injection.',
-            when: 'Use this to keep high-value lore precise and remove noise from prompt injection.',
-        }),
-        guideStep('accepted-workbench', 'Accepted Workbench', 'Opens large-list management for accepted lore.', 'lore', 'lore.accepted.workbench', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.basic.acceptedEntries', 'lore.acceptedEntries']),
-            expected: 'You get dense rows, filters, bulk actions, and a detail pane.',
-            when: 'Use this for large accepted-lore sets.',
-        }),
-        guideStep('inject-lore-toggle', 'Inject Lore Toggle', 'Controls whether accepted lore is sent into the next roleplay prompt.', 'injection', 'injection.loreToggle', {
-            expected: 'When on, enabled relevance tiers can contribute prompt text.',
-            when: 'Turn this off if you want to store lore but keep it out of the current prompt.',
-        }),
-        guideStep('high-tier', 'High-Relevance Lore', 'Immediate scene-critical lore. This tier is closest to the latest prompt context.', 'injection', 'injection.tier.high', {
-            expected: 'High lore should usually stay direct unless it becomes very large.',
-            when: 'Use this for current secrets, active objects, live promises, and scene-critical constraints.',
-        }),
-        guideStep('normal-tier', 'Normal-Relevance Lore', 'Useful background lore that may matter soon but is not the current scene focus.', 'injection', 'injection.tier.normal', {
-            expected: 'Normal lore can be direct or compressed depending on token pressure.',
-            when: 'Use this for recent relationship changes, recurring facts, and branch-defining context.',
-        }),
-        guideStep('low-tier', 'Low-Relevance Lore', 'Longer-range background lore. Basic defaults keep this conservative.', 'injection', 'injection.tier.low', {
-            expected: 'Low lore is often disabled or compressed unless the scene needs broad context.',
-            when: 'Use this for distant history or low-priority world state.',
-        }),
-    ]),
-    advanced: freezeGuideSteps([
-        guideStep('experience-mode', 'Experience Mode', 'Switches between focused Basic controls and the full Advanced toolset.', 'session', 'session.experienceMode', {
-            expected: 'Basic applies a simpler profile. Advanced restores detailed controls and backed-up settings.',
-            when: 'Use Advanced when you need automation, continuity tuning, workbenches, timeline, or placement control.',
-        }),
-        guideStep('automation-mode', 'Automation Mode', 'Chooses whether Saga stays manual, scans continuity automatically, or runs broader automation.', 'session', 'session.automation', {
-            expected: 'Manual only runs when clicked. Assisted tracks continuity. Automatic also runs context/lore automation.',
-            when: 'Use Manual while configuring; use Assisted or Automatic once settings are stable.',
-        }),
-        guideStep('active', 'Saga Active', 'The master runtime switch for Saga behavior.', 'session', 'session.active', {
-            expected: 'When enabled, prompt injection and configured automation can run.',
-            when: 'Use this to pause Saga without deleting state.',
-        }),
-        guideStep('metrics', 'Session Metrics', 'Shows pending continuity, pending lore, accepted lore, selected injection count, and injection token estimate.', 'session', 'session.metrics', {
-            expected: 'These values help diagnose whether Saga has data and whether it is injecting data.',
-            when: 'Use this as a quick runtime status check.',
-        }),
-        guideStep('context-automation', 'Context Automation', 'Controls whether Context detection runs only on click or automatically after turns.', 'context', 'context.automation', {
-            expected: 'Automatic detection can keep Context current during active roleplay.',
-            when: 'Use automatic detection if your story frequently moves scenes or dates.',
-        }),
-        guideStep('context-window', 'Context Source Messages', 'Controls how many recent chat messages are sent to Context detection.', 'context', 'context.sourceMessages', {
-            expected: 'Larger windows improve detection but cost more time when model fallback is needed.',
-            when: 'Increase it if context detection misses dates stated earlier in the scene.',
-        }),
-        guideStep('context-detect', 'Detect Context', 'Runs Context detection immediately.', 'context', 'context.detect', {
-            expected: 'The Context Brief, resolver audit, and unlocked loaded Loredeck Context rows update when Saga finds a reliable match.',
-            when: 'Run before canon suggestions or after timeline, arc, chapter, episode, quest, or event jumps.',
-        }),
-        guideStep('context-fields', 'Advanced Context Brief', 'Manually correct the legacy global Context Brief projection when detection is ambiguous or the story is alternate-universe.', 'context', 'context.fields', {
-            expandSections: Object.freeze(['context.advancedBrief']),
-            expected: 'Manual edits immediately affect generation and canon pack previews, while per-Loredeck Context rows remain authoritative for Loredeck gates.',
-            when: 'Use this for branches, time travel, unclear dates, or custom fanfiction canon points.',
-        }),
-        guideStep('continuity-automation', 'Continuity Automation', 'Controls whether continuity state scanning is manual or turn-interval based.', 'continuity', 'continuity.automation', {
-            expected: 'Automatic scans update lightweight scene state at the configured interval.',
-            when: 'Use this when you want Saga to maintain current-scene state in the background.',
-        }),
-        guideStep('continuity-scope', 'Continuity Scan Scope', 'Chooses recent, custom, or entire-chat scanning for continuity state.', 'continuity', 'continuity.scanScope', {
-            expandSections: Object.freeze(['continuity.scanScope']),
-            expected: 'Recent is best for maintenance. Custom or entire chat is for backfill.',
-            when: 'Use custom ranges when a specific section of chat needs recovery.',
-        }),
-        guideStep('continuity-performance', 'Continuity Performance', 'Controls chunking, overlap, parallelism, retry behavior, and checkpoint recovery.', 'continuity', 'continuity.performance', {
-            expandSections: Object.freeze(['continuity.scanPerformance']),
-            expected: 'Smaller chunks are more reliable; higher concurrency is faster but heavier.',
-            when: 'Tune this for large stories or provider instability.',
-        }),
-        guideStep('continuity-run', 'Scan Continuity State', 'Runs the adaptive continuity scanner now.', 'continuity', 'continuity.scan.button', {
-            fallbackTarget: 'continuity.scan',
-            expected: 'Continuity sections update with current scene, cast, items, and active threads.',
-            when: 'Run after a scene changes or after a long section of roleplay.',
-        }),
-        guideStep('tracked-sections', 'Tracked Sections', 'Enables or disables which continuity state sections are updated and injected.', 'continuity', 'continuity.trackedSections', {
-            expandSections: Object.freeze(['continuity.trackedSections']),
-            expected: 'Disabled sections preserve saved data but stop being scanned and injected.',
-            when: 'Use this to reduce noise or keep only the continuity sections you care about.',
-        }),
-        guideStep('character-fields', 'Active Character Fields', 'Appearance Detail and Emotional State are child fields inside Active Characters, not separate top-level continuity sections.', 'continuity', 'continuity.characterFields', {
-            expandSections: Object.freeze(['continuity.trackedSections']),
-            expected: 'Disabling a child field preserves saved values but prevents scans and injection from treating that field as live state.',
-            when: 'Use this when clothing or emotion should stop influencing the next prompt without deleting character state.',
-        }),
-        guideStep('emotional-freshness', 'Emotional State Freshness', 'Controls how long emotional state is injected as current, recent, or omitted as stale.', 'continuity', 'continuity.emotionalState', {
-            expandSections: Object.freeze(['continuity.trackedSections']),
-            expected: 'Old emotions decay by message age so characters can naturally move out of prior moods.',
-            when: 'Tune this if characters seem emotionally stuck or if scans run infrequently.',
-        }),
-        guideStep('scene-editor', 'Scene and Timeline', 'Edits current date, location, activity, and timeline state.', 'continuity', 'continuity.scene', {
-            expandSections: Object.freeze(['continuity.canonScene']),
-            expected: 'This is immediate state, not permanent lore.',
-            when: 'Use this to correct the next-scene anchor.',
-        }),
-        guideStep('character-editor', 'Active Characters', 'Tracks current cast state such as posture, emotions, appearance, and immediate goals.', 'continuity', 'continuity.characters', {
-            expandSections: Object.freeze(['continuity.characters']),
-            expected: 'The model receives current-state cues without needing a full summary.',
-            when: 'Use this for scene-level character state that should not become durable lore.',
-        }),
-        guideStep('character-emotion-summary', 'Emotional State Summary', 'Shows saved emotional state inside Active Characters and labels it as current, recent, stale, or disabled.', 'continuity', 'continuity.emotionalStateSummary', {
-            expandSections: Object.freeze(['continuity.characters']),
-            expected: 'Emotion remains visible for review while stale values stop acting like permanent character mood.',
-            when: 'Use this to verify whether a character emotion is fresh enough to influence injection.',
-        }),
-        guideStep('items-editor', 'Key Items', 'Tracks consequential current items and object status.', 'continuity', 'continuity.items', {
-            expandSections: Object.freeze(['continuity.inventory']),
-            expected: 'Current item state stays available for continuity injection.',
-            when: 'Use this for items currently affecting the scene.',
-        }),
-        guideStep('threads-editor', 'Active Goals and Threads', 'Tracks immediate unresolved goals and active story threads.', 'continuity', 'continuity.threads', {
-            expandSections: Object.freeze(['continuity.activeGoalsThreads']),
-            expected: 'The model gets concise reminders of current objectives.',
-            when: 'Use this for short-term direction rather than permanent lore.',
-        }),
-        guideStep('timeline-summary', 'Lore Timeline Summary', 'Shows accepted-lore change history and opens the full timeline visualizer.', 'lore', 'lore.timeline', {
-            expected: 'Creation, update, deletion, restoration, pin, mute, and metadata events are tracked.',
-            when: 'Use this to audit or recover lore changes.',
-        }),
-        guideStep('timeline-open', 'Open Timeline', 'Opens the full Lore Timeline window.', 'lore', 'lore.timeline.open', {
-            fallbackTarget: 'lore.timeline',
-            expected: 'The visualizer can inspect lore events and restore entries back to pending review.',
-            when: 'Use this for recovery or timeline-aware lore audits.',
-        }),
-        guideStep('new-lore', 'New Lore', 'Creates a manual lore draft with title, text, injection override, notes, tags, and metadata.', 'lore', 'lore.new', {
-            expected: 'The draft goes to Pending Lore Review for editing and acceptance.',
-            when: 'Use this when you know a detail should be remembered without running a model scan.',
-        }),
-        guideStep('lore-context', 'Lore Context Status', 'Shows the Context currently driving lore tools.', 'lore', 'lore.contextStatus', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Context should be current before canon preview or story-lore scan.',
-            when: 'Use this as the Lorecards tab context sanity check.',
-        }),
-        guideStep('canon-preview', 'Preview Canon Packs', 'Runs the local canon database query and builds selectable lore packs.', 'lore', 'lore.canon.preview', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'No provider call is used. Results are grouped by relevance and pack.',
-            when: 'Use this for date-aware canon guardrails.',
-        }),
-        guideStep('canon-detail', 'Canon Detail Level', 'Filters canon preview results from Core to All Active.', 'lore', 'lore.canon.detailFilter', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Higher detail shows more low-priority constraints.',
-            when: 'Use Core/Standard for regular play; use Detailed/All when auditing.',
-        }),
-        guideStep('canon-packs', 'Canon Pack Selection', 'Switches between grouped canon packs for the current Context.', 'lore', 'lore.canon.packGrid', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Only the active pack’s entries are shown below.',
-            when: 'Use packs to add focused canon sets instead of dumping everything.',
-        }),
-        guideStep('canon-add', 'Add Canon to Pending', 'Adds selected or pack-wide canon entries to Pending Lore Review.', 'lore', 'lore.canon.addPending', {
-            fallbackTarget: 'lore.canon.preview',
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Added entries remain pending until explicitly accepted.',
-            when: 'Use selected entries for precision; pack add for trusted small packs.',
-        }),
-        guideStep('canon-settings', 'Canon Suggestion Settings', 'Controls local canon database use, auto-suggest behavior, and quick-add cap.', 'lore', 'lore.canon.settings', {
-            expandSections: Object.freeze(['lore.generation', 'lore.canonSuggestionSettings']),
-            expected: 'These settings affect preview/quick-add behavior, not story-lore model scans.',
-            when: 'Use this to tune canon suggestions after context detection.',
-        }),
-        guideStep('story-scan', 'Scan Story Lore', 'Runs model-based extraction for story-specific lore.', 'lore', 'lore.story.scan', {
-            expandSections: Object.freeze(['lore.generation']),
-            expected: 'Results are chunked, checkpointed, and added to Pending Lore Review.',
-            when: 'Use after substantial new story content or for backfilling old chats.',
-        }),
-        guideStep('story-scope', 'Story Lore Scan Scope', 'Chooses recent, custom range, or entire-chat story-lore scanning.', 'lore', 'lore.story.scope', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.scanScope']),
-            expected: 'Recent is maintenance. Custom and entire chat are backfill tools.',
-            when: 'Use custom ranges for targeted extraction.',
-        }),
-        guideStep('story-performance', 'Story Lore Performance', 'Controls chunk size, overlap, concurrency, retries, checkpoint cadence, and consolidation.', 'lore', 'lore.story.performance', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.performance']),
-            expected: 'Lower chunk size and concurrency improve reliability; higher values speed up strong providers.',
-            when: 'Tune this for large scans or provider rate limits.',
-        }),
-        guideStep('story-quality', 'Story Lore Quality', 'Controls scan breadth, fact targets, generated tags, duplicate guard, similarity routing, and quality gate.', 'lore', 'lore.story.quality', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.quality']),
-            expected: 'Quality controls shape what becomes Pending Lore, but users still review entries.',
-            when: 'Use this when scans produce too much recap or miss important story-specific facts.',
-        }),
-        guideStep('story-automation', 'Story Lore Automation', 'Runs story-lore scans after enough words or turns have accumulated.', 'lore', 'lore.story.automation', {
-            expandSections: Object.freeze(['lore.generation', 'lore.storyGenerationSettings', 'lore.story.automation']),
-            expected: 'Automatic scans remain conservative and still route entries to Pending Lore Review.',
-            when: 'Use after the prompt and quality settings are stable.',
-        }),
-        guideStep('pending-entry', 'Pending Entry Anatomy', 'Shows generated operation, quality route, similarity route, relevance, priority, tags, fact, injection text, and review actions.', 'lore', 'lore.pending.entry', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.pendingReview']),
-            expected: 'Apply good durable lore; dismiss recap or low-value entries.',
-            when: 'Use this for every canon or generated proposal.',
-        }),
-        guideStep('pending-actions', 'Pending Entry Actions', 'Applies, updates, separates, or dismisses a single pending entry.', 'lore', 'lore.pending.actions', {
-            fallbackTarget: 'lore.pending.entry',
-            expandSections: Object.freeze(['lore.pendingReview']),
-            expected: 'Similarity-routed updates can merge into existing lore or be kept as new.',
-            when: 'Use single-entry actions when batch acceptance would be too blunt.',
-        }),
-        guideStep('pending-bulk', 'Pending Bulk Actions', 'Selects and processes many pending entries at once.', 'lore', 'lore.pending.bulk', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.pendingReview']),
-            expected: 'Bulk actions respect current selection.',
-            when: 'Use after reviewing a batch from canon preview or story scan.',
-        }),
-        guideStep('pending-workbench', 'Pending Workbench', 'Opens a larger pending-lore review workspace.', 'lore', 'lore.pending.workbench', {
-            fallbackTarget: 'lore.pending',
-            expandSections: Object.freeze(['lore.pendingReview']),
-            expected: 'Dense rows and a detail pane make large batches practical.',
-            when: 'Use this when the drawer list is too cramped.',
-        }),
-        guideStep('accepted-tabs', 'Accepted Category Tabs', 'Filters accepted lore by category, relevance, pin/mute state, and generated categories.', 'lore', 'lore.accepted.categoryTabs', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'The accepted list updates without leaving the Lorecards tab.',
-            when: 'Use tabs to quickly isolate a type of lore.',
-        }),
-        guideStep('accepted-filters', 'Accepted Search and Source Filter', 'Searches accepted lore and filters by Canon Database, Story Generation, or Manual source.', 'lore', 'lore.accepted.filters', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'Only matching entries render in the accepted list.',
-            when: 'Use this for cleanup or when finding a specific entry.',
-        }),
-        guideStep('accepted-pin-mute', 'Pin, Mute, and Relevance', 'Pin prioritizes, mute excludes from injection, and relevance assigns prompt tier.', 'lore', 'lore.accepted.pinMuteHelp', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'These controls determine what lore is stored versus injected.',
-            when: 'Use this to reduce prompt noise without deleting lore.',
-        }),
-        guideStep('accepted-bulk', 'Accepted Bulk Edit', 'Bulk pin, mute, retag, reprioritize, or delete selected accepted entries.', 'lore', 'lore.accepted.bulk', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'Bulk changes are recorded in Lore Timeline.',
-            when: 'Use this for large cleanup passes.',
-        }),
-        guideStep('accepted-entry', 'Accepted Entry Editor', 'Expand an entry to edit text, injection override, notes, metadata chips, tags, and priority.', 'lore', 'lore.accepted.entry', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'Saved edits update the accepted lore matrix and timeline.',
-            when: 'Use this to refine generated entries into high-value durable lore.',
-        }),
-        guideStep('accepted-workbench', 'Accepted Workbench', 'Opens a full accepted-lore management window.', 'lore', 'lore.accepted.workbench', {
-            fallbackTarget: 'lore.accepted',
-            expandSections: Object.freeze(['lore.acceptedEntries']),
-            expected: 'Use dense rows, filters, bulk tools, and detail editing in a larger surface.',
-            when: 'Use for large accepted-lore collections.',
-        }),
-        guideStep('auto-toggle', 'Auto-Relevance Toggle', 'Enables periodic local relevance scoring for accepted lore.', 'lore', 'lore.autoRelevance.toggle', {
-            fallbackTarget: 'lore.autoRelevance',
-            expandSections: Object.freeze(['lore.autoRelevance']),
-            expected: 'Auto-Relevance can suggest or apply tier changes, but does not pin or mute entries.',
-            when: 'Use when accepted lore grows large enough that manual tiering is tedious.',
-        }),
-        guideStep('auto-mode', 'Auto-Relevance Mode', 'Chooses whether to suggest changes for review or apply high-confidence changes.', 'lore', 'lore.autoRelevance.mode', {
-            fallbackTarget: 'lore.autoRelevance',
-            expandSections: Object.freeze(['lore.autoRelevance']),
-            expected: 'Suggest mode is safer. Apply high-confidence reduces review work.',
-            when: 'Start with Suggest until you trust the tuning.',
-        }),
-        guideStep('auto-tuning', 'Auto-Relevance Tuning', 'Controls scan interval, recent-message window, candidate cap, and confidence threshold.', 'lore', 'lore.autoRelevance.tuning', {
-            fallbackTarget: 'lore.autoRelevance',
-            expandSections: Object.freeze(['lore.autoRelevance']),
-            expected: 'Higher caps are broader but heavier; higher confidence is more conservative.',
-            when: 'Use this to balance responsiveness and noise.',
-        }),
-        guideStep('auto-model', 'Utility Provider Adjudication', 'Optionally asks the Utility provider to review locally scored relevance candidates.', 'lore', 'lore.autoRelevance.model', {
-            fallbackTarget: 'lore.autoRelevance',
-            expandSections: Object.freeze(['lore.autoRelevance']),
-            expected: 'Only the candidate subset is sent to the model.',
-            when: 'Use when local scoring is not nuanced enough.',
-        }),
-        guideStep('injection-toggles', 'Injection Toggles', 'Turns Continuity and Lore injection on or off independently.', 'injection', 'injection.toggles', {
-            expected: 'Disabled blocks remain editable but are not sent.',
-            when: 'Use this to isolate whether continuity or lore is affecting model behavior.',
-        }),
-        guideStep('prompt-placement', 'Prompt Placement', 'Sets injection method, role, position, and depth for each prompt group.', 'injection', 'injection.promptPlacement', {
-            expandSections: Object.freeze(['injection.promptPlacement']),
-            expected: 'Depth 0 is closest to the latest chat message; larger depths place blocks earlier.',
-            when: 'Use this to tune how strongly each prompt block influences the model.',
-        }),
-        guideStep('continuity-injection', 'Continuity Injection Preview', 'Shows the current continuity block and its direct/compressed handling controls.', 'injection', 'injection.preview.continuity', {
-            expected: 'This is the actual continuity text Saga plans to send.',
-            when: 'Use this to verify current-scene state before prompting.',
-        }),
-        guideStep('high-injection', 'High-Relevance Lore Injection', 'Shows scene-critical accepted lore and direct/compressed handling.', 'injection', 'injection.preview.high', {
-            expected: 'High lore should stay close and usually direct unless token pressure is high.',
-            when: 'Use this for immediately relevant constraints.',
-        }),
-        guideStep('normal-injection', 'Normal-Relevance Lore Injection', 'Shows useful background lore selected for the Normal tier.', 'injection', 'injection.preview.normal', {
-            expected: 'Normal tier can carry broader context at a deeper prompt position.',
-            when: 'Use this for medium-range context.',
-        }),
-        guideStep('low-injection', 'Low-Relevance Lore Injection', 'Shows distant background lore selected for the Low tier.', 'injection', 'injection.preview.low', {
-            expected: 'Low tier is safest compressed or disabled unless broad context matters.',
-            when: 'Use this when distant context is still useful.',
-        }),
-        guideStep('compression-prompts', 'Compression Prompts', 'Edits prompt templates used to compress continuity and relevance-tiered lore.', 'injection', 'injection.compression', {
-            expandSections: Object.freeze(['injection.compressionPrompts']),
-            expected: 'Reset restores defaults; copy helps audit prompts.',
-            when: 'Use this when compression output needs better style or stricter constraints.',
-        }),
-    ]),
-});
-
-const GUIDE_CONTENT = Object.freeze({
-    basic: Object.freeze({
-        title: 'Getting Started',
-        subtitle: 'first steps',
-        tooltip: 'A short guided setup for core Saga use.',
-        lede: 'Start with Context, add reviewable lore, accept what matters, then check what Saga will send into the next prompt.',
-        note: 'The chat remains the source of truth. Saga keeps the useful details editable, searchable, and ready for injection.',
-        tourLabel: 'Start Walkthrough',
-    }),
-    advanced: Object.freeze({
-        title: 'Saga Guide',
-        subtitle: 'workflow + tools',
-        tooltip: 'A guided map of Saga runtime tools and configuration areas.',
-        lede: 'Use this guide to move through automation, context, continuity, lore generation, review, timeline recovery, and injection controls.',
-        note: '',
-        tourLabel: 'Start Advanced Walkthrough',
-    }),
-});
-
-let activeWandlightTour = null;
-
 let panelRoot = null;
-let isDragging = false;
-let dragOffsetX = 0;
-let dragOffsetY = 0;
-
-let isResizing = false;
-let resizeStartX = 0;
-let resizeStartY = 0;
-let resizeStartWidth = 0;
-let resizeStartHeight = 0;
-let resizeStartDirection = 'right';
 
 // Public runtime ------------------------------------------------------------
 
@@ -1660,7 +1207,6 @@ export function hideLorePanel() {
         saveState(state);
     }
 }
-
 export function refreshLorePanel() {
     const existing = document.getElementById(PANEL_ID);
     if (!existing) return;
@@ -1780,7 +1326,7 @@ function renderRail(state) {
 
     const drag = document.createElement('div');
     drag.className = 'wandlight-runtime-rail-drag';
-    drag.addEventListener('mousedown', onDragStart);
+    drag.addEventListener('mousedown', onRuntimeRailDragStart);
     addTooltip(drag, 'Drag to move the Saga rail. The drawer stays anchored to this rail.');
 
     const mark = document.createElement('div');
@@ -1850,7 +1396,7 @@ function renderRail(state) {
 
         tab.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleDrawerForTab(tabId);
+            toggleRuntimeDrawerForTab(tabId);
         });
         tabs.appendChild(tab);
     }
@@ -1865,7 +1411,7 @@ function renderRail(state) {
         'wandlight-runtime-rail-control wandlight-runtime-rail-density',
         (e) => {
             e.stopPropagation();
-            toggleRailMode();
+            toggleRuntimeRailMode();
         }
     );
     controls.appendChild(density);
@@ -1970,7 +1516,7 @@ function renderDrawer(state, direction = 'right') {
 
     const resizeHandle = document.createElement('div');
     resizeHandle.className = 'wandlight-lore-panel-resize-handle wandlight-runtime-drawer-resize-handle';
-    resizeHandle.addEventListener('pointerdown', onResizeStart);
+    resizeHandle.addEventListener('pointerdown', onRuntimeDrawerResizeStart);
     addTooltip(resizeHandle, 'Drag to resize the active drawer. The size is remembered across tabs.');
     drawer.appendChild(resizeHandle);
 
@@ -16116,40 +15662,13 @@ function createRuntimeRenderErrorCard(titleText = 'Runtime Tab', error = null) {
     const actions = document.createElement('div');
     actions.className = 'wandlight-primary-actions';
     actions.appendChild(createButton('Return to Session', 'Open the Session tab.', () => {
-        toggleDrawerForTab('session');
+        toggleRuntimeDrawerForTab('session');
     }, 'wandlight-primary-button'));
     actions.appendChild(createButton('Reset Window', 'Reset Saga runtime window layout and section defaults.', () => {
         resetLorePanelLayout();
     }));
     card.appendChild(actions);
     return card;
-}
-
-function installNestedScrollHandoff(tabBody) {
-    if (!tabBody) return;
-    const nestedScrolls = tabBody.querySelectorAll([
-        '.wandlight-accepted-lore-scroll-region',
-        '.wandlight-pending-lore-list',
-        '.wandlight-injection-preview',
-        '.wandlight-continuity-json-editor',
-        'textarea'
-    ].join(','));
-
-    for (const nested of nestedScrolls) {
-        nested.addEventListener('wheel', (e) => {
-            const outer = nested.closest('.wandlight-runtime-tab-body');
-            if (!outer || outer === nested || !e.deltaY) return;
-
-            const canScrollDown = nested.scrollTop + nested.clientHeight < nested.scrollHeight - 1;
-            const canScrollUp = nested.scrollTop > 0;
-            const shouldHandoff = (e.deltaY > 0 && !canScrollDown) || (e.deltaY < 0 && !canScrollUp);
-            if (!shouldHandoff) return;
-
-            outer.scrollTop += e.deltaY;
-            e.preventDefault();
-            e.stopPropagation();
-        }, { passive: false });
-    }
 }
 
 function getRailMetrics(state, settings = getSettings()) {
@@ -16350,196 +15869,12 @@ function getLoredeckHealthText(health) {
     return `${status} | ${errors} errors | ${warnings} warnings`;
 }
 
-function normalizePanelLayoutState(state, options = {}) {
-    if (!state) return null;
-    if (!state.lorePanel || typeof state.lorePanel !== 'object') state.lorePanel = getDefaultState().lorePanel;
-    const panelState = state.lorePanel;
-
-    const hadRailFields = panelState.railX != null || panelState.railY != null || panelState.drawerOpen != null;
-    panelState.railMode = normalizeRailMode(panelState.railMode);
-    if (typeof panelState.drawerOpen !== 'boolean') {
-        panelState.drawerOpen = hadRailFields ? false : panelState.collapsed !== true;
-    }
-    panelState.collapsed = panelState.drawerOpen !== true;
-    panelState.activeTab = normalizeTabForExperience(panelState.activeTab);
-    panelState.drawerDirection = ['auto', 'right', 'left'].includes(panelState.drawerDirection) ? panelState.drawerDirection : 'auto';
-
-    const legacyX = Number(panelState.x);
-    const legacyY = Number(panelState.y);
-    const rawRailX = Number(panelState.railX);
-    const rawRailY = Number(panelState.railY);
-    const defaultY = getDefaultRailY(panelState);
-    const looksLikeOldDefaultPosition = panelState.layoutVersion !== LAYOUT_VERSION
-        && [16, 20].includes(rawRailX)
-        && rawRailY === 220
-        && (!Number.isFinite(legacyX) || [16, 20].includes(legacyX))
-        && (!Number.isFinite(legacyY) || legacyY === 220);
-
-    const railXValue = looksLikeOldDefaultPosition ? Number.NaN : rawRailX;
-    const railYValue = looksLikeOldDefaultPosition ? Number.NaN : rawRailY;
-
-    panelState.railX = clampNumber(
-        railXValue,
-        0,
-        Math.max(0, getViewportWidth() - getRailWidth(panelState)),
-        looksLikeOldDefaultPosition ? DEFAULT_RAIL_LEFT : (Number.isFinite(legacyX) ? legacyX : DEFAULT_RAIL_LEFT),
-    );
-    panelState.railY = clampNumber(
-        railYValue,
-        0,
-        Math.max(0, getViewportHeight() - 80),
-        looksLikeOldDefaultPosition ? defaultY : (Number.isFinite(legacyY) ? legacyY : defaultY),
-    );
-    panelState.drawerWidth = clampNumber(Number(panelState.drawerWidth), MIN_DRAWER_WIDTH, Math.max(MIN_DRAWER_WIDTH, getViewportWidth() - (MAX_PANEL_MARGIN * 2)), Number(panelState.width) || 560);
-    panelState.drawerHeight = clampNumber(Number(panelState.drawerHeight), MIN_DRAWER_HEIGHT, Math.max(MIN_DRAWER_HEIGHT, getViewportHeight() - (MAX_PANEL_MARGIN * 2)), Number(panelState.height) || 640);
-    panelState.layoutVersion = LAYOUT_VERSION;
-
-    if (options.persistLegacyOpenState || looksLikeOldDefaultPosition) {
-        panelState.x = panelState.railX;
-        panelState.y = panelState.railY;
-        panelState.width = panelState.drawerWidth;
-        panelState.height = panelState.drawerHeight;
-    }
-    return panelState;
-}
-
-function normalizeRailMode(mode) {
-    return mode === 'expanded' ? 'expanded' : 'compact';
-}
-
-function getRailWidth(panelState) {
-    return normalizeRailMode(panelState?.railMode) === 'expanded' ? RAIL_WIDTH_EXPANDED : RAIL_WIDTH_COMPACT;
-}
-
-function getViewportWidth() {
-    return window.innerWidth || document.documentElement?.clientWidth || 1024;
-}
-
-function getViewportHeight() {
-    return window.innerHeight || document.documentElement?.clientHeight || 800;
-}
-
-function getEstimatedRailHeight(panelState = null) {
-    return normalizeRailMode(panelState?.railMode) === 'expanded'
-        ? DEFAULT_EXPANDED_RAIL_HEIGHT_ESTIMATE
-        : DEFAULT_COMPACT_RAIL_HEIGHT_ESTIMATE;
-}
-
-function getDefaultRailY(panelState = null) {
-    const viewportHeight = getViewportHeight();
-    const estimatedHeight = Math.min(
-        getEstimatedRailHeight(panelState),
-        Math.max(80, viewportHeight - (MAX_PANEL_MARGIN * 2)),
-    );
-    return Math.max(MAX_PANEL_MARGIN, Math.round((viewportHeight - estimatedHeight) / 2));
-}
-
-function getMeasuredCenteredRailY(root = panelRoot) {
-    const viewportHeight = getViewportHeight();
-    const rail = root?.querySelector?.('.wandlight-runtime-rail');
-    const measuredHeight = Number(rail?.offsetHeight) || getEstimatedRailHeight(getState()?.lorePanel);
-    const safeHeight = Math.min(measuredHeight, Math.max(80, viewportHeight - (MAX_PANEL_MARGIN * 2)));
-    return Math.max(MAX_PANEL_MARGIN, Math.round((viewportHeight - safeHeight) / 2));
-}
-
-function centerRuntimeRailInViewport(options = {}) {
-    if (!panelRoot) return;
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-
-    const railWidth = getRailWidth(state.lorePanel);
-    const maxX = Math.max(0, getViewportWidth() - railWidth);
-    const railX = options.forceLeft === true
-        ? Math.min(DEFAULT_RAIL_LEFT, maxX)
-        : clampNumber(Number(state.lorePanel.railX), 0, maxX, DEFAULT_RAIL_LEFT);
-    const railY = getMeasuredCenteredRailY(panelRoot);
-
-    state.lorePanel.railX = railX;
-    state.lorePanel.railY = railY;
-    state.lorePanel.x = railX;
-    state.lorePanel.y = railY;
-    panelRoot.style.left = `${railX}px`;
-    panelRoot.style.top = `${railY}px`;
-
-    if (options.persist === true) saveState(state);
-}
-
-function getConstrainedDrawerWidth(panelState, direction = 'right') {
-    const railX = Number(panelState?.railX) || 0;
-    const railWidth = getRailWidth(panelState);
-    const requested = Number(panelState?.drawerWidth) || 560;
-    const spaceRight = Math.max(MIN_DRAWER_WIDTH, getViewportWidth() - railX - railWidth - RAIL_DRAWER_GAP - MAX_PANEL_MARGIN);
-    const spaceLeft = Math.max(MIN_DRAWER_WIDTH, railX - RAIL_DRAWER_GAP - MAX_PANEL_MARGIN);
-    const maxWidth = direction === 'left' ? spaceLeft : spaceRight;
-    return Math.max(MIN_DRAWER_WIDTH, Math.min(requested, maxWidth));
-}
-
-function getConstrainedDrawerHeight(panelState) {
-    const railY = Number(panelState?.railY) || 0;
-    const requested = Number(panelState?.drawerHeight) || 640;
-    const maxHeight = Math.max(MIN_DRAWER_HEIGHT, getViewportHeight() - railY - MAX_PANEL_MARGIN);
-    return Math.max(MIN_DRAWER_HEIGHT, Math.min(requested, maxHeight));
-}
-
-function resolveDrawerDirection(panelState) {
-    if (panelState?.drawerDirection === 'left') return 'left';
-    if (panelState?.drawerDirection === 'right') return 'right';
-
-    const railX = Number(panelState?.railX) || 0;
-    const railWidth = getRailWidth(panelState);
-    const requested = Number(panelState?.drawerWidth) || 560;
-    const spaceRight = getViewportWidth() - railX - railWidth - RAIL_DRAWER_GAP - MAX_PANEL_MARGIN;
-    const spaceLeft = railX - RAIL_DRAWER_GAP - MAX_PANEL_MARGIN;
-
-    if (spaceRight >= requested) return 'right';
-    if (spaceLeft >= requested) return 'left';
-    return spaceRight >= spaceLeft ? 'right' : 'left';
-}
-
-function applyRuntimeShellGeometry(root, panelState) {
-    const railWidth = getRailWidth(panelState);
-    const x = clampNumber(Number(panelState?.railX), 0, Math.max(0, getViewportWidth() - railWidth), DEFAULT_RAIL_LEFT);
-    const y = clampNumber(Number(panelState?.railY), 0, Math.max(0, getViewportHeight() - 80), getDefaultRailY());
-    root.style.left = `${x}px`;
-    root.style.top = `${y}px`;
-    root.style.right = '';
-    root.style.bottom = '';
-}
-
-function clampRuntimeShellToViewport() {
-    if (!panelRoot) return;
-    const state = getState();
-    const panelState = normalizePanelLayoutState(state);
-    if (!panelState) return;
-    const railWidth = getRailWidth(panelState);
-    const railHeight = panelRoot.querySelector('.wandlight-runtime-rail')?.offsetHeight || 80;
-    panelState.railX = clampNumber(Number(panelState.railX), 0, Math.max(0, getViewportWidth() - railWidth), DEFAULT_RAIL_LEFT);
-    panelState.railY = clampNumber(Number(panelState.railY), 0, Math.max(0, getViewportHeight() - Math.min(railHeight, getViewportHeight())), getDefaultRailY());
-    panelState.x = panelState.railX;
-    panelState.y = panelState.railY;
-    applyRuntimeShellGeometry(panelRoot, panelState);
-    panelRoot.style.setProperty('--wandlight-rail-width', `${railWidth}px`);
-    panelRoot.style.setProperty('--wandlight-drawer-width', `${getConstrainedDrawerWidth(panelState, resolveDrawerDirection(panelState))}px`);
-    panelRoot.style.setProperty('--wandlight-drawer-height', `${getConstrainedDrawerHeight(panelState)}px`);
-    updateDrawerScrollMetrics();
-    saveState(state);
-}
-
-function clampNumber(value, min, max, fallback) {
-    const safeMin = Number.isFinite(min) ? min : 0;
-    const safeMax = Number.isFinite(max) ? Math.max(safeMin, max) : safeMin;
-    const safeFallback = Number.isFinite(fallback) ? fallback : safeMin;
-    const n = Number.isFinite(value) ? value : safeFallback;
-    return Math.max(safeMin, Math.min(n, safeMax));
-}
-
 // Session tab -----------------------------------------------------------------
 
 function renderSessionTab(container, state) {
     const settings = getSettings();
     const guideMode = isBasicExperience(settings) ? 'basic' : 'advanced';
-    const guide = GUIDE_CONTENT[guideMode] || GUIDE_CONTENT.basic;
+    const guide = getRuntimeGuideContent(guideMode);
 
     container.appendChild(createSectionHeader(
         'Session Controls',
@@ -16630,8 +15965,8 @@ function createInstructionsCard(guideMode = normalizeExperienceMode(getSettings(
     const wrap = document.createElement('div');
     wrap.className = 'wandlight-instructions-card';
     const mode = normalizeExperienceMode(guideMode);
-    const guide = GUIDE_CONTENT[mode] || GUIDE_CONTENT.basic;
-    const steps = GUIDE_STEPS[mode] || GUIDE_STEPS.basic;
+    const guide = getRuntimeGuideContent(mode);
+    const steps = getRuntimeGuideSteps(mode);
 
     const intro = document.createElement('p');
     intro.className = 'wandlight-instructions-lede';
@@ -20527,127 +19862,6 @@ function createContinuityModeButton(mode, label, tooltip, settings) {
 }
 
 
-// Shared review-card helpers --------------------------------------------------
-function createDeltaReviewCard(delta) {
-    const card = document.createElement('div');
-    card.className = 'wandlight-runtime-card wandlight-delta-review-card';
-
-    const title = document.createElement('div');
-    title.className = 'wandlight-runtime-card-title';
-    title.textContent = delta?.summary || 'Pending continuity changes';
-    addTooltip(title, 'Summary generated by the extraction pass.');
-    card.appendChild(title);
-
-    const keys = Object.keys(delta?.changes || {});
-    card.appendChild(createKeyValue('Sections changed', keys.length ? keys.join(', ') : 'none', 'Top-level state sections affected by this pending delta.'));
-
-    const pre = document.createElement('pre');
-    pre.className = 'wandlight-delta-json-preview';
-    pre.textContent = JSON.stringify(delta, null, 2);
-    addTooltip(pre, 'Raw pending delta. This remains visible here because it is directly relevant to the review decision.');
-    card.appendChild(pre);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-primary-actions';
-    actions.appendChild(createButton('Apply Changes', 'Applies this pending delta to the continuity state and clears it.', () => {
-        const current = getState();
-        if (!current.lastDelta) {
-            toast('No pending continuity changes to apply.', 'warning');
-            refreshPanelBody({ preserveScroll: false });
-            return;
-        }
-        pushStateSnapshot(current, 'Apply pending continuity changes', getSettings().maxSnapshots);
-        const next = applyDelta(current, current.lastDelta);
-        next.lastDelta = null;
-        saveState(next);
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast('Continuity changes applied.');
-    }, 'wandlight-primary-button'));
-    actions.appendChild(createButton('Dismiss Changes', 'Discards this pending delta without changing continuity state.', () => {
-        const current = getState();
-        current.lastDelta = null;
-        saveState(current);
-        refreshPanelBody({ preserveScroll: false });
-        refreshHeader();
-        toast('Continuity changes dismissed.', 'info');
-    }));
-    card.appendChild(actions);
-
-    return card;
-}
-
-
-function getLoreReviewId(entry) {
-    return entry?.id || `${entry?.title || 'pending'}:${entry?.fact || ''}`;
-}
-
-function getPendingReviewSelectedIds(state = getState()) {
-    return new Set(Array.isArray(state?.lorePanel?.reviewSelectedIds) ? state.lorePanel.reviewSelectedIds : []);
-}
-
-function isPendingLoreSelected(state, entry) {
-    return getPendingReviewSelectedIds(state).has(getLoreReviewId(entry));
-}
-
-function setPendingReviewSelection(ids) {
-    const state = getState();
-    if (!state?.lorePanel) return;
-    state.lorePanel.reviewSelectedIds = Array.from(new Set((ids || []).filter(Boolean)));
-    saveState(state);
-}
-
-function togglePendingReviewSelection(id, selected) {
-    if (!id) return;
-    const current = getPendingReviewSelectedIds();
-    if (selected) current.add(id);
-    else current.delete(id);
-    setPendingReviewSelection(Array.from(current));
-}
-
-function clearPendingReviewSelection() {
-    setPendingReviewSelection([]);
-}
-
-function getSelectedPendingIndexes() {
-    const state = getState();
-    const selected = getPendingReviewSelectedIds(state);
-    const pending = normalizeLoreMatrix(state?.pendingLoreEntries || []);
-    return pending
-        .map((entry, index) => ({ entry, index }))
-        .filter(item => selected.has(getLoreReviewId(item.entry)))
-        .map(item => item.index);
-}
-
-function applySelectedPendingLore() {
-    const indexes = getSelectedPendingIndexes().sort((a, b) => b - a);
-    if (!indexes.length) {
-        toast('No pending lore entries selected.', 'warning');
-        return;
-    }
-    const current = getState();
-    for (const idx of indexes) acceptPendingLoreEntry(idx);
-    clearPendingReviewSelection();
-    refreshPanelBody({ preserveScroll: true });
-    refreshHeader();
-    refreshLoreWorkbench();
-    toast(`${indexes.length} selected lore entries accepted.`);
-}
-
-function dismissSelectedPendingLore() {
-    const indexes = getSelectedPendingIndexes().sort((a, b) => b - a);
-    if (!indexes.length) {
-        toast('No pending lore entries selected.', 'warning');
-        return;
-    }
-    for (const idx of indexes) rejectPendingLoreEntry(idx);
-    clearPendingReviewSelection();
-    refreshPanelBody({ preserveScroll: true });
-    refreshHeader();
-    refreshLoreWorkbench();
-    toast(`${indexes.length} selected lore entries dismissed.`, 'info');
-}
-
 // Accepted lore bulk selection and editing --------------------------------------
 
 function refreshAcceptedLoreBulkToolbar() {
@@ -20655,146 +19869,6 @@ function refreshAcceptedLoreBulkToolbar() {
     const mount = panelRoot.querySelector('.wandlight-lore-bulk-toolbar');
     if (!mount) return;
     mount.replaceChildren(createAcceptedLoreBulkControls(getState()));
-}
-
-function bulkUpdateAcceptedLore(ids, updater) {
-    if (!ids?.length || typeof updater !== 'function') return false;
-    const state = getState();
-    const beforeTimeline = captureLoreTimelineState(state);
-    const idSet = new Set(ids);
-    let count = 0;
-    state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).map(entry => {
-        if (!idSet.has(entry.id)) return entry;
-        count += 1;
-        return normalizeLoreEntry({ ...updater(entry), userEdited: true });
-    });
-    if (count) {
-        recordLoreTimelineEvent(state, {
-            before: beforeTimeline,
-            after: captureLoreTimelineState(state),
-            type: 'bulk_edit',
-            source: 'manual',
-            summary: `Bulk edited ${count} accepted lore entr${count === 1 ? 'y' : 'ies'}.`,
-        });
-    }
-    saveState(state);
-    refreshAcceptedLoreList({ preserveScroll: true });
-    refreshAcceptedLoreBulkToolbar();
-    refreshHeader();
-    refreshLoreWorkbench();
-    if (count) toast(`Updated ${count} accepted lore entr${count === 1 ? 'y' : 'ies'}.`, 'success');
-    return count > 0;
-}
-
-function bulkSetAcceptedPinned(ids, pinned) {
-    const state = getState();
-    if (!state.loreSelection) state.loreSelection = { pinnedIds: [], suppressedIds: [] };
-    const beforeTimeline = captureLoreTimelineState(state);
-    const idSet = new Set(ids);
-    const acceptedIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
-    const pinSet = new Set((state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id)));
-    const suppressedSet = new Set((state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id)));
-    for (const id of idSet) {
-        if (!acceptedIds.has(id)) continue;
-        if (pinned) {
-            pinSet.add(id);
-            suppressedSet.delete(id);
-        } else {
-            pinSet.delete(id);
-        }
-    }
-    state.loreSelection.pinnedIds = Array.from(pinSet);
-    state.loreSelection.suppressedIds = Array.from(suppressedSet);
-    recordLoreTimelineEvent(state, {
-        before: beforeTimeline,
-        after: captureLoreTimelineState(state),
-        type: pinned ? 'pin' : 'unpin',
-        source: 'manual',
-        summary: `${pinned ? 'Pinned' : 'Unpinned'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`,
-    });
-    saveState(state);
-    refreshAcceptedLoreList({ preserveScroll: true });
-    refreshAcceptedLoreBulkToolbar();
-    refreshHeader();
-    refreshLoreWorkbench();
-    toast(`${pinned ? 'Pinned' : 'Unpinned'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`, 'success');
-}
-
-function bulkSetAcceptedMuted(ids, muted) {
-    const state = getState();
-    if (!state.loreSelection) state.loreSelection = { pinnedIds: [], suppressedIds: [] };
-    const beforeTimeline = captureLoreTimelineState(state);
-    const idSet = new Set(ids);
-    const acceptedIds = new Set(normalizeLoreMatrix(state.loreMatrix || []).map(entry => entry.id));
-    const pinSet = new Set((state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id)));
-    const suppressedSet = new Set((state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id)));
-    for (const id of idSet) {
-        if (!acceptedIds.has(id)) continue;
-        if (muted) {
-            suppressedSet.add(id);
-            pinSet.delete(id);
-        } else {
-            suppressedSet.delete(id);
-        }
-    }
-    state.loreSelection.pinnedIds = Array.from(pinSet);
-    state.loreSelection.suppressedIds = Array.from(suppressedSet);
-    recordLoreTimelineEvent(state, {
-        before: beforeTimeline,
-        after: captureLoreTimelineState(state),
-        type: muted ? 'mute' : 'unmute',
-        source: 'manual',
-        summary: `${muted ? 'Muted' : 'Unmuted'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`,
-    });
-    saveState(state);
-    refreshAcceptedLoreList({ preserveScroll: true });
-    refreshAcceptedLoreBulkToolbar();
-    refreshHeader();
-    refreshLoreWorkbench();
-    toast(`${muted ? 'Muted' : 'Unmuted'} ${idSet.size} accepted lore entr${idSet.size === 1 ? 'y' : 'ies'}.`, 'success');
-}
-
-function bulkAddTagToAcceptedLore(ids, tag) {
-    const clean = normalizeTag(tag);
-    if (!clean) return false;
-    return bulkUpdateAcceptedLore(ids, entry => {
-        const tags = Array.isArray(entry.tags) ? entry.tags.map(normalizeTag).filter(Boolean) : [];
-        const exists = tags.some(t => t.toLowerCase() === clean.toLowerCase());
-        return { ...entry, tags: exists ? tags : [...tags, clean] };
-    });
-}
-
-function bulkDeleteAcceptedLore(ids) {
-    const state = getState();
-    const beforeTimeline = captureLoreTimelineState(state);
-    const idSet = new Set(ids);
-    const before = Array.isArray(state.loreMatrix) ? state.loreMatrix.length : 0;
-    state.loreMatrix = normalizeLoreMatrix(state.loreMatrix || []).filter(entry => !idSet.has(entry.id));
-    const acceptedIds = new Set(state.loreMatrix.map(entry => entry.id));
-    if (state.loreSelection) {
-        state.loreSelection.pinnedIds = (state.loreSelection.pinnedIds || []).filter(id => acceptedIds.has(id));
-        state.loreSelection.suppressedIds = (state.loreSelection.suppressedIds || []).filter(id => acceptedIds.has(id));
-    }
-    if (state.lorePanel) {
-        state.lorePanel.acceptedSelectedIds = (state.lorePanel.acceptedSelectedIds || []).filter(id => acceptedIds.has(id));
-        if (idSet.has(state.lorePanel.selectedEntryId)) state.lorePanel.selectedEntryId = '';
-    }
-    const deleted = before - state.loreMatrix.length;
-    if (deleted > 0) {
-        recordLoreTimelineEvent(state, {
-            before: beforeTimeline,
-            after: captureLoreTimelineState(state),
-            type: 'delete',
-            source: 'manual',
-            summary: `Deleted ${deleted} accepted lore entr${deleted === 1 ? 'y' : 'ies'}.`,
-        });
-    }
-    saveState(state);
-    refreshAcceptedLoreList({ preserveScroll: true });
-    refreshAcceptedLoreBulkToolbar();
-    refreshHeader();
-    refreshLoreWorkbench();
-    toast(`Deleted ${deleted} accepted lore entr${deleted === 1 ? 'y' : 'ies'}.`, 'success');
 }
 
 let acceptedLoreLayoutFrame = 0;
@@ -20837,18 +19911,6 @@ function updateAcceptedLoreScrollRegionHeight() {
 
     list.style.setProperty('overflow-y', 'auto');
     list.style.setProperty('overscroll-behavior', 'contain');
-}
-
-function updateDrawerScrollMetrics(drawer = panelRoot?.querySelector?.('.wandlight-runtime-drawer')) {
-    if (!drawer) return;
-    const drawerRect = drawer.getBoundingClientRect?.();
-    const headerRect = drawer.querySelector('.wandlight-runtime-drawer-header')?.getBoundingClientRect?.();
-    const drawerHeight = Number(drawerRect?.height) || Number.parseFloat(drawer.style.height) || 640;
-    const headerHeight = Number(headerRect?.height) || 48;
-    const bodyHeight = Math.max(120, Math.floor(drawerHeight - headerHeight - 18));
-    const nestedMax = Math.max(140, Math.min(420, Math.floor(bodyHeight * 0.52)));
-    drawer.style.setProperty('--wandlight-drawer-body-available', `${bodyHeight}px`);
-    drawer.style.setProperty('--wandlight-nested-scroll-max', `${nestedMax}px`);
 }
 
 if (typeof window !== 'undefined') {
@@ -20948,93 +20010,8 @@ function setPanelState(patch, options = {}) {
     else saveState(state);
 }
 
-function toggleCollapse() {
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-    state.lorePanel.drawerOpen = state.lorePanel.drawerOpen !== true;
-    state.lorePanel.collapsed = state.lorePanel.drawerOpen !== true;
-    saveState(state);
-    showLorePanel();
-}
-
-function setDrawerOpen(open) {
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-    state.lorePanel.drawerOpen = open === true;
-    state.lorePanel.collapsed = state.lorePanel.drawerOpen !== true;
-    saveState(state);
-    showLorePanel();
-}
-
 export function resetLorePanelLayout(options = {}) {
-    const state = getState();
-    if (!state) return;
-    if (!state.lorePanel || typeof state.lorePanel !== 'object') {
-        state.lorePanel = getDefaultState().lorePanel;
-    }
-
-    const drawerWidth = Number(getDefaultState()?.lorePanel?.drawerWidth) || 560;
-    const drawerHeight = Number(getDefaultState()?.lorePanel?.drawerHeight) || 640;
-    const railX = DEFAULT_RAIL_LEFT;
-    const railY = getDefaultRailY({ railMode: 'compact' });
-
-    Object.assign(state.lorePanel, {
-        railMode: 'compact',
-        railX,
-        railY,
-        drawerOpen: false,
-        activeTab: 'session',
-        drawerWidth,
-        drawerHeight,
-        collapsed: true,
-        isOpen: true,
-        x: railX,
-        y: railY,
-        width: drawerWidth,
-        height: drawerHeight,
-        layoutVersion: LAYOUT_VERSION,
-    });
-
-    const settings = getSettings();
-    settings.collapsedSections = { ...(DEFAULT_SETTINGS.collapsedSections || {}) };
-    saveSettings(settings);
-    saveState(state);
-    showLorePanel();
-
-    const schedule = typeof requestAnimationFrame === 'function'
-        ? requestAnimationFrame
-        : (fn) => setTimeout(fn, 0);
-    schedule(() => centerRuntimeRailInViewport({ forceLeft: true, persist: true }));
-
-    if (typeof toastr !== 'undefined' && options.silent !== true) {
-        toastr.success('Saga window layout reset.');
-    }
-}
-
-function toggleDrawerForTab(tabId) {
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-    const settings = getSettings();
-    const normalizedTab = normalizeTabForExperience(tabId, settings);
-    const sameActiveTab = normalizeTabForExperience(state.lorePanel.activeTab, settings) === normalizedTab;
-    const shouldClose = sameActiveTab && state.lorePanel.drawerOpen === true;
-    state.lorePanel.activeTab = normalizedTab;
-    state.lorePanel.drawerOpen = !shouldClose;
-    state.lorePanel.collapsed = shouldClose;
-    saveState(state);
-    showLorePanel();
-}
-
-function toggleRailMode() {
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-    state.lorePanel.railMode = normalizeRailMode(state.lorePanel.railMode) === 'compact' ? 'expanded' : 'compact';
-    saveState(state);
-    showLorePanel();
+    resetRuntimePanelLayout(options);
 }
 
 function refreshPanelBody(options = {}) {
@@ -21083,506 +20060,4 @@ function refreshPanelBody(options = {}) {
         restorePageScroll();
         if (typeof requestAnimationFrame === 'function') requestAnimationFrame(restorePageScroll);
     }
-}
-
-function getActiveTabScrollElement() {
-    if (!panelRoot) return null;
-    return panelRoot.querySelector('.wandlight-runtime-tab-body');
-}
-
-function getActiveNestedScrollElement() {
-    if (!panelRoot) return null;
-    return panelRoot.querySelector('.wandlight-accepted-lore-scroll-region')
-        || panelRoot.querySelector('.wandlight-pending-lore-list')
-        || panelRoot.querySelector('.wandlight-injection-preview')
-        || panelRoot.querySelector('.wandlight-continuity-json-editor');
-}
-
-// Drag and resize -------------------------------------------------------------
-
-function onDragStart(e) {
-    if (!panelRoot) return;
-    if (e.target.closest('button, input, textarea, select, .wandlight-lore-panel-resize-handle')) return;
-
-    isDragging = true;
-    const rect = panelRoot.getBoundingClientRect();
-    dragOffsetX = e.clientX - rect.left;
-    dragOffsetY = e.clientY - rect.top;
-
-    panelRoot.style.left = `${rect.left}px`;
-    panelRoot.style.top = `${rect.top}px`;
-    panelRoot.style.right = '';
-    panelRoot.style.bottom = '';
-    panelRoot.classList.add('wandlight-runtime-dragging');
-
-    document.addEventListener('mousemove', onDragMove);
-    document.addEventListener('mouseup', onDragEnd);
-}
-
-function onDragMove(e) {
-    if (!isDragging || !panelRoot) return;
-    const state = getState();
-    const panelState = normalizePanelLayoutState(state) || {};
-    const railWidth = getRailWidth(panelState);
-    const railHeight = panelRoot.querySelector('.wandlight-runtime-rail')?.offsetHeight || 80;
-    const x = e.clientX - dragOffsetX;
-    const y = e.clientY - dragOffsetY;
-    const maxX = Math.max(0, getViewportWidth() - railWidth);
-    const maxY = Math.max(0, getViewportHeight() - Math.min(railHeight, getViewportHeight()));
-    panelRoot.style.left = `${Math.max(0, Math.min(x, maxX))}px`;
-    panelRoot.style.top = `${Math.max(0, Math.min(y, maxY))}px`;
-}
-
-function onDragEnd() {
-    if (!panelRoot) return;
-    isDragging = false;
-    panelRoot.classList.remove('wandlight-runtime-dragging');
-    saveRailGeometry();
-    document.removeEventListener('mousemove', onDragMove);
-    document.removeEventListener('mouseup', onDragEnd);
-}
-
-function onResizeStart(e) {
-    if (e.button !== 0 || !panelRoot) return;
-    const drawer = panelRoot.querySelector('.wandlight-runtime-drawer');
-    if (!drawer) return;
-
-    isResizing = true;
-    const rect = drawer.getBoundingClientRect();
-    resizeStartX = e.clientX;
-    resizeStartY = e.clientY;
-    resizeStartWidth = rect.width;
-    resizeStartHeight = rect.height;
-    resizeStartDirection = panelRoot.dataset.drawerDirection === 'left' ? 'left' : 'right';
-
-    drawer.classList.add('wandlight-lore-panel-resizing');
-
-    e.preventDefault();
-    e.stopPropagation();
-    e.currentTarget.setPointerCapture?.(e.pointerId);
-
-    document.addEventListener('pointermove', onResizeMove);
-    document.addEventListener('pointerup', onResizeEnd);
-    document.addEventListener('pointercancel', onResizeEnd);
-}
-
-function onResizeMove(e) {
-    if (!isResizing || !panelRoot) return;
-    const drawer = panelRoot.querySelector('.wandlight-runtime-drawer');
-    if (!drawer) return;
-    const state = getState();
-    const panelState = normalizePanelLayoutState(state) || {};
-    const railX = Number(panelState.railX) || 0;
-    const railWidth = getRailWidth(panelState);
-    const maxWidth = resizeStartDirection === 'left'
-        ? Math.max(MIN_DRAWER_WIDTH, railX - RAIL_DRAWER_GAP - MAX_PANEL_MARGIN)
-        : Math.max(MIN_DRAWER_WIDTH, getViewportWidth() - railX - railWidth - RAIL_DRAWER_GAP - MAX_PANEL_MARGIN);
-    const maxHeight = Math.max(MIN_DRAWER_HEIGHT, window.innerHeight - (Number(panelState.railY) || 0) - MAX_PANEL_MARGIN);
-    const deltaX = e.clientX - resizeStartX;
-    const requestedWidth = resizeStartDirection === 'left'
-        ? resizeStartWidth - deltaX
-        : resizeStartWidth + deltaX;
-    const width = Math.max(MIN_DRAWER_WIDTH, Math.min(maxWidth, requestedWidth));
-    const height = Math.max(MIN_DRAWER_HEIGHT, Math.min(maxHeight, resizeStartHeight + (e.clientY - resizeStartY)));
-    drawer.style.width = `${width}px`;
-    drawer.style.height = `${height}px`;
-    panelRoot.style.setProperty('--wandlight-drawer-width', `${width}px`);
-    panelRoot.style.setProperty('--wandlight-drawer-height', `${height}px`);
-    updateDrawerScrollMetrics(drawer);
-    updateAcceptedLoreScrollRegionHeight();
-}
-
-function onResizeEnd() {
-    if (!isResizing || !panelRoot) return;
-    isResizing = false;
-    const drawer = panelRoot.querySelector('.wandlight-runtime-drawer');
-    drawer?.classList.remove('wandlight-lore-panel-resizing');
-    saveDrawerGeometry();
-    document.removeEventListener('pointermove', onResizeMove);
-    document.removeEventListener('pointerup', onResizeEnd);
-    document.removeEventListener('pointercancel', onResizeEnd);
-}
-
-function saveRailGeometry() {
-    if (!panelRoot) return;
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-    const rect = panelRoot.getBoundingClientRect();
-    state.lorePanel.railX = Math.round(rect.left);
-    state.lorePanel.railY = Math.round(rect.top);
-    state.lorePanel.x = state.lorePanel.railX;
-    state.lorePanel.y = state.lorePanel.railY;
-    saveState(state);
-}
-
-function saveDrawerGeometry() {
-    if (!panelRoot) return;
-    const state = getState();
-    if (!state?.lorePanel) return;
-    normalizePanelLayoutState(state);
-    const drawer = panelRoot.querySelector('.wandlight-runtime-drawer');
-    if (!drawer) {
-        saveState(state);
-        return;
-    }
-    const rect = drawer.getBoundingClientRect();
-    state.lorePanel.drawerWidth = Math.round(rect.width);
-    state.lorePanel.drawerHeight = Math.round(rect.height);
-    state.lorePanel.width = state.lorePanel.drawerWidth;
-    state.lorePanel.height = state.lorePanel.drawerHeight;
-    saveState(state);
-}
-
-function savePanelGeometry() {
-    saveRailGeometry();
-    saveDrawerGeometry();
-}
-
-// Runtime tour ---------------------------------------------------------------
-
-function markTourTarget(el, target) {
-    if (el && target) el.dataset.wandlightTour = String(target);
-    return el;
-}
-
-function startWandlightTour(mode = normalizeExperienceMode(getSettings().experienceMode)) {
-    const normalized = normalizeExperienceMode(mode);
-    const steps = [...(GUIDE_STEPS[normalized] || GUIDE_STEPS.basic)];
-    if (!steps.length) return;
-
-    closeWandlightTour({ preserveToast: true });
-    activeWandlightTour = {
-        mode: normalized,
-        steps,
-        index: 0,
-        renderToken: 0,
-        currentTarget: null,
-    };
-    document.addEventListener('keydown', onWandlightTourKeydown);
-    window.addEventListener('resize', repositionWandlightTourPopover);
-    renderActiveWandlightTourStep();
-}
-
-function renderActiveWandlightTourStep(skipCount = 0) {
-    const tour = activeWandlightTour;
-    if (!tour) return;
-    if (tour.index < 0) tour.index = 0;
-    if (tour.index >= tour.steps.length) {
-        closeWandlightTour();
-        return;
-    }
-
-    const step = tour.steps[tour.index];
-    showGuideStep(step, {
-        highlight: true,
-        tour: true,
-        onReady: (target) => {
-            if (!activeWandlightTour || activeWandlightTour !== tour) return;
-            if (!target && skipCount < tour.steps.length - 1) {
-                tour.index += 1;
-                renderActiveWandlightTourStep(skipCount + 1);
-                return;
-            }
-            renderWandlightTourPopover(step, target);
-        },
-    });
-}
-
-function showGuideStep(step, options = {}) {
-    if (!step) return;
-
-    for (const sectionId of step.expandSections || []) {
-        setSectionCollapsed(sectionId, false);
-    }
-
-    const state = getState();
-    if (state?.lorePanel) {
-        normalizePanelLayoutState(state);
-        state.lorePanel.drawerOpen = true;
-        state.lorePanel.collapsed = false;
-        state.lorePanel.activeTab = normalizeTabForExperience(step.tab || 'session');
-        saveState(state);
-    }
-    showLorePanel();
-
-    const token = activeWandlightTour ? ++activeWandlightTour.renderToken : 0;
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            if (activeWandlightTour && token !== activeWandlightTour.renderToken) return;
-            const target = getTourTargetElement(step.target) || getTourTargetElement(step.fallbackTarget);
-            if (options.highlight) {
-                highlightWandlightTourTarget(target);
-                if (!options.tour) {
-                    window.setTimeout(() => {
-                        if (!activeWandlightTour) clearWandlightTourHighlight();
-                    }, 2200);
-                }
-            }
-            if (!target && !options.tour) {
-                toast(`${step.title || 'Feature'} is not visible in the current state.`, 'info');
-            }
-            options.onReady?.(target);
-        });
-    });
-}
-
-function getTourTargetElement(targetName) {
-    if (!targetName) return null;
-    const root = panelRoot || document.getElementById(PANEL_ID) || document.body;
-    const candidates = [
-        ...Array.from(root.querySelectorAll('[data-wandlight-tour]')),
-        ...Array.from(document.querySelectorAll('[data-wandlight-tour]')),
-    ];
-    return candidates.find(el => el?.dataset?.wandlightTour === targetName) || null;
-}
-
-function highlightWandlightTourTarget(target) {
-    clearWandlightTourHighlight();
-    if (!target) return;
-    target.classList.add('wandlight-tour-highlight');
-    target.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'auto' });
-}
-
-function clearWandlightTourHighlight() {
-    for (const el of document.querySelectorAll('.wandlight-tour-highlight')) {
-        el.classList.remove('wandlight-tour-highlight');
-    }
-}
-
-function renderWandlightTourPopover(step, target) {
-    const tour = activeWandlightTour;
-    if (!tour) return;
-
-    let popover = document.getElementById('wandlight-tour-popover');
-    if (!popover) {
-        popover = document.createElement('div');
-        popover.id = 'wandlight-tour-popover';
-        popover.className = 'wandlight-tour-popover';
-        document.body.appendChild(popover);
-    }
-
-    popover.innerHTML = '';
-    const progress = document.createElement('div');
-    progress.className = 'wandlight-tour-progress';
-    progress.textContent = `${tour.index + 1} / ${tour.steps.length}`;
-    popover.appendChild(progress);
-
-    const title = document.createElement('div');
-    title.className = 'wandlight-tour-title';
-    title.textContent = step.title || 'Saga';
-    popover.appendChild(title);
-
-    const body = document.createElement('div');
-    body.className = 'wandlight-tour-body';
-    body.textContent = step.body || '';
-    popover.appendChild(body);
-
-    appendWandlightTourDetail(popover, 'When to use', step.when);
-    appendWandlightTourDetail(popover, 'Expected result', step.expected);
-
-    const actions = document.createElement('div');
-    actions.className = 'wandlight-tour-actions';
-    const back = createButton('Back', 'Return to the previous walkthrough step.', () => {
-        if (!activeWandlightTour) return;
-        activeWandlightTour.index = Math.max(0, activeWandlightTour.index - 1);
-        renderActiveWandlightTourStep();
-    }, 'wandlight-mini-button');
-    back.disabled = tour.index <= 0;
-    actions.appendChild(back);
-
-    const close = createButton('Close', 'Close the walkthrough.', () => closeWandlightTour(), 'wandlight-mini-button');
-    actions.appendChild(close);
-
-    const nextLabel = tour.index >= tour.steps.length - 1 ? 'Finish' : 'Next';
-    const next = createButton(nextLabel, nextLabel === 'Finish' ? 'Close the walkthrough.' : 'Move to the next walkthrough step.', () => {
-        if (!activeWandlightTour) return;
-        if (activeWandlightTour.index >= activeWandlightTour.steps.length - 1) {
-            closeWandlightTour();
-            return;
-        }
-        activeWandlightTour.index += 1;
-        renderActiveWandlightTourStep();
-    }, 'wandlight-primary-button wandlight-mini-button');
-    actions.appendChild(next);
-    popover.appendChild(actions);
-
-    activeWandlightTour.currentTarget = target || null;
-    requestAnimationFrame(repositionWandlightTourPopover);
-}
-
-function appendWandlightTourDetail(popover, labelText, value) {
-    const text = String(value || '').trim();
-    if (!text) return;
-    const row = document.createElement('div');
-    row.className = 'wandlight-tour-detail';
-    const label = document.createElement('span');
-    label.className = 'wandlight-tour-detail-label';
-    label.textContent = `${labelText}:`;
-    row.appendChild(label);
-    row.appendChild(document.createTextNode(` ${text}`));
-    popover.appendChild(row);
-}
-
-function repositionWandlightTourPopover() {
-    const popover = document.getElementById('wandlight-tour-popover');
-    if (!popover) return;
-    const target = activeWandlightTour?.currentTarget;
-    const margin = 12;
-    const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1024;
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 768;
-    const popRect = popover.getBoundingClientRect();
-
-    if (!target) {
-        popover.style.left = `${Math.max(margin, (viewportWidth - popRect.width) / 2)}px`;
-        popover.style.top = `${Math.max(margin, (viewportHeight - popRect.height) / 2)}px`;
-        return;
-    }
-
-    const rect = target.getBoundingClientRect();
-    let left = rect.right + margin;
-    if (left + popRect.width > viewportWidth - margin) {
-        left = rect.left - popRect.width - margin;
-    }
-    if (left < margin) {
-        left = rect.left + (rect.width / 2) - (popRect.width / 2);
-    }
-    left = Math.max(margin, Math.min(left, viewportWidth - popRect.width - margin));
-
-    let top = rect.top + (rect.height / 2) - (popRect.height / 2);
-    if (top < margin) top = rect.bottom + margin;
-    if (top + popRect.height > viewportHeight - margin) top = rect.top - popRect.height - margin;
-    top = Math.max(margin, Math.min(top, viewportHeight - popRect.height - margin));
-
-    popover.style.left = `${left}px`;
-    popover.style.top = `${top}px`;
-}
-
-function closeWandlightTour(options = {}) {
-    activeWandlightTour = null;
-    clearWandlightTourHighlight();
-    document.removeEventListener('keydown', onWandlightTourKeydown);
-    window.removeEventListener('resize', repositionWandlightTourPopover);
-    const popover = document.getElementById('wandlight-tour-popover');
-    if (popover) popover.remove();
-    if (!options.preserveToast) hideFloatingTooltip();
-}
-
-function onWandlightTourKeydown(event) {
-    if (!activeWandlightTour) return;
-    if (event.key === 'Escape') {
-        event.preventDefault();
-        closeWandlightTour();
-    } else if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        if (activeWandlightTour.index >= activeWandlightTour.steps.length - 1) closeWandlightTour();
-        else {
-            activeWandlightTour.index += 1;
-            renderActiveWandlightTourStep();
-        }
-    } else if (event.key === 'ArrowLeft') {
-        event.preventDefault();
-        activeWandlightTour.index = Math.max(0, activeWandlightTour.index - 1);
-        renderActiveWandlightTourStep();
-    }
-}
-
-
-function normalizeTab(tab) {
-    return Object.prototype.hasOwnProperty.call(TAB_LABELS, tab) ? tab : 'session';
-}
-
-function getVisibleTabsForExperience(settings = getSettings()) {
-    return normalizeExperienceMode(settings?.experienceMode) === 'basic'
-        ? BASIC_EXPERIENCE_TABS
-        : ADVANCED_EXPERIENCE_TABS;
-}
-
-function isBasicExperience(settings = getSettings()) {
-    return normalizeExperienceMode(settings?.experienceMode) === 'basic';
-}
-
-function normalizeTabForExperience(tab, settings = getSettings()) {
-    const normalized = normalizeTab(tab);
-    return getVisibleTabsForExperience(settings).includes(normalized) ? normalized : 'session';
-}
-
-function normalizeAutomationMode(mode) {
-    return Object.prototype.hasOwnProperty.call(AUTOMATION_MODES, mode) ? mode : 'manual';
-}
-
-function normalizeExperienceMode(mode) {
-    return mode === 'advanced' ? 'advanced' : 'basic';
-}
-
-function getAutomationLabel(settings) {
-    return AUTOMATION_MODES[normalizeAutomationMode(settings?.automationMode || settings?.workflowMode)].label;
-}
-
-function getAutomationTooltip(settings) {
-    return AUTOMATION_MODES[normalizeAutomationMode(settings?.automationMode || settings?.workflowMode)].description;
-}
-
-function getExperienceLabel(settings) {
-    return normalizeExperienceMode(settings?.experienceMode) === 'advanced' ? 'Advanced' : 'Basic';
-}
-
-function getExperienceTooltip(settings) {
-    return normalizeExperienceMode(settings?.experienceMode) === 'advanced'
-        ? 'Advanced Experience gives you detailed control over Saga behavior.'
-        : 'Basic Experience keeps Saga focused on the main roleplay workflow.';
-}
-
-function getCategoryCount(cat, entries, counts) {
-    if (cat === 'all') return counts.all;
-    if (cat === 'active' || cat === 'high') return counts.high || counts.active || 0;
-    if (cat === 'normal') return counts.normal || 0;
-    if (cat === 'low') return counts.low || 0;
-    if (cat === 'pinned') return counts.pinned;
-    if (cat === 'suppressed') return counts.suppressed;
-    if (cat === 'pending') return counts.pending;
-    return entries.filter(e => e.category === cat).length;
-}
-
-function getCategoryTooltip(cat) {
-    const registryMeta = getLoreRegistryMeta('categories', cat);
-    if (registryMeta?.description) return registryMeta.description;
-    const map = {
-        all: 'Shows every accepted and pending lore entry.',
-        active: 'Legacy alias for High Relevance.',
-        high: 'Shows accepted lore in the High-Relevance injection tier.',
-        normal: 'Shows accepted lore in the Normal-Relevance injection tier.',
-        low: 'Shows accepted lore in the Low-Relevance injection tier.',
-        pinned: 'Shows entries manually prioritized and protected during injection/compression.',
-        suppressed: 'Shows muted entries excluded from injection.',
-        pending: 'Shows generated entries that still need review.',
-    };
-    return map[cat] || `Shows lore entries in category: ${cat}.`;
-}
-
-function getPendingLoreBatchLabel(state) {
-    const meta = state?.pendingLoreMeta || {};
-    const parts = [];
-    if (meta.createdAt) parts.push(`Generated ${new Date(meta.createdAt).toLocaleString()}`);
-    if (meta.status) parts.push(`status: ${meta.status}`);
-    if (meta.generationMode) parts.push(`${meta.generationMode} mode`);
-    if (meta.targetEntryCount) parts.push(`target ${meta.targetEntryCount}`);
-    if (meta.validEntryCount !== undefined) parts.push(`${meta.validEntryCount} valid`);
-    if (meta.rawEntryCount !== undefined) parts.push(`${meta.rawEntryCount} raw`);
-    if (meta.normalizedEntryCount !== undefined) parts.push(`${meta.normalizedEntryCount} normalized`);
-    if (meta.droppedDuplicateCount) parts.push(`${meta.droppedDuplicateCount} duplicates filtered`);
-    if (meta.droppedEntryCount) parts.push(`${meta.droppedEntryCount} dropped`);
-    if (meta.chunkCount) parts.push(`${meta.chunkCount} chunks`);
-    if (meta.sourceMessageCount) parts.push(`${meta.sourceMessageCount} source messages`);
-    return parts.length ? parts.join(' | ') : 'Pending lore batch awaiting review.';
-}
-
-function estimateTokens(text) {
-    return Math.ceil(String(text || '').length / 4);
-}
-
-function truncateText(text, maxLen) {
-    const value = String(text || '');
-    if (value.length <= maxLen) return value;
-    return value.slice(0, maxLen).replace(/\s+\S*$/, '') + '...';
 }
